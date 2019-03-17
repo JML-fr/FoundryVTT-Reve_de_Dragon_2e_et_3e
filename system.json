@@ -1,0 +1,22 @@
+{
+  "name": "RdD",
+  "title": "Rêve de Dragon",
+  "description": "Prise en charge des règles de Rêve de Dragon, 2de édition",
+  "version": 0.1,
+  "author": "JML",
+  "scripts": [
+    "scripts/RdD.js"
+  ],
+  "styles": [
+    "styles/RdD.css"
+  ],
+  "packs": [
+    
+  ],
+  "languages": [
+    "fr"
+  ],
+  "initiative": "1d6",
+  "gridDistance": 1,
+  "gridUnits": "m"
+}
