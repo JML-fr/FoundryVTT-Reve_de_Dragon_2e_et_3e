@@ -1,0 +1,113 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- En-tête de la feuille de pj --}}
+    <header class="en-tête-feuille">
+        <img class="vignette" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+        <div class="champs-en-tête">
+            <h1 class="nom-perso"><input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'RdD.Name'}}" /></h1>
+            <div class="signesPart">
+                <label for="data.signesPart.hn.value">{{localize 'RdD.actor.signesPart.hn'}}</label>
+                <input type="text" id="data.signesPart.hn.value" name="data.signesPart.hn.value" value="{{data.signesPart.hn.value}}">
+            </div>
+            <div class="signesPart">
+                <label for="data.signesPart.sexe">{{localize 'RdD.actor.signesPart.sexe'}}</label>
+                <input type="text" id="data.signesPart.sexe" name="data.signesPart.sexe" value="{{data.signesPart.sexe.value}}">
+                <label for="data.signesPart.âge">{{localize 'RdD.actor.signesPart.âge'}}</label>
+                <input type="number" id="data.signesPart.âge" name="data.signesPart.âge" value="{{data.signesPart.âge.value}}">
+            </div>
+            <div class="signesPart">
+                <label for="data.signesPart.tailles">{{localize 'RdD.actor.signesPart.taille'}}</label>
+                <input type="number" id="data.signesPart.taille" name="data.signesPart.taille" value="{{data.signesPart.taille.value}}">
+                <label for="data.signesPart.poids">{{localize 'RdD.actor.signesPart.poids'}}</label>
+                <input type="number" id="data.signesPart.poids" name="data.signesPart.poids" value="{{data.signesPart.poids.value}}">
+            </div>
+            <div class="signesPart">
+                <label for="data.signesPart.cheveux">{{localize 'RdD.actor.signesPart.cheveux'}}</label>
+                <input type="text" id="data.signesPart.cheveux" name="data.signesPart.cheveux" value="{{data.signesPart.cheveux.value}}">
+                <label for="data.signesPart.yeux">{{localize 'RdD.actor.signesPart.yeux'}}</label>
+                <input type="text" id="data.signesPart.yeux" name="data.signesPart.yeux" value="{{data.signesPart.yeux.value}}">
+                <label for="data.signesPart.beauté">{{localize 'RdD.actor.signesPart.beauté'}}</label>
+                <input type="number" id="data.signesPart.beauté" name="data.signesPart.beauté" value="{{data.signesPart.beauté.value.valeur}}">
+            </div>
+            <div class="signesPart">
+                <label for="data.signesPart.latéralité">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
+                <input type="text" id="data.signesPart.latéralité" name="data.signesPart.latéralité" value="{{data.signesPart.latéralité.mainDominante}}">
+            </div>
+        </div>
+    </header>
+    
+    {{!-- Barre des onglets de le feuille --}}
+    <nav class="tabs" data-group="principal">
+        <a class="item" data-tab="états">{{localize 'RdD.actor.pj.tabPrincipal.états'}}</a>
+        <a class="item" data-tab="caractéristiques">{{localize 'RdD.actor.pj.tabPrincipal.caractéristiques'}}</a>
+        <a class="item" data-tab="compétences">{{localize 'RdD.actor.pj.tabPrincipal.compétences'}}</a>
+        <a class="item" data-tab="combat">{{localize 'RdD.actor.pj.tabPrincipal.combat'}}</a>
+        <a class="item" data-tab="santé">{{localize 'RdD.actor.pj.tabPrincipal.santé'}}</a>
+        <a class="item" data-tab="haut-rêve">{{localize 'RdD.actor.pj.tabPrincipal.haut-rêve'}}</a>
+        <a class="item" data-tab="vécu">{{localize 'RdD.actor.pj.tabPrincipal.vécu'}}</a>
+        <a class="item" data-tab="inventaire">{{localize 'RdD.actor.pj.tabPrincipal.inventaire'}}</a>
+        <a class="item" data-tab="description">{{localize 'RdD.actor.pj.tabPrincipal.description'}}</a>
+    </nav>
+    
+    {{!-- Onglet présentant les états du PJ --}}
+    <div class="tab" data-group="principal" data-tab="états">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion des caractéristiques du PJ --}}
+    <div class="tab" data-group="principal" data-tab="caractéristiques">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion des compétences du PJ --}}
+    <div class="tab" data-group="principal" data-tab="compétences">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion du combat du PJ --}}
+    <div class="tab" data-group="principal" data-tab="combat">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion de la santé du PJ --}}
+    <div class="tab" data-group="principal" data-tab="santé">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion du haut-rêve du PJ --}}
+    <div class="tab" data-group="principal" data-tab="haut-rêve">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion du vécu du PJ --}}
+    <div class="tab" data-group="principal" data-tab="vécu">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion de l'inventaire du PJ --}}
+    <div class="tab" data-group="principal" data-tab="inventaire">
+        contenu
+    </div>
+    
+    {{!-- Onglet de gestion de la description du PJ --}}
+    <div class="tab" data-group="principal" data-tab="description">
+        <input type="text" id="data.signesPart.description" name="data.signesPart.description" value="{{data.signesPart.description.value}}">
+    </div>
+    
+    <!--
+    <div class="tab items" data-tab="items">
+        <ol class="items-list">
+            {{#each actor.items as |item id|}}
+            <li class="item" data-item-id="{{item.id}}">
+                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                <h4 class="item-name">{{item.name}}</h4>
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+-->
+</form>

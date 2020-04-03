@@ -1,0 +1,29 @@
+{
+  "RdD.Name": "Nom",
+  "RdD.actor": {
+    "signesPart": {
+      "hn": "Heure de naissance",
+      "sexe": "Sexe",
+      "âge": "Âge",
+      "taille": "Taille",
+      "poids": "Poids",
+      "cheveux": "Cheveux",
+      "yeux": "Yeux",
+      "beauté": "Beauté",
+      "latéralité": "Latéralité"
+    },
+    "pj": {
+      "tabPrincipal": {
+        "états": "États",
+        "caractéristiques": "Caractéristiques",
+        "compétences": "Compétences",
+        "combat": "Combat",
+        "santé": "Santé",
+        "haut-rêve": "Haut-rêve",
+        "vécu": "Vécu",
+        "inventaire": "Inventaire",
+        "description": "Description"
+      }
+    }
+  }
+}

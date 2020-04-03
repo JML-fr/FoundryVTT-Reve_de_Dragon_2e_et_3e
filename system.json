@@ -1,11 +1,13 @@
 {
-  "name": "RdD",
+  "name": "rêvededragon",
   "title": "Rêve de Dragon",
   "description": "Prise en charge des règles de Rêve de Dragon, 2de édition",
-  "version": 0.1,
+  "version": "0.1",
+  "templateVersion": 2,
   "author": "JML",
-  "scripts": [
-    "scripts/RdD.js"
+  "minimumCoreVersion": "0.5.1",
+  "esmodules": [
+    "modules/RdD.js"
   ],
   "styles": [
     "styles/RdD.css"
@@ -14,9 +16,13 @@
     
   ],
   "languages": [
-    "fr"
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
   ],
-  "initiative": "1d6",
+  "initiative": "",
   "gridDistance": 1,
   "gridUnits": "m"
 }

@@ -1,1074 +1,1638 @@
 {
-  "actor": {
-    "data": {
-      
-    },
-    "pj": {
+  "Actor": {
+    "types": [
+      "pj",
+      "pnj",
+      "humanoïde",
+      "animal",
+      "entitéIncarnée",
+      "entitéNonIncarnée"
+    ],
+    "templates": {
       "signesParticuliers": {
-        "hn": {
-          "type": "Object",
-          "label": "Heure de naissance",
-          "value": {
-            "heure": 1
+        "signesPart": {
+          "hn": {
+            "value": 1
+          },
+          "sexe": {
+            "value": "M"
+          },
+          "âge": {
+            "value": 18
+          },
+          "taille": {
+            "value": 1.7
+          },
+          "poids": {
+            "value": 68
+          },
+          "cheveux": {
+            "value": "Bruns"
+          },
+          "yeux": {
+            "value": "Bruns"
+          },
+          "beauté": {
+            "value": 10
+          },
+          "latéralité": {
+            "mainDominante": "",
+            "malus": 0
+          },
+          "vitesse": {
+            "combat": 12,
+            "course": 24
+          },
+          "description": {
+            "value": "…"
           }
-        },
-        "sexe": {
-          "type": "String",
-          "label": "Sexe",
-          "value": "M"
-        },
-        "âge": {
-          "type": "Number",
-          "label": "Âge",
-          "value": 18
-        },
-        "taille": {
-          "type": "Number",
-          "label": "Taille",
-          "value": 1.7
-        },
-        "poids": {
-          "type": "Number",
-          "label": "Poids",
-          "value": 68
-        },
-        "cheveux": {
-          "type": "String",
-          "label": "Cheveux",
-          "value": "Bruns"
-        },
-        "yeux": {
-          "type": "String",
-          "label": "Yeux",
-          "value": "Bruns"
-        },
-        "beauté": {
-          "type": "Object",
-          "label": "Beauté",
-          "value": {
-            "beauté": 10
-          }
-        },
-        "description": {
-          "type": "String",
-          "label": "Signes particuliers",
-          "value": "Droitier…"
         }
       },
-      "Caractéristiques": {
-        "ptCaracRestants": {
-          "type": "Number",
-          "label": "Points de caractéristiques restants",
-          "value": 160
-        },
-        "taille": {
-          "type": "Object",
-          "label": "TAILLE",
-          "value": {
-            "valeur": 10,
+      "caractéristiques": {
+        "caracs": {
+          "taille": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "apparence": {
-          "type": "Object",
-          "label": "APPARENCE",
-          "value": {
-            "valeur": 10,
+          },
+          "apparence": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "constitution": {
-          "type": "Object",
-          "label": "CONSTITUTION",
-          "value": {
-            "valeur": 10,
+          },
+          "constitution": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "force": {
-          "type": "Object",
-          "label": "FORCE",
-          "value": {
-            "valeur": 10,
+          },
+          "force": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "agilité": {
-          "type": "Object",
-          "label": "AGILITÉ",
-          "value": {
-            "valeur": 10,
+          },
+          "agilité": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "dextérité": {
-          "type": "Object",
-          "label": "DEXTÉRITÉ",
-          "value": {
-            "valeur": 10,
+          },
+          "dextérité": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "vue": {
-          "type": "Object",
-          "label": "VUE",
-          "value": {
-            "valeur": 10,
+          },
+          "vue": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "ouïe": {
-          "type": "Object",
-          "label": "OUÏE",
-          "value": {
-            "valeur": 10,
+          },
+          "ouïe": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "odorat_goût": {
-          "type": "Object",
-          "label": "ODORAT-GOÛT",
-          "value": {
-            "valeur": 10,
+          },
+          "odorat_goût": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "volonté": {
-          "type": "Object",
-          "label": "VOLONTÉ",
-          "value": {
-            "valeur": 10,
+          },
+          "volonté": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "intellect": {
-          "type": "Object",
-          "label": "INTELLECT",
-          "value": {
-            "valeur": 10,
+          },
+          "intellect": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "empathie": {
-          "type": "Object",
-          "label": "EMPATHIE",
-          "value": {
-            "valeur": 10,
+          },
+          "empathie": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "rêve": {
-          "type": "Object",
-          "label": "RÊVE",
-          "value": {
-            "valeur": 10,
+          },
+          "rêve": {
+            "value": 10,
             "xp": 0
-          }
-        },
-        "chance": {
-          "type": "Object",
-          "label": "CHANCE",
-          "value": {
-            "valeur": 10,
+          },
+          "chance": {
+            "value": 10,
             "xp": 0
           }
         }
       },
-      "Caractéristiques dérivées": {
-        "mêlée": {
-          "type": "Number",
-          "label": "Mêlée",
-          "value": 10
-        },
-        "tir": {
-          "type": "Number",
-          "label": "Tir",
-          "value": 10
-        },
-        "lancer": {
-          "type": "Number",
-          "label": "Lancer",
-          "value": 10
-        },
-        "dérobée": {
-          "type": "Number",
-          "label": "Dérobée",
-          "value": 10
+      "caractéristiquesDérivées": {
+        "caracsDériv": {
+          "mêlée": {
+            "value": 10
+          },
+          "tir": {
+            "value": 10
+          },
+          "lancer": {
+            "value": 10
+          },
+          "dérobée": {
+            "value": 10
+          }
         }
       },
-      "Compétences": {
-        "ptCptcDépensés": {
-          "type": "Number",
-          "label": "Points de compétences dépensés",
-          "value": 0
-        },
-        "CptcGénérales": [
-          {
-            "type": "Object",
-            "label": "Bricolage",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
+      "_seuils": {
+        "seuils": {
+          "sc": {
+            "value": 3
           },
-          {
-            "type": "Object",
-            "label": "Chant",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
+          "sust": {
+            "value": 3
           },
-          {
-            "type": "Object",
-            "label": "Course",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
+          "plusDom": {
+            "value": 0
           },
-          {
-            "type": "Object",
-            "label": "Cuisine",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Danse",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Dessin",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Discrétion",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Escalade",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Saut",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Séduction",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Vigilance",
-            "value": {
-              "vocation": false,
-              "valeur": -4,
-              "xp": 0
-            }
+          "protection": {
+            "value": 0
           }
-        ],
-        "CptcMêlée": [
-          {
-            "type": "Object",
-            "label": "Armes d'hast",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Bouclier",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Corps à corps",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Dague de mêlée",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Épée à 1 main",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Épée à 2 mains",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Esquive",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Fléau",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Hache à 1 main",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Hache à 2 mains",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Lances",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Masse à 1 main",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Masse à 2 mains",
-            "value": {
-              "vocation": false,
-              "valeur": -6,
-              "xp": 0
-            }
-          }
-        ],
-        "CptcTirLancer": [
-          {
-            "type": "Object",
-            "label": "Arbalète",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Arc",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Dague de jet",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Fouet",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Fronde",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Javelot",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          }
-        ],
-        "CptcParticulières": [
-          {
-            "type": "Object",
-            "label": "Charpenterie",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Comédie",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Commerce",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Équitation",
-            "value": {
-              "vocation": false,
-              "spécialité": "Équidés",
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Maçonnerie",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Musique",
-            "value": {
-              "vocation": false,
-              "spécialité": "Instrument",
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Pickpocket",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Cité",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Extérieur",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Désert",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Forêt",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Glaces",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Marais",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Montagne",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Survie en Sous-sol",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Travestissement",
-            "value": {
-              "vocation": false,
-              "valeur": -8,
-              "xp": 0
-            }
-          }
-        ],
-        "CptcSpécialisées": [
-          {
-            "type": "Object",
-            "label": "Acrobatie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Chirurgie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Jeu",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Jonglerie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Maroquinerie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Métalurgie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Natation",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Navigation",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Orfèvrerie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Serrurerie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          }
-        ],
-        "Connaissances": [
-          {
-            "type": "Object",
-            "label": "Alchimie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Astrologie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Botanique",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Écriture",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Légendes",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Médecine",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Zoologie",
-            "value": {
-              "vocation": false,
-              "valeur": -11,
-              "xp": 0
-            }
-          }
-        ],
-        "Draconic": [
-          {
-            "type": "Object",
-            "label": "Oniros",
-            "value": {
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Hypnos",
-            "value": {
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Narcos",
-            "value": {
-              "valeur": -11,
-              "xp": 0
-            }
-          },
-          {
-            "type": "Object",
-            "label": "Thanatos",
-            "value": {
-              "valeur": -11,
-              "xp": 0
-            }
-          }
-        ]
-      },
-      "Seuils": {
-        "sc": {
-          "type": "Number",
-          "label": "S. Const",
-          "value": 3
-        },
-        "sust": {
-          "type": "Number",
-          "label": "Sust",
-          "value": 3
-        },
-        "plusDom": {
-          "type": "Number",
-          "label": "+Dom",
-          "value": 0
         }
       },
-      "Points": {
-        "rêveCourant": {
-          "type": "Object",
-          "label": "Rêve courant",
-          "value": {
+      "compteurs": {
+        "cptr": {
+          "hautRêve": {
             "seuil": 10,
-            "actuel": 10,
+            "value": 10,
             "demiRêve": {
-              "colonne": "A",
-              "ligne": 1
+              
             },
-            "refoulement": 2012
-          }
-        },
-        "vie": {
-          "type": "Object",
-          "label": "Vie",
-          "value": {
+            "colonne": "A",
+            "ligne": 1,
+            "refoulement": 0,
+            "queuesEtSouffles": [
+              
+            ]
+          },
+          "vie": {
             "max": 10,
-            "actuel": 10
-          }
-        },
-        "endurance": {
-          "type": "Object",
-          "label": "Endurance",
-          "value": {
+            "value": 10
+          },
+          "endurance": {
             "max": 10,
-            "actuel": 10
-          }
-        },
-        "fatigue": {
-          "type": "Object",
-          "label": "Fatigue",
-          "value": {
+            "value": 10
+          },
+          "fatigue": {
             "niveauActuel": 0,
-            "niveau_0": {
-              "NewKey": 0,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                },
-                {
-                  "actuel": 0,
-                  "max": 4
-                },
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_1": {
-              "NewKey": -1,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                },
-                {
-                  "actuel": 0,
-                  "max": 4
-                },
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_2": {
-              "NewKey": -2,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_3": {
-              "NewKey": -3,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_4": {
-              "NewKey": -4,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_5": {
-              "NewKey": -5,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_6": {
-              "NewKey": -6,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            },
-            "niveau_7": {
-              "NewKey": -7,
-              "segments": [
-                {
-                  "actuel": 0,
-                  "max": 4
-                }
-              ]
-            }
-          }
-        },
-        "blessures": {
-          "type": "Object",
-          "label": "Blessures",
-          "value": {
+            "niveaux": [
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  },
+                  {
+                    "value": 0,
+                    "max": 4
+                  },
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  },
+                  {
+                    "value": 0,
+                    "max": 4
+                  },
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              },
+              {
+                "complet": false,
+                "segments": [
+                  {
+                    "value": 0,
+                    "max": 4
+                  }
+                ]
+              }
+            ]
+          },
+          "blessures": {
             "légères": [
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               },
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               },
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               },
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               },
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               }
             ],
             "graves": [
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               },
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               }
             ],
             "critique": [
               {
                 "blessé": false,
-                "notes": "String"
+                "premiersSoins": false,
+                "soinsComplets": false,
+                "ptTâcheRestants": 0,
+                "bonusMalus": 0,
+                "prochainTestDeGuérison": {
+                  "date": "",
+                  "heure": ""
+                },
+                "notes": ""
               }
             ]
+          },
+          "éthylisme": {
+            "value": 0,
+            "acquisitionFatigue": {
+              "date": "",
+              "heure": ""
+            },
+            "prochaineRécupération": {
+              "date": "",
+              "heure": ""
+            }
+          },
+          "argent": {
+            "total": 0
           }
-        },
+        }
+      },
+      "états": {
+        "états": {
+          "étatGénéral": {
+            "value": 0
+          },
+          "ptViePerdus": {
+            "value": 0
+          },
+          "niveauFatigue": {
+            "value": 0
+          },
+          "niveauEncombrement": {
+            "value": 0
+          },
+          "niveauÉthylisme": {
+            "value": 0
+          },
+          "malusArmure": {
+            "value": 0
+          },
+          "sonné": {
+            "value": false
+          },
+          "inconscient": {
+            "value": false
+          },
+          "coma": {
+            "value": false
+          },
+          "malade": {
+            "value": false
+          },
+          "empoisonné": {
+            "value": false
+          }
+        }
+      },
+      "archétype": {
+        "archtp": {
+          "CptcGénérales": [
+            {
+              "label": "Bricolage",
+              "value": 0
+            },
+            {
+              "label": "Chant",
+              "value": 0
+            },
+            {
+              "label": "Course",
+              "value": 0
+            },
+            {
+              "label": "Cuisine",
+              "value": 0
+            },
+            {
+              "label": "Danse",
+              "value": 0
+            },
+            {
+              "label": "Dessin",
+              "value": 0
+            },
+            {
+              "label": "Discrétion",
+              "value": 0
+            },
+            {
+              "label": "Escalade",
+              "value": 0
+            },
+            {
+              "label": "Saut",
+              "value": 0
+            },
+            {
+              "label": "Séduction",
+              "value": 0
+            },
+            {
+              "label": "Vigilance",
+              "value": 0
+            }
+          ],
+          "CptcMêlée": [
+            {
+              "label": "Armes d'hast",
+              "value": 0
+            },
+            {
+              "label": "Bouclier",
+              "value": 0
+            },
+            {
+              "label": "Corps à corps",
+              "value": 0
+            },
+            {
+              "label": "Dague de mêlée",
+              "value": 0
+            },
+            {
+              "label": "Épée à 1 main",
+              "value": 0
+            },
+            {
+              "label": "Épée à 2 mains",
+              "value": 0
+            },
+            {
+              "label": "Esquive",
+              "value": 0
+            },
+            {
+              "label": "Fléau",
+              "value": 0
+            },
+            {
+              "label": "Hache à 1 main",
+              "value": 0
+            },
+            {
+              "label": "Hache à 2 mains",
+              "value": 0
+            },
+            {
+              "label": "Lances",
+              "value": 0
+            },
+            {
+              "label": "Masse à 1 main",
+              "value": 0
+            },
+            {
+              "label": "Masse à 2 mains",
+              "value": 0
+            }
+          ],
+          "CptcTirLancer": [
+            {
+              "label": "Arbalète",
+              "value": 0
+            },
+            {
+              "label": "Arc",
+              "value": 0
+            },
+            {
+              "label": "Dague de jet",
+              "value": 0
+            },
+            {
+              "label": "Fouet",
+              "value": 0
+            },
+            {
+              "label": "Fronde",
+              "value": 0
+            },
+            {
+              "label": "Javelot",
+              "value": 0
+            }
+          ],
+          "CptcParticulières": [
+            {
+              "label": "Charpenterie",
+              "value": 0
+            },
+            {
+              "label": "Comédie",
+              "value": 0
+            },
+            {
+              "label": "Commerce",
+              "value": 0
+            },
+            {
+              "label": "Équitation",
+              "value": 0
+            },
+            {
+              "label": "Maçonnerie",
+              "value": 0
+            },
+            {
+              "label": "Musique",
+              "value": 0
+            },
+            {
+              "label": "Pickpocket",
+              "value": 0
+            },
+            {
+              "label": "Survie en Cité",
+              "value": 0
+            },
+            {
+              "label": "Survie en Extérieur",
+              "value": 0
+            },
+            {
+              "label": "Survie en Désert",
+              "value": 0
+            },
+            {
+              "label": "Survie en Forêt",
+              "value": 0
+            },
+            {
+              "label": "Survie en Glaces",
+              "value": 0
+            },
+            {
+              "label": "Survie en Marais",
+              "value": 0
+            },
+            {
+              "label": "Survie en Montagne",
+              "value": 0
+            },
+            {
+              "label": "Survie en Sous-sol",
+              "value": 0
+            },
+            {
+              "label": "Travestissement",
+              "value": 0
+            }
+          ],
+          "CptcSpécialisées": [
+            {
+              "label": "Acrobatie",
+              "value": 0
+            },
+            {
+              "label": "Chirurgie",
+              "value": 0
+            },
+            {
+              "label": "Jeu",
+              "value": 0
+            },
+            {
+              "label": "Jonglerie",
+              "value": 0
+            },
+            {
+              "label": "Maroquinerie",
+              "value": 0
+            },
+            {
+              "label": "Métalurgie",
+              "value": 0
+            },
+            {
+              "label": "Natation",
+              "value": 0
+            },
+            {
+              "label": "Navigation",
+              "value": 0
+            },
+            {
+              "label": "Orfèvrerie",
+              "value": 0
+            },
+            {
+              "label": "Serrurerie",
+              "value": 0
+            }
+          ],
+          "Connaissances": [
+            {
+              "label": "Alchimie",
+              "value": 0
+            },
+            {
+              "label": "Astrologie",
+              "value": 0
+            },
+            {
+              "label": "Botanique",
+              "value": 0
+            },
+            {
+              "label": "Écriture",
+              "value": 0
+            },
+            {
+              "label": "Légendes",
+              "value": 0
+            },
+            {
+              "label": "Médecine",
+              "value": 0
+            },
+            {
+              "label": "Zoologie",
+              "value": 0
+            }
+          ],
+          "Draconic": [
+            {
+              "label": "Oniros",
+              "value": 0
+            },
+            {
+              "label": "Hypnos",
+              "value": 0
+            },
+            {
+              "label": "Narcos",
+              "value": 0
+            },
+            {
+              "label": "Thanatos",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    "pj": {
+      "templates": [
+        "signesParticuliers",
+        "caractéristiques",
+        "caractéristiquesDérivées",
+        "_seuils",
+        "compteurs",
+        "états",
+        "archétype"
+      ],
+      "ptCaracRestants": {
+        "value": 160
+      },
+      "ptCptcDépensés": {
+        "value": 0
+      },
+      "compétencesPJ": {
+        "CptcGénérales": [
+          {
+            "label": "Bricolage",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Chant",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Course",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Cuisine",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Danse",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Dessin",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Discrétion",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Escalade",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Saut",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Séduction",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          },
+          {
+            "label": "Vigilance",
+            "vocation": false,
+            "value": -4,
+            "xp": 0
+          }
+        ],
+        "CptcMêlée": [
+          {
+            "label": "Armes d'hast",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Bouclier",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Corps à corps",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Dague de mêlée",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Épée à 1 main",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Épée à 2 mains",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Esquive",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Fléau",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Hache à 1 main",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Hache à 2 mains",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Lances",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Masse à 1 main",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          },
+          {
+            "label": "Masse à 2 mains",
+            "vocation": false,
+            "value": -6,
+            "xp": 0
+          }
+        ],
+        "CptcTirLancer": [
+          {
+            "label": "Arbalète",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Arc",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Dague de jet",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Fouet",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Fronde",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Javelot",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          }
+        ],
+        "CptcParticulières": [
+          {
+            "label": "Charpenterie",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Comédie",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Commerce",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Équitation",
+            "vocation": false,
+            "spécialité": "Équidés",
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Maçonnerie",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Musique",
+            "vocation": false,
+            "spécialité": "Instrument",
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Pickpocket",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Cité",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Extérieur",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Désert",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Forêt",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Glaces",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Marais",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Montagne",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Survie en Sous-sol",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          },
+          {
+            "label": "Travestissement",
+            "vocation": false,
+            "value": -8,
+            "xp": 0
+          }
+        ],
+        "CptcSpécialisées": [
+          {
+            "label": "Acrobatie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Chirurgie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Jeu",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Jonglerie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Maroquinerie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Métalurgie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Natation",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Navigation",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Orfèvrerie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Serrurerie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          }
+        ],
+        "Connaissances": [
+          {
+            "label": "Alchimie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Astrologie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Botanique",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Écriture",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Légendes",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Médecine",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          },
+          {
+            "label": "Zoologie",
+            "vocation": false,
+            "value": -11,
+            "xp": 0
+          }
+        ],
+        "Draconic": [
+          {
+            "label": "Oniros",
+            "value": -11,
+            "xp": 0,
+            "ptSort": 0
+          },
+          {
+            "label": "Hypnos",
+            "value": -11,
+            "xp": 0,
+            "ptSort": 0
+          },
+          {
+            "label": "Narcos",
+            "value": -11,
+            "xp": 0,
+            "ptSort": 0
+          },
+          {
+            "label": "Thanatos",
+            "value": -11,
+            "xp": 0,
+            "ptSort": 0
+          }
+        ]
+      },
+      "compteursPJ": {
         "sustentationQuotidienne": {
-          "type": "Object",
-          "label": "Sustentation quotidienne",
-          "value": {
-            "sust": 0,
-            "eau": 0
-          }
-        },
-        "éthylisme": {
-          "type": "Number",
-          "label": "Éthylisme",
-          "value": 0
-        },
-        "encombrement": {
-          "type": "Object",
-          "label": "Encombrement",
-          "value": {
-            "max": 10,
-            "actuel": 0
-          }
-        },
-        "moral": {
-          "type": "Object",
-          "label": "Moral",
-          "value": {
-            "actuel": 0,
-            "exalt_dissol": 0
-          }
+          "sust": 0,
+          "eau": 0
         },
         "ptChance": {
-          "type": "Number",
-          "label": "Points de chance",
           "value": 10
         },
+        "protection": {
+          "value": 0
+        },
+        "moral": {
+          "value": 0,
+          "exalt_dissol": 0
+        },
+        "cœur": {
+          "value": 0,
+          "personneConcernée": ""
+        },
         "destinée": {
-          "type": "Object",
-          "label": "Destinée",
-          "value": {
-            "ptDestinée": 0,
-            "ptVoyage": 0
-          }
+          "ptDestinée": 0,
+          "ptVoyage": 0
         },
         "stress": {
-          "type": "Number",
-          "label": "Stress",
           "value": 0
         }
       }
     },
-    "Humanoïde": {
-      
+    "pnj": {
+      "templates": [
+        "signesParticuliers",
+        "caractéristiques",
+        "caractéristiquesDérivées",
+        "_seuils",
+        "compteurs",
+        "états",
+        "archétype"
+      ]
     },
-    "Animal": {
-      
+    "humanoïde": {
+      "templates": [
+        "signesParticuliers",
+        "caractéristiques",
+        "caractéristiquesDérivées",
+        "_seuils",
+        "compteurs",
+        "états",
+        "archétype"
+      ],
+      "espèce": {
+        "value": "Groin"
+      }
     },
-    "Entité": {
-      
+    "animal": {
+      "templates": [
+        "_seuils",
+        "états"
+      ],
+      "caractéristiquesAnimaux": {
+        "taille": {
+          "value": 10
+        },
+        "constitution": {
+          "value": 10
+        },
+        "force": {
+          "value": 10
+        },
+        "perception": {
+          "value": 10
+        },
+        "volonté": {
+          "value": 10
+        },
+        "rêve": {
+          "value": 10
+        }
+      },
+      "vie": {
+        "max": 10,
+        "value": 10
+      },
+      "endurance": {
+        "max": 10,
+        "value": 10
+      },
+      "vitesse": {
+        "combat": 12,
+        "course": 24
+      },
+      "fatigue": {
+        "niveauActuel": 0,
+        "niveaux": [
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              },
+              {
+                "value": 0,
+                "max": 4
+              },
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              },
+              {
+                "value": 0,
+                "max": 4
+              },
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "complet": false,
+            "segments": [
+              {
+                "value": 0,
+                "max": 4
+              }
+            ]
+          }
+        ]
+      },
+      "blessures": {
+        "légères": [
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          },
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          },
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          },
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          },
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          }
+        ],
+        "graves": [
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          },
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          }
+        ],
+        "critique": [
+          {
+            "blessé": false,
+            "premiersSoins": false,
+            "soinsComplets": false,
+            "ptTâcheRestants": 0,
+            "bonusMalus": 0,
+            "prochainTestDeGuérison": {
+              "date": "",
+              "heure": ""
+            },
+            "notes": ""
+          }
+        ]
+      },
+      "encombrement": {
+        "max": 10,
+        "value": 0
+      },
+      "compétencesAnimaux": {
+        "compétences": [
+          {
+            "label": "Course",
+            "caractéristique": 10,
+            "value": 0,
+            "init": 0,
+            "plusDom": 0
+          }
+        ]
+      }
+    },
+    "entitéIncarnée": {
+      "taille": {
+        "value": 10
+      },
+      "rêve": {
+        "value": 10
+      },
+      "niveau": {
+        "value": 0
+      },
+      "endurance": {
+        "max": 10,
+        "value": 10
+      },
+      "vitesse": {
+        "combat": 12,
+        "course": 24
+      },
+      "plusDom": {
+        "value": 0
+      },
+      "compétencesEntité": {
+        "compétences": [
+          {
+            "label": "Course",
+            "caractéristique": 10,
+            "value": 0,
+            "init": 0,
+            "plusDom": 0
+          }
+        ]
+      }
+    },
+    "entitéNonIncarnée": {
+      "rêve": {
+        "value": 10
+      },
+      "vitesse": {
+        "combat": 6
+      },
+      "compétenceECNI": {
+        "label": "Possession",
+        "caractéristique": 14,
+        "value": 2,
+        "init": 14
+      }
     }
   },
-  "item": {
-    "data": {
+  "Item": {
+    "types": [
+      "équipement",
+      "contenant",
+      "nourriture",
+      "boisson",
+      "herbeDeSoin",
+      "herbeDiverse",
+      "remède",
+      "selAlchimique",
+      "armeDeMêlée",
+      "armeÀDistance",
+      "armure",
+      "gemme"
+    ],
+    "templates": {
       "description": {
-        "type": "String",
-        "label": "Description"
+        "nom": "nom",
+        "description": ""
+      },
+      "coût": {
+        "encombrement": 0,
+        "prix": 0
+      },
+      "unitéDeCoût": {
+        "unité": ""
+      },
+      "équipable": {
+        "equipped": false
       }
+    },
+    "équipement": {
+      "templates": [
+        "description",
+        "coût",
+        "équipable"
+      ]
+    },
+    "contenant": {
+      "templates": [
+        "description",
+        "coût"
+      ],
+      "contenance": 0,
+      "contenu": [
+        
+      ]
+    },
+    "nourriture": {
+      "templates": [
+        "description",
+        "coût",
+        "unitéDeCoût"
+      ]
+    },
+    "boisson": {
+      "templates": [
+        "description",
+        "coût",
+        "unitéDeCoût"
+      ],
+      "force": 0
+    },
+    "herbeDeSoin": {
+      "templates": [
+        "description",
+        "coût",
+        "unitéDeCoût"
+      ],
+      "bonusSoins": 1,
+      "bonusVenins": 0
+    },
+    "herbeDiverse": {
+      "templates": [
+        "description",
+        "coût",
+        "unitéDeCoût"
+      ]
+    },
+    "remède": {
+      "templates": [
+        "description",
+        "coût",
+        "unitéDeCoût"
+      ],
+      "consistance": ""
+    },
+    "selAlchimique": {
+      "templates": [
+        "description",
+        "coût",
+        "unitéDeCoût"
+      ]
+    },
+    "gemme": {
+      "templates": [
+        "description",
+        "coût"
+      ],
+      "taille": 1,
+      "pureté": 1
+    },
+    "armeDeMêlée": {
+      "templates": [
+        "description",
+        "coût",
+        "équipable"
+      ],
+      "plusDom": {
+        "nonMortelle": false,
+        "uneMain": 0,
+        "deuxMains": 0
+      },
+      "forceMin": {
+        "uneMain": 0,
+        "deuxMains": 0
+      },
+      "résistance": {
+        "max": 0,
+        "value": 0
+      }
+    },
+    "armeÀDistance": {
+      "templates": [
+        "description",
+        "coût",
+        "équipable"
+      ],
+      "plusDom": {
+        "nonMortelle": false,
+        "value": 0
+      },
+      "portées": {
+        "courte": 0,
+        "moyenne": 0,
+        "extrême": 0
+      }
+    },
+    "armure": {
+      "templates": [
+        "description",
+        "coût",
+        "équipable"
+      ],
+      "protection": 1,
+      "malusArmure": 0
     }
   }
 }
