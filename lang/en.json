@@ -12,6 +12,91 @@
       "beauté": "Beauté",
       "latéralité": "Latéralité"
     },
+    "caracs": {
+      "taille": "TAILLE",
+      "apparence": "APPARENCE",
+      "constitution": "CONSTITUTION",
+      "force": "FORCE",
+      "agilité": "AGILITÉ",
+      "dextérité": "DEXTÉRITÉ",
+      "vue": "VUE",
+      "ouïe": "OUÏE",
+      "odorat_goût": "ODORAT-GOÛT",
+      "volonté": "VOLONTÉ",
+      "intellect": "INTELLECT",
+      "empathie": "EMPATHIE",
+      "rêve": "RÊVE",
+      "chance": "CHANCE"
+    },
+    "caracsDériv": {
+      "mêlée": "Mêlée",
+      "tir": "Tir",
+      "lancer": "Lancer",
+      "dérobée": "Dérobée"
+    },
+    "seuils": {
+      "sc": "S. Const",
+      "sust": "S. Sust",
+      "plusDom": "+Dom",
+      "protection": "Protection",
+      "encombrement": "S. Encombrement"
+    },
+    "cptr": {
+      "hautRêve": {
+        "titre": "Haut-rêve",
+        "seuil": "Seuil",
+        "value": "Rêve",
+        "demiRêve": "Demi-Rêve",
+        "refoulement": "Refoulement",
+        "queuesEtSouffles": "Queues & souffles de Dragon"
+      },
+      "vie": "Vie",
+      "endurance": "Endurance",
+      "fatigue": {
+        "titre": "Fatigue",
+        "niveau0": "0",
+        "niveau-1": "-1",
+        "niveau-2": "-2",
+        "niveau-3": "-3",
+        "niveau-4": "-4",
+        "niveau-5": "-5",
+        "niveau-6": "-6",
+        "niveau-7": "-7"
+      },
+      "blessures": {
+        "titre": "Blessures",
+        "légères": "Légères",
+        "graves": "Graves",
+        "critique": "Critique",
+        "blessé": "Blessé",
+        "premiersSoins": "Premiers soins",
+        "soinsComplets": "Soins complets",
+        "ptTâcheRestants": "Points de tâche restants",
+        "bonusMalus": "Bonus/Malus",
+        "prochainTestDeGuérison": "Prochain test de guérison",
+        "notes": "Notes"
+      },
+      "éthylisme": {
+        "titre": "Éthylisme",
+        "acquisitionFatigue": "Fatigue acquise à",
+        "prochaineRécupération": "Prochaine récupération à"
+      },
+      "encombrement": "Encombrement",
+      "argent": "Argent"
+    },
+    "états": {
+      "étatGénéral": "État général",
+      "ptViePerdus": "Malus de points de vie",
+      "malusFatigue": "Malus de fatigue",
+      "malusEncombrement": "Malus encombrement",
+      "malusÉthylisme": "Malus éthylisme",
+      "malusArmure": "Malus d'armure",
+      "sonné": "Sonné",
+      "inconscient": "Inconscient",
+      "coma": "Coma",
+      "malade": "Malade",
+      "empoisonné": "Empoisonné"
+    },
     "pj": {
       "tabPrincipal": {
         "états": "États",
@@ -23,6 +108,80 @@
         "vécu": "Vécu",
         "inventaire": "Inventaire",
         "description": "Description"
+      },
+      "compétencesPJ": {
+        "CptcGénérales": {
+          "titre": "C. Générales (-4)",
+          "liste": [
+            "Bricolage",
+            "Chant",
+            "Course",
+            "Cuisine",
+            "Danse",
+            "Dessin",
+            "Discrétion",
+            "Escalade",
+            "Saut",
+            "Séduction",
+            "Vigilance"
+          ]
+        },
+        "CptcMêlée": {
+          "titre": "C. de Mêlée (-6)",
+          "liste": [
+            
+          ]
+        },
+        "CptcTirLancer": {
+          "titre": "C. de Tir/Lancer (-8)",
+          "liste": [
+            
+          ]
+        },
+        "CptcParticulières": {
+          "titre": "C. Particulières (-8)",
+          "liste": [
+            
+          ]
+        },
+        "CptcSpécialisées": {
+          "titre": "C. Spécialisées (-11)",
+          "liste": [
+            
+          ]
+        },
+        "Connaissances": {
+          "titre": "Connaisances (-11)",
+          "liste": [
+            
+          ]
+        },
+        "Draconic": {
+          "titre": "Draconic (-11)",
+          "liste": [
+            
+          ]
+        }
+      },
+      "compteursPJ": {
+        "sustentationQuotidienne": {
+          "sust": "Pt sust",
+          "eau": "Pt eau"
+        },
+        "ptChance": "Chance",
+        "moral": {
+          "titre": "Moral",
+          "exalt_dissol": "diss/exal"
+        },
+        "cœur": {
+          "titre": "Cœur",
+          "personneConcernée": "Personne concernée"
+        },
+        "destinée": {
+          "ptDestinée": "Destinée",
+          "ptVoyage": "Voyage"
+        },
+        "stress": "Stress"
       }
     }
   }

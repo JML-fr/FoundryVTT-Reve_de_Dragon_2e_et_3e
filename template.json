@@ -137,6 +137,9 @@
           },
           "protection": {
             "value": 0
+          },
+          "encombrement": {
+            "value": 0
           }
         }
       },
@@ -146,10 +149,9 @@
             "seuil": 10,
             "value": 10,
             "demiRêve": {
-              
+              "colonne": "A",
+              "ligne": 1
             },
-            "colonne": "A",
-            "ligne": 1,
             "refoulement": 0,
             "queuesEtSouffles": [
               
@@ -371,12 +373,15 @@
               "heure": ""
             }
           },
+          "encombrement": {
+            "value": 0
+          },
           "argent": {
             "total": 0
           }
         }
       },
-      "états": {
+      "_états": {
         "états": {
           "étatGénéral": {
             "value": 0
@@ -384,13 +389,13 @@
           "ptViePerdus": {
             "value": 0
           },
-          "niveauFatigue": {
+          "malusFatigue": {
             "value": 0
           },
-          "niveauEncombrement": {
+          "malusEncombrement": {
             "value": 0
           },
-          "niveauÉthylisme": {
+          "malusÉthylisme": {
             "value": 0
           },
           "malusArmure": {
@@ -707,7 +712,7 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "états",
+        "_états",
         "archétype"
       ],
       "ptCaracRestants": {
@@ -1144,9 +1149,6 @@
         "ptChance": {
           "value": 10
         },
-        "protection": {
-          "value": 0
-        },
         "moral": {
           "value": 0,
           "exalt_dissol": 0
@@ -1171,7 +1173,7 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "états",
+        "_états",
         "archétype"
       ]
     },
@@ -1182,7 +1184,7 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "états",
+        "_états",
         "archétype"
       ],
       "espèce": {
@@ -1192,7 +1194,7 @@
     "animal": {
       "templates": [
         "_seuils",
-        "états"
+        "_états"
       ],
       "caractéristiquesAnimaux": {
         "taille": {
