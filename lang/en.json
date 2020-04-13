@@ -1,5 +1,9 @@
 {
   "RdD.Name": "Nom",
+  "RdD.erreurs": {
+    "pasDeMàJ": "Il y a une donnée erronée – Mise à jour non effectuée",
+    "sexeValeurs": "Le sexe doit être «M» ou «F»"
+  },
   "RdD.actor": {
     "signesPart": {
       "hn": "Heure de naissance",

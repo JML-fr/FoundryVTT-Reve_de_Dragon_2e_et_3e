@@ -5,23 +5,23 @@
         <img class="vignette" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
         <div class="champs-en-tête">
             <h1 class="nom-perso"><input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'RdD.Name'}}" /></h1>
-            <div class="signesPart">
+            <div class="grpSignesPart">
                 <label for="data.signesPart.hn.value">{{localize 'RdD.actor.signesPart.hn'}}</label>
                 <input type="text" id="data.signesPart.hn.value" name="data.signesPart.hn.value" value="{{data.signesPart.hn.value}}">
             </div>
-            <div class="signesPart">
+            <div class="grpSignesPart">
                 <label for="data.signesPart.sexe.value">{{localize 'RdD.actor.signesPart.sexe'}}</label>
                 <input type="text" id="data.signesPart.sexe.value" name="data.signesPart.sexe.value" value="{{data.signesPart.sexe.value}}">
                 <label for="data.signesPart.âge.value">{{localize 'RdD.actor.signesPart.âge'}}</label>
                 <input type="number" id="data.signesPart.âge.value" name="data.signesPart.âge.value" value="{{data.signesPart.âge.value}}">
             </div>
-            <div class="signesPart">
+            <div class="grpSignesPart">
                 <label for="data.signesPart.taille.value">{{localize 'RdD.actor.signesPart.taille'}}</label>
                 <input type="number" id="data.signesPart.taille.value" name="data.signesPart.taille.value" value="{{data.signesPart.taille.value}}">
                 <label for="data.signesPart.poids.value">{{localize 'RdD.actor.signesPart.poids'}}</label>
                 <input type="number" id="data.signesPart.poids.value" name="data.signesPart.poids.value" value="{{data.signesPart.poids.value}}">
             </div>
-            <div class="signesPart">
+            <div class="grpSignesPart">
                 <label for="data.signesPart.cheveux.value">{{localize 'RdD.actor.signesPart.cheveux'}}</label>
                 <input type="text" id="data.signesPart.cheveux.value" name="data.signesPart.cheveux.value" value="{{data.signesPart.cheveux.value}}">
                 <label for="data.signesPart.yeux.value">{{localize 'RdD.actor.signesPart.yeux'}}</label>
@@ -29,7 +29,7 @@
                 <label for="data.signesPart.beauté.value">{{localize 'RdD.actor.signesPart.beauté'}}</label>
                 <input type="number" id="data.signesPart.beauté.value" name="data.signesPart.beauté.value" value="{{data.signesPart.beauté.value}}">
             </div>
-            <div class="signesPart">
+            <div class="grpSignesPart">
                 <label for="data.signesPart.latéralité.value">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
                 <input type="text" id="data.signesPart.latéralité.value" name="data.signesPart.latéralité.value" value="{{data.signesPart.latéralité.mainDominante}}">
             </div>
@@ -50,282 +50,309 @@
     </nav>
     
     {{!-- Onglet présentant les états du PJ --}}
-    <div class="tab" data-group="principal" data-tab="états">
-        <p><span>{{localize 'RdD.actor.états.étatGénéral'}}&nbsp;: </span><span>{{data.états.étatGénéral.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.ptViePerdus'}}&nbsp;: </span><span>{{data.états.ptViePerdus.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.malusFatigue'}}&nbsp;: </span><span>{{data.états.malusFatigue.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.malusEncombrement'}}&nbsp;: </span><span>{{data.états.malusEncombrement.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.malusÉthylisme'}}&nbsp;: </span><span>{{data.états.malusÉthylisme.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.malusArmure'}}&nbsp;: </span><span>{{data.états.malusArmure.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.sonné'}}&nbsp;: </span><span>{{data.états.sonné.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.inconscient'}}&nbsp;: </span><span>{{data.états.inconscient.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.coma'}}&nbsp;: </span><span>{{data.états.coma.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.malade'}}&nbsp;: </span><span>{{data.états.malade.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.états.empoisonné'}}&nbsp;: </span><span>{{data.états.empoisonné.value}}</span></p>
-    </div>
-    
-    {{!-- Onglet de gestion des caractéristiques du PJ --}}
-    <div class="tab" data-group="principal" data-tab="caractéristiques">
-        <label for="data.caracs.taille.value">{{localize 'RdD.actor.caracs.taille'}}</label>
-        <input type="number" id="data.caracs.taille.value" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
-        <input type="number" id="data.caracs.taille.xp" name="data.caracs.taille.xp" value="{{data.caracs.taille.xp}}">
-        <label for="data.caracs.apparence.value">{{localize 'RdD.actor.caracs.apparence'}}</label>
-        <input type="number" id="data.caracs.apparence.value" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
-        <input type="number" id="data.caracs.apparence.xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
-        <label for="data.caracs.constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
-        <input type="number" id="data.caracs.constitution.value" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
-        <input type="number" id="data.caracs.constitution.xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
-        <label for="data.caracs.force.value">{{localize 'RdD.actor.caracs.force'}}</label>
-        <input type="number" id="data.caracs.force.value" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
-        <input type="number" id="data.caracs.force.xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
-        <label for="data.caracs.agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
-        <input type="number" id="data.caracs.agilité.value" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
-        <input type="number" id="data.caracs.agilité.xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
-        <label for="data.caracs.dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
-        <input type="number" id="data.caracs.dextérité.value" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
-        <input type="number" id="data.caracs.dextérité.xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
-        <label for="data.caracs.vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
-        <input type="number" id="data.caracs.vue.value" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
-        <input type="number" id="data.caracs.vue.xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
-        <label for="data.caracs.ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
-        <input type="number" id="data.caracs.ouïe.value" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
-        <input type="number" id="data.caracs.ouïe.xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
-        <label for="data.caracs.odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
-        <input type="number" id="data.caracs.odorat_goût.value" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
-        <input type="number" id="data.caracs.odorat_goût.xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
-        <label for="data.caracs.volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
-        <input type="number" id="data.caracs.volonté.value" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
-        <input type="number" id="data.caracs.volonté.xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
-        <label for="data.caracs.intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
-        <input type="number" id="data.caracs.intellect.value" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
-        <input type="number" id="data.caracs.intellect.xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
-        <label for="data.caracs.empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
-        <input type="number" id="data.caracs.empathie.value" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
-        <input type="number" id="data.caracs.empathie.xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
-        <label for="data.caracs.rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
-        <input type="number" id="data.caracs.rêve.value" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
-        <input type="number" id="data.caracs.rêve.xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
-        <label for="data.caracs.chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
-        <input type="number" id="data.caracs.chance.value" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
-        <input type="number" id="data.caracs.chance.xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
-        <p><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span>{{data.caracsDériv.mêlée.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span>{{data.caracsDériv.tir.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.caracsDériv.lancer'}}&nbsp;: </span><span>{{data.caracsDériv.lancer.value}}</span></p>
-        <p><span>{{localize 'RdD.actor.caracsDériv.dérobée'}}&nbsp;: </span><span>{{data.caracsDériv.dérobée.value}}</span></p>
-    </div>
-    
-    {{!-- Onglet de gestion des compétences du PJ --}}
-    <div class="tab" data-group="principal" data-tab="compétences">
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcGénérales.titre'}}</h2>
-        {{#each data.compétencesPJ.CptcGénérales as |CptcGnrl|}}
-        <label for="data.compétencesPJ.CptcGénérales[{{@index}}].value">{{!-- localize 'RdD.actor.pj.compétencesPJ.CptcGénérales.liste[@index]' --}}{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.CptcGénérales[{{@index}}].value" name="data.compétencesPJ.CptcGénérales[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.CptcGénérales[{{@index}}].xp" name="data.compétencesPJ.CptcGénérales[{{@index}}].xp" value="{{this.xp}}">
-        {{/each}}
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcMêlée.titre'}}</h2>
-        {{#each data.compétencesPJ.CptcMêlée}}
-        <label for="data.compétencesPJ.CptcMêlée[{{@index}}].value">{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.CptcMêlée[{{@index}}].value" name="data.compétencesPJ.CptcMêlée[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.CptcMêlée[{{@index}}].xp" name="data.compétencesPJ.CptcMêlée[{{@index}}].xp" value="{{this.xp}}">
-        {{/each}}
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcTirLancer.titre'}}</h2>
-        {{#each data.compétencesPJ.CptcTirLancer}}
-        <label for="data.compétencesPJ.CptcTirLancer[{{@index}}].value">{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.CptcTirLancer[{{@index}}].value" name="data.compétencesPJ.CptcTirLancer[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.CptcTirLancer[{{@index}}].xp" name="data.compétencesPJ.CptcTirLancer[{{@index}}].xp" value="{{this.xp}}">
-        {{/each}}
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcParticulières.titre'}}</h2>
-        {{#each data.compétencesPJ.CptcParticulières}}
-        <label for="data.compétencesPJ.CptcParticulières[{{@index}}].value">{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.CptcParticulières[{{@index}}].value" name="data.compétencesPJ.CptcParticulières[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.CptcParticulières[{{@index}}].xp" name="data.compétencesPJ.CptcParticulières[{{@index}}].xp" value="{{this.xp}}">
-        {{/each}}
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcSpécialisées.titre'}}</h2>
-        {{#each data.compétencesPJ.CptcSpécialisées}}
-        <label for="data.compétencesPJ.CptcSpécialisées[{{@index}}].value">{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.CptcSpécialisées[{{@index}}].value" name="data.compétencesPJ.CptcSpécialisées[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.CptcSpécialisées[{{@index}}].xp" name="data.compétencesPJ.CptcSpécialisées[{{@index}}].xp" value="{{this.xp}}">
-        {{/each}}
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.Connaissances.titre'}}</h2>
-        {{#each data.compétencesPJ.Connaissances}}
-        <label for="data.compétencesPJ.Connaissances[{{@index}}].value">{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.Connaissances[{{@index}}].value" name="data.compétencesPJ.Connaissances[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.Connaissances[{{@index}}].xp" name="data.compétencesPJ.Connaissances[{{@index}}].xp" value="{{this.xp}}">
-        {{/each}}
-        <h2>{{localize 'RdD.actor.pj.compétencesPJ.Draconic.titre'}}</h2>
-        {{#each data.compétencesPJ.Draconic}}
-        <label for="data.compétencesPJ.Draconic[{{@index}}].value">{{this.label}}</label>
-        <input type="number" id="data.compétencesPJ.Draconic[{{@index}}].value" name="data.compétencesPJ.Draconic[{{@index}}].value" value="{{this.value}}">
-        <span> xp </span>
-        <input type="number" id="data.compétencesPJ.Draconic[{{@index}}].xp" name="data.compétencesPJ.Draconic[{{@index}}].xp" value="{{this.xp}}">
-        <span> pt sort </span>
-        <input type="number" id="data.compétencesPJ.Draconic[{{@index}}].ptSort" name="data.compétencesPJ.Draconic[{{@index}}].ptSort" value="{{this.ptSort}}">
-        {{/each}}
-    </div>
-    
-    {{!-- Onglet de gestion du combat du PJ --}}
-    <div class="tab" data-group="principal" data-tab="combat">
-        <label for="data.seuils.plusDom.value">{{localize 'RdD.actor.seuils.plusDom'}}</label>
-        <input type="number" id="data.seuils.plusDom.value" name="data.seuils.plusDom.value" value="{{data.seuils.plusDom.value}}">
-        <label for="data.seuils.protection.value">{{localize 'RdD.actor.seuils.protection'}}</label>
-        <input type="number" id="data.seuils.protection.value" name="data.seuils.protection.value" value="{{data.seuils.protection.value}}">
-    </div>
-    
-    {{!-- Onglet de gestion de la santé du PJ --}}
-    <div class="tab" data-group="principal" data-tab="santé">
-        <label for="data.seuils.sc.value">{{localize 'RdD.actor.seuils.sc'}}</label>
-        <input type="number" id="data.seuils.sc.value" name="data.seuils.sc.value" value="{{data.seuils.sc.value}}">
-        <label for="data.cptr.vie.value">{{localize 'RdD.actor.cptr.vie'}} ({{data.cptr.vie.max}})</label>
-        <input type="number" id="data.cptr.vie.value" name="data.cptr.vie.value" value="{{data.cptr.vie.value}}">
-        <label for="data.cptr.endurance.value">{{localize 'RdD.actor.cptr.endurance'}} ({{data.cptr.endurance.max}})</label>
-        <input type="number" id="data.cptr.endurance.value" name="data.cptr.endurance.value" value="{{data.cptr.endurance.value}}">
-        <p><span>{{localize 'RdD.actor.cptr.fatigue.titre'}}&nbsp;: </span><span>{{data.cptr.fatigue.niveauActuel}}</span></p>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau0'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[0].segments[0].max" name="data.cptr.fatigue.niveaux[0].segments[0].max" value="{{data.cptr.fatigue.niveaux.0.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[0].segments[0].value" name="data.cptr.fatigue.niveaux[0].segments[0].value" value="{{data.cptr.fatigue.niveaux.0.segments.0.value}}">
-            <span> — </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[0].segments[1].max" name="data.cptr.fatigue.niveaux[0].segments[1].max" value="{{data.cptr.fatigue.niveaux.0.segments.1.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[0].segments[1].value" name="data.cptr.fatigue.niveaux[0].segments[1].value" value="{{data.cptr.fatigue.niveaux.0.segments.1.value}}">
-            <span> — </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[0].segments[2].max" name="data.cptr.fatigue.niveaux[0].segments[2].max" value="{{data.cptr.fatigue.niveaux.0.segments.2.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[0].segments[2].value" name="data.cptr.fatigue.niveaux[0].segments[2].value" value="{{data.cptr.fatigue.niveaux.0.segments.2.value}}">
+    <section class="content">
+        <div class="tab" data-group="principal" data-tab="états">
+            <p><span>{{localize 'RdD.actor.états.étatGénéral'}}&nbsp;: </span><span>{{data.états.étatGénéral.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.ptViePerdus'}}&nbsp;: </span><span>{{data.états.ptViePerdus.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.malusFatigue'}}&nbsp;: </span><span>{{data.états.malusFatigue.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.malusEncombrement'}}&nbsp;: </span><span>{{data.états.malusEncombrement.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.malusÉthylisme'}}&nbsp;: </span><span>{{data.états.malusÉthylisme.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.malusArmure'}}&nbsp;: </span><span>{{data.états.malusArmure.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.sonné'}}&nbsp;: </span><span>{{data.états.sonné.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.inconscient'}}&nbsp;: </span><span>{{data.états.inconscient.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.coma'}}&nbsp;: </span><span>{{data.états.coma.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.malade'}}&nbsp;: </span><span>{{data.états.malade.value}}</span></p>
+            <p><span>{{localize 'RdD.actor.états.empoisonné'}}&nbsp;: </span><span>{{data.états.empoisonné.value}}</span></p>
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-1'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[1].segments[0].max" name="data.cptr.fatigue.niveaux[1].segments[0].max" value="{{data.cptr.fatigue.niveaux.1.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[1].segments[0].value" name="data.cptr.fatigue.niveaux[1].segments[0].value" value="{{data.cptr.fatigue.niveaux.1.segments.0.value}}">
-            <span> — </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[1].segments[1].max" name="data.cptr.fatigue.niveaux[1].segments[1].max" value="{{data.cptr.fatigue.niveaux.1.segments.1.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[1].segments[1].value" name="data.cptr.fatigue.niveaux[1].segments[1].value" value="{{data.cptr.fatigue.niveaux.1.segments.1.value}}">
-            <span> — </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[1].segments[2].max" name="data.cptr.fatigue.niveaux[1].segments[2].max" value="{{data.cptr.fatigue.niveaux.1.segments.2.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[1].segments[2].value" name="data.cptr.fatigue.niveaux[1].segments[2].value" value="{{data.cptr.fatigue.niveaux.1.segments.2.value}}">
+
+        {{!-- Onglet de gestion des caractéristiques du PJ --}}
+        <div class="tab" data-group="principal" data-tab="caractéristiques">
+            <div>
+                <label for="data.caracs.taille.value">{{localize 'RdD.actor.caracs.taille'}}</label>
+                <input type="number" id="data.caracs.taille.value" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
+                <input type="number" id="data.caracs.taille.xp" name="data.caracs.taille.xp" value="{{data.caracs.taille.xp}}">
+                <label for="data.caracs.apparence.value">{{localize 'RdD.actor.caracs.apparence'}}</label>
+                <input type="number" id="data.caracs.apparence.value" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
+                <input type="number" id="data.caracs.apparence.xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
+                <label for="data.caracs.constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
+                <input type="number" id="data.caracs.constitution.value" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
+                <input type="number" id="data.caracs.constitution.xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
+                <label for="data.caracs.force.value">{{localize 'RdD.actor.caracs.force'}}</label>
+                <input type="number" id="data.caracs.force.value" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
+                <input type="number" id="data.caracs.force.xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
+                <label for="data.caracs.agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
+                <input type="number" id="data.caracs.agilité.value" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
+                <input type="number" id="data.caracs.agilité.xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
+                <label for="data.caracs.dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
+                <input type="number" id="data.caracs.dextérité.value" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
+                <input type="number" id="data.caracs.dextérité.xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
+                <label for="data.caracs.vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
+                <input type="number" id="data.caracs.vue.value" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
+                <input type="number" id="data.caracs.vue.xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
+                <label for="data.caracs.ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
+                <input type="number" id="data.caracs.ouïe.value" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
+                <input type="number" id="data.caracs.ouïe.xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
+                <label for="data.caracs.odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
+                <input type="number" id="data.caracs.odorat_goût.value" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
+                <input type="number" id="data.caracs.odorat_goût.xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
+            </div>
+            <div>
+                <label for="data.caracs.volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
+                <input type="number" id="data.caracs.volonté.value" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
+                <input type="number" id="data.caracs.volonté.xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
+                <label for="data.caracs.intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
+                <input type="number" id="data.caracs.intellect.value" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
+                <input type="number" id="data.caracs.intellect.xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
+                <label for="data.caracs.empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
+                <input type="number" id="data.caracs.empathie.value" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
+                <input type="number" id="data.caracs.empathie.xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
+                <label for="data.caracs.rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
+                <input type="number" id="data.caracs.rêve.value" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
+                <input type="number" id="data.caracs.rêve.xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
+                <label for="data.caracs.chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
+                <input type="number" id="data.caracs.chance.value" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
+                <input type="number" id="data.caracs.chance.xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
+                <p><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span>{{data.caracsDériv.mêlée.value}}</span></p>
+                <p><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span>{{data.caracsDériv.tir.value}}</span></p>
+                <p><span>{{localize 'RdD.actor.caracsDériv.lancer'}}&nbsp;: </span><span>{{data.caracsDériv.lancer.value}}</span></p>
+                <p><span>{{localize 'RdD.actor.caracsDériv.dérobée'}}&nbsp;: </span><span>{{data.caracsDériv.dérobée.value}}</span></p>
+            </div>
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-2'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[2].segments[0].max" name="data.cptr.fatigue.niveaux[2].segments[0].max" value="{{data.cptr.fatigue.niveaux.2.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[2].segments[0].value" name="data.cptr.fatigue.niveaux[2].segments[0].value" value="{{data.cptr.fatigue.niveaux.2.segments.0.value}}">
+
+        {{!-- Onglet de gestion des compétences du PJ --}}
+        <div class="tab" data-group="principal" data-tab="compétences">
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcGénérales.titre'}}</h2>
+            {{#each data.compétencesPJ.CptcGénérales as |CptcGnrl|}}
+            <div>
+                <label for="data.compétencesPJ.CptcGénérales[{{@index}}].value">{{!-- localize 'RdD.actor.pj.compétencesPJ.CptcGénérales.liste.@index' --}}{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.CptcGénérales[{{@index}}].value" name="data.compétencesPJ.CptcGénérales[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.CptcGénérales[{{@index}}].xp" name="data.compétencesPJ.CptcGénérales[{{@index}}].xp" value="{{this.xp}}">
+            </div>
+            {{/each}}
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcMêlée.titre'}}</h2>
+            {{#each data.compétencesPJ.CptcMêlée}}
+            <div>
+                <label for="data.compétencesPJ.CptcMêlée[{{@index}}].value">{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.CptcMêlée[{{@index}}].value" name="data.compétencesPJ.CptcMêlée[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.CptcMêlée[{{@index}}].xp" name="data.compétencesPJ.CptcMêlée[{{@index}}].xp" value="{{this.xp}}">
+            </div>
+            {{/each}}
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcTirLancer.titre'}}</h2>
+            {{#each data.compétencesPJ.CptcTirLancer}}
+            <div>
+                <label for="data.compétencesPJ.CptcTirLancer[{{@index}}].value">{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.CptcTirLancer[{{@index}}].value" name="data.compétencesPJ.CptcTirLancer[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.CptcTirLancer[{{@index}}].xp" name="data.compétencesPJ.CptcTirLancer[{{@index}}].xp" value="{{this.xp}}">
+            </div>
+            {{/each}}
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcParticulières.titre'}}</h2>
+            {{#each data.compétencesPJ.CptcParticulières}}
+            <div>
+                <label for="data.compétencesPJ.CptcParticulières[{{@index}}].value">{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.CptcParticulières[{{@index}}].value" name="data.compétencesPJ.CptcParticulières[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.CptcParticulières[{{@index}}].xp" name="data.compétencesPJ.CptcParticulières[{{@index}}].xp" value="{{this.xp}}">
+            </div>
+            {{/each}}
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.CptcSpécialisées.titre'}}</h2>
+            {{#each data.compétencesPJ.CptcSpécialisées}}
+            <div>
+                <label for="data.compétencesPJ.CptcSpécialisées[{{@index}}].value">{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.CptcSpécialisées[{{@index}}].value" name="data.compétencesPJ.CptcSpécialisées[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.CptcSpécialisées[{{@index}}].xp" name="data.compétencesPJ.CptcSpécialisées[{{@index}}].xp" value="{{this.xp}}">
+            </div>
+            {{/each}}
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.Connaissances.titre'}}</h2>
+            {{#each data.compétencesPJ.Connaissances}}
+            <div>
+                <label for="data.compétencesPJ.Connaissances[{{@index}}].value">{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.Connaissances[{{@index}}].value" name="data.compétencesPJ.Connaissances[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.Connaissances[{{@index}}].xp" name="data.compétencesPJ.Connaissances[{{@index}}].xp" value="{{this.xp}}">
+            </div>
+            {{/each}}
+            <h2>{{localize 'RdD.actor.pj.compétencesPJ.Draconic.titre'}}</h2>
+            {{#each data.compétencesPJ.Draconic}}
+            <div>
+                <label for="data.compétencesPJ.Draconic[{{@index}}].value">{{this.label}}</label>
+                <input type="number" id="data.compétencesPJ.Draconic[{{@index}}].value" name="data.compétencesPJ.Draconic[{{@index}}].value" value="{{this.value}}">
+                <span> xp </span>
+                <input type="number" id="data.compétencesPJ.Draconic[{{@index}}].xp" name="data.compétencesPJ.Draconic[{{@index}}].xp" value="{{this.xp}}">
+                <span> pt sort </span>
+                <input type="number" id="data.compétencesPJ.Draconic[{{@index}}].ptSort" name="data.compétencesPJ.Draconic[{{@index}}].ptSort" value="{{this.ptSort}}">
+            </div>
+            {{/each}}
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-3'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[3].segments[0].max" name="data.cptr.fatigue.niveaux[3].segments[0].max" value="{{data.cptr.fatigue.niveaux.3.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[3].segments[0].value" name="data.cptr.fatigue.niveaux[3].segments[0].value" value="{{data.cptr.fatigue.niveaux.3.segments.0.value}}">
+
+        {{!-- Onglet de gestion du combat du PJ --}}
+        <div class="tab" data-group="principal" data-tab="combat">
+            <label for="data.seuils.plusDom.value">{{localize 'RdD.actor.seuils.plusDom'}}</label>
+            <input type="number" id="data.seuils.plusDom.value" name="data.seuils.plusDom.value" value="{{data.seuils.plusDom.value}}">
+            <label for="data.seuils.protection.value">{{localize 'RdD.actor.seuils.protection'}}</label>
+            <input type="number" id="data.seuils.protection.value" name="data.seuils.protection.value" value="{{data.seuils.protection.value}}">
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-4'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[4].segments[0].max" name="data.cptr.fatigue.niveaux[4].segments[0].max" value="{{data.cptr.fatigue.niveaux.4.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[4].segments[0].value" name="data.cptr.fatigue.niveaux[4].segments[0].value" value="{{data.cptr.fatigue.niveaux.4.segments.0.value}}">
+
+        {{!-- Onglet de gestion de la santé du PJ --}}
+        <div class="tab" data-group="principal" data-tab="santé">
+            <label for="data.seuils.sc.value">{{localize 'RdD.actor.seuils.sc'}}</label>
+            <input type="number" id="data.seuils.sc.value" name="data.seuils.sc.value" value="{{data.seuils.sc.value}}">
+            <label for="data.cptr.vie.value">{{localize 'RdD.actor.cptr.vie'}} ({{data.cptr.vie.max}})</label>
+            <input type="number" id="data.cptr.vie.value" name="data.cptr.vie.value" value="{{data.cptr.vie.value}}">
+            <label for="data.cptr.endurance.value">{{localize 'RdD.actor.cptr.endurance'}} ({{data.cptr.endurance.max}})</label>
+            <input type="number" id="data.cptr.endurance.value" name="data.cptr.endurance.value" value="{{data.cptr.endurance.value}}">
+            <p><span>{{localize 'RdD.actor.cptr.fatigue.titre'}}&nbsp;: </span><span>{{data.cptr.fatigue.niveauActuel}}</span></p>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau0'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[0].segments[0].max" name="data.cptr.fatigue.niveaux[0].segments[0].max" value="{{data.cptr.fatigue.niveaux.0.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[0].segments[0].value" name="data.cptr.fatigue.niveaux[0].segments[0].value" value="{{data.cptr.fatigue.niveaux.0.segments.0.value}}">
+                <span> — </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[0].segments[1].max" name="data.cptr.fatigue.niveaux[0].segments[1].max" value="{{data.cptr.fatigue.niveaux.0.segments.1.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[0].segments[1].value" name="data.cptr.fatigue.niveaux[0].segments[1].value" value="{{data.cptr.fatigue.niveaux.0.segments.1.value}}">
+                <span> — </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[0].segments[2].max" name="data.cptr.fatigue.niveaux[0].segments[2].max" value="{{data.cptr.fatigue.niveaux.0.segments.2.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[0].segments[2].value" name="data.cptr.fatigue.niveaux[0].segments[2].value" value="{{data.cptr.fatigue.niveaux.0.segments.2.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-1'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[1].segments[0].max" name="data.cptr.fatigue.niveaux[1].segments[0].max" value="{{data.cptr.fatigue.niveaux.1.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[1].segments[0].value" name="data.cptr.fatigue.niveaux[1].segments[0].value" value="{{data.cptr.fatigue.niveaux.1.segments.0.value}}">
+                <span> — </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[1].segments[1].max" name="data.cptr.fatigue.niveaux[1].segments[1].max" value="{{data.cptr.fatigue.niveaux.1.segments.1.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[1].segments[1].value" name="data.cptr.fatigue.niveaux[1].segments[1].value" value="{{data.cptr.fatigue.niveaux.1.segments.1.value}}">
+                <span> — </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[1].segments[2].max" name="data.cptr.fatigue.niveaux[1].segments[2].max" value="{{data.cptr.fatigue.niveaux.1.segments.2.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[1].segments[2].value" name="data.cptr.fatigue.niveaux[1].segments[2].value" value="{{data.cptr.fatigue.niveaux.1.segments.2.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-2'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[2].segments[0].max" name="data.cptr.fatigue.niveaux[2].segments[0].max" value="{{data.cptr.fatigue.niveaux.2.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[2].segments[0].value" name="data.cptr.fatigue.niveaux[2].segments[0].value" value="{{data.cptr.fatigue.niveaux.2.segments.0.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-3'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[3].segments[0].max" name="data.cptr.fatigue.niveaux[3].segments[0].max" value="{{data.cptr.fatigue.niveaux.3.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[3].segments[0].value" name="data.cptr.fatigue.niveaux[3].segments[0].value" value="{{data.cptr.fatigue.niveaux.3.segments.0.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-4'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[4].segments[0].max" name="data.cptr.fatigue.niveaux[4].segments[0].max" value="{{data.cptr.fatigue.niveaux.4.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[4].segments[0].value" name="data.cptr.fatigue.niveaux[4].segments[0].value" value="{{data.cptr.fatigue.niveaux.4.segments.0.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-5'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[5].segments[0].max" name="data.cptr.fatigue.niveaux[5].segments[0].max" value="{{data.cptr.fatigue.niveaux.5.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[5].segments[0].value" name="data.cptr.fatigue.niveaux[5].segments[0].value" value="{{data.cptr.fatigue.niveaux.5.segments.0.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-6'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[6].segments[0].max" name="data.cptr.fatigue.niveaux[6].segments[0].max" value="{{data.cptr.fatigue.niveaux.6.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[6].segments[0].value" name="data.cptr.fatigue.niveaux[6].segments[0].value" value="{{data.cptr.fatigue.niveaux.6.segments.0.value}}">
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.fatigue.niveau-7'}}&nbsp;: </span>
+                <input type="number" id="data.cptr.fatigue.niveaux[7].segments[0].max" name="data.cptr.fatigue.niveaux[7].segments[0].max" value="{{data.cptr.fatigue.niveaux.7.segments.0.max}}">
+                <span>/</span>
+                <input type="number" id="data.cptr.fatigue.niveaux[7].segments[0].value" name="data.cptr.fatigue.niveaux[7].segments[0].value" value="{{data.cptr.fatigue.niveaux.7.segments.0.value}}">
+            </div>
+            <p><span>{{localize 'RdD.actor.cptr.blessures.titre'}}&nbsp;:</span></p>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.blessures.légères'}}&nbsp;:</span>
+                <input type="checkbox" id="data.cptr.blessures.légères[0].blessé" name="data.cptr.blessures.légères[0].blessé" {{checked data.cptr.blessures.légères.0.blessé}}>
+                <input type="checkbox" id="data.cptr.blessures.légères[1].blessé" name="data.cptr.blessures.légères[1].blessé" {{checked data.cptr.blessures.légères.1.blessé}}>
+                <input type="checkbox" id="data.cptr.blessures.légères[2].blessé" name="data.cptr.blessures.légères[2].blessé" {{checked data.cptr.blessures.légères.2.blessé}}>
+                <input type="checkbox" id="data.cptr.blessures.légères[3].blessé" name="data.cptr.blessures.légères[3].blessé" {{checked data.cptr.blessures.légères.3.blessé}}>
+                <input type="checkbox" id="data.cptr.blessures.légères[4].blessé" name="data.cptr.blessures.légères[4].blessé" {{checked data.cptr.blessures.légères.4.blessé}}>
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.blessures.graves'}}&nbsp;:</span>
+                <input type="checkbox" id="data.cptr.blessures.graves[0].blessé" name="data.cptr.blessures.graves[0].blessé" {{checked data.cptr.blessures.graves.0.blessé}}>
+                <input type="checkbox" id="data.cptr.blessures.graves[1].blessé" name="data.cptr.blessures.graves[1].blessé" {{checked data.cptr.blessures.graves.1.blessé}}>
+            </div>
+            <div>
+                <span>{{localize 'RdD.actor.cptr.blessures.critique'}}&nbsp;:</span>
+                <input type="checkbox" id="data.cptr.blessures.critique[0].blessé" name="data.cptr.blessures.critique[0].blessé" {{checked data.cptr.blessures.critique.0.blessé}}>
+            </div>
+            <label for="data.seuils.sust.value">{{localize 'RdD.actor.seuils.sust'}}</label>
+            <input type="number" id="data.seuils.sust.value" name="data.seuils.sust.value" value="{{data.seuils.sust.value}}">
+            <label for="data.compteursPJ.sustentationQuotidienne.sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
+            <input type="number" id="data.compteursPJ.sustentationQuotidienne.sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
+            <label for="data.compteursPJ.sustentationQuotidienne.eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
+            <input type="number" id="data.compteursPJ.sustentationQuotidienne.eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.compteursPJ.sustentationQuotidienne.eau}}">
+            <label for="data.cptr.éthylisme.value">{{localize 'RdD.actor.cptr.éthylisme.titre'}}</label>
+            <input type="number" id="data.cptr.éthylisme.value" name="data.cptr.éthylisme.value" value="{{data.cptr.éthylisme.value}}">
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-5'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[5].segments[0].max" name="data.cptr.fatigue.niveaux[5].segments[0].max" value="{{data.cptr.fatigue.niveaux.5.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[5].segments[0].value" name="data.cptr.fatigue.niveaux[5].segments[0].value" value="{{data.cptr.fatigue.niveaux.5.segments.0.value}}">
+
+        {{!-- Onglet de gestion du haut-rêve du PJ --}}
+        <div class="tab" data-group="principal" data-tab="haut-rêve">
+            <label for="data.cptr.hautRêve.seuil">{{localize 'RdD.actor.cptr.hautRêve.seuil'}}</label>
+            <input type="number" id="data.cptr.hautRêve.seuil" name="data.cptr.hautRêve.seuil" value="{{data.cptr.hautRêve.seuil}}">
+            <label for="data.cptr.hautRêve.value">{{localize 'RdD.actor.cptr.hautRêve.value'}}</label>
+            <input type="number" id="data.cptr.hautRêve.value" name="data.cptr.hautRêve.value" value="{{data.cptr.hautRêve.value}}">
+            <label for="data.cptr.hautRêve.demiRêve.colonne">{{localize 'RdD.actor.cptr.hautRêve.demiRêve'}}</label>
+            <input type="text" id="data.cptr.hautRêve.demiRêve.colonne" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.cptr.hautRêve.demiRêve.colonne}}">
+            <input type="number" id="data.cptr.hautRêve.demiRêve.ligne" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.cptr.hautRêve.demiRêve.ligne}}">
+            <label for="data.cptr.hautRêve.refoulement">{{localize 'RdD.actor.cptr.hautRêve.refoulement'}}</label>
+            <input type="number" id="data.cptr.hautRêve.refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.cptr.hautRêve.refoulement}}">
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-6'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[6].segments[0].max" name="data.cptr.fatigue.niveaux[6].segments[0].max" value="{{data.cptr.fatigue.niveaux.6.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[6].segments[0].value" name="data.cptr.fatigue.niveaux[6].segments[0].value" value="{{data.cptr.fatigue.niveaux.6.segments.0.value}}">
+
+        {{!-- Onglet de gestion du vécu du PJ --}}
+        <div class="tab" data-group="principal" data-tab="vécu">
+            <div>
+                <label for="data.compteursPJ.ptChance.value">{{localize 'RdD.actor.pj.compteursPJ.ptChance'}}</label>
+                <input type="number" id="data.compteursPJ.ptChance.value" name="data.compteursPJ.ptChance.value" value="{{data.compteursPJ.ptChance.value}}">
+            </div>
+            <div>
+                <label for="data.compteursPJ.moral.value">{{localize 'RdD.actor.pj.compteursPJ.moral.titre'}}</label>
+                <input type="number" id="data.compteursPJ.moral.value" name="data.compteursPJ.moral.value" value="{{data.compteursPJ.moral.value}}">
+                <label for="data.compteursPJ.moral.exalt_dissol">{{localize 'RdD.actor.pj.compteursPJ.moral.exalt_dissol'}}</label>
+                <input type="number" id="data.compteursPJ.moral.exalt_dissol" name="data.compteursPJ.moral.exalt_dissol" value="{{data.compteursPJ.moral.exalt_dissol}}">
+            </div>
+            <div>
+                <label for="data.compteursPJ.cœur.value">{{localize 'RdD.actor.pj.compteursPJ.cœur.titre'}}</label>
+                <input type="number" id="data.compteursPJ.cœur.value" name="data.compteursPJ.cœur.value" value="{{data.compteursPJ.cœur.value}}">
+                <label for="data.compteursPJ.cœur.personneConcernée">{{localize 'RdD.actor.pj.compteursPJ.cœur.personneConcernée'}}</label>
+                <input type="text" id="data.compteursPJ.cœur.personneConcernée" name="data.compteursPJ.cœur.personneConcernée" value="{{data.compteursPJ.cœur.personneConcernée}}">
+            </div>
+            <div>
+                <label for="data.compteursPJ.destinée.ptDestinée">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptDestinée'}}</label>
+                <input type="number" id="data.compteursPJ.destinée.ptDestinée" name="data.compteursPJ.destinée.ptDestinée" value="{{data.compteursPJ.destinée.ptDestinée}}">
+                <label for="data.compteursPJ.destinée.ptVoyage">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptVoyage'}}</label>
+                <input type="number" id="data.compteursPJ.destinée.ptVoyage" name="data.compteursPJ.destinée.ptVoyage" value="{{data.compteursPJ.destinée.ptVoyage}}">
+            </div>
+            <label for="data.compteursPJ.stress.value">{{localize 'RdD.actor.pj.compteursPJ.stress'}}</label>
+            <input type="number" id="data.compteursPJ.stress.value" name="data.compteursPJ.stress.value" value="{{data.compteursPJ.stress.value}}">
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.fatigue.niveau-7'}}&nbsp;: </span>
-            <input type="number" id="data.cptr.fatigue.niveaux[7].segments[0].max" name="data.cptr.fatigue.niveaux[7].segments[0].max" value="{{data.cptr.fatigue.niveaux.7.segments.0.max}}">
-            <span>/</span>
-            <input type="number" id="data.cptr.fatigue.niveaux[7].segments[0].value" name="data.cptr.fatigue.niveaux[7].segments[0].value" value="{{data.cptr.fatigue.niveaux.7.segments.0.value}}">
+
+        {{!-- Onglet de gestion de l'inventaire du PJ --}}
+        <div class="tab" data-group="principal" data-tab="inventaire">
+            <label for="data.seuils.encombrement.value">{{localize 'RdD.actor.seuils.encombrement'}}</label>
+            <input type="number" id="data.seuils.encombrement.value" name="data.seuils.encombrement.value" value="{{data.seuils.encombrement.value}}">
+            <label for="data.cptr.encombrement.value">{{localize 'RdD.actor.cptr.encombrement'}}</label>
+            <input type="number" id="data.cptr.encombrement.value" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
+            <label for="data.cptr.argent.value">{{localize 'RdD.actor.cptr.argent'}}</label>
+            <input type="number" id="data.cptr.argent.value" name="data.cptr.argent.value" value="{{data.cptr.argent.value}}">
         </div>
-        <p><span>{{localize 'RdD.actor.cptr.blessures.titre'}}&nbsp;:</span></p>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.blessures.légères'}}&nbsp;:</span>
-            <input type="checkbox" id="data.cptr.blessures.légères[0].blessé" name="data.cptr.blessures.légères[0].blessé" {{checked data.cptr.blessures.légères.0.blessé}}>
-            <input type="checkbox" id="data.cptr.blessures.légères[1].blessé" name="data.cptr.blessures.légères[1].blessé" {{checked data.cptr.blessures.légères.1.blessé}}>
-            <input type="checkbox" id="data.cptr.blessures.légères[2].blessé" name="data.cptr.blessures.légères[2].blessé" {{checked data.cptr.blessures.légères.2.blessé}}>
-            <input type="checkbox" id="data.cptr.blessures.légères[3].blessé" name="data.cptr.blessures.légères[3].blessé" {{checked data.cptr.blessures.légères.3.blessé}}>
-            <input type="checkbox" id="data.cptr.blessures.légères[4].blessé" name="data.cptr.blessures.légères[4].blessé" {{checked data.cptr.blessures.légères.4.blessé}}>
+
+        {{!-- Onglet de gestion de la description du PJ --}}
+        <div class="tab" data-group="principal" data-tab="description">
+            {{editor content=data.signesPart.description.value target="data.signesPart.description.value" button=true owner=owner editable=editable}}
         </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.blessures.graves'}}&nbsp;:</span>
-            <input type="checkbox" id="data.cptr.blessures.graves[0].blessé" name="data.cptr.blessures.graves[0].blessé" {{checked data.cptr.blessures.graves.0.blessé}}>
-            <input type="checkbox" id="data.cptr.blessures.graves[1].blessé" name="data.cptr.blessures.graves[1].blessé" {{checked data.cptr.blessures.graves.1.blessé}}>
-        </div>
-        <div>
-            <span>{{localize 'RdD.actor.cptr.blessures.critique'}}&nbsp;:</span>
-            <input type="checkbox" id="data.cptr.blessures.critique[0].blessé" name="data.cptr.blessures.critique[0].blessé" {{checked data.cptr.blessures.critique.0.blessé}}>
-        </div>
-        <label for="data.seuils.sust.value">{{localize 'RdD.actor.seuils.sust'}}</label>
-        <input type="number" id="data.seuils.sust.value" name="data.seuils.sust.value" value="{{data.seuils.sust.value}}">
-        <label for="data.compteursPJ.sustentationQuotidienne.sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
-        <input type="number" id="data.compteursPJ.sustentationQuotidienne.sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
-        <label for="data.compteursPJ.sustentationQuotidienne.eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
-        <input type="number" id="data.compteursPJ.sustentationQuotidienne.eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.compteursPJ.sustentationQuotidienne.eau}}">
-        <label for="data.cptr.éthylisme.value">{{localize 'RdD.actor.cptr.éthylisme.titre'}}</label>
-        <input type="number" id="data.cptr.éthylisme.value" name="data.cptr.éthylisme.value" value="{{data.cptr.éthylisme.value}}">
-    </div>
-    
-    {{!-- Onglet de gestion du haut-rêve du PJ --}}
-    <div class="tab" data-group="principal" data-tab="haut-rêve">
-        <label for="data.cptr.hautRêve.seuil">{{localize 'RdD.actor.cptr.hautRêve.seuil'}}</label>
-        <input type="number" id="data.cptr.hautRêve.seuil" name="data.cptr.hautRêve.seuil" value="{{data.cptr.hautRêve.seuil}}">
-        <label for="data.cptr.hautRêve.value">{{localize 'RdD.actor.cptr.hautRêve.value'}}</label>
-        <input type="number" id="data.cptr.hautRêve.value" name="data.cptr.hautRêve.value" value="{{data.cptr.hautRêve.value}}">
-        <label for="data.cptr.hautRêve.demiRêve.colonne">{{localize 'RdD.actor.cptr.hautRêve.demiRêve'}}</label>
-        <input type="text" id="data.cptr.hautRêve.demiRêve.colonne" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.cptr.hautRêve.demiRêve.colonne}}">
-        <input type="number" id="data.cptr.hautRêve.demiRêve.ligne" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.cptr.hautRêve.demiRêve.ligne}}">
-        <label for="data.cptr.hautRêve.refoulement">{{localize 'RdD.actor.cptr.hautRêve.refoulement'}}</label>
-        <input type="number" id="data.cptr.hautRêve.refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.cptr.hautRêve.refoulement}}">
-    </div>
-    
-    {{!-- Onglet de gestion du vécu du PJ --}}
-    <div class="tab" data-group="principal" data-tab="vécu">
-        <label for="data.compteursPJ.ptChance.value">{{localize 'RdD.actor.pj.compteursPJ.ptChance'}}</label>
-        <input type="number" id="data.compteursPJ.ptChance.value" name="data.compteursPJ.ptChance.value" value="{{data.compteursPJ.ptChance.value}}">
-        <label for="data.compteursPJ.moral.value">{{localize 'RdD.actor.pj.compteursPJ.moral.titre'}}</label>
-        <input type="number" id="data.compteursPJ.moral.value" name="data.compteursPJ.moral.value" value="{{data.compteursPJ.moral.value}}">
-        <label for="data.compteursPJ.moral.exalt_dissol">{{localize 'RdD.actor.pj.compteursPJ.moral.exalt_dissol'}}</label>
-        <input type="number" id="data.compteursPJ.moral.exalt_dissol" name="data.compteursPJ.moral.exalt_dissol" value="{{data.compteursPJ.moral.exalt_dissol}}">
-        <label for="data.compteursPJ.cœur.value">{{localize 'RdD.actor.pj.compteursPJ.cœur.titre'}}</label>
-        <input type="number" id="data.compteursPJ.cœur.value" name="data.compteursPJ.cœur.value" value="{{data.compteursPJ.cœur.value}}">
-        <label for="data.compteursPJ.cœur.personneConcernée">{{localize 'RdD.actor.pj.compteursPJ.cœur.personneConcernée'}}</label>
-        <input type="text" id="data.compteursPJ.cœur.personneConcernée" name="data.compteursPJ.cœur.personneConcernée" value="{{data.compteursPJ.cœur.personneConcernée}}">
-        <label for="data.compteursPJ.destinée.ptDestinée">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptDestinée'}}</label>
-        <input type="number" id="data.compteursPJ.destinée.ptDestinée" name="data.compteursPJ.destinée.ptDestinée" value="{{data.compteursPJ.destinée.ptDestinée}}">
-        <label for="data.compteursPJ.destinée.ptVoyage">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptVoyage'}}</label>
-        <input type="number" id="data.compteursPJ.destinée.ptVoyage" name="data.compteursPJ.destinée.ptVoyage" value="{{data.compteursPJ.destinée.ptVoyage}}">
-        <label for="data.compteursPJ.stress.value">{{localize 'RdD.actor.pj.compteursPJ.stress'}}</label>
-        <input type="number" id="data.compteursPJ.stress.value" name="data.compteursPJ.stress.value" value="{{data.compteursPJ.stress.value}}">
-    </div>
-    
-    {{!-- Onglet de gestion de l'inventaire du PJ --}}
-    <div class="tab" data-group="principal" data-tab="inventaire">
-        <label for="data.seuils.encombrement.value">{{localize 'RdD.actor.seuils.encombrement'}}</label>
-        <input type="number" id="data.seuils.encombrement.value" name="data.seuils.encombrement.value" value="{{data.seuils.encombrement.value}}">
-        <label for="data.cptr.encombrement.value">{{localize 'RdD.actor.cptr.encombrement'}}</label>
-        <input type="number" id="data.cptr.encombrement.value" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
-        <label for="data.cptr.argent.value">{{localize 'RdD.actor.cptr.argent'}}</label>
-        <input type="number" id="data.cptr.argent.value" name="data.cptr.argent.value" value="{{data.cptr.argent.value}}">
-    </div>
-    
-    {{!-- Onglet de gestion de la description du PJ --}}
-    <div class="tab" data-group="principal" data-tab="description">
-        {{editor content=data.signesPart.description.value target="data.signesPart.description.value" button=true owner=owner editable=editable}}
-    </div>
-    
+    </section>
     <!--
     <div class="tab items" data-tab="items">
         <ol class="items-list">
