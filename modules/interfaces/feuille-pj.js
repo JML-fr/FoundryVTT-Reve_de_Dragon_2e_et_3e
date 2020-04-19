@@ -41,7 +41,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		return mergeObject(super.defaultOptions, {
 			classes: ["RdD", "sheet", "actor"],
 			template: "systems/rêvededragon/templates/feuille-pj.html",
-			width: 800,
+			width: 850,
 			height: 600,
 			popOut: true,
 			submitOnChange: false,
@@ -61,7 +61,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	getData() {
 		console.log(`RdD | RdDFeuillePJ.getData`);
 		let data = super.getData();
-		// *** Utilité à déterminer ***
+		// ===RàF=== *** Utilité à déterminer ***
 		//data.dtypes = ["String", "Number", "Boolean"];
 		//for ( let attr of Object.values(data.data.attributes) ) {
 		//	attr.isCheckbox = attr.dtype === "Boolean";
@@ -83,6 +83,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		if (!this.options.editable) return;
 
 		// Active le MCE
+		/*
 		let editor = html.find(".editor-content");
 		TextEditor.create({
 			target: editor[0],
@@ -98,20 +99,105 @@ export class RdDFeuillePJ extends ActorSheet {
 			this.mce = ed[0];
 			this.mce.focus();
 		});
+		*/
 
 		// ---------------------
 		// Contrôle de la saisie
 		// ---------------------
+		// Signes particuliers :
 		html.find("#data\\.signesPart\\.hn\\.value").on("change.rêvededragon", {fctCtrl: "ctrlHeureNaissance"}, this._ctrlSaisie.bind(this));
 		html.find("#data\\.signesPart\\.sexe\\.value").on("change.rêvededragon", {fctCtrl: "ctrlSexe"}, this._ctrlSaisie.bind(this));
 		html.find("#data\\.signesPart\\.âge\\.value").on("change.rêvededragon", {fctCtrl: "ctrlÂge"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.taille\\.value").on("change.rêvededragon", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.taille\\.value").on("change.rêvededragon", {fctCtrl: "ctrlSPTaille"}, this._ctrlSaisie.bind(this));
 		html.find("#data\\.signesPart\\.poids\\.value").on("change.rêvededragon", {fctCtrl: "ctrlPoids"}, this._ctrlSaisie.bind(this));
 		html.find("#data\\.signesPart\\.beauté\\.value").on("change.rêvededragon", {fctCtrl: "ctrlBeauté"}, this._ctrlSaisie.bind(this));
 		html.find("#data\\.signesPart\\.latéralité\\.value").on("change.rêvededragon", {fctCtrl: "ctrlLatéralité"}, this._ctrlSaisie.bind(this));
 
+		// Caractéristiques :
+		html.find("#data\\.caracs\\.taille\\.value").on("change.rêvededragon", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.taille\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.apparence\\.value").on("change.rêvededragon", {fctCtrl: "ctrlApparence"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.apparence\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.constitution\\.value").on("change.rêvededragon", {fctCtrl: "ctrlConstitution"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.constitution\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.force\\.value").on("change.rêvededragon", {fctCtrl: "ctrlForce"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.force\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.agilité\\.value").on("change.rêvededragon", {fctCtrl: "ctrlAgilité"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.agilité\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.dextérité\\.value").on("change.rêvededragon", {fctCtrl: "ctrlDextérité"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.dextérité\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.vue\\.value").on("change.rêvededragon", {fctCtrl: "ctrlVue"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.vue\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.ouïe\\.value").on("change.rêvededragon", {fctCtrl: "ctrlOuïe"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.ouïe\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.odorat_goût\\.value").on("change.rêvededragon", {fctCtrl: "ctrlOdorat_goût"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.odorat_goût\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.volonté\\.value").on("change.rêvededragon", {fctCtrl: "ctrlVolonté"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.volonté\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.intellect\\.value").on("change.rêvededragon", {fctCtrl: "ctrlIntellect"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.intellect\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.empathie\\.value").on("change.rêvededragon", {fctCtrl: "ctrlEmpathie"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.empathie\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.rêve\\.value").on("change.rêvededragon", {fctCtrl: "ctrlRêve"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.rêve\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.chance\\.value").on("change.rêvededragon", {fctCtrl: "ctrlChance"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.chance\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+
+		// Compétences :
+		for (let index = 0; index < 11; index++) {
+			let élémentRecherché = "#cptcGnrl\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcGnrl"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcGnrl\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+		}
+		for (let index = 0; index < 13; index++) {
+			let élémentRecherché = "#cptcMl\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcMl"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcMl\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+		}
+		for (let index = 0; index < 6; index++) {
+			let élémentRecherché = "#cptcTL\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcTL"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcTL\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+		}
+		for (let index = 0; index < 16; index++) {
+			let élémentRecherché = "#cptcPart\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcPart"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcPart\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+		}
+		for (let index = 0; index < 10; index++) {
+			let élémentRecherché = "#cptcSpé\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcSpé"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcSpé\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+		}
+		for (let index = 0; index < 7; index++) {
+			let élémentRecherché = "#cptcCnsc\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcCnsc"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcCnsc\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+		}
+		for (let index = 0; index < 4; index++) {
+			let élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.value";
+			console.log("RdD | RdDFeuillePJ.activateListeners " + élémentRecherché);
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcDrac"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.xp";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.ptSort";
+			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlPtSort"}, this._ctrlSaisie.bind(this));			
+		}
+
 		// Update Inventory Item
-		/* ==> plus tard
+		/* ===RàF=== ==> plus tard
 		html.find(".item-edit").click(ev => {
 			let itemId = Number(
 				$(ev.currentTarget)
@@ -156,7 +242,7 @@ export class RdDFeuillePJ extends ActorSheet {
 			if (erreur != "") {
 				$(event.currentTarget).addClass("erreur");
 				$(event.currentTarget).focus();
-				ui.notifications.error(erreur);
+				ui.notifications.warn(erreur);
 				throw new Error(erreur);
 			}
 			else {
@@ -171,6 +257,7 @@ export class RdDFeuillePJ extends ActorSheet {
 
 	/**
 	 * Surcharge la fonction de préparation des données du PJ
+	 * On n'effectue de mise à jour que s'il n'y a pas d'erreur restante sur la feuille de PJ
 	 *
 	 * @param {Event} event
 	 * @param {Object|null} updateData

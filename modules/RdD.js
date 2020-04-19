@@ -25,6 +25,20 @@ Hooks.once("init", async function() {
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleObjet, { types: ["équipement"], makeDefault: true});
 	*/
+
+	// Définit les utilitaires d'affichage
+	/**
+	 * Remplace dans le premier paramètre la chaîne de caractères "&&&" par les paramètres successifs suivants
+	 * pour la restituer à un autre Helper de Handlebars
+	 * @param {String} expression La chaîne de caractère dans laquelle il faut insérer un ou des éléments
+	 * @param {Array} listeÉléments Liste des éléments à insérer en remplacement de la chaîne de caractère "&&&"
+	 */
+	Handlebars.registerHelper('RdDRemplaceExpression', function (expression, ...listeÉléments) {
+		for (let index = 0; index < listeÉléments.length - 1; index++) {
+			expression = expression.replace("&&&", listeÉléments[index]);
+		}
+		return expression;
+	})
   });
 
 /* ------------------------------------ */
