@@ -7,6 +7,7 @@
  */
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
 import * as RdDFObjet from "./interfaces/feuille-objet.js";
+import * as Acteurs from "./acteurs/actorRdD.js";
 
 /* -------------------------------------------- */
 /* Initialisations                              */
@@ -15,6 +16,7 @@ import * as RdDFObjet from "./interfaces/feuille-objet.js";
 Hooks.once("init", async function() {
 	console.log(`RdD | Initialisation du système Rêve de Dragon`);
 	// Mémorise la configuration
+	CONFIG.Actor.entityClass = Acteurs.ActorRdD;
 
 	// Mémorise les paramètres du système de jeu
   

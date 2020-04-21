@@ -76,17 +76,6 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/build/rêvededragon/modules/acteurs/pj.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/modules/acteurs/pj.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"/build/rêvededragon/modules/interfaces/feuille-objet.js": {
 		"bF": 0,
 		"ft": 64,
@@ -204,17 +193,6 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/rêvededragon/modules/acteurs/actorRdD.js",
-		"oF": 1,
-		"sC": 3,
-		"tS": 0
-		},
-	"/modules/acteurs/pj.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/modules/acteurs/pj.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -346,7 +324,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 608968174.48307705
+	"lastBuiltDate": 609110848.84734595
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

@@ -556,16 +556,13 @@
 
         {{!-- Onglet de gestion du combat du PJ --}}
         <div class="tab" data-group="principal" data-tab="combat">
-            <label for="data.seuils.plusDom.value">{{localize 'RdD.actor.seuils.plusDom'}}</label>
-            <input type="number" id="data.seuils.plusDom.value" name="data.seuils.plusDom.value" value="{{data.seuils.plusDom.value}}">
-            <label for="data.seuils.protection.value">{{localize 'RdD.actor.seuils.protection'}}</label>
-            <input type="number" id="data.seuils.protection.value" name="data.seuils.protection.value" value="{{data.seuils.protection.value}}">
+            <p><span>{{localize 'RdD.actor.seuils.plusDom'}}&nbsp;: </span><span>{{data.seuils.plusDom.value}}</span</p>
+            <p><span>{{localize 'RdD.actor.seuils.protection'}}&nbsp;: </span><span>{{data.seuils.protection.value}}</span</p>
         </div>
 
         {{!-- Onglet de gestion de la santé du PJ --}}
         <div class="tab" data-group="principal" data-tab="santé">
-            <label for="data.seuils.sc.value">{{localize 'RdD.actor.seuils.sc'}}</label>
-            <input type="number" id="data.seuils.sc.value" name="data.seuils.sc.value" value="{{data.seuils.sc.value}}">
+            <p><span>{{localize 'RdD.actor.seuils.sc'}}&nbsp;: </span><span>{{data.seuils.sc.value}}</span</p>
             <label for="data.cptr.vie.value">{{localize 'RdD.actor.cptr.vie'}} ({{data.cptr.vie.max}})</label>
             <input type="number" id="data.cptr.vie.value" name="data.cptr.vie.value" value="{{data.cptr.vie.value}}">
             <label for="data.cptr.endurance.value">{{localize 'RdD.actor.cptr.endurance'}} ({{data.cptr.endurance.max}})</label>
@@ -575,65 +572,65 @@
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau0'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_0.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_0.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_0.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_0.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_0.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_0.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_0.segments.élt_0.max}}</span>
                 <span> — </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_0.segments.élt_1.value" name="data.cptr.fatigue.niveaux.élt_0.segments.élt_1.value" value="{{data.cptr.fatigue.niveaux.élt_0.segments.élt_1.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_0.segments.élt_2.max" name="data.cptr.fatigue.niveaux.élt_0.segments.élt_2.max" value="{{data.cptr.fatigue.niveaux.élt_0.segments.élt_2.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_0.segments.élt_1.max}}</span>
                 <span> — </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_0.segments.élt_2.value" name="data.cptr.fatigue.niveaux.élt_0.segments.élt_2.value" value="{{data.cptr.fatigue.niveaux.élt_0.segments.élt_2.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_0.segments.élt_1.max" name="data.cptr.fatigue.niveaux.élt_0.segments.élt_1.max" value="{{data.cptr.fatigue.niveaux.élt_0.segments.élt_1.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_0.segments.élt_2.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-1'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_1.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_1.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_1.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_1.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_1.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_1.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_1.segments.élt_0.max}}</span>
                 <span> — </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_1.segments.élt_1.value" name="data.cptr.fatigue.niveaux.élt_1.segments.élt_1.value" value="{{data.cptr.fatigue.niveaux.élt_1.segments.élt_1.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_1.segments.élt_1.max" name="data.cptr.fatigue.niveaux.élt_1.segments.élt_1.max" value="{{data.cptr.fatigue.niveaux.élt_1.segments.élt_1.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_1.segments.élt_1.max}}</span>
                 <span> — </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_1.segments.élt_2.value" name="data.cptr.fatigue.niveaux.élt_1.segments.élt_2.value" value="{{data.cptr.fatigue.niveaux.élt_1.segments.élt_2.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_1.segments.élt_2.max" name="data.cptr.fatigue.niveaux.élt_1.segments.élt_2.max" value="{{data.cptr.fatigue.niveaux.élt_1.segments.élt_2.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_1.segments.élt_2.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-2'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_2.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_2.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_2.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_2.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_2.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_2.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_2.segments.élt_0.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-3'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_3.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_3.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_3.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_3.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_3.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_3.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_3.segments.élt_0.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-4'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_4.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_4.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_4.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_4.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_4.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_4.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_4.segments.élt_0.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-5'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_5.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_5.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_5.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_5.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_5.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_5.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_5.segments.élt_0.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-6'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_6.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_6.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_6.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_6.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_6.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_6.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_6.segments.élt_0.max}}</span>
             </div>
             <div>
                 <span>{{localize 'RdD.actor.cptr.fatigue.niveau-7'}}&nbsp;: </span>
                 <input type="number" id="data.cptr.fatigue.niveaux.élt_7.segments.élt_0.value" name="data.cptr.fatigue.niveaux.élt_7.segments.élt_0.value" value="{{data.cptr.fatigue.niveaux.élt_7.segments.élt_0.value}}">
                 <span>/</span>
-                <input type="number" id="data.cptr.fatigue.niveaux.élt_7.segments.élt_0.max" name="data.cptr.fatigue.niveaux.élt_7.segments.élt_0.max" value="{{data.cptr.fatigue.niveaux.élt_7.segments.élt_0.max}}">
+                <span>{{data.cptr.fatigue.niveaux.élt_7.segments.élt_0.max}}</span>
             </div>
             <p><span>{{localize 'RdD.actor.cptr.blessures.titre'}}&nbsp;:</span></p>
             <div>
@@ -653,8 +650,7 @@
                 <span>{{localize 'RdD.actor.cptr.blessures.critique'}}&nbsp;:</span>
                 <input type="checkbox" id="data.cptr.blessures.critique.élt_0.blessé" name="data.cptr.blessures.critique.élt_0.blessé" {{checked data.cptr.blessures.critique.élt_0.blessé}}>
             </div>
-            <label for="data.seuils.sust.value">{{localize 'RdD.actor.seuils.sust'}}</label>
-            <input type="number" id="data.seuils.sust.value" name="data.seuils.sust.value" value="{{data.seuils.sust.value}}">
+            <p><span>{{localize 'RdD.actor.seuils.sust'}}&nbsp;: </span><span>{{data.seuils.sust.value}}</span</p>
             <label for="data.compteursPJ.sustentationQuotidienne.sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
             <input type="number" id="data.compteursPJ.sustentationQuotidienne.sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
             <label for="data.compteursPJ.sustentationQuotidienne.eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
@@ -706,8 +702,7 @@
 
         {{!-- Onglet de gestion de l'inventaire du PJ --}}
         <div class="tab" data-group="principal" data-tab="inventaire">
-            <label for="data.seuils.encombrement.value">{{localize 'RdD.actor.seuils.encombrement'}}</label>
-            <input type="number" id="data.seuils.encombrement.value" name="data.seuils.encombrement.value" value="{{data.seuils.encombrement.value}}">
+            <p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.seuils.encombrement.value}}</span</p>
             <label for="data.cptr.encombrement.value">{{localize 'RdD.actor.cptr.encombrement'}}</label>
             <input type="number" id="data.cptr.encombrement.value" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
             <label for="data.cptr.argent.total">{{localize 'RdD.actor.cptr.argent'}}</label>
