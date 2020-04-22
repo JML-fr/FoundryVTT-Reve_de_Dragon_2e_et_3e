@@ -15,8 +15,8 @@
 		"uuidString": "95C34145-79E0-4415-93F4-8A0A68BC2AC5"
 		},
 	{
-		"name": "Suprime .gitignore",
-		"scriptSourceString": "rm build/rêvededragon/.gitignore",
+		"name": "Suprime .gitignore et le dossier less",
+		"scriptSourceString": "rm build/rêvededragon/.gitignore\nrm -r build/rêvededragon/less",
 		"scriptType": 1,
 		"scriptUUIDString": "2E5ABDC0-A3E2-4A0B-AE7B-3DA4D48A148F",
 		"stepType": 2,
@@ -130,6 +130,14 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/build/rêvededragon/styles/RdD.css.map": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/rêvededragon/build/rêvededragon/styles/RdD.css.map",
+		"oF": 0
+		},
 	"/build/rêvededragon/system.json": {
 		"ft": 524288,
 		"oA": 0,
@@ -185,6 +193,32 @@
 		"oF": 1,
 		"oO": 0,
 		"oS": 0
+		},
+	"/less/RdD.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/build/rêvededragon/less/RdD.css",
+		"oF": 1,
+		"oS": 3
+		},
+	"/less/RdD.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 0,
+		"oAP": "/build/rêvededragon/styles/RdD.css",
+		"oF": 1,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 1,
+		"sU": 1
 		},
 	"/modules/acteurs/actorRdD.js": {
 		"bF": 0,
@@ -263,16 +297,6 @@
 		"oO": 0,
 		"oS": 0
 		},
-	"/styles/RdD.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "/build/rêvededragon/styles/RdD.css",
-		"oF": 0,
-		"oS": 3
-		},
 	"/system.json": {
 		"ft": 524288,
 		"oA": 0,
@@ -324,7 +348,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 609110848.84734595
+	"lastBuiltDate": 609234319.42947304
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

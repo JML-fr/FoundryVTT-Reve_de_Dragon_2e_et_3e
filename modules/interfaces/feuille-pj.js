@@ -9,16 +9,6 @@ import {ActorRdD} from "../acteurs/actorRdD.js";
  * @class
  */
 export class RdDFeuillePJ extends ActorSheet {
-	constructor(...args) {
-		super(...args);
-
-		/**
-		 * Garde trace de l'onglet actif
-		 * @type {string}
-		 * @default "états" Onglet affiché par défaut
-		 */
-		this._sheetTab = "états";
-	}
 
 	/* -------------------------------------------- */
 
@@ -39,14 +29,12 @@ export class RdDFeuillePJ extends ActorSheet {
 		 * @property {boolean} options.resizable fenêtre redimentionable
 		 */
 		return mergeObject(super.defaultOptions, {
-			classes: ["RdD", "sheet", "actor"],
+			classes: ["RdD", "feuille", "actor", "pj"],
 			template: "systems/rêvededragon/templates/feuille-pj.html",
 			width: 900,
 			height: 600,
-			popOut: true,
 			submitOnChange: false,
-			resizable: true,
-			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: this._sheetTab}]
+			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: "états"}]
 		});
 	}
 

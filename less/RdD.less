@@ -1,0 +1,65 @@
+/******************************************************************/
+/*=============== TABLE DES MATIÈRES =============================*/
+/******************************************************************/
+/*   1. POLICES LOCALES                                           */
+/*   2. INTERFACE UTILISATEUR GÉNÉRALE                            */
+/*   3. BARRE LATÉRALE                                            */
+/*   4.1. ACTOR: FEUILLE PJ                                       */
+/*   4.2. ACTOR: FEUILLE PNJ                                      */
+/*   4.3. ACTOR: FEUILLE HUMANOÏDE                                */
+/*   4.4. ACTOR: FEUILLE ANIMAL                                   */
+/*   4.5. ACTOR: FEUILLE ENTITÉ INC                               */
+/*   4.6. ACTOR: FEUILLE ENTITÉ NON INCARNÉE                      */
+/*   5.1. ITEM: FEUILLE ÉQUIPEMENT                                */
+/*   5.2. ITEM: FEUILLE CONTENANT                                 */
+/*   5.3. ITEM: FEUILLE NOURRITURE                                */
+/*   5.4. ITEM: FEUILLE BOISSON                                   */
+/*   5.5. ITEM: FEUILLE HERBE DE SOIN                             */
+/*   5.6. ITEM: FEUILLE HERBE DIVERSE                             */
+/*   5.7. ITEM: FEUILLE REMÈDE                                    */
+/*   5.8. ITEM: FEUILLE SEL ALCHIMIQUE                            */
+/*   5.9. ITEM: FEUILLE ARME DE MÊLÉE                             */
+/*   5.10. ITEM: FEUILLE ARME À DISTANCE                          */
+/*   5.11. ITEM: FEUILLE ARMURE                                   */
+/*   5.12. ITEM: FEUILLE GEMME                                    */
+/*   6. LISTE DES JOUEURS                                         */
+/*   7. BARRE DE NAVIGATION                                       */
+/*   8. CONTRÔLES DE LA SCÈNE                                     */
+/*   9. PARAMÊTRES DU JEU                                         */
+/*   10. DIALOGUE DE LANCER                                       */
+/*   11. HOTBAR                                                   */
+/*   12. FENÊTRES DE JEU DIVERSES                                 */
+/******************************************************************/
+/******************************************************************/
+
+/******************************************************************/
+/*=============== 2. INTERFACE UTILISATEUR GÉNÉRALE  =============*/
+/******************************************************************/
+
+/* ============== ONGLETS ======================================= */
+.RdD .content {
+	height: calc(100% - 450px);
+	.tab {
+		height: 100%;
+	}
+}
+
+/* ============== TINY MCE EDITOR =============================== */
+.RdD .content {
+	.editor,
+	.editor-content {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/* ============== ZONES DE SAISIE NUMÉRIQUES ==================== */
+.RdD.feuille input[type="number"] {
+	width: 5ch;
+}
+
+/******************************************************************/
+/*=============== 4.1. ACTOR: FEUILLE PJ  ========================*/
+/******************************************************************/
+
+/* ============== ZONE D'EN-TETE ================================ */
