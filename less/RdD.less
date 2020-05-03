@@ -36,6 +36,9 @@
 /*=============== 2. INTERFACE UTILISATEUR GÉNÉRALE  =============*/
 /******************************************************************/
 
+/* ============== COULEUR ======================================= */
+@erreur-color: #550000;
+
 /* ============== ONGLETS ======================================= */
 .RdD .content {
 	height: calc(100% - 450px);
@@ -54,12 +57,23 @@
 }
 
 /* ============== ZONES DE SAISIE NUMÉRIQUES ==================== */
+.RdD .erreur {
+	background-color: fade(@erreur-color, 33%);
+}
 .RdD.feuille input[type="number"] {
-	width: 5ch;
+	width: 6ch;
 }
 
 /******************************************************************/
 /*=============== 4.1. ACTOR: FEUILLE PJ  ========================*/
 /******************************************************************/
 
-/* ============== ZONE D'EN-TETE ================================ */
+/* ============== ONGLET HAUT-RÊVE ============================== */
+.RdD.feuille input[id="data.cptr.hautRêve.demiRêve.colonne"] {
+	width: 5ch;
+}
+
+/* ============== ONGLET INVENTAIRE ================================ */
+.RdD.feuille input[id="data.cptr.argent.total"] {
+	width: 7ch;
+}

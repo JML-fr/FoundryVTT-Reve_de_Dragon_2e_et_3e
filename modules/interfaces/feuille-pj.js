@@ -30,7 +30,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		 */
 		return mergeObject(super.defaultOptions, {
 			classes: ["RdD", "feuille", "actor", "pj"],
-			template: "systems/rêvededragon/templates/feuille-pj.html",
+			template: "systems/RdD/templates/feuille-pj.html",
 			width: 900,
 			height: 600,
 			submitOnChange: false,
@@ -93,126 +93,125 @@ export class RdDFeuillePJ extends ActorSheet {
 		// Contrôle de la saisie
 		// ---------------------
 		// Signes particuliers :
-		html.find("#data\\.signesPart\\.hn\\.value").on("change.rêvededragon", {fctCtrl: "ctrlHeureNaissance"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.sexe\\.value").on("change.rêvededragon", {fctCtrl: "ctrlSexe"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.âge\\.value").on("change.rêvededragon", {fctCtrl: "ctrlÂge"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.taille\\.value").on("change.rêvededragon", {fctCtrl: "ctrlSPTaille"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.poids\\.value").on("change.rêvededragon", {fctCtrl: "ctrlPoids"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.beauté\\.value").on("change.rêvededragon", {fctCtrl: "ctrlBeauté"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.latéralité\\.value").on("change.rêvededragon", {fctCtrl: "ctrlLatéralité"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.hn\\.value").on("change.RdD", {fctCtrl: "ctrlHeureNaissance"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.sexe\\.value").on("change.RdD", {fctCtrl: "ctrlSexe"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.âge\\.value").on("change.RdD", {fctCtrl: "ctrlÂge"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.taille\\.value").on("change.RdD", {fctCtrl: "ctrlSPTaille"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.poids\\.value").on("change.RdD", {fctCtrl: "ctrlPoids"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.beauté\\.value").on("change.RdD", {fctCtrl: "ctrlBeauté"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.signesPart\\.latéralité\\.value").on("change.RdD", {fctCtrl: "ctrlLatéralité"}, this._ctrlSaisie.bind(this));
 
 		// Caractéristiques :
-		html.find("#data\\.caracs\\.taille\\.value").on("change.rêvededragon", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.taille\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.apparence\\.value").on("change.rêvededragon", {fctCtrl: "ctrlApparence"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.apparence\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.constitution\\.value").on("change.rêvededragon", {fctCtrl: "ctrlConstitution"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.constitution\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.force\\.value").on("change.rêvededragon", {fctCtrl: "ctrlForce"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.force\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.agilité\\.value").on("change.rêvededragon", {fctCtrl: "ctrlAgilité"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.agilité\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.dextérité\\.value").on("change.rêvededragon", {fctCtrl: "ctrlDextérité"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.dextérité\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.vue\\.value").on("change.rêvededragon", {fctCtrl: "ctrlVue"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.vue\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.ouïe\\.value").on("change.rêvededragon", {fctCtrl: "ctrlOuïe"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.ouïe\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.odorat_goût\\.value").on("change.rêvededragon", {fctCtrl: "ctrlOdorat_goût"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.odorat_goût\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.volonté\\.value").on("change.rêvededragon", {fctCtrl: "ctrlVolonté"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.volonté\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.intellect\\.value").on("change.rêvededragon", {fctCtrl: "ctrlIntellect"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.intellect\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.empathie\\.value").on("change.rêvededragon", {fctCtrl: "ctrlEmpathie"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.empathie\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.rêve\\.value").on("change.rêvededragon", {fctCtrl: "ctrlRêve"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.rêve\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.chance\\.value").on("change.rêvededragon", {fctCtrl: "ctrlChance"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.chance\\.xp").on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.taille\\.value").on("change.RdD", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.apparence\\.value").on("change.RdD", {fctCtrl: "ctrlApparence"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.apparence\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.constitution\\.value").on("change.RdD", {fctCtrl: "ctrlConstitution"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.constitution\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.force\\.value").on("change.RdD", {fctCtrl: "ctrlForce"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.force\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.agilité\\.value").on("change.RdD", {fctCtrl: "ctrlAgilité"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.agilité\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.dextérité\\.value").on("change.RdD", {fctCtrl: "ctrlDextérité"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.dextérité\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.vue\\.value").on("change.RdD", {fctCtrl: "ctrlVue"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.vue\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.ouïe\\.value").on("change.RdD", {fctCtrl: "ctrlOuïe"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.ouïe\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.odorat_goût\\.value").on("change.RdD", {fctCtrl: "ctrlOdorat_goût"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.odorat_goût\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.volonté\\.value").on("change.RdD", {fctCtrl: "ctrlVolonté"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.volonté\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.intellect\\.value").on("change.RdD", {fctCtrl: "ctrlIntellect"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.intellect\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.empathie\\.value").on("change.RdD", {fctCtrl: "ctrlEmpathie"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.empathie\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.rêve\\.value").on("change.RdD", {fctCtrl: "ctrlRêve"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.rêve\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.chance\\.value").on("change.RdD", {fctCtrl: "ctrlChance"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.caracs\\.chance\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
 
 		// Compétences :
 		for (let index = 0; index < 11; index++) {
 			let élémentRecherché = "#cptcGnrl\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcGnrl"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcGnrl"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcGnrl\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 0; index < 13; index++) {
 			let élémentRecherché = "#cptcMl\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcMl"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcMl"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcMl\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 0; index < 6; index++) {
 			let élémentRecherché = "#cptcTL\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcTL"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcTL"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcTL\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 0; index < 16; index++) {
 			let élémentRecherché = "#cptcPart\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcPart"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcPart"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcPart\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 0; index < 10; index++) {
 			let élémentRecherché = "#cptcSpé\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcSpé"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcSpé"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcSpé\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 0; index < 7; index++) {
 			let élémentRecherché = "#cptcCnsc\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcCnsc"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcCnsc"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcCnsc\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 0; index < 4; index++) {
 			let élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlCptcDrac"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcDrac"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.ptSort";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlPtSort"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlPtSort"}, this._ctrlSaisie.bind(this));			
 		}
 
 		// Santé
-		html.find("#data\\.cptr\\.vie\\.value").on("change.rêvededragon", {fctCtrl: "ctrlVie"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.endurance\\.value").on("change.rêvededragon", {fctCtrl: "ctrlEndurance"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.vie\\.value").on("change.RdD", {fctCtrl: "ctrlVie"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.endurance\\.value").on("change.RdD", {fctCtrl: "ctrlEndurance"}, this._ctrlSaisie.bind(this));
 		for (let index = 0; index < 3; index++) {
 			let élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_0\\.segments\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
 			élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_1\\.segments\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
 		}
 		for (let index = 2; index < 8; index++) {
 			let élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_" + index + "\\.segments\\.élt_0\\.value";
-			html.find(élémentRecherché).on("change.rêvededragon", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
+			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
 		}
-		html.find("#data\\.compteursPJ\\.sustentationQuotidienne\\.sust").on("change.rêvededragon", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.sustentationQuotidienne\\.eau").on("change.rêvededragon", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.éthylisme\\.value").on("change.rêvededragon", {fctCtrl: "ctrlÉthylisme"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.sustentationQuotidienne\\.sust").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.sustentationQuotidienne\\.eau").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.éthylisme\\.value").on("change.RdD", {fctCtrl: "ctrlÉthylisme"}, this._ctrlSaisie.bind(this));
 
 		// Haut-rêve
-		html.find("#data\\.cptr\\.hautRêve\\.seuil").on("change.rêvededragon", {fctCtrl: "ctrlSeuilHR"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.value").on("change.rêvededragon", {fctCtrl: "ctrlPtRêve"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.demiRêve\\.colonne").on("change.rêvededragon", {fctCtrl: "ctrlTMRCol"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.demiRêve\\.ligne").on("change.rêvededragon", {fctCtrl: "ctrlTMRLig"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.refoulement").on("change.rêvededragon", {fctCtrl: "ctrlRefoulement"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.hautRêve\\.seuil").on("change.RdD", {fctCtrl: "ctrlSeuilHR"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.hautRêve\\.value").on("change.RdD", {fctCtrl: "ctrlPtRêve"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.hautRêve\\.demiRêve\\.colonne").on("change.RdD", {fctCtrl: "ctrlTMRCol"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.hautRêve\\.demiRêve\\.ligne").on("change.RdD", {fctCtrl: "ctrlTMRLig"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.hautRêve\\.refoulement").on("change.RdD", {fctCtrl: "ctrlRefoulement"}, this._ctrlSaisie.bind(this));
 		
 		// Vécu
-		html.find("#data\\.compteursPJ\\.ptChance\\.value").on("change.rêvededragon", {fctCtrl: "ctrlPtChance"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.moral\\.value").on("change.rêvededragon", {fctCtrl: "ctrlMoral"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.moral\\.exalt_dissol").on("change.rêvededragon", {fctCtrl: "ctrlExaltDissol"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.cœur\\.value").on("change.rêvededragon", {fctCtrl: "ctrlCœur"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.destinée\\.ptDestinée").on("change.rêvededragon", {fctCtrl: "ctrlPtDestinée"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.destinée\\.ptVoyage").on("change.rêvededragon", {fctCtrl: "ctrlPtVoyage"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.stress\\.value").on("change.rêvededragon", {fctCtrl: "ctrlStress"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.ptChance\\.value").on("change.RdD", {fctCtrl: "ctrlPtChance"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.moral\\.value").on("change.RdD", {fctCtrl: "ctrlMoral"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.moral\\.exalt_dissol").on("change.RdD", {fctCtrl: "ctrlExaltDissol"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.cœur\\.value").on("change.RdD", {fctCtrl: "ctrlCœur"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.destinée\\.ptDestinée").on("change.RdD", {fctCtrl: "ctrlPtDestinée"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.destinée\\.ptVoyage").on("change.RdD", {fctCtrl: "ctrlPtVoyage"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.compteursPJ\\.stress\\.value").on("change.RdD", {fctCtrl: "ctrlStress"}, this._ctrlSaisie.bind(this));
 		
 		// Inventaire
-		html.find("#data\\.cptr\\.encombrement\\.value").on("change.rêvededragon", {fctCtrl: "ctrlEncombrement"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.argent\\.total").on("change.rêvededragon", {fctCtrl: "ctrlArgent"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.encombrement\\.value").on("change.RdD", {fctCtrl: "ctrlEncombrement"}, this._ctrlSaisie.bind(this));
+		html.find("#data\\.cptr\\.argent\\.total").on("change.RdD", {fctCtrl: "ctrlArgent"}, this._ctrlSaisie.bind(this));
 
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard

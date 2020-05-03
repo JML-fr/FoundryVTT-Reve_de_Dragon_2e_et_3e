@@ -16,7 +16,7 @@
 		},
 	{
 		"name": "Suprime .gitignore et le dossier less",
-		"scriptSourceString": "rm build/rêvededragon/.gitignore\nrm -r build/rêvededragon/less",
+		"scriptSourceString": "rm build/RdD/.gitignore\nrm -r build/RdD/less",
 		"scriptType": 1,
 		"scriptUUIDString": "2E5ABDC0-A3E2-4A0B-AE7B-3DA4D48A148F",
 		"stepType": 2,
@@ -24,7 +24,7 @@
 		},
 	{
 		"name": "Mise en production",
-		"scriptSourceString": "rm -r ~/Documents/Jeux/JdR/Foundry_VTT/Data/systems/rêvededragon\ncp -R build/rêvededragon ~/Documents/Jeux/JdR/Foundry_VTT/Data/systems/",
+		"scriptSourceString": "rm -r ~/Documents/Jeux/JdR/Foundry_VTT/Data/systems/RdD\ncp -R build/RdD ~/Documents/Jeux/JdR/Foundry_VTT/Data/systems/",
 		"scriptType": 1,
 		"scriptUUIDString": "65912CAC-EAEF-47A0-BF2E-C52AC7892AC5",
 		"stepType": 2,
@@ -36,7 +36,7 @@
 	"/.eslintrc.json": {
 		"ft": 524288,
 		"oA": 1,
-		"oAP": "/build/rêvededragon/.eslintrc.json",
+		"oAP": "/build/RdD/.eslintrc.json",
 		"oF": 1,
 		"oO": 0,
 		"oS": 0
@@ -46,142 +46,19 @@
 		"ft": 8192,
 		"hM": 0,
 		"oA": 1,
-		"oAP": "/build/rêvededragon/.gitignore",
+		"oAP": "/build/RdD/.gitignore",
 		"oF": 1
 		},
-	"/build/rêvededragon/lang/en.json": {
-		"ft": 524288,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/lang/en.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 0
-		},
-	"/build/rêvededragon/lang/fr.json": {
-		"ft": 524288,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/lang/fr.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 0
-		},
-	"/build/rêvededragon/modules/acteurs/actorRdD.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/modules/acteurs/actorRdD.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/build/rêvededragon/modules/interfaces/feuille-objet.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/modules/interfaces/feuille-objet.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/build/rêvededragon/modules/interfaces/feuille-pj.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/modules/interfaces/feuille-pj.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/build/rêvededragon/modules/RdD.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/modules/RdD.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/build/rêvededragon/modules/utils/interface.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/modules/utils/interface.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/build/rêvededragon/styles/RdD.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "/build/rêvededragon/build/rêvededragon/styles/RdD.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/build/rêvededragon/styles/RdD.css.map": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/styles/RdD.css.map",
-		"oF": 0
-		},
-	"/build/rêvededragon/system.json": {
-		"ft": 524288,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/system.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 0
-		},
-	"/build/rêvededragon/template.json": {
-		"ft": 524288,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/template.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 0
-		},
-	"/build/rêvededragon/templates/feuille-pj.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/templates/feuille-pj.html",
-		"oF": 0
-		},
-	"/build/rêvededragon/templates/item-sheet.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/templates/item-sheet.html",
-		"oF": 0
-		},
-	"/build/rêvededragon/templates/partials/carac-saisie.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/build/rêvededragon/build/rêvededragon/templates/partials/carac-saisie.html",
+	"/build/RdD": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/RdD/build/RdD",
 		"oF": 0
 		},
 	"/lang/en.json": {
 		"ft": 524288,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/lang/en.json",
+		"oAP": "/build/RdD/lang/en.json",
 		"oF": 1,
 		"oO": 0,
 		"oS": 0
@@ -189,7 +66,7 @@
 	"/lang/fr.json": {
 		"ft": 524288,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/lang/fr.json",
+		"oAP": "/build/RdD/lang/fr.json",
 		"oF": 1,
 		"oO": 0,
 		"oS": 0
@@ -200,7 +77,7 @@
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/less/RdD.css",
+		"oAP": "/build/RdD/less/RdD.css",
 		"oF": 1,
 		"oS": 3
 		},
@@ -213,7 +90,7 @@
 		"ma": 1,
 		"mS": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/styles/RdD.css",
+		"oAP": "/build/RdD/styles/RdD.css",
 		"oF": 1,
 		"oS": 0,
 		"rwU": 0,
@@ -226,7 +103,7 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/modules/acteurs/actorRdD.js",
+		"oAP": "/build/RdD/modules/acteurs/actorRdD.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -237,7 +114,7 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/modules/interfaces/feuille-objet.js",
+		"oAP": "/build/RdD/modules/interfaces/feuille-objet.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -248,7 +125,7 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/modules/interfaces/feuille-pj.js",
+		"oAP": "/build/RdD/modules/interfaces/feuille-pj.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -259,7 +136,7 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/modules/RdD.js",
+		"oAP": "/build/RdD/modules/RdD.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -270,7 +147,7 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/modules/utils/interface.js",
+		"oAP": "/build/RdD/modules/utils/interface.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -278,13 +155,13 @@
 	"/node_modules": {
 		"ft": 65536,
 		"oA": 1,
-		"oAP": "/build/rêvededragon/node_modules",
+		"oAP": "/build/RdD/node_modules",
 		"oF": 1
 		},
 	"/package-lock.json": {
 		"ft": 524288,
 		"oA": 1,
-		"oAP": "/build/rêvededragon/package-lock.json",
+		"oAP": "/build/RdD/package-lock.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 0
@@ -292,15 +169,47 @@
 	"/package.json": {
 		"ft": 524288,
 		"oA": 1,
-		"oAP": "/build/rêvededragon/package.json",
+		"oAP": "/build/RdD/package.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 0
 		},
+	"/packs/rdd-aides-de-jeu.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/packs/rdd-aides-de-jeu.db",
+		"oF": 0
+		},
+	"/packs/rdd-macros.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-macros.db",
+		"oF": 1
+		},
+	"/packs/rdd-tables-cbt.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-tables-cbt.db",
+		"oF": 1
+		},
+	"/packs/rdd-tables-hr.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-tables-hr.db",
+		"oF": 1
+		},
 	"/system.json": {
 		"ft": 524288,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/system.json",
+		"oAP": "/build/RdD/system.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 0
@@ -308,7 +217,7 @@
 	"/template.json": {
 		"ft": 524288,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/template.json",
+		"oAP": "/build/RdD/template.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 0
@@ -318,24 +227,24 @@
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/templates/feuille-pj.html",
-		"oF": 0
+		"oAP": "/build/RdD/templates/feuille-pj.html",
+		"oF": 1
 		},
 	"/templates/item-sheet.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/templates/item-sheet.html",
-		"oF": 0
+		"oAP": "/build/RdD/templates/item-sheet.html",
+		"oF": 1
 		},
 	"/templates/partials/carac-saisie.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/build/rêvededragon/templates/partials/carac-saisie.html",
-		"oF": 0
+		"oAP": "/build/RdD/templates/partials/carac-saisie.html",
+		"oF": 1
 		}
 	},
 "hooks": [
@@ -344,11 +253,11 @@
 	},
 "projectAttributes": {
 	"creationDate": 603841793.01699495,
-	"displayValue": "rêvededragon",
-	"displayValueWasSetByUser": 0,
+	"displayValue": "Rêve de Dragon",
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 609234319.42947304
+	"lastBuiltDate": 610208482.16269803
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -643,7 +552,7 @@
 	"browserRefreshDelay": 0,
 	"browserslistString": ">0.2%, last 2 versions, Firefox ESR, not dead",
 	"buildFolderActive": 1,
-	"buildFolderName": "build/rêvededragon",
+	"buildFolderName": "build/RdD",
 	"cleanBuild": 1,
 	"coffeeLintFlags2": {
 		"arrow_spacing": {
@@ -2748,7 +2657,7 @@
 		},
 	"uglifyMangleNames": 1,
 	"uglifyReservedNamesString": "$,exports,require",
-	"websiteRelativeRoot": "/build/rêvededragon"
+	"websiteRelativeRoot": "/build/RdD"
 	},
 "settingsFileVersion": "3"
 }

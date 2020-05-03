@@ -68,50 +68,90 @@
         {{!-- Onglet de gestion des caractéristiques du PJ --}}
         <div class="tab" data-group="principal" data-tab="caractéristiques">
             <div>
-                <label for="data.caracs.taille.value">{{localize 'RdD.actor.caracs.taille'}}</label>
-                <input type="number" id="data.caracs.taille.value" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
-                <input type="number" id="data.caracs.taille.xp" name="data.caracs.taille.xp" value="{{data.caracs.taille.xp}}">
-                <label for="data.caracs.apparence.value">{{localize 'RdD.actor.caracs.apparence'}}</label>
-                <input type="number" id="data.caracs.apparence.value" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
-                <input type="number" id="data.caracs.apparence.xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
-                <label for="data.caracs.constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
-                <input type="number" id="data.caracs.constitution.value" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
-                <input type="number" id="data.caracs.constitution.xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
-                <label for="data.caracs.force.value">{{localize 'RdD.actor.caracs.force'}}</label>
-                <input type="number" id="data.caracs.force.value" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
-                <input type="number" id="data.caracs.force.xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
-                <label for="data.caracs.agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
-                <input type="number" id="data.caracs.agilité.value" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
-                <input type="number" id="data.caracs.agilité.xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
-                <label for="data.caracs.dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
-                <input type="number" id="data.caracs.dextérité.value" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
-                <input type="number" id="data.caracs.dextérité.xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
-                <label for="data.caracs.vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
-                <input type="number" id="data.caracs.vue.value" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
-                <input type="number" id="data.caracs.vue.xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
-                <label for="data.caracs.ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
-                <input type="number" id="data.caracs.ouïe.value" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
-                <input type="number" id="data.caracs.ouïe.xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
-                <label for="data.caracs.odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
-                <input type="number" id="data.caracs.odorat_goût.value" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
-                <input type="number" id="data.caracs.odorat_goût.xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
+                <div>
+                    <label for="data.caracs.taille.value">{{localize 'RdD.actor.caracs.taille'}}</label>
+                    <input type="number" id="data.caracs.taille.value" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
+                </div>
+                <div>
+                    <label for="data.caracs.apparence.value">{{localize 'RdD.actor.caracs.apparence'}}</label>
+                    <input type="number" id="data.caracs.apparence.value" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.apparence.xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
+                    <input type="number" id="data.caracs.constitution.value" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.constitution.xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.force.value">{{localize 'RdD.actor.caracs.force'}}</label>
+                    <input type="number" id="data.caracs.force.value" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.force.xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
+                    <input type="number" id="data.caracs.agilité.value" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.agilité.xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
+                    <input type="number" id="data.caracs.dextérité.value" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.dextérité.xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
+                    <input type="number" id="data.caracs.vue.value" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.vue.xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
+                    <input type="number" id="data.caracs.ouïe.value" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.ouïe.xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
+                    <input type="number" id="data.caracs.odorat_goût.value" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.odorat_goût.xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
+                </div>
             </div>
             <div>
-                <label for="data.caracs.volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
-                <input type="number" id="data.caracs.volonté.value" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
-                <input type="number" id="data.caracs.volonté.xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
-                <label for="data.caracs.intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
-                <input type="number" id="data.caracs.intellect.value" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
-                <input type="number" id="data.caracs.intellect.xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
-                <label for="data.caracs.empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
-                <input type="number" id="data.caracs.empathie.value" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
-                <input type="number" id="data.caracs.empathie.xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
-                <label for="data.caracs.rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
-                <input type="number" id="data.caracs.rêve.value" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
-                <input type="number" id="data.caracs.rêve.xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
-                <label for="data.caracs.chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
-                <input type="number" id="data.caracs.chance.value" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
-                <input type="number" id="data.caracs.chance.xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
+                <div>
+                    <label for="data.caracs.volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
+                    <input type="number" id="data.caracs.volonté.value" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.volonté.xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
+                    <input type="number" id="data.caracs.intellect.value" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.intellect.xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
+                    <input type="number" id="data.caracs.empathie.value" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.empathie.xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
+                    <input type="number" id="data.caracs.rêve.value" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.rêve.xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
+                </div>
+                <div>
+                    <label for="data.caracs.chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
+                    <input type="number" id="data.caracs.chance.value" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
+                    <span> xp </span>
+                    <input type="number" id="data.caracs.chance.xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
+                </div>
                 <p><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span>{{data.caracsDériv.mêlée.value}}</span></p>
                 <p><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span>{{data.caracsDériv.tir.value}}</span></p>
                 <p><span>{{localize 'RdD.actor.caracsDériv.lancer'}}&nbsp;: </span><span>{{data.caracsDériv.lancer.value}}</span></p>
