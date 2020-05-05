@@ -161,6 +161,8 @@
       "empoisonné": "Empoisonné"
     },
     "pj": {
+      "xp": "xp",
+      "ptSort": "pt sort",
       "tabPrincipal": {
         "états": "États",
         "caractéristiques": "Caracs",

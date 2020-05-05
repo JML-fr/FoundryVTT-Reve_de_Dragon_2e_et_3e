@@ -93,42 +93,42 @@ export class RdDFeuillePJ extends ActorSheet {
 		// Contrôle de la saisie
 		// ---------------------
 		// Signes particuliers :
-		html.find("#data\\.signesPart\\.hn\\.value").on("change.RdD", {fctCtrl: "ctrlHeureNaissance"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.sexe\\.value").on("change.RdD", {fctCtrl: "ctrlSexe"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.âge\\.value").on("change.RdD", {fctCtrl: "ctrlÂge"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.taille\\.value").on("change.RdD", {fctCtrl: "ctrlSPTaille"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.poids\\.value").on("change.RdD", {fctCtrl: "ctrlPoids"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.beauté\\.value").on("change.RdD", {fctCtrl: "ctrlBeauté"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.signesPart\\.latéralité\\.value").on("change.RdD", {fctCtrl: "ctrlLatéralité"}, this._ctrlSaisie.bind(this));
+		html.find("#heureNaissance").on("change.RdD", {fctCtrl: "ctrlHeureNaissance"}, this._ctrlSaisie.bind(this));
+		html.find("#sexe").on("change.RdD", {fctCtrl: "ctrlSexe"}, this._ctrlSaisie.bind(this));
+		html.find("#âge").on("change.RdD", {fctCtrl: "ctrlÂge"}, this._ctrlSaisie.bind(this));
+		html.find("#spTaille").on("change.RdD", {fctCtrl: "ctrlSPTaille"}, this._ctrlSaisie.bind(this));
+		html.find("#poids").on("change.RdD", {fctCtrl: "ctrlPoids"}, this._ctrlSaisie.bind(this));
+		html.find("#beauté").on("change.RdD", {fctCtrl: "ctrlBeauté"}, this._ctrlSaisie.bind(this));
+		html.find("#latéralité").on("change.RdD", {fctCtrl: "ctrlLatéralité"}, this._ctrlSaisie.bind(this));
 
 		// Caractéristiques :
-		html.find("#data\\.caracs\\.taille\\.value").on("change.RdD", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.apparence\\.value").on("change.RdD", {fctCtrl: "ctrlApparence"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.apparence\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.constitution\\.value").on("change.RdD", {fctCtrl: "ctrlConstitution"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.constitution\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.force\\.value").on("change.RdD", {fctCtrl: "ctrlForce"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.force\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.agilité\\.value").on("change.RdD", {fctCtrl: "ctrlAgilité"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.agilité\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.dextérité\\.value").on("change.RdD", {fctCtrl: "ctrlDextérité"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.dextérité\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.vue\\.value").on("change.RdD", {fctCtrl: "ctrlVue"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.vue\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.ouïe\\.value").on("change.RdD", {fctCtrl: "ctrlOuïe"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.ouïe\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.odorat_goût\\.value").on("change.RdD", {fctCtrl: "ctrlOdorat_goût"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.odorat_goût\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.volonté\\.value").on("change.RdD", {fctCtrl: "ctrlVolonté"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.volonté\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.intellect\\.value").on("change.RdD", {fctCtrl: "ctrlIntellect"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.intellect\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.empathie\\.value").on("change.RdD", {fctCtrl: "ctrlEmpathie"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.empathie\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.rêve\\.value").on("change.RdD", {fctCtrl: "ctrlRêve"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.rêve\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.chance\\.value").on("change.RdD", {fctCtrl: "ctrlChance"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.caracs\\.chance\\.xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#taille").on("change.RdD", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
+		html.find("#apparence").on("change.RdD", {fctCtrl: "ctrlApparence"}, this._ctrlSaisie.bind(this));
+		html.find("#apparence-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#constitution").on("change.RdD", {fctCtrl: "ctrlConstitution"}, this._ctrlSaisie.bind(this));
+		html.find("#constitution-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#force").on("change.RdD", {fctCtrl: "ctrlForce"}, this._ctrlSaisie.bind(this));
+		html.find("#force-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#agilité").on("change.RdD", {fctCtrl: "ctrlAgilité"}, this._ctrlSaisie.bind(this));
+		html.find("#agilité-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#dextérité").on("change.RdD", {fctCtrl: "ctrlDextérité"}, this._ctrlSaisie.bind(this));
+		html.find("#dextérité-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#vue").on("change.RdD", {fctCtrl: "ctrlVue"}, this._ctrlSaisie.bind(this));
+		html.find("#vue-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#ouïe").on("change.RdD", {fctCtrl: "ctrlOuïe"}, this._ctrlSaisie.bind(this));
+		html.find("#ouïe-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#odorat_goût").on("change.RdD", {fctCtrl: "ctrlOdorat_goût"}, this._ctrlSaisie.bind(this));
+		html.find("#odorat_goût-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#volonté").on("change.RdD", {fctCtrl: "ctrlVolonté"}, this._ctrlSaisie.bind(this));
+		html.find("#volonté-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#intellect").on("change.RdD", {fctCtrl: "ctrlIntellect"}, this._ctrlSaisie.bind(this));
+		html.find("#intellect-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#empathie").on("change.RdD", {fctCtrl: "ctrlEmpathie"}, this._ctrlSaisie.bind(this));
+		html.find("#empathie-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#rêve").on("change.RdD", {fctCtrl: "ctrlRêve"}, this._ctrlSaisie.bind(this));
+		html.find("#rêve-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
+		html.find("#chance").on("change.RdD", {fctCtrl: "ctrlChance"}, this._ctrlSaisie.bind(this));
+		html.find("#chance-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
 
 		// Compétences :
 		for (let index = 0; index < 11; index++) {
@@ -177,8 +177,8 @@ export class RdDFeuillePJ extends ActorSheet {
 		}
 
 		// Santé
-		html.find("#data\\.cptr\\.vie\\.value").on("change.RdD", {fctCtrl: "ctrlVie"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.endurance\\.value").on("change.RdD", {fctCtrl: "ctrlEndurance"}, this._ctrlSaisie.bind(this));
+		html.find("#vie").on("change.RdD", {fctCtrl: "ctrlVie"}, this._ctrlSaisie.bind(this));
+		html.find("#endurance").on("change.RdD", {fctCtrl: "ctrlEndurance"}, this._ctrlSaisie.bind(this));
 		for (let index = 0; index < 3; index++) {
 			let élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_0\\.segments\\.élt_" + index + "\\.value";
 			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
@@ -189,29 +189,29 @@ export class RdDFeuillePJ extends ActorSheet {
 			let élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_" + index + "\\.segments\\.élt_0\\.value";
 			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
 		}
-		html.find("#data\\.compteursPJ\\.sustentationQuotidienne\\.sust").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.sustentationQuotidienne\\.eau").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.éthylisme\\.value").on("change.RdD", {fctCtrl: "ctrlÉthylisme"}, this._ctrlSaisie.bind(this));
+		html.find("#sust").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
+		html.find("#eau").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
+		html.find("#éthylisme").on("change.RdD", {fctCtrl: "ctrlÉthylisme"}, this._ctrlSaisie.bind(this));
 
 		// Haut-rêve
-		html.find("#data\\.cptr\\.hautRêve\\.seuil").on("change.RdD", {fctCtrl: "ctrlSeuilHR"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.value").on("change.RdD", {fctCtrl: "ctrlPtRêve"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.demiRêve\\.colonne").on("change.RdD", {fctCtrl: "ctrlTMRCol"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.demiRêve\\.ligne").on("change.RdD", {fctCtrl: "ctrlTMRLig"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.hautRêve\\.refoulement").on("change.RdD", {fctCtrl: "ctrlRefoulement"}, this._ctrlSaisie.bind(this));
+		html.find("#seuilHR").on("change.RdD", {fctCtrl: "ctrlSeuilHR"}, this._ctrlSaisie.bind(this));
+		html.find("#ptRêve").on("change.RdD", {fctCtrl: "ctrlPtRêve"}, this._ctrlSaisie.bind(this));
+		html.find("#TMRCol").on("change.RdD", {fctCtrl: "ctrlTMRCol"}, this._ctrlSaisie.bind(this));
+		html.find("#TMRLig").on("change.RdD", {fctCtrl: "ctrlTMRLig"}, this._ctrlSaisie.bind(this));
+		html.find("#refoulement").on("change.RdD", {fctCtrl: "ctrlRefoulement"}, this._ctrlSaisie.bind(this));
 		
 		// Vécu
-		html.find("#data\\.compteursPJ\\.ptChance\\.value").on("change.RdD", {fctCtrl: "ctrlPtChance"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.moral\\.value").on("change.RdD", {fctCtrl: "ctrlMoral"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.moral\\.exalt_dissol").on("change.RdD", {fctCtrl: "ctrlExaltDissol"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.cœur\\.value").on("change.RdD", {fctCtrl: "ctrlCœur"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.destinée\\.ptDestinée").on("change.RdD", {fctCtrl: "ctrlPtDestinée"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.destinée\\.ptVoyage").on("change.RdD", {fctCtrl: "ctrlPtVoyage"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.compteursPJ\\.stress\\.value").on("change.RdD", {fctCtrl: "ctrlStress"}, this._ctrlSaisie.bind(this));
+		html.find("#ptChance").on("change.RdD", {fctCtrl: "ctrlPtChance"}, this._ctrlSaisie.bind(this));
+		html.find("#moral").on("change.RdD", {fctCtrl: "ctrlMoral"}, this._ctrlSaisie.bind(this));
+		html.find("#exalt_dissol").on("change.RdD", {fctCtrl: "ctrlExaltDissol"}, this._ctrlSaisie.bind(this));
+		html.find("#cœur").on("change.RdD", {fctCtrl: "ctrlCœur"}, this._ctrlSaisie.bind(this));
+		html.find("#ptDestinée").on("change.RdD", {fctCtrl: "ctrlPtDestinée"}, this._ctrlSaisie.bind(this));
+		html.find("#ptVoyage").on("change.RdD", {fctCtrl: "ctrlPtVoyage"}, this._ctrlSaisie.bind(this));
+		html.find("#stress").on("change.RdD", {fctCtrl: "ctrlStress"}, this._ctrlSaisie.bind(this));
 		
 		// Inventaire
-		html.find("#data\\.cptr\\.encombrement\\.value").on("change.RdD", {fctCtrl: "ctrlEncombrement"}, this._ctrlSaisie.bind(this));
-		html.find("#data\\.cptr\\.argent\\.total").on("change.RdD", {fctCtrl: "ctrlArgent"}, this._ctrlSaisie.bind(this));
+		html.find("#encombrement").on("change.RdD", {fctCtrl: "ctrlEncombrement"}, this._ctrlSaisie.bind(this));
+		html.find("#argent").on("change.RdD", {fctCtrl: "ctrlArgent"}, this._ctrlSaisie.bind(this));
 
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard

@@ -842,8 +842,8 @@ export class ActorRdD extends Actor {
      * @param {*} valeur
      * @memberof ActorRdD
      */
-    static cptcDrac (valeur){
-        console.log(`RdD | ActorRdD.cptcDrac : ` + valeur);
+    static ctrlCptcDrac (valeur){
+        console.log(`RdD | ActorRdD.ctrlCptcDrac : ` + valeur);
         if (this.ctrlPrésence(valeur)) {
             return game.i18n.localize("RdD.erreurs.cptcVide");
         }
