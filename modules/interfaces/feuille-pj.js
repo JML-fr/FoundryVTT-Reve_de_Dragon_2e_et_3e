@@ -49,7 +49,6 @@ export class RdDFeuillePJ extends ActorSheet {
 	getData() {
 		console.log(`RdD | RdDFeuillePJ.getData`);
 		let data = super.getData();
-		console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
 		// ===RàF=== *** Utilité à déterminer ***
 		//data.dtypes = ["String", "Number", "Boolean"];
 		//for ( let attr of Object.values(data.data.attributes) ) {
@@ -253,7 +252,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	async _ctrlSaisie(event) {
 		const input = event.target;
 		const value = input.value;
-		console.log(`RdD | RdDFeuillePJ._ctrlSaisie ${event.data.fctCtrl}`);
+		console.log(`RdD | RdDFeuillePJ._ctrlSaisie`);
 		try {
 			let erreur = eval("ActorRdD." + event.data.fctCtrl + "(value)");
 			if (erreur != "") {
@@ -282,7 +281,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @memberof RdDFeuillePJ
 	 */
 	async _onSubmit(event, {updateData=null, preventClose=false}={}) {
-		console.log("RdD | RdDFeuillePJ._onSubmit");
+		console.log(`RdD | RdDFeuillePJ._onSubmit`);
 		const form = this.element.find("form").first()[0];
 		if (form.querySelector(".erreur")) {
 			console.log("RdD | RdDFeuillePJ._onSubmit – erreur");
@@ -290,13 +289,14 @@ export class RdDFeuillePJ extends ActorSheet {
 		}
 		else {
 			console.log("RdD | RdDFeuillePJ._onSubmit – pas d'erreur");
+			updateData[`data.cptr.hautRêve.queuesEtSouffles`] = [{"titre": "Inertie draconique", "dateFin": "22 Couronne"}];
 			super._onSubmit(event, {updateData, preventClose});
 		}
 	}
 	
 	/** Débogage */
 	async _updateObject(event, formData) {
-		console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
+		console.log(`RdD | RdDFeuillePJ._updateObject`);
 		super._updateObject(event, formData);
 	}	
 }
