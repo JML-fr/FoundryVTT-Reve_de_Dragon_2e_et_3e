@@ -49,6 +49,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	getData() {
 		console.log(`RdD | RdDFeuillePJ.getData`);
 		let data = super.getData();
+		console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
 		// ===RàF=== *** Utilité à déterminer ***
 		//data.dtypes = ["String", "Number", "Boolean"];
 		//for ( let attr of Object.values(data.data.attributes) ) {
@@ -252,7 +253,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	async _ctrlSaisie(event) {
 		const input = event.target;
 		const value = input.value;
-		console.log("RdD | RdDFeuillePJ._ctrlSaisie " + event.data.fctCtrl);
+		console.log(`RdD | RdDFeuillePJ._ctrlSaisie ${event.data.fctCtrl}`);
 		try {
 			let erreur = eval("ActorRdD." + event.data.fctCtrl + "(value)");
 			if (erreur != "") {
@@ -267,7 +268,7 @@ export class RdDFeuillePJ extends ActorSheet {
 			console.log("RdD | RdDFeuillePJ._ctrlSaisie – Appel _onSubmit");
 			this._onSubmit(event);
 		} catch (erreur) {
-			console.log("RdD | RdDFeuillePJ._ctrlSaisie " + erreur);
+			console.log(`RdD | RdDFeuillePJ._ctrlSaisie ${erreur}`);
 		}
 	}
 
@@ -295,7 +296,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	
 	/** Débogage */
 	async _updateObject(event, formData) {
-		console.log("RdD | RdDFeuillePJ._updateObject");
+		console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
 		super._updateObject(event, formData);
 	}	
 }
