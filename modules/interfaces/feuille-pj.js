@@ -250,11 +250,12 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @private
 	 */
 	async _ctrlSaisie(event) {
-		const input = event.target;
+		const input = event.currentTarget;
 		const value = input.value;
-		console.log(`RdD | RdDFeuillePJ._ctrlSaisie`);
+		const id = input.id;
+		console.log(`RdD | RdDFeuillePJ._ctrlSaisie ${id}`);
 		try {
-			let erreur = eval("ActorRdD." + event.data.fctCtrl + "(value)");
+			let erreur = eval(`ActorRdD.${event.data.fctCtrl}(value)`);
 			if (erreur != "") {
 				$(event.currentTarget).addClass("erreur");
 				$(event.currentTarget).focus();
@@ -289,6 +290,9 @@ export class RdDFeuillePJ extends ActorSheet {
 		}
 		else {
 			console.log("RdD | RdDFeuillePJ._onSubmit – pas d'erreur");
+			if (!updateData) {
+				updateData = {};
+			}
 			updateData[`data.cptr.hautRêve.queuesEtSouffles`] = [{"titre": "Inertie draconique", "dateFin": "22 Couronne"}];
 			super._onSubmit(event, {updateData, preventClose});
 		}

@@ -347,8 +347,8 @@
                 "notes": ""
               }
             },
-            "critique": {
-              "élt_0": {
+            "critique": [
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -360,7 +360,7 @@
                 },
                 "notes": ""
               }
-            }
+            ]
           },
           "éthylisme": {
             "value": 0,
