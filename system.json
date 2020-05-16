@@ -59,7 +59,7 @@
       "path": "lang/en.json"
     }
   ],
-  "initiative": "",
+  "initiative": "1d6",
   "gridDistance": 1,
   "gridUnits": "m"
 }
