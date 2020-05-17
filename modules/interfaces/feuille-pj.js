@@ -25,15 +25,13 @@ export class RdDFeuillePJ extends ActorSheet {
 		 * @property {string} options.template chemin d'accès au squelette HTML de la feuille
 		 * @property {number} options.width largeur de la fenêtre
 		 * @property {number} options.height hauteur de la fenêtre
-		 * @property {boolean} options.popOut contenant de type pop-out
-		 * @property {boolean} options.resizable fenêtre redimentionable
+		 * @property {boolean} options.tabs liste des onglets à gérer
 		 */
 		return mergeObject(super.defaultOptions, {
 			classes: ["RdD", "feuille", "actor", "pj"],
 			template: "systems/RdD/templates/feuille-pj.html",
 			width: 900,
 			height: 600,
-			submitOnChange: false,
 			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: "états"}]
 		});
 	}
@@ -70,11 +68,6 @@ export class RdDFeuillePJ extends ActorSheet {
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
-		// ---------------------
-		// Contrôle de la saisie
-		// ---------------------
-		html.find("input").on("change.RdD", this._ctrlSaisie.bind(this));
-
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard
 		html.find(".item-edit").click(ev => {
@@ -103,6 +96,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	}
 
 	/**
+	 * Redéfinit la fonction d'envoi de la saisie
 	 * Contrôle la saisie
 	 *
 	 * @function
@@ -111,12 +105,12 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @async
 	 * @private
 	 */
-	async _ctrlSaisie(event) {
+	_onChangeInput(event) {
 		const input = event.target;
 		const value = input.value;
 		const id = input.id;
 		const classList = input.classList;
-		console.log(`RdD | RdDFeuillePJ._ctrlSaisie ${id}, ${classList[0]}`);
+		console.log(`RdD | RdDFeuillePJ._onChangeInput ${id}, ${classList[0]}`);
 
 		// Toutes les saisies n'ont pas besoin d'être validées.
 		let erreur = "";
@@ -306,10 +300,10 @@ export class RdDFeuillePJ extends ActorSheet {
 			else {
 				$(event.target).removeClass("erreur");
 			}
-			console.log("RdD | RdDFeuillePJ._ctrlSaisie – Appel _onSubmit");
+			console.log("RdD | RdDFeuillePJ._onChangeInput – Appel _onSubmit");
 			this._onSubmit(event);
 		} catch (erreur) {
-			console.log(`RdD | RdDFeuillePJ._ctrlSaisie ${erreur}`);
+			console.log(`RdD | RdDFeuillePJ._onChangeInput ${erreur}`);
 		}
 	}
 
