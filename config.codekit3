@@ -97,13 +97,24 @@
 		"sI": 1,
 		"sU": 1
 		},
-	"/modules/acteurs/actorRdD.js": {
+	"/modules/acteurs/actor-templates.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/RdD/modules/acteurs/actorRdD.js",
+		"oAP": "/build/RdD/modules/acteurs/actor-templates.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/acteurs/actor.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/acteurs/actor.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -137,6 +148,17 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/RdD/modules/RdD.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/utils/init.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/utils/init.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -257,7 +279,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 611410426.05394804
+	"lastBuiltDate": 611611027.39007795
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

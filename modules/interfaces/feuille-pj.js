@@ -2,7 +2,8 @@
  * Importation des modules
  */
 import * as Intrfc from "../utils/interface.js";
-import {ActorRdD} from "../acteurs/actorRdD.js";
+import * as Tmplt from "../acteurs/actor-templates.js"
+import {ActorRdD} from "../acteurs/actor.js";
 
 /**
  * La feuille de PJ est basée sur la classe ActorSheet
@@ -45,8 +46,8 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @returns {object} Données à afficher
 	 */
 	getData() {
-		console.log(`RdD | RdDFeuillePJ.getData`);
 		let data = super.getData();
+		console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
 		// ===RàF=== *** Utilité à déterminer ***
 		//data.dtypes = ["String", "Number", "Boolean"];
 		//for ( let attr of Object.values(data.data.attributes) ) {
@@ -96,13 +97,67 @@ export class RdDFeuillePJ extends ActorSheet {
 	}
 
 	/**
+	 * Met en forme les données du PJ avant d'envoyer la demande de mise à jour au serveur.
+	 * En particulier, prend en charge le traitement des tableaux de données.
+	 *
+	 * @method
+	 * @param {*} [updateData=null]
+	 * @memberof RdDFeuillePJ
+	 * @private
+	 */
+	_miseEnFormeAvMàJ(updateData = null) {
+		console.log(`RdD | RdDFeuillePJ._miseEnFormeAvMàJ`);
+		if (!updateData) {
+			updateData = {};
+		}
+
+		// Mise en forme des compteurs
+		let cptTrav = new Tmplt.CompteursRdD();
+
+		//Fatigue
+		const fatSaisie = this.element.find(".fatigue input");
+		const fatMax = this.element.find(".fatigue .max");
+		let indSaisie = 0;
+		for (let i = 0; i < 8; i++) {
+			if (i < 2) {
+				for (let j = 0; j < 3; j++) {
+					cptTrav.ftgMàjSegmt(i, j, fatSaisie[indSaisie].valueAsNumber, parseInt(fatMax[indSaisie].innerText, 10));
+					indSaisie++;
+				}
+			} else {
+				cptTrav.ftgMàjSegmt(i, 0, fatSaisie[indSaisie].valueAsNumber, parseInt(fatMax[indSaisie].innerText, 10));
+				indSaisie++;
+			}
+		}
+		updateData[`data.cptr.fatigue`] = cptTrav.fatigue;
+
+		//Blessures
+		const blSaisie = this.element.find(".blessures.légères input");
+		let i = 0;
+		for (const blessure of blSaisie) {
+			cptTrav.blsrMàJ("légère", i++, blessure.checked)
+		}
+		updateData[`data.cptr.blessures.légères`] = cptTrav.blessures.légères.slice();
+		const bgSaisie = this.element.find(".blessures.graves input");
+		i = 0;
+		for (const blessure of bgSaisie) {
+			cptTrav.blsrMàJ("grave", i++, blessure.checked)
+		}
+		updateData[`data.cptr.blessures.graves`] = cptTrav.blessures.graves.slice();
+		const bcSaisie = this.element.find(".blessures.critiques input");
+		cptTrav.blsrMàJ("critique", 0, bcSaisie[0].checked)
+		updateData[`data.cptr.blessures.critique`] = cptTrav.blessures.critique.slice();
+		
+		return updateData;
+	}
+
+	/**
 	 * Redéfinit la fonction d'envoi de la saisie
 	 * Contrôle la saisie
 	 *
-	 * @function
+	 * @method
 	 * @param {Event} event L'évènement à l'origine du contrôle
 	 * @memberof RdDFeuillePJ
-	 * @async
 	 * @private
 	 */
 	_onChangeInput(event) {
@@ -112,7 +167,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		const classList = input.classList;
 		console.log(`RdD | RdDFeuillePJ._onChangeInput ${id}, ${classList[0]}`);
 
-		// Toutes les saisies n'ont pas besoin d'être validées.
+		// On ne valide que les saisies qui ont besoin de l'être.
 		let erreur = "";
 		switch (id) {
 			case "heureNaissance":
@@ -324,18 +379,18 @@ export class RdDFeuillePJ extends ActorSheet {
 			ui.notifications.error(game.i18n.localize("RdD.erreurs.pasDeMàJ"));
 		}
 		else {
-			console.log("RdD | RdDFeuillePJ._onSubmit – pas d'erreur");
-			if (!updateData) {
-				updateData = {};
-			}
-			updateData[`data.cptr.hautRêve.queuesEtSouffles`] = [{"titre": "Inertie draconique", "dateFin": "22 Couronne"}];
+			// Mise en forme des données avant mise à jour
+			updateData = this._miseEnFormeAvMàJ(updateData);
+			console.log(`RdD | RdDFeuillePJ._onSubmit – pas d'erreur ${JSON.stringify(updateData)}`);
 			super._onSubmit(event, {updateData, preventClose});
 		}
 	}
 	
 	/** Débogage */
 	async _updateObject(event, formData) {
-		console.log(`RdD | RdDFeuillePJ._updateObject`);
+		// Suppression des variables de travail
+		delete formData.RdDtemp;
+		console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
 		super._updateObject(event, formData);
 	}	
 }

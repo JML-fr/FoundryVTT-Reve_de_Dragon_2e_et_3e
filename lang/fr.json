@@ -160,6 +160,108 @@
       "malade": "Malade",
       "empoisonné": "Empoisonné"
     },
+    "cptcGénérales": {
+      "titre": "C. Générales (-4)",
+      "liste": {
+        "élt_0": "Bricolage",
+        "élt_1": "Chant",
+        "élt_2": "Course",
+        "élt_3": "Cuisine",
+        "élt_4": "Danse",
+        "élt_5": "Dessin",
+        "élt_6": "Discrétion",
+        "élt_7": "Escalade",
+        "élt_8": "Saut",
+        "élt_9": "Séduction",
+        "élt_10": "Vigilance"
+      }
+    },
+    "cptcMêlée": {
+      "titre": "C. de Mêlée (-6)",
+      "liste": {
+        "élt_0": "Armes d'hast",
+        "élt_1": "Bouclier",
+        "élt_2": "Corps à corps",
+        "élt_3": "Dague de mêlée",
+        "élt_4": "Épée à 1 main",
+        "élt_5": "Épée à 2 mains",
+        "élt_6": "Esquive",
+        "élt_7": "Fléau",
+        "élt_8": "Hache à 1 main",
+        "élt_9": "Hache à 2 mains",
+        "élt_10": "Lances",
+        "élt_11": "Masse à 1 main",
+        "élt_12": "Masse à 2 mains"
+      }
+    },
+    "cptcTirLancer": {
+      "titre": "C. de Tir/Lancer (-8)",
+      "liste": {
+        "élt_0": "Arbalète",
+        "élt_1": "Arc",
+        "élt_2": "Dague de jet",
+        "élt_3": "Fouet",
+        "élt_4": "Fronde",
+        "élt_5": "Javelot"
+      }
+    },
+    "cptcParticulières": {
+      "titre": "C. Particulières (-8)",
+      "liste": {
+        "élt_0": "Charpenterie",
+        "élt_1": "Comédie",
+        "élt_2": "Commerce",
+        "élt_3": "Équitation",
+        "élt_4": "Maçonnerie",
+        "élt_5": "Musique",
+        "élt_6": "Pickpocket",
+        "élt_7": "Survie en Cité",
+        "élt_8": "Survie en Extérieur",
+        "élt_9": "Survie en Désert",
+        "élt_10": "Survie en Forêt",
+        "élt_11": "Survie en Glaces",
+        "élt_12": "Survie en Marais",
+        "élt_13": "Survie en Montagne",
+        "élt_14": "Survie en Sous-sol",
+        "élt_15": "Travestissement"
+      }
+    },
+    "cptcSpécialisées": {
+      "titre": "C. Spécialisées (-11)",
+      "liste": {
+        "élt_0": "Acrobatie",
+        "élt_1": "Chirurgie",
+        "élt_2": "Jeu",
+        "élt_3": "Jonglerie",
+        "élt_4": "Maroquinerie",
+        "élt_5": "Métalurgie",
+        "élt_6": "Natation",
+        "élt_7": "Navigation",
+        "élt_8": "Orfèvrerie",
+        "élt_9": "Serrurerie"
+      }
+    },
+    "Connaissances": {
+      "titre": "Connaisances (-11)",
+      "liste": {
+        "élt_0": "Alchimie",
+        "élt_1": "Astrologie",
+        "élt_2": "Botanique",
+        "élt_3": "Écriture",
+        "élt_4": "Légendes",
+        "élt_5": "Médecine",
+        "élt_6": "Zoologie"
+      }
+    },
+    "Draconic": {
+      "titre": "Draconic (-11)",
+      "liste": {
+        "élt_0": "Oniros",
+        "élt_1": "Hypnos",
+        "élt_2": "Narcos",
+        "élt_3": "Thanatos"
+      }
+    },
     "pj": {
       "xp": "xp",
       "ptSort": "pt sort",
@@ -173,110 +275,6 @@
         "vécu": "Vécu",
         "inventaire": "Inventaire",
         "description": "Description"
-      },
-      "compétencesPJ": {
-        "cptcGénérales": {
-          "titre": "C. Générales (-4)",
-          "liste": {
-            "élt_0": "Bricolage",
-            "élt_1": "Chant",
-            "élt_2": "Course",
-            "élt_3": "Cuisine",
-            "élt_4": "Danse",
-            "élt_5": "Dessin",
-            "élt_6": "Discrétion",
-            "élt_7": "Escalade",
-            "élt_8": "Saut",
-            "élt_9": "Séduction",
-            "élt_10": "Vigilance"
-          }
-        },
-        "cptcMêlée": {
-          "titre": "C. de Mêlée (-6)",
-          "liste": {
-            "élt_0": "Armes d'hast",
-            "élt_1": "Bouclier",
-            "élt_2": "Corps à corps",
-            "élt_3": "Dague de mêlée",
-            "élt_4": "Épée à 1 main",
-            "élt_5": "Épée à 2 mains",
-            "élt_6": "Esquive",
-            "élt_7": "Fléau",
-            "élt_8": "Hache à 1 main",
-            "élt_9": "Hache à 2 mains",
-            "élt_10": "Lances",
-            "élt_11": "Masse à 1 main",
-            "élt_12": "Masse à 2 mains"
-          }
-        },
-        "cptcTirLancer": {
-          "titre": "C. de Tir/Lancer (-8)",
-          "liste": {
-            "élt_0": "Arbalète",
-            "élt_1": "Arc",
-            "élt_2": "Dague de jet",
-            "élt_3": "Fouet",
-            "élt_4": "Fronde",
-            "élt_5": "Javelot"
-          }
-        },
-        "cptcParticulières": {
-          "titre": "C. Particulières (-8)",
-          "liste": {
-            "élt_0": "Charpenterie",
-            "élt_1": "Comédie",
-            "élt_2": "Commerce",
-            "élt_3": "Équitation",
-            "élt_4": "Maçonnerie",
-            "élt_5": "Musique",
-            "élt_6": "Pickpocket",
-            "élt_7": "Survie en Cité",
-            "élt_8": "Survie en Extérieur",
-            "élt_9": "Survie en Désert",
-            "élt_10": "Survie en Forêt",
-            "élt_11": "Survie en Glaces",
-            "élt_12": "Survie en Marais",
-            "élt_13": "Survie en Montagne",
-            "élt_14": "Survie en Sous-sol",
-            "élt_15": "Travestissement"
-          }
-        },
-        "cptcSpécialisées": {
-          "titre": "C. Spécialisées (-11)",
-          "liste": {
-            "élt_0": "Acrobatie",
-            "élt_1": "Chirurgie",
-            "élt_2": "Jeu",
-            "élt_3": "Jonglerie",
-            "élt_4": "Maroquinerie",
-            "élt_5": "Métalurgie",
-            "élt_6": "Natation",
-            "élt_7": "Navigation",
-            "élt_8": "Orfèvrerie",
-            "élt_9": "Serrurerie"
-          }
-        },
-        "Connaissances": {
-          "titre": "Connaisances (-11)",
-          "liste": {
-            "élt_0": "Alchimie",
-            "élt_1": "Astrologie",
-            "élt_2": "Botanique",
-            "élt_3": "Écriture",
-            "élt_4": "Légendes",
-            "élt_5": "Médecine",
-            "élt_6": "Zoologie"
-          }
-        },
-        "Draconic": {
-          "titre": "Draconic (-11)",
-          "liste": {
-            "élt_0": "Oniros",
-            "élt_1": "Hypnos",
-            "élt_2": "Narcos",
-            "élt_3": "Thanatos"
-          }
-        }
       },
       "compteursPJ": {
         "sustentationQuotidienne": {

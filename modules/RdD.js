@@ -5,9 +5,11 @@
 /**
  * Importation des modules
  */
+import {RdD} from "./utils/init.js";
+import * as RdDTemplates from "./acteurs/actor-templates.js";
+import * as Acteurs from "./acteurs/actor.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
 import * as RdDFObjet from "./interfaces/feuille-objet.js";
-import * as Acteurs from "./acteurs/actorRdD.js";
 
 /* -------------------------------------------- */
 /* Initialisations                              */
@@ -47,13 +49,13 @@ Hooks.once("init", async function() {
 /* Setup system							*/
 /* ------------------------------------ */
 Hooks.once('setup', function () {
-    // Do anything after initialization but before
-    // ready
+	// Do anything after initialization but before
+	// ready
 });
 /* ------------------------------------ */
 /* When ready							*/
 /* ------------------------------------ */
 Hooks.once('ready', function () {
-    // Do anything once the system is ready
+	// Do anything once the system is ready
 });
 // Add any additional hooks if necessary
