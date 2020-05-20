@@ -170,12 +170,6 @@ export class RdDFeuillePJ extends ActorSheet {
 		// On ne valide que les saisies qui ont besoin de l'être.
 		let erreur = "";
 		switch (id) {
-			case "heureNaissance":
-				erreur = ActorRdD.ctrlHeureNaissance(value);
-				break;
-			case "sexe":
-				erreur = ActorRdD.ctrlSexe(value);
-				break;
 			case "âge":
 				erreur = ActorRdD.ctrlÂge(value);
 				break;

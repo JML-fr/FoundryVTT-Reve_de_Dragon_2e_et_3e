@@ -18,3 +18,23 @@ RdD.répartitionFatigue = new Map([
 	[29, [4, 5, 5, 5, 5, 5]],
 	[30, [5, 5, 5, 5, 5, 5]],
 ]);
+
+RdD.heuresDeNaissance = new Map([
+	[1, "RdD.heuresNaissance.1"],
+	[2, "RdD.heuresNaissance.2"],
+	[3, "RdD.heuresNaissance.3"],
+	[4, "RdD.heuresNaissance.4"],
+	[5, "RdD.heuresNaissance.5"],
+	[6, "RdD.heuresNaissance.6"],
+	[7, "RdD.heuresNaissance.7"],
+	[8, "RdD.heuresNaissance.8"],
+	[9, "RdD.heuresNaissance.9"],
+	[10, "RdD.heuresNaissance.10"],
+	[11, "RdD.heuresNaissance.11"],
+	[12, "RdD.heuresNaissance.12"]
+]);
+
+RdD.sexe = new Map([
+	["F", "RdD.sexe.F"],
+	["M", "RdD.sexe.M"]
+])

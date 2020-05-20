@@ -1,5 +1,23 @@
 {
   "RdD.Name": "Nom",
+  "RdD.heuresNaissance": {
+    "1": "Vaisseau",
+    "2": "Sirène",
+    "3": "Faucon",
+    "4": "Couronne",
+    "5": "Dragon",
+    "6": "Épées",
+    "7": "Lyre",
+    "8": "Serpent",
+    "9": "Poisson Acrobate",
+    "10": "Araignée",
+    "11": "Roseau",
+    "12": "Château Dormant"
+  },
+  "RdD.sexe": {
+    "M": "M",
+    "F": "F"
+  },
   "RdD.erreurs": {
     "pasDeMàJ": "Il y a une donnée erronée – Mise à jour non effectuée",
     "hnVide": "Renseigner l'heure de naissance",

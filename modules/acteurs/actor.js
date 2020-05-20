@@ -275,40 +275,6 @@ export class ActorRdD extends Actor {
 	 * @param {*} valeur
 	 * @memberof ActorRdD
 	 */
-	static ctrlHeureNaissance (valeur){
-		console.log(`RdD | ActorRdD.ctrlHeureNaissance : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.hnVide");
-		}
-		// ===RàF=== En attente d'unn mode de saisie permettant de renvoyer le numéro de l'heure
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la propriété est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlSexe (valeur){
-		console.log(`RdD | ActorRdD.ctrlSexe : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.sexeVide");
-		}
-		if (valeur.length != 1 || !/m|f/i.test(valeur)) {
-			return game.i18n.localize("RdD.erreurs.sexeValeurs");
-		}
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la propriété est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
 	static ctrlÂge (valeur){
 		console.log(`RdD | ActorRdD.ctrlÂge : ` + valeur);
 		if (this.ctrlPrésence(valeur)) {

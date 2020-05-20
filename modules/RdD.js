@@ -43,7 +43,43 @@ Hooks.once("init", async function() {
 		}
 		return expression;
 	})
-  });
+	
+	/**
+	 * Mise en forme des nombres
+	 * @param {String} expression La chaîne de caractère dans laquelle il faut insérer un ou des éléments
+	 * @param {Array} listeÉléments Liste des éléments à insérer en remplacement de la chaîne de caractère "&&&"
+	 */
+	Handlebars.registerHelper('RdDNumFormat', function (valeur, options) {
+
+		// Récupération et mise en forme des paramètres
+		let déc = (options.hash['décimales'] !== undefined) ? options.hash['décimales'] : 0,
+			signe = options.hash['signe'] || false;
+	
+		// Chiffres après la virgule
+		valeur = parseFloat(valeur).toFixed(déc);
+	
+		// Afficher le signe
+		if (signe) {
+			return ( valeur > 0 ) ? "+"+valeur : valeur;
+		} else {
+			return valeur;
+		}
+	});
+
+	Handlebars.registerHelper('RdDSelect', function (map, valeur) {
+		let options = "";
+		let lexique = eval(map);
+		for (const [clef, libellé] of lexique) {
+			let sélectionné = "";
+			if (clef == valeur) {
+				sélectionné = " selected";
+			}
+			options += `<option value="${clef}"${sélectionné}>${game.i18n.localize(libellé)}</option>
+			`;
+		}
+		return new Handlebars.SafeString(options);
+	});
+});
 
 /* ------------------------------------ */
 /* Setup system							*/
