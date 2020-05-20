@@ -2,7 +2,8 @@
  * Importation des modules
  */
 import * as Intrfc from "../utils/interface.js";
-import {ActorRdD} from "../acteurs/actorRdD.js";
+import * as Tmplt from "../acteurs/actor-templates.js"
+import {ActorRdD} from "../acteurs/actor.js";
 
 /**
  * La feuille de PJ est basée sur la classe ActorSheet
@@ -25,15 +26,13 @@ export class RdDFeuillePJ extends ActorSheet {
 		 * @property {string} options.template chemin d'accès au squelette HTML de la feuille
 		 * @property {number} options.width largeur de la fenêtre
 		 * @property {number} options.height hauteur de la fenêtre
-		 * @property {boolean} options.popOut contenant de type pop-out
-		 * @property {boolean} options.resizable fenêtre redimentionable
+		 * @property {boolean} options.tabs liste des onglets à gérer
 		 */
 		return mergeObject(super.defaultOptions, {
 			classes: ["RdD", "feuille", "actor", "pj"],
 			template: "systems/RdD/templates/feuille-pj.html",
 			width: 900,
 			height: 600,
-			submitOnChange: false,
 			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: "états"}]
 		});
 	}
@@ -47,8 +46,8 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @returns {object} Données à afficher
 	 */
 	getData() {
-		console.log(`RdD | RdDFeuillePJ.getData`);
 		let data = super.getData();
+		console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
 		// ===RàF=== *** Utilité à déterminer ***
 		//data.dtypes = ["String", "Number", "Boolean"];
 		//for ( let attr of Object.values(data.data.attributes) ) {
@@ -69,149 +68,6 @@ export class RdDFeuillePJ extends ActorSheet {
 
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
-
-		// Active le MCE
-		/*
-		let editor = html.find(".editor-content");
-		TextEditor.create({
-			target: editor[0],
-			height: this.position.height - 260,
-			setup: (ed) => {
-				this._mce = ed;
-			},
-			save_onsavecallback: (ed) => {
-				let target = editor.attr("data-edit");
-				this.actor.update({ [target]: ed.getContent() }, true);
-			},
-		}).then((ed) => {
-			this.mce = ed[0];
-			this.mce.focus();
-		});
-		*/
-
-		// ---------------------
-		// Contrôle de la saisie
-		// ---------------------
-		// Signes particuliers :
-		html.find("#heureNaissance").on("change.RdD", {fctCtrl: "ctrlHeureNaissance"}, this._ctrlSaisie.bind(this));
-		html.find("#sexe").on("change.RdD", {fctCtrl: "ctrlSexe"}, this._ctrlSaisie.bind(this));
-		html.find("#âge").on("change.RdD", {fctCtrl: "ctrlÂge"}, this._ctrlSaisie.bind(this));
-		html.find("#spTaille").on("change.RdD", {fctCtrl: "ctrlSPTaille"}, this._ctrlSaisie.bind(this));
-		html.find("#poids").on("change.RdD", {fctCtrl: "ctrlPoids"}, this._ctrlSaisie.bind(this));
-		html.find("#beauté").on("change.RdD", {fctCtrl: "ctrlBeauté"}, this._ctrlSaisie.bind(this));
-		html.find("#latéralité").on("change.RdD", {fctCtrl: "ctrlLatéralité"}, this._ctrlSaisie.bind(this));
-
-		// Caractéristiques :
-		html.find("#taille").on("change.RdD", {fctCtrl: "ctrlTaille"}, this._ctrlSaisie.bind(this));
-		html.find("#apparence").on("change.RdD", {fctCtrl: "ctrlApparence"}, this._ctrlSaisie.bind(this));
-		html.find("#apparence-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#constitution").on("change.RdD", {fctCtrl: "ctrlConstitution"}, this._ctrlSaisie.bind(this));
-		html.find("#constitution-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#force").on("change.RdD", {fctCtrl: "ctrlForce"}, this._ctrlSaisie.bind(this));
-		html.find("#force-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#agilité").on("change.RdD", {fctCtrl: "ctrlAgilité"}, this._ctrlSaisie.bind(this));
-		html.find("#agilité-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#dextérité").on("change.RdD", {fctCtrl: "ctrlDextérité"}, this._ctrlSaisie.bind(this));
-		html.find("#dextérité-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#vue").on("change.RdD", {fctCtrl: "ctrlVue"}, this._ctrlSaisie.bind(this));
-		html.find("#vue-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#ouïe").on("change.RdD", {fctCtrl: "ctrlOuïe"}, this._ctrlSaisie.bind(this));
-		html.find("#ouïe-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#odorat_goût").on("change.RdD", {fctCtrl: "ctrlOdorat_goût"}, this._ctrlSaisie.bind(this));
-		html.find("#odorat_goût-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#volonté").on("change.RdD", {fctCtrl: "ctrlVolonté"}, this._ctrlSaisie.bind(this));
-		html.find("#volonté-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#intellect").on("change.RdD", {fctCtrl: "ctrlIntellect"}, this._ctrlSaisie.bind(this));
-		html.find("#intellect-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#empathie").on("change.RdD", {fctCtrl: "ctrlEmpathie"}, this._ctrlSaisie.bind(this));
-		html.find("#empathie-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#rêve").on("change.RdD", {fctCtrl: "ctrlRêve"}, this._ctrlSaisie.bind(this));
-		html.find("#rêve-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-		html.find("#chance").on("change.RdD", {fctCtrl: "ctrlChance"}, this._ctrlSaisie.bind(this));
-		html.find("#chance-xp").on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));
-
-		// Compétences :
-		for (let index = 0; index < 11; index++) {
-			let élémentRecherché = "#cptcGnrl\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcGnrl"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcGnrl\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 0; index < 13; index++) {
-			let élémentRecherché = "#cptcMl\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcMl"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcMl\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 0; index < 6; index++) {
-			let élémentRecherché = "#cptcTL\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcTL"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcTL\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 0; index < 16; index++) {
-			let élémentRecherché = "#cptcPart\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcPart"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcPart\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 0; index < 10; index++) {
-			let élémentRecherché = "#cptcSpé\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcSpé"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcSpé\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 0; index < 7; index++) {
-			let élémentRecherché = "#cptcCnsc\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcCnsc"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcCnsc\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 0; index < 4; index++) {
-			let élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlCptcDrac"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.xp";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlXp"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#cptcDrac\\.élt_" + index + "\\.ptSort";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlPtSort"}, this._ctrlSaisie.bind(this));			
-		}
-
-		// Santé
-		html.find("#vie").on("change.RdD", {fctCtrl: "ctrlVie"}, this._ctrlSaisie.bind(this));
-		html.find("#endurance").on("change.RdD", {fctCtrl: "ctrlEndurance"}, this._ctrlSaisie.bind(this));
-		for (let index = 0; index < 3; index++) {
-			let élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_0\\.segments\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
-			élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_1\\.segments\\.élt_" + index + "\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
-		}
-		for (let index = 2; index < 8; index++) {
-			let élémentRecherché = "#data\\.cptr\\.fatigue\\.niveaux\\.élt_" + index + "\\.segments\\.élt_0\\.value";
-			html.find(élémentRecherché).on("change.RdD", {fctCtrl: "ctrlFatigue"}, this._ctrlSaisie.bind(this));			
-		}
-		html.find("#sust").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
-		html.find("#eau").on("change.RdD", {fctCtrl: "ctrlSustentation"}, this._ctrlSaisie.bind(this));
-		html.find("#éthylisme").on("change.RdD", {fctCtrl: "ctrlÉthylisme"}, this._ctrlSaisie.bind(this));
-
-		// Haut-rêve
-		html.find("#seuilHR").on("change.RdD", {fctCtrl: "ctrlSeuilHR"}, this._ctrlSaisie.bind(this));
-		html.find("#ptRêve").on("change.RdD", {fctCtrl: "ctrlPtRêve"}, this._ctrlSaisie.bind(this));
-		html.find("#TMRCol").on("change.RdD", {fctCtrl: "ctrlTMRCol"}, this._ctrlSaisie.bind(this));
-		html.find("#TMRLig").on("change.RdD", {fctCtrl: "ctrlTMRLig"}, this._ctrlSaisie.bind(this));
-		html.find("#refoulement").on("change.RdD", {fctCtrl: "ctrlRefoulement"}, this._ctrlSaisie.bind(this));
-		
-		// Vécu
-		html.find("#ptChance").on("change.RdD", {fctCtrl: "ctrlPtChance"}, this._ctrlSaisie.bind(this));
-		html.find("#moral").on("change.RdD", {fctCtrl: "ctrlMoral"}, this._ctrlSaisie.bind(this));
-		html.find("#exalt_dissol").on("change.RdD", {fctCtrl: "ctrlExaltDissol"}, this._ctrlSaisie.bind(this));
-		html.find("#cœur").on("change.RdD", {fctCtrl: "ctrlCœur"}, this._ctrlSaisie.bind(this));
-		html.find("#ptDestinée").on("change.RdD", {fctCtrl: "ctrlPtDestinée"}, this._ctrlSaisie.bind(this));
-		html.find("#ptVoyage").on("change.RdD", {fctCtrl: "ctrlPtVoyage"}, this._ctrlSaisie.bind(this));
-		html.find("#stress").on("change.RdD", {fctCtrl: "ctrlStress"}, this._ctrlSaisie.bind(this));
-		
-		// Inventaire
-		html.find("#encombrement").on("change.RdD", {fctCtrl: "ctrlEncombrement"}, this._ctrlSaisie.bind(this));
-		html.find("#argent").on("change.RdD", {fctCtrl: "ctrlArgent"}, this._ctrlSaisie.bind(this));
 
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard
@@ -241,33 +97,262 @@ export class RdDFeuillePJ extends ActorSheet {
 	}
 
 	/**
-	 * Contrôle la saisie
+	 * Met en forme les données du PJ avant d'envoyer la demande de mise à jour au serveur.
+	 * En particulier, prend en charge le traitement des tableaux de données.
 	 *
-	 * @function
-	 * @param {Event} event L'évènement à l'origine du contrôle
+	 * @method
+	 * @param {*} [updateData=null]
 	 * @memberof RdDFeuillePJ
-	 * @async
 	 * @private
 	 */
-	async _ctrlSaisie(event) {
+	_miseEnFormeAvMàJ(updateData = null) {
+		console.log(`RdD | RdDFeuillePJ._miseEnFormeAvMàJ`);
+		if (!updateData) {
+			updateData = {};
+		}
+
+		// Mise en forme des compteurs
+		let cptTrav = new Tmplt.CompteursRdD();
+
+		//Fatigue
+		const fatSaisie = this.element.find(".fatigue input");
+		const fatMax = this.element.find(".fatigue .max");
+		let indSaisie = 0;
+		for (let i = 0; i < 8; i++) {
+			if (i < 2) {
+				for (let j = 0; j < 3; j++) {
+					cptTrav.ftgMàjSegmt(i, j, fatSaisie[indSaisie].valueAsNumber, parseInt(fatMax[indSaisie].innerText, 10));
+					indSaisie++;
+				}
+			} else {
+				cptTrav.ftgMàjSegmt(i, 0, fatSaisie[indSaisie].valueAsNumber, parseInt(fatMax[indSaisie].innerText, 10));
+				indSaisie++;
+			}
+		}
+		updateData[`data.cptr.fatigue`] = cptTrav.fatigue;
+
+		//Blessures
+		const blSaisie = this.element.find(".blessures.légères input");
+		let i = 0;
+		for (const blessure of blSaisie) {
+			cptTrav.blsrMàJ("légère", i++, blessure.checked)
+		}
+		updateData[`data.cptr.blessures.légères`] = cptTrav.blessures.légères.slice();
+		const bgSaisie = this.element.find(".blessures.graves input");
+		i = 0;
+		for (const blessure of bgSaisie) {
+			cptTrav.blsrMàJ("grave", i++, blessure.checked)
+		}
+		updateData[`data.cptr.blessures.graves`] = cptTrav.blessures.graves.slice();
+		const bcSaisie = this.element.find(".blessures.critiques input");
+		cptTrav.blsrMàJ("critique", 0, bcSaisie[0].checked)
+		updateData[`data.cptr.blessures.critique`] = cptTrav.blessures.critique.slice();
+		
+		return updateData;
+	}
+
+	/**
+	 * Redéfinit la fonction d'envoi de la saisie
+	 * Contrôle la saisie
+	 *
+	 * @method
+	 * @param {Event} event L'évènement à l'origine du contrôle
+	 * @memberof RdDFeuillePJ
+	 * @private
+	 */
+	_onChangeInput(event) {
 		const input = event.target;
 		const value = input.value;
-		console.log("RdD | RdDFeuillePJ._ctrlSaisie " + event.data.fctCtrl);
+		const id = input.id;
+		const classList = input.classList;
+		console.log(`RdD | RdDFeuillePJ._onChangeInput ${id}, ${classList[0]}`);
+
+		// On ne valide que les saisies qui ont besoin de l'être.
+		let erreur = "";
+		switch (id) {
+			case "âge":
+				erreur = ActorRdD.ctrlÂge(value);
+				break;
+			case "spTaille":
+				erreur = ActorRdD.ctrlSPTaille(value);
+				break;
+			case "poids":
+				erreur = ActorRdD.ctrlPoids(value);
+				break;
+			case "beauté":
+				erreur = ActorRdD.ctrlBeauté(value);
+				break;
+			case "latéralité":
+				erreur = ActorRdD.ctrlLatéralité(value);
+				break;
+			case "taille":
+				erreur = ActorRdD.ctrlTaille(value);
+				break;
+			case "apparence":
+				erreur = ActorRdD.ctrlApparence(value);
+				break;
+			case "constitution":
+				erreur = ActorRdD.ctrlConstitution(value);
+				break;
+			case "force":
+				erreur = ActorRdD.ctrlForce(value);
+				break;
+			case "agilité":
+				erreur = ActorRdD.ctrlAgilité(value);
+				break;
+			case "dextérité":
+				erreur = ActorRdD.ctrlDextérité(value);
+				break;
+			case "vue":
+				erreur = ActorRdD.ctrlVue(value);
+				break;
+			case "ouïe":
+				erreur = ActorRdD.ctrlOuïe(value);
+				break;
+			case "odorat_goût":
+				erreur = ActorRdD.ctrlOdorat_goût(value);
+				break;
+			case "volonté":
+				erreur = ActorRdD.ctrlVolonté(value);
+				break;
+			case "intellect":
+				erreur = ActorRdD.ctrlIntellect(value);
+				break;
+			case "empathie":
+				erreur = ActorRdD.ctrlEmpathie(value);
+				break;
+			case "rêve":
+				erreur = ActorRdD.ctrlRêve(value);
+				break;
+			case "chance":
+				erreur = ActorRdD.ctrlChance(value);
+				break;
+			case "apparence-xp":
+			case "constitution-xp":
+			case "force-xp":
+			case "agilité-xp":
+			case "dextérité-xp":
+			case "vue-xp":
+			case "ouïe-xp":
+			case "odorat_goût-xp":
+			case "volonté-xp":
+			case "intellect-xp":
+			case "empathie-xp":
+			case "rêve-xp":
+			case "chance-xp":
+				erreur = ActorRdD.ctrlXp(value);
+				break;
+			case "vie":
+				erreur = ActorRdD.ctrlVie(value);
+				break;
+			case "endurance":
+				erreur = ActorRdD.ctrlEndurance(value);
+				break;
+			case "sust":
+			case "eau":
+				erreur = ActorRdD.ctrlSustentation(value);
+				break;
+			case "éthylisme":
+				erreur = ActorRdD.ctrlÉthylisme(value);
+				break;
+			case "seuilHR":
+				erreur = ActorRdD.ctrlSeuilHR(value);
+				break;
+			case "ptRêve":
+				erreur = ActorRdD.ctrlPtRêve(value);
+				break;
+			case "TMRCol":
+				erreur = ActorRdD.ctrlTMRCol(value);
+				break;
+			case "TMRLig":
+				erreur = ActorRdD.ctrlTMRLig(value);
+				break;
+			case "refoulement":
+				erreur = ActorRdD.ctrlRefoulement(value);
+				break;
+			case "ptChance":
+				erreur = ActorRdD.ctrlPtChance(value);
+				break;
+			case "moral":
+				erreur = ActorRdD.ctrlMoral(value);
+				break;
+			case "exalt_dissol":
+				erreur = ActorRdD.ctrlExaltDissol(value);
+				break;
+			case "cœur":
+				erreur = ActorRdD.ctrlCœur(value);
+				break;
+			case "ptDestinée":
+				erreur = ActorRdD.ctrlPtDestinée(value);
+				break;
+			case "ptVoyage":
+				erreur = ActorRdD.ctrlPtVoyage(value);
+				break;
+			case "stress":
+				erreur = ActorRdD.ctrlStress(value);
+				break;
+			case "encombrement":
+				erreur = ActorRdD.ctrlEncombrement(value);
+				break;
+			case "argent":
+				erreur = ActorRdD.ctrlArgent(value);
+				break;
+			default:
+				if(classList.contains("cptcGnrl")) {
+					erreur = ActorRdD.ctrlCptcGnrl(value);
+					break;
+				}
+				if(classList.contains("cptcMl")) {
+					erreur = ActorRdD.ctrlCptcMl(value);
+					break;
+				}
+				if(classList.contains("cptcTL")) {
+					erreur = ActorRdD.ctrlCptcTL(value);
+					break;
+				}
+				if(classList.contains("cptcPart")) {
+					erreur = ActorRdD.ctrlCptcPart(value);
+					break;
+				}
+				if(classList.contains("cptcSpé")) {
+					erreur = ActorRdD.ctrlCptcSpé(value);
+					break;
+				}
+				if(classList.contains("ctrlCptcCnsc")) {
+					erreur = ActorRdD.ctrlCptcSpé(value);
+					break;
+				}
+				if(classList.contains("cptcDrac")) {
+					erreur = ActorRdD.ctrlCptcDrac(value);
+					break;
+				}
+				if(classList.contains("cptcXp")) {
+					erreur = ActorRdD.ctrlXp(value);
+					break;
+				}
+				if(classList.contains("ptSort")) {
+					erreur = ActorRdD.ctrlPtSort(value);
+					break;
+				}
+				if(classList.contains("fatigue")) {
+					erreur = ActorRdD.ctrlFatigue(value);
+					break;
+				}
+		}
 		try {
-			let erreur = eval("ActorRdD." + event.data.fctCtrl + "(value)");
 			if (erreur != "") {
-				$(event.currentTarget).addClass("erreur");
-				$(event.currentTarget).focus();
+				$(event.target).addClass("erreur");
+				$(event.target).focus();
 				ui.notifications.warn(erreur);
 				throw new Error(erreur);
 			}
 			else {
-				$(event.currentTarget).removeClass("erreur");
+				$(event.target).removeClass("erreur");
 			}
-			console.log("RdD | RdDFeuillePJ._ctrlSaisie – Appel _onSubmit");
+			console.log("RdD | RdDFeuillePJ._onChangeInput – Appel _onSubmit");
 			this._onSubmit(event);
 		} catch (erreur) {
-			console.log("RdD | RdDFeuillePJ._ctrlSaisie " + erreur);
+			console.log(`RdD | RdDFeuillePJ._onChangeInput ${erreur}`);
 		}
 	}
 
@@ -281,21 +366,25 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @memberof RdDFeuillePJ
 	 */
 	async _onSubmit(event, {updateData=null, preventClose=false}={}) {
-		console.log("RdD | RdDFeuillePJ._onSubmit");
+		console.log(`RdD | RdDFeuillePJ._onSubmit`);
 		const form = this.element.find("form").first()[0];
 		if (form.querySelector(".erreur")) {
 			console.log("RdD | RdDFeuillePJ._onSubmit – erreur");
 			ui.notifications.error(game.i18n.localize("RdD.erreurs.pasDeMàJ"));
 		}
 		else {
-			console.log("RdD | RdDFeuillePJ._onSubmit – pas d'erreur");
+			// Mise en forme des données avant mise à jour
+			updateData = this._miseEnFormeAvMàJ(updateData);
+			console.log(`RdD | RdDFeuillePJ._onSubmit – pas d'erreur ${JSON.stringify(updateData)}`);
 			super._onSubmit(event, {updateData, preventClose});
 		}
 	}
 	
 	/** Débogage */
 	async _updateObject(event, formData) {
-		console.log("RdD | RdDFeuillePJ._updateObject");
+		// Suppression des variables de travail
+		delete formData.RdDtemp;
+		console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
 		super._updateObject(event, formData);
 	}	
 }

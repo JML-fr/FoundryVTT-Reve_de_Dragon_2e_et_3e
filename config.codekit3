@@ -97,13 +97,24 @@
 		"sI": 1,
 		"sU": 1
 		},
-	"/modules/acteurs/actorRdD.js": {
+	"/modules/acteurs/actor-templates.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/RdD/modules/acteurs/actorRdD.js",
+		"oAP": "/build/RdD/modules/acteurs/actor-templates.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/acteurs/actor.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/acteurs/actor.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -137,6 +148,17 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/RdD/modules/RdD.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/utils/init.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/utils/init.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -257,7 +279,11 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
+<<<<<<< HEAD
 	"lastBuiltDate": 610570115.258829
+=======
+	"lastBuiltDate": 611669533.90298796
+>>>>>>> feature/Utilisation_des_tableaux_dans_la_structure_de_données
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

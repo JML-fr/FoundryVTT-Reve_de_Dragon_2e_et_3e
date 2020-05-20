@@ -167,100 +167,100 @@
           },
           "fatigue": {
             "niveauActuel": 0,
-            "niveaux": {
-              "élt_0": {
+            "niveaux": [
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   },
-                  "élt_1": {
+                  {
                     "value": 0,
                     "max": 4
                   },
-                  "élt_2": {
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_1": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   },
-                  "élt_1": {
+                  {
                     "value": 0,
                     "max": 4
                   },
-                  "élt_2": {
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_2": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_3": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_4": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_5": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_6": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               },
-              "élt_7": {
+              {
                 "complet": false,
-                "segments": {
-                  "élt_0": {
+                "segments": [
+                  {
                     "value": 0,
                     "max": 4
                   }
-                }
+                ]
               }
-            }
+            ]
           },
           "blessures": {
-            "légères": {
-              "élt_0": {
+            "légères": [
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -272,7 +272,7 @@
                 },
                 "notes": ""
               },
-              "élt_1": {
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -284,7 +284,7 @@
                 },
                 "notes": ""
               },
-              "élt_2": {
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -296,7 +296,7 @@
                 },
                 "notes": ""
               },
-              "élt_3": {
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -308,7 +308,7 @@
                 },
                 "notes": ""
               },
-              "élt_4": {
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -320,9 +320,9 @@
                 },
                 "notes": ""
               }
-            },
-            "graves": {
-              "élt_0": {
+            ],
+            "graves": [
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -334,7 +334,7 @@
                 },
                 "notes": ""
               },
-              "élt_1": {
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -346,9 +346,9 @@
                 },
                 "notes": ""
               }
-            },
-            "critique": {
-              "élt_0": {
+            ],
+            "critique": [
+              {
                 "blessé": false,
                 "premiersSoins": false,
                 "soinsComplets": false,
@@ -360,7 +360,7 @@
                 },
                 "notes": ""
               }
-            }
+            ]
           },
           "éthylisme": {
             "value": 0,
@@ -418,310 +418,7 @@
           }
         }
       },
-      "archétype": {
-        "archtp": {
-          "cptcGénérales": {
-            "élt_0": {
-              "label": "Bricolage",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Chant",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Course",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Cuisine",
-              "value": 0
-            },
-            "élt_4": {
-              "label": "Danse",
-              "value": 0
-            },
-            "élt_5": {
-              "label": "Dessin",
-              "value": 0
-            },
-            "élt_6": {
-              "label": "Discrétion",
-              "value": 0
-            },
-            "élt_7": {
-              "label": "Escalade",
-              "value": 0
-            },
-            "élt_8": {
-              "label": "Saut",
-              "value": 0
-            },
-            "élt_9": {
-              "label": "Séduction",
-              "value": 0
-            },
-            "élt_10": {
-              "label": "Vigilance",
-              "value": 0
-            }
-          },
-          "cptcMêlée": {
-            "élt_0": {
-              "label": "Armes d'hast",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Bouclier",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Corps à corps",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Dague de mêlée",
-              "value": 0
-            },
-            "élt_4": {
-              "label": "Épée à 1 main",
-              "value": 0
-            },
-            "élt_5": {
-              "label": "Épée à 2 mains",
-              "value": 0
-            },
-            "élt_6": {
-              "label": "Esquive",
-              "value": 0
-            },
-            "élt_7": {
-              "label": "Fléau",
-              "value": 0
-            },
-            "élt_8": {
-              "label": "Hache à 1 main",
-              "value": 0
-            },
-            "élt_9": {
-              "label": "Hache à 2 mains",
-              "value": 0
-            },
-            "élt_10": {
-              "label": "Lances",
-              "value": 0
-            },
-            "élt_11": {
-              "label": "Masse à 1 main",
-              "value": 0
-            },
-            "élt_12": {
-              "label": "Masse à 2 mains",
-              "value": 0
-            }
-          },
-          "cptcTirLancer": {
-            "élt_0": {
-              "label": "Arbalète",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Arc",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Dague de jet",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Fouet",
-              "value": 0
-            },
-            "élt_4": {
-              "label": "Fronde",
-              "value": 0
-            },
-            "élt_5": {
-              "label": "Javelot",
-              "value": 0
-            }
-          },
-          "cptcParticulières": {
-            "élt_0": {
-              "label": "Charpenterie",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Comédie",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Commerce",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Équitation",
-              "value": 0
-            },
-            "élt_4": {
-              "label": "Maçonnerie",
-              "value": 0
-            },
-            "élt_5": {
-              "label": "Musique",
-              "value": 0
-            },
-            "élt_6": {
-              "label": "Pickpocket",
-              "value": 0
-            },
-            "élt_7": {
-              "label": "Survie en Cité",
-              "value": 0
-            },
-            "élt_8": {
-              "label": "Survie en Extérieur",
-              "value": 0
-            },
-            "élt_9": {
-              "label": "Survie en Désert",
-              "value": 0
-            },
-            "élt_10": {
-              "label": "Survie en Forêt",
-              "value": 0
-            },
-            "élt_11": {
-              "label": "Survie en Glaces",
-              "value": 0
-            },
-            "élt_12": {
-              "label": "Survie en Marais",
-              "value": 0
-            },
-            "élt_13": {
-              "label": "Survie en Montagne",
-              "value": 0
-            },
-            "élt_14": {
-              "label": "Survie en Sous-sol",
-              "value": 0
-            },
-            "élt_15": {
-              "label": "Travestissement",
-              "value": 0
-            }
-          },
-          "cptcSpécialisées": {
-            "élt_0": {
-              "label": "Acrobatie",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Chirurgie",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Jeu",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Jonglerie",
-              "value": 0
-            },
-            "élt_4": {
-              "label": "Maroquinerie",
-              "value": 0
-            },
-            "élt_5": {
-              "label": "Métalurgie",
-              "value": 0
-            },
-            "élt_6": {
-              "label": "Natation",
-              "value": 0
-            },
-            "élt_7": {
-              "label": "Navigation",
-              "value": 0
-            },
-            "élt_8": {
-              "label": "Orfèvrerie",
-              "value": 0
-            },
-            "élt_9": {
-              "label": "Serrurerie",
-              "value": 0
-            }
-          },
-          "Connaissances": {
-            "élt_0": {
-              "label": "Alchimie",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Astrologie",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Botanique",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Écriture",
-              "value": 0
-            },
-            "élt_4": {
-              "label": "Légendes",
-              "value": 0
-            },
-            "élt_5": {
-              "label": "Médecine",
-              "value": 0
-            },
-            "élt_6": {
-              "label": "Zoologie",
-              "value": 0
-            }
-          },
-          "Draconic": {
-            "élt_0": {
-              "label": "Oniros",
-              "value": 0
-            },
-            "élt_1": {
-              "label": "Hypnos",
-              "value": 0
-            },
-            "élt_2": {
-              "label": "Narcos",
-              "value": 0
-            },
-            "élt_3": {
-              "label": "Thanatos",
-              "value": 0
-            }
-          }
-        }
-      }
-    },
-    "pj": {
-      "templates": [
-        "signesParticuliers",
-        "caractéristiques",
-        "caractéristiquesDérivées",
-        "_seuils",
-        "compteurs",
-        "_états",
-        "archétype"
-      ],
-      "ptCaracRestants": {
-        "value": 160
-      },
-      "ptCptcDépensés": {
-        "value": 0
-      },
-      "compétencesPJ": {
+      "compétences": {
         "cptcGénérales": {
           "élt_0": {
             "label": "Bricolage",
@@ -1141,6 +838,310 @@
           }
         }
       },
+      "archétype": {
+        "archtp": {
+          "cptcGénérales": {
+            "élt_0": {
+              "label": "Bricolage",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Chant",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Course",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Cuisine",
+              "value": 0
+            },
+            "élt_4": {
+              "label": "Danse",
+              "value": 0
+            },
+            "élt_5": {
+              "label": "Dessin",
+              "value": 0
+            },
+            "élt_6": {
+              "label": "Discrétion",
+              "value": 0
+            },
+            "élt_7": {
+              "label": "Escalade",
+              "value": 0
+            },
+            "élt_8": {
+              "label": "Saut",
+              "value": 0
+            },
+            "élt_9": {
+              "label": "Séduction",
+              "value": 0
+            },
+            "élt_10": {
+              "label": "Vigilance",
+              "value": 0
+            }
+          },
+          "cptcMêlée": {
+            "élt_0": {
+              "label": "Armes d'hast",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Bouclier",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Corps à corps",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Dague de mêlée",
+              "value": 0
+            },
+            "élt_4": {
+              "label": "Épée à 1 main",
+              "value": 0
+            },
+            "élt_5": {
+              "label": "Épée à 2 mains",
+              "value": 0
+            },
+            "élt_6": {
+              "label": "Esquive",
+              "value": 0
+            },
+            "élt_7": {
+              "label": "Fléau",
+              "value": 0
+            },
+            "élt_8": {
+              "label": "Hache à 1 main",
+              "value": 0
+            },
+            "élt_9": {
+              "label": "Hache à 2 mains",
+              "value": 0
+            },
+            "élt_10": {
+              "label": "Lances",
+              "value": 0
+            },
+            "élt_11": {
+              "label": "Masse à 1 main",
+              "value": 0
+            },
+            "élt_12": {
+              "label": "Masse à 2 mains",
+              "value": 0
+            }
+          },
+          "cptcTirLancer": {
+            "élt_0": {
+              "label": "Arbalète",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Arc",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Dague de jet",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Fouet",
+              "value": 0
+            },
+            "élt_4": {
+              "label": "Fronde",
+              "value": 0
+            },
+            "élt_5": {
+              "label": "Javelot",
+              "value": 0
+            }
+          },
+          "cptcParticulières": {
+            "élt_0": {
+              "label": "Charpenterie",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Comédie",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Commerce",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Équitation",
+              "value": 0
+            },
+            "élt_4": {
+              "label": "Maçonnerie",
+              "value": 0
+            },
+            "élt_5": {
+              "label": "Musique",
+              "value": 0
+            },
+            "élt_6": {
+              "label": "Pickpocket",
+              "value": 0
+            },
+            "élt_7": {
+              "label": "Survie en Cité",
+              "value": 0
+            },
+            "élt_8": {
+              "label": "Survie en Extérieur",
+              "value": 0
+            },
+            "élt_9": {
+              "label": "Survie en Désert",
+              "value": 0
+            },
+            "élt_10": {
+              "label": "Survie en Forêt",
+              "value": 0
+            },
+            "élt_11": {
+              "label": "Survie en Glaces",
+              "value": 0
+            },
+            "élt_12": {
+              "label": "Survie en Marais",
+              "value": 0
+            },
+            "élt_13": {
+              "label": "Survie en Montagne",
+              "value": 0
+            },
+            "élt_14": {
+              "label": "Survie en Sous-sol",
+              "value": 0
+            },
+            "élt_15": {
+              "label": "Travestissement",
+              "value": 0
+            }
+          },
+          "cptcSpécialisées": {
+            "élt_0": {
+              "label": "Acrobatie",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Chirurgie",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Jeu",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Jonglerie",
+              "value": 0
+            },
+            "élt_4": {
+              "label": "Maroquinerie",
+              "value": 0
+            },
+            "élt_5": {
+              "label": "Métalurgie",
+              "value": 0
+            },
+            "élt_6": {
+              "label": "Natation",
+              "value": 0
+            },
+            "élt_7": {
+              "label": "Navigation",
+              "value": 0
+            },
+            "élt_8": {
+              "label": "Orfèvrerie",
+              "value": 0
+            },
+            "élt_9": {
+              "label": "Serrurerie",
+              "value": 0
+            }
+          },
+          "Connaissances": {
+            "élt_0": {
+              "label": "Alchimie",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Astrologie",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Botanique",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Écriture",
+              "value": 0
+            },
+            "élt_4": {
+              "label": "Légendes",
+              "value": 0
+            },
+            "élt_5": {
+              "label": "Médecine",
+              "value": 0
+            },
+            "élt_6": {
+              "label": "Zoologie",
+              "value": 0
+            }
+          },
+          "Draconic": {
+            "élt_0": {
+              "label": "Oniros",
+              "value": 0
+            },
+            "élt_1": {
+              "label": "Hypnos",
+              "value": 0
+            },
+            "élt_2": {
+              "label": "Narcos",
+              "value": 0
+            },
+            "élt_3": {
+              "label": "Thanatos",
+              "value": 0
+            }
+          }
+        }
+      }
+    },
+    "pj": {
+      "templates": [
+        "signesParticuliers",
+        "caractéristiques",
+        "caractéristiquesDérivées",
+        "_seuils",
+        "compteurs",
+        "_états",
+        "compétences",
+        "archétype"
+      ],
+      "ptCaracRestants": {
+        "value": 160
+      },
+      "ptCptcDépensés": {
+        "value": 0
+      },
       "compteursPJ": {
         "sustentationQuotidienne": {
           "sust": 0,
@@ -1173,7 +1174,8 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "_états"
+        "_états",
+        "compétences"
       ]
     },
     "humanoïde": {
