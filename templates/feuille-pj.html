@@ -36,7 +36,9 @@
 		</div>
 		<div class="grpSignesPart">
 			<label for="latéralité">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
-			<input type="text" id="latéralité" name="data.signesPart.latéralité.mainDominante" value="{{data.signesPart.latéralité.mainDominante}}">
+			<select id="latéralité" name="data.signesPart.latéralité.mainDominante">
+				{{RdDSelect "RdD.latéralité" data.signesPart.latéralité.mainDominante}}
+			</select>
 		</div>
 	</header>
 	
@@ -62,11 +64,26 @@
 			<p><span>{{localize 'RdD.actor.états.malusEncombrement'}}&nbsp;: </span><span>{{data.états.malusEncombrement.value}}</span></p>
 			<p><span>{{localize 'RdD.actor.états.malusÉthylisme'}}&nbsp;: </span><span>{{data.états.malusÉthylisme.value}}</span></p>
 			<p><span>{{localize 'RdD.actor.états.malusArmure'}}&nbsp;: </span><span>{{data.états.malusArmure.value}}</span></p>
-			<p><span>{{localize 'RdD.actor.états.sonné'}}&nbsp;: </span><span>{{data.états.sonné.value}}</span></p>
-			<p><span>{{localize 'RdD.actor.états.inconscient'}}&nbsp;: </span><span>{{data.états.inconscient.value}}</span></p>
-			<p><span>{{localize 'RdD.actor.états.coma'}}&nbsp;: </span><span>{{data.états.coma.value}}</span></p>
-			<p><span>{{localize 'RdD.actor.états.malade'}}&nbsp;: </span><span>{{data.états.malade.value}}</span></p>
-			<p><span>{{localize 'RdD.actor.états.empoisonné'}}&nbsp;: </span><span>{{data.états.empoisonné.value}}</span></p>
+			<div>
+				<span>{{localize 'RdD.actor.états.sonné'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.sonné.value" {{checked data.états.sonné.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.inconscient'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.inconscient.value" {{checked data.états.inconscient.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.coma'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.coma.value" {{checked data.états.coma.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.malade'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.malade.value" {{checked data.états.malade.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.empoisonné'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.empoisonné.value" {{checked data.états.empoisonné.value}}>
+			</div>
 		</div>
 
 		{{!-- Onglet de gestion des caractéristiques du PJ --}}

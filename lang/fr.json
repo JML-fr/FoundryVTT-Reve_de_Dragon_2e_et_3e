@@ -18,11 +18,13 @@
     "M": "M",
     "F": "F"
   },
+  "RdD.latéralité": {
+    "D": "Droite",
+    "G": "Gauche",
+    "A": "Ambidextre"
+  },
   "RdD.erreurs": {
     "pasDeMàJ": "Il y a une donnée erronée – Mise à jour non effectuée",
-    "hnVide": "Renseigner l'heure de naissance",
-    "sexeVide": "Renseigner le sexe",
-    "sexeValeurs": "Le sexe doit être «M» ou «F»",
     "âgeVide": "Renseigner l'âge",
     "âgeInvalide": "L'âge doit être un nombre entier strictement positif",
     "tailleVide": "Renseigner la taille",
@@ -91,7 +93,7 @@
       "cheveux": "Cheveux",
       "yeux": "Yeux",
       "beauté": "Beauté",
-      "latéralité": "Latéralité"
+      "latéralité": "Main dominante"
     },
     "caracs": {
       "taille": "TAILLE",

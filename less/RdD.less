@@ -71,21 +71,24 @@
 .RdD .erreur {
 	background-color: fade(@erreur-color, 33%);
 }
-.RdD input[type="datetime-local"], input[type="number"], input[type="password"], input[type="text"], select {
-	&:focus {
-		box-shadow: 0 0 5px @info-color;
-	}
-}
+
 .RdD a {
 	&:hover {
 		text-shadow: 0 0 10px @info-color;
 	}
 }
+
 .RdD button:hover {
 	box-shadow: 0 0 5px @info-color;
 }
-.RdD.feuille input[type="number"] {
+
+.RdD input[type="number"] {
 	width: 6ch;
+}
+.RdD input[type="datetime-local"], input[type="number"], input[type="password"], input[type="text"], select {
+	&:focus {
+		box-shadow: 0 0 5px @info-color;
+	}
 }
 
 /******************************************************************/
@@ -98,6 +101,9 @@
 	flex-flow: column;
 	border-bottom: 1px solid black;
     padding: 0 0 3px 0;
+	.grpSignesPart {
+		padding: 0 0 5px 0;
+	}
 	.id-perso {
 		display: flex;
 		flex-flow: row;

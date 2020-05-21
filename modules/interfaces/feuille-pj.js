@@ -47,7 +47,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	 */
 	getData() {
 		let data = super.getData();
-		console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
+		//console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
 		// ===RàF=== *** Utilité à déterminer ***
 		//data.dtypes = ["String", "Number", "Boolean"];
 		//for ( let attr of Object.values(data.data.attributes) ) {
@@ -375,7 +375,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		else {
 			// Mise en forme des données avant mise à jour
 			updateData = this._miseEnFormeAvMàJ(updateData);
-			console.log(`RdD | RdDFeuillePJ._onSubmit – pas d'erreur ${JSON.stringify(updateData)}`);
+			//console.log(`RdD | RdDFeuillePJ._onSubmit – pas d'erreur ${JSON.stringify(updateData)}`);
 			super._onSubmit(event, {updateData, preventClose});
 		}
 	}
@@ -384,7 +384,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	async _updateObject(event, formData) {
 		// Suppression des variables de travail
 		delete formData.RdDtemp;
-		console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
+		//console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
 		super._updateObject(event, formData);
 	}	
 }

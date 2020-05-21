@@ -67,7 +67,7 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 */
 	async update(data, options = {}) {
-		console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
+		//console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
 		super.update(data, options);
 	}
 

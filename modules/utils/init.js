@@ -38,3 +38,9 @@ RdD.sexe = new Map([
 	["F", "RdD.sexe.F"],
 	["M", "RdD.sexe.M"]
 ])
+
+RdD.latéralité = new Map([
+	["D", "RdD.latéralité.D"],
+	["G", "RdD.latéralité.G"],
+	["A", "RdD.latéralité.A"]
+])
