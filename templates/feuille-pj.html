@@ -2,41 +2,41 @@
 
 	{{!-- En-tête de la feuille de pj --}}
 	<header class="en-tête-feuille">
-		<img class="vignette" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-		<div class="champs-en-tête">
+		<div class="id-perso">
+			<img class="vignette" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
 			<h1 class="nom-perso"><input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'RdD.Name'}}" /></h1>
-			<div class="grpSignesPart">
-				<label for="heureNaissance">{{localize 'RdD.actor.signesPart.hn'}}</label>
-				<select id="heureNaissance" name="data.signesPart.hn.value">
-					{{RdDSelect "RdD.heuresDeNaissance" data.signesPart.hn.value}}
-				</select>
-			</div>
-			<div class="grpSignesPart">
-				<label for="sexe">{{localize 'RdD.actor.signesPart.sexe'}}</label>
-				<select name="data.signesPart.sexe.value" id="sexe">
-					{{RdDSelect "RdD.sexe" data.signesPart.sexe.value}}
-				</select>
-				<label for="âge">{{localize 'RdD.actor.signesPart.âge'}}</label>
-				<input type="number" id="âge" name="data.signesPart.âge.value" value="{{data.signesPart.âge.value}}">
-			</div>
-			<div class="grpSignesPart">
-				<label for="spTaille">{{localize 'RdD.actor.signesPart.taille'}}</label>
-				<input type="number" id="spTaille" name="data.signesPart.taille.value" value="{{RdDNumFormat data.signesPart.taille.value décimales=2}}">
-				<label for="poids">{{localize 'RdD.actor.signesPart.poids'}}</label>
-				<input type="number" id="poids" name="data.signesPart.poids.value" value="{{data.signesPart.poids.value}}">
-			</div>
-			<div class="grpSignesPart">
-				<label for="cheveux">{{localize 'RdD.actor.signesPart.cheveux'}}</label>
-				<input type="text" id="cheveux" name="data.signesPart.cheveux.value" value="{{data.signesPart.cheveux.value}}">
-				<label for="yeux">{{localize 'RdD.actor.signesPart.yeux'}}</label>
-				<input type="text" id="yeux" name="data.signesPart.yeux.value" value="{{data.signesPart.yeux.value}}">
-				<label for="beauté">{{localize 'RdD.actor.signesPart.beauté'}}</label>
-				<input type="number" id="beauté" name="data.signesPart.beauté.value" value="{{data.signesPart.beauté.value}}">
-			</div>
-			<div class="grpSignesPart">
-				<label for="latéralité">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
-				<input type="text" id="latéralité" name="data.signesPart.latéralité.mainDominante" value="{{data.signesPart.latéralité.mainDominante}}">
-			</div>
+		</div>
+		<div class="grpSignesPart">
+			<label for="heureNaissance">{{localize 'RdD.actor.signesPart.hn'}}</label>
+			<select id="heureNaissance" name="data.signesPart.hn.value">
+				{{RdDSelect "RdD.heuresDeNaissance" data.signesPart.hn.value}}
+			</select>
+		</div>
+		<div class="grpSignesPart">
+			<label for="sexe">{{localize 'RdD.actor.signesPart.sexe'}}</label>
+			<select name="data.signesPart.sexe.value" id="sexe">
+				{{RdDSelect "RdD.sexe" data.signesPart.sexe.value}}
+			</select>
+			<label for="âge">{{localize 'RdD.actor.signesPart.âge'}}</label>
+			<input type="number" id="âge" name="data.signesPart.âge.value" value="{{data.signesPart.âge.value}}">
+		</div>
+		<div class="grpSignesPart">
+			<label for="spTaille">{{localize 'RdD.actor.signesPart.taille'}}</label>
+			<input type="number" id="spTaille" name="data.signesPart.taille.value" value="{{RdDNumFormat data.signesPart.taille.value décimales=2}}">
+			<label for="poids">{{localize 'RdD.actor.signesPart.poids'}}</label>
+			<input type="number" id="poids" name="data.signesPart.poids.value" value="{{data.signesPart.poids.value}}">
+		</div>
+		<div class="grpSignesPart">
+			<label for="cheveux">{{localize 'RdD.actor.signesPart.cheveux'}}</label>
+			<input type="text" id="cheveux" name="data.signesPart.cheveux.value" value="{{data.signesPart.cheveux.value}}">
+			<label for="yeux">{{localize 'RdD.actor.signesPart.yeux'}}</label>
+			<input type="text" id="yeux" name="data.signesPart.yeux.value" value="{{data.signesPart.yeux.value}}">
+			<label for="beauté">{{localize 'RdD.actor.signesPart.beauté'}}</label>
+			<input type="number" id="beauté" name="data.signesPart.beauté.value" value="{{data.signesPart.beauté.value}}">
+		</div>
+		<div class="grpSignesPart">
+			<label for="latéralité">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
+			<input type="text" id="latéralité" name="data.signesPart.latéralité.mainDominante" value="{{data.signesPart.latéralité.mainDominante}}">
 		</div>
 	</header>
 	
