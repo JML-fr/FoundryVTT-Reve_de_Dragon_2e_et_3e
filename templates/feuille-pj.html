@@ -617,13 +617,13 @@
 
 		{{!-- Onglet de gestion du combat du PJ --}}
 		<div class="tab" data-group="principal" data-tab="combat">
-			<p><span>{{localize 'RdD.actor.seuils.plusDom'}}&nbsp;: </span><span>{{RdDNumFormat data.seuils.plusDom.value signe=true}}</span</p>
-			<p><span>{{localize 'RdD.actor.seuils.protection'}}&nbsp;: </span><span>{{data.seuils.protection.value}}</span</p>
+			<p><span>{{localize 'RdD.actor.seuils.plusDom'}}&nbsp;: </span><span>{{RdDNumFormat data.seuils.plusDom.value signe=true}}</span></p>
+			<p><span>{{localize 'RdD.actor.seuils.protection'}}&nbsp;: </span><span>{{data.seuils.protection.value}}</span></p>
 		</div>
 
 		{{!-- Onglet de gestion de la santé du PJ --}}
 		<div class="tab" data-group="principal" data-tab="santé">
-			<p><span>{{localize 'RdD.actor.seuils.sc'}}&nbsp;: </span><span>{{data.seuils.sc.value}}</span</p>
+			<p><span>{{localize 'RdD.actor.seuils.sc'}}&nbsp;: </span><span>{{data.seuils.sc.value}}</span></p>
 			<label for="vie">{{localize 'RdD.actor.cptr.vie'}} ({{data.cptr.vie.max}})</label>
 			<input type="number" id="vie" name="data.cptr.vie.value" value="{{data.cptr.vie.value}}">
 			<label for="endurance">{{localize 'RdD.actor.cptr.endurance'}} ({{data.cptr.endurance.max}})</label>
@@ -706,26 +706,36 @@
 				<input type="checkbox" name="RdDtemp.cptr.blessures.critique.{{ind}}.blessé" {{checked critique.blessé}}>
 				{{/each}}
 			</div>
-			<p><span>{{localize 'RdD.actor.seuils.sust'}}&nbsp;: </span><span>{{data.seuils.sust.value}}</span</p>
-			<label for="sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
-			<input type="number" id="sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
-			<label for="eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
-			<input type="number" id="eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.compteursPJ.sustentationQuotidienne.eau}}">
-			<label for="éthylisme">{{localize 'RdD.actor.cptr.éthylisme.titre'}}</label>
-			<input type="number" id="éthylisme" name="data.cptr.éthylisme.value" value="{{data.cptr.éthylisme.value}}">
+			<div>
+				<p><span>{{localize 'RdD.actor.seuils.sust'}}&nbsp;: </span><span>{{data.seuils.sust.value}}</span></p>
+				<label for="sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
+				<input type="number" id="sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
+				<label for="eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
+				<input type="number" id="eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.compteursPJ.sustentationQuotidienne.eau}}">
+			</div>
+			<div>
+				<label for="éthylisme">{{localize 'RdD.actor.cptr.éthylisme.titre'}}</label>
+				<input type="number" id="éthylisme" name="data.cptr.éthylisme.value" value="{{data.cptr.éthylisme.value}}">
+			</div>
 		</div>
 
 		{{!-- Onglet de gestion du haut-rêve du PJ --}}
 		<div class="tab" data-group="principal" data-tab="haut-rêve">
-			<label for="seuilHR">{{localize 'RdD.actor.cptr.hautRêve.seuil'}}</label>
-			<input type="number" id="seuilHR" name="data.cptr.hautRêve.seuil" value="{{data.cptr.hautRêve.seuil}}">
-			<label for="ptRêve">{{localize 'RdD.actor.cptr.hautRêve.value'}}</label>
-			<input type="number" id="ptRêve" name="data.cptr.hautRêve.value" value="{{data.cptr.hautRêve.value}}">
-			<label for="TMRCol">{{localize 'RdD.actor.cptr.hautRêve.demiRêve'}}</label>
-			<input type="text" id="TMRCol" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.cptr.hautRêve.demiRêve.colonne}}">
-			<input type="number" id="TMRLig" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.cptr.hautRêve.demiRêve.ligne}}">
-			<label for="refoulement">{{localize 'RdD.actor.cptr.hautRêve.refoulement'}}</label>
-			<input type="number" id="refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.cptr.hautRêve.refoulement}}">
+			<div>
+				<label for="seuilHR">{{localize 'RdD.actor.cptr.hautRêve.seuil'}}</label>
+				<input type="number" id="seuilHR" name="data.cptr.hautRêve.seuil" value="{{data.cptr.hautRêve.seuil}}">
+				<label for="ptRêve">{{localize 'RdD.actor.cptr.hautRêve.value'}}</label>
+				<input type="number" id="ptRêve" name="data.cptr.hautRêve.value" value="{{data.cptr.hautRêve.value}}">
+			</div>
+			<div>
+				<label for="TMRCol">{{localize 'RdD.actor.cptr.hautRêve.demiRêve'}}</label>
+				<input type="text" id="TMRCol" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.cptr.hautRêve.demiRêve.colonne}}">
+				<input type="number" id="TMRLig" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.cptr.hautRêve.demiRêve.ligne}}">
+			</div>
+			<div>
+				<label for="refoulement">{{localize 'RdD.actor.cptr.hautRêve.refoulement'}}</label>
+				<input type="number" id="refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.cptr.hautRêve.refoulement}}">
+			</div>
 		</div>
 
 		{{!-- Onglet de gestion du vécu du PJ --}}
@@ -758,7 +768,7 @@
 
 		{{!-- Onglet de gestion de l'inventaire du PJ --}}
 		<div class="tab" data-group="principal" data-tab="inventaire">
-			<p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.seuils.encombrement.value}}</span</p>
+			<p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.seuils.encombrement.value}}</span></p>
 			<label for="encombrement">{{localize 'RdD.actor.cptr.encombrement'}}</label>
 			<input type="number" id="encombrement" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
 			<label for="argent">{{localize 'RdD.actor.cptr.argent'}}</label>
