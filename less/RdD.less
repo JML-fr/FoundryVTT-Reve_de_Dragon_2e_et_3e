@@ -40,7 +40,7 @@
 @erreur-color: #550000;
 @info-color: blue;
 @info-color-shadow: fade(@info-color, 33%);
-@lignes-color: #782e22;
+@contraste-color: #782e22;
 
 /* ============== ONGLETS ======================================= */
 .RdD .content {
@@ -54,7 +54,7 @@
 	margin: 3px 0 0 0;
 	.item.active {
 	text-shadow: none;
-	border-bottom: 2px solid @lignes-color;
+	border-bottom: 2px solid @contraste-color;
 	}
 }
 
@@ -72,9 +72,10 @@
 	background-color: fade(@erreur-color, 33%);
 }
 
-.RdD a {
+.RdD form a {
 	&:hover {
-		text-shadow: 0 0 10px @info-color;
+		text-shadow: none;
+		color: @contraste-color;
 	}
 }
 
