@@ -1,20 +1,63 @@
 {
   "name": "RdD",
   "title": "Rêve de Dragon",
-  "description": "Prise en charge des règles de Rêve de Dragon, 2de édition",
-  "version": 0.1,
+  "description": "Prise en charge des règles de Rêve de Dragon, 2de édition – Version Beta 2",
+  "version": "0.2.2",
+  "templateVersion": 2,
   "author": "JML",
-  "scripts": [
-    "scripts/RdD.js"
+  "minimumCoreVersion": "0.5.5",
+  "compatibleCoreVersion": "0.5.5",
+  "esmodules": [
+    "modules/RdD.js"
   ],
   "styles": [
     "styles/RdD.css"
   ],
   "packs": [
-    
+    {
+      "name": "rdd-macros",
+      "label": "RdD – Macros",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-macros.db",
+      "entity": "Macro"
+    },
+    {
+      "name": "rdd-tables-cbt",
+      "label": "RdD – Tables de combat",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-tables-cbt.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "rdd-tables-hr",
+      "label": "RdD – Tables pour le haut-rêve",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-tables-hr.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "rdd-aides-de-jeu",
+      "label": "RdD – Aides de jeu",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-aides-de-jeu.db",
+      "entity": "JournalEntry"
+    }
   ],
   "languages": [
-    "fr"
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
   ],
   "initiative": "1d6",
   "gridDistance": 1,

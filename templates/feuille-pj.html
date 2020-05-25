@@ -1,0 +1,799 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+	{{!-- En-tête de la feuille de pj --}}
+	<header class="en-tête-feuille">
+		<div class="id-perso">
+			<img class="vignette" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+			<h1 class="nom-perso"><input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'RdD.Name'}}" /></h1>
+		</div>
+		<div class="grpSignesPart">
+			<label for="heureNaissance">{{localize 'RdD.actor.signesPart.hn'}}</label>
+			<select id="heureNaissance" name="data.signesPart.hn.value">
+				{{RdDSelect "RdD.heuresDeNaissance" data.signesPart.hn.value}}
+			</select>
+		</div>
+		<div class="grpSignesPart">
+			<label for="sexe">{{localize 'RdD.actor.signesPart.sexe'}}</label>
+			<select name="data.signesPart.sexe.value" id="sexe">
+				{{RdDSelect "RdD.sexe" data.signesPart.sexe.value}}
+			</select>
+			<label for="âge">{{localize 'RdD.actor.signesPart.âge'}}</label>
+			<input type="number" id="âge" name="data.signesPart.âge.value" value="{{data.signesPart.âge.value}}">
+		</div>
+		<div class="grpSignesPart">
+			<label for="spTaille">{{localize 'RdD.actor.signesPart.taille'}}</label>
+			<input type="number" id="spTaille" name="data.signesPart.taille.value" value="{{RdDNumFormat data.signesPart.taille.value décimales=2}}">
+			<label for="poids">{{localize 'RdD.actor.signesPart.poids'}}</label>
+			<input type="number" id="poids" name="data.signesPart.poids.value" value="{{data.signesPart.poids.value}}">
+		</div>
+		<div class="grpSignesPart">
+			<label for="cheveux">{{localize 'RdD.actor.signesPart.cheveux'}}</label>
+			<input type="text" id="cheveux" name="data.signesPart.cheveux.value" value="{{data.signesPart.cheveux.value}}">
+			<label for="yeux">{{localize 'RdD.actor.signesPart.yeux'}}</label>
+			<input type="text" id="yeux" name="data.signesPart.yeux.value" value="{{data.signesPart.yeux.value}}">
+			<label for="beauté">{{localize 'RdD.actor.signesPart.beauté'}}</label>
+			<input type="number" id="beauté" name="data.signesPart.beauté.value" value="{{data.signesPart.beauté.value}}">
+		</div>
+		<div class="grpSignesPart">
+			<label for="latéralité">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
+			<select id="latéralité" name="data.signesPart.latéralité.mainDominante">
+				{{RdDSelect "RdD.latéralité" data.signesPart.latéralité.mainDominante}}
+			</select>
+		</div>
+	</header>
+	
+	{{!-- Barre des onglets de le feuille --}}
+	<nav class="tabs" data-group="principal">
+		<a class="item" data-tab="états">{{localize 'RdD.actor.pj.tabPrincipal.états'}}</a>
+		<a class="item" data-tab="caractéristiques">{{localize 'RdD.actor.pj.tabPrincipal.caractéristiques'}}</a>
+		<a class="item" data-tab="compétences">{{localize 'RdD.actor.pj.tabPrincipal.compétences'}}</a>
+		<a class="item" data-tab="combat">{{localize 'RdD.actor.pj.tabPrincipal.combat'}}</a>
+		<a class="item" data-tab="santé">{{localize 'RdD.actor.pj.tabPrincipal.santé'}}</a>
+		<a class="item" data-tab="haut-rêve">{{localize 'RdD.actor.pj.tabPrincipal.haut-rêve'}}</a>
+		<a class="item" data-tab="vécu">{{localize 'RdD.actor.pj.tabPrincipal.vécu'}}</a>
+		<a class="item" data-tab="inventaire">{{localize 'RdD.actor.pj.tabPrincipal.inventaire'}}</a>
+		<a class="item" data-tab="description">{{localize 'RdD.actor.pj.tabPrincipal.description'}}</a>
+	</nav>
+	
+	{{!-- Onglet présentant les états du PJ --}}
+	<section class="content">
+		<div class="tab" data-group="principal" data-tab="états">
+			<p><span>{{localize 'RdD.actor.états.étatGénéral'}}&nbsp;: </span><span>{{data.états.étatGénéral.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.états.ptViePerdus'}}&nbsp;: </span><span>{{data.états.ptViePerdus.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.états.malusFatigue'}}&nbsp;: </span><span>{{data.états.malusFatigue.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.états.malusEncombrement'}}&nbsp;: </span><span>{{data.états.malusEncombrement.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.états.malusÉthylisme'}}&nbsp;: </span><span>{{data.états.malusÉthylisme.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.états.malusArmure'}}&nbsp;: </span><span>{{data.états.malusArmure.value}}</span></p>
+			<div>
+				<span>{{localize 'RdD.actor.états.sonné'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.sonné.value" {{checked data.états.sonné.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.inconscient'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.inconscient.value" {{checked data.états.inconscient.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.coma'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.coma.value" {{checked data.états.coma.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.malade'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.malade.value" {{checked data.états.malade.value}}>
+			</div>
+			<div>
+				<span>{{localize 'RdD.actor.états.empoisonné'}}&nbsp;: </span>
+				<input type="checkbox" name="data.états.empoisonné.value" {{checked data.états.empoisonné.value}}>
+			</div>
+		</div>
+
+		{{!-- Onglet de gestion des caractéristiques du PJ --}}
+		<div class="tab" data-group="principal" data-tab="caractéristiques">
+			<div>
+				<div>
+					<label for="taille">{{localize 'RdD.actor.caracs.taille'}}</label>
+					<input type="number" id="taille" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
+				</div>
+				<div>
+					<label for="apparence">{{localize 'RdD.actor.caracs.apparence'}}</label>
+					<input type="number" id="apparence" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="apparence-xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
+				</div>
+				<div>
+					<label for="constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
+					<input type="number" id="constitution" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="constitution-xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
+				</div>
+				<div>
+					<label for="force.value">{{localize 'RdD.actor.caracs.force'}}</label>
+					<input type="number" id="force" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="force-xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
+				</div>
+				<div>
+					<label for="agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
+					<input type="number" id="agilité" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="agilité-xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
+				</div>
+				<div>
+					<label for="dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
+					<input type="number" id="dextérité" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="dextérité-xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
+				</div>
+				<div>
+					<label for="vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
+					<input type="number" id="vue" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="vue-xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
+				</div>
+				<div>
+					<label for="ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
+					<input type="number" id="ouïe" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="ouïe-xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
+				</div>
+				<div>
+					<label for="odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
+					<input type="number" id="odorat_goût" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="odorat_goût-xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
+					<input type="number" id="volonté" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="volonté-xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
+				</div>
+				<div>
+					<label for="intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
+					<input type="number" id="intellect" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="intellect-xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
+				</div>
+				<div>
+					<label for="empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
+					<input type="number" id="empathie" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="empathie-xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
+				</div>
+				<div>
+					<label for="rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
+					<input type="number" id="rêve" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="rêve-xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
+				</div>
+				<div>
+					<label for="chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
+					<input type="number" id=chance" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
+					<span> {{localize 'RdD.actor.pj.xp'}} </span>
+					<input type="number" id="chance-xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
+				</div>
+				<p><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span>{{data.caracsDériv.mêlée.value}}</span></p>
+				<p><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span>{{data.caracsDériv.tir.value}}</span></p>
+				<p><span>{{localize 'RdD.actor.caracsDériv.lancer'}}&nbsp;: </span><span>{{data.caracsDériv.lancer.value}}</span></p>
+				<p><span>{{localize 'RdD.actor.caracsDériv.dérobée'}}&nbsp;: </span><span>{{data.caracsDériv.dérobée.value}}</span></p>
+			</div>
+		</div>
+
+		{{!-- Onglet de gestion des compétences du PJ --}}
+		<div class="tab" data-group="principal" data-tab="compétences">
+			<h2>{{localize 'RdD.actor.cptcGénérales.titre'}}</h2>
+			{{#with data.cptcGénérales as |cptcGnrl|}}
+			<div>
+				<label for="cptcGnrl.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcGnrl.élt_0.value" class="cptcGnrl" name="data.cptcGénérales.élt_0.value" value="{{cptcGnrl.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_0.xp" class="cptcXp" name="data.cptcGénérales.élt_0.xp" value="{{cptcGnrl.élt_0.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcGnrl.élt_1.value" class="cptcGnrl" name="data.cptcGénérales.élt_1.value" value="{{cptcGnrl.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_1.xp" class="cptcXp" name="data.cptcGénérales.élt_1.xp" value="{{cptcGnrl.élt_1.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcGnrl.élt_2.value" class="cptcGnrl" name="data.cptcGénérales.élt_2.value" value="{{cptcGnrl.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_2.xp" class="cptcXp" name="data.cptcGénérales.élt_2.xp" value="{{cptcGnrl.élt_2.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcGnrl.élt_3.value" class="cptcGnrl" name="data.cptcGénérales.élt_3.value" value="{{cptcGnrl.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_3.xp" class="cptcXp" name="data.cptcGénérales.élt_3.xp" value="{{cptcGnrl.élt_3.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_4.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_4')}}</label>
+				<input type="number" id="cptcGnrl.élt_4.value" class="cptcGnrl" name="data.cptcGénérales.élt_4.value" value="{{cptcGnrl.élt_4.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_4.xp" class="cptcXp" name="data.cptcGénérales.élt_4.xp" value="{{cptcGnrl.élt_4.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_5.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_5')}}</label>
+				<input type="number" id="cptcGnrl.élt_5.value" class="cptcGnrl" name="data.cptcGénérales.élt_5.value" value="{{cptcGnrl.élt_5.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_5.xp" class="cptcXp" name="data.cptcGénérales.élt_5.xp" value="{{cptcGnrl.élt_5.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_6.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_6')}}</label>
+				<input type="number" id="cptcGnrl.élt_6.value" class="cptcGnrl" name="data.cptcGénérales.élt_6.value" value="{{cptcGnrl.élt_6.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_6.xp" class="cptcXp" name="data.cptcGénérales.élt_6.xp" value="{{cptcGnrl.élt_6.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_7.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_7')}}</label>
+				<input type="number" id="cptcGnrl.élt_7.value" class="cptcGnrl" name="data.cptcGénérales.élt_7.value" value="{{cptcGnrl.élt_7.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_7.xp" class="cptcXp" name="data.cptcGénérales.élt_7.xp" value="{{cptcGnrl.élt_7.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_8.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_8')}}</label>
+				<input type="number" id="cptcGnrl.élt_8.value" class="cptcGnrl" name="data.cptcGénérales.élt_8.value" value="{{cptcGnrl.élt_8.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_8.xp" class="cptcXp" name="data.cptcGénérales.élt_8.xp" value="{{cptcGnrl.élt_8.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_9.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_9')}}</label>
+				<input type="number" id="cptcGnrl.élt_9.value" class="cptcGnrl" name="data.cptcGénérales.élt_9.value" value="{{cptcGnrl.élt_9.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_9.xp" class="cptcXp" name="data.cptcGénérales.élt_9.xp" value="{{cptcGnrl.élt_9.xp}}">
+			</div>
+			<div>
+				<label for="cptcGnrl.élt_10.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcGénérales.liste.&&&' 'élt_10')}}</label>
+				<input type="number" id="cptcGnrl.élt_10.value" class="cptcGnrl" name="data.cptcGénérales.élt_10.value" value="{{cptcGnrl.élt_10.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcGnrl.élt_10.xp" class="cptcXp" name="data.cptcGénérales.élt_10.xp" value="{{cptcGnrl.élt_10.xp}}">
+			</div>
+			{{/with}}
+			<h2>{{localize 'RdD.actor.cptcMêlée.titre'}}</h2>
+			{{#with data.cptcMêlée as |cptcMl|}}
+			<div>
+				<label for="cptcMl.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcMl.élt_0.value" class="cptcMl" name="data.cptcMêlée.élt_0.value" value="{{cptcMl.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_0.xp" class="cptcXp" name="data.cptcMêlée.élt_0.xp" value="{{cptcMl.élt_0.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcMl.élt_1.value" class="cptcMl" name="data.cptcMêlée.élt_1.value" value="{{cptcMl.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_1.xp" class="cptcXp" name="data.cptcMêlée.élt_1.xp" value="{{cptcMl.élt_1.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcMl.élt_2.value" class="cptcMl" name="data.cptcMêlée.élt_2.value" value="{{cptcMl.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_2.xp" class="cptcXp" name="data.cptcMêlée.élt_2.xp" value="{{cptcMl.élt_2.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcMl.élt_3.value" class="cptcMl" name="data.cptcMêlée.élt_3.value" value="{{cptcMl.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_3.xp" class="cptcXp" name="data.cptcMêlée.élt_3.xp" value="{{cptcMl.élt_3.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_4.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_4')}}</label>
+				<input type="number" id="cptcMl.élt_4.value" class="cptcMl" name="data.cptcMêlée.élt_4.value" value="{{cptcMl.élt_4.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_4.xp" class="cptcXp" name="data.cptcMêlée.élt_4.xp" value="{{cptcMl.élt_4.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_5.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_5')}}</label>
+				<input type="number" id="cptcMl.élt_5.value" class="cptcMl" name="data.cptcMêlée.élt_5.value" value="{{cptcMl.élt_5.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_5.xp" class="cptcXp" name="data.cptcMêlée.élt_5.xp" value="{{cptcMl.élt_5.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_6.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_6')}}</label>
+				<input type="number" id="cptcMl.élt_6.value" class="cptcMl" name="data.cptcMêlée.élt_6.value" value="{{cptcMl.élt_6.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_6.xp" class="cptcXp" name="data.cptcMêlée.élt_6.xp" value="{{cptcMl.élt_6.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_7.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_7')}}</label>
+				<input type="number" id="cptcMl.élt_7.value" class="cptcMl" name="data.cptcMêlée.élt_7.value" value="{{cptcMl.élt_7.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_7.xp" class="cptcXp" name="data.cptcMêlée.élt_7.xp" value="{{cptcMl.élt_7.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_8.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_8')}}</label>
+				<input type="number" id="cptcMl.élt_8.value" class="cptcMl" name="data.cptcMêlée.élt_8.value" value="{{cptcMl.élt_8.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_8.xp" class="cptcXp" name="data.cptcMêlée.élt_8.xp" value="{{cptcMl.élt_8.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_9.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_9')}}</label>
+				<input type="number" id="cptcMl.élt_9.value" class="cptcMl" name="data.cptcMêlée.élt_9.value" value="{{cptcMl.élt_9.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_9.xp" class="cptcXp" name="data.cptcMêlée.élt_9.xp" value="{{cptcMl.élt_9.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_10.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_10')}}</label>
+				<input type="number" id="cptcMl.élt_10.value" class="cptcMl" name="data.cptcMêlée.élt_10.value" value="{{cptcMl.élt_10.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_10.xp" class="cptcXp" name="data.cptcMêlée.élt_10.xp" value="{{cptcMl.élt_10.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_11.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_11')}}</label>
+				<input type="number" id="cptcMl.élt_11.value" class="cptcMl" name="data.cptcMêlée.élt_11.value" value="{{cptcMl.élt_11.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_11.xp" class="cptcXp" name="data.cptcMêlée.élt_11.xp" value="{{cptcMl.élt_11.xp}}">
+			</div>
+			<div>
+				<label for="cptcMl.élt_12.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcMêlée.liste.&&&' 'élt_12')}}</label>
+				<input type="number" id="cptcMl.élt_12.value" class="cptcMl" name="data.cptcMêlée.élt_12.value" value="{{cptcMl.élt_12.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcMl.élt_12.xp" class="cptcXp" name="data.cptcMêlée.élt_12.xp" value="{{cptcMl.élt_12.xp}}">
+			</div>
+			{{/with}}
+			<h2>{{localize 'RdD.actor.cptcTirLancer.titre'}}</h2>
+			{{#with data.cptcTirLancer as |cptcTL|}}
+			<div>
+				<label for="cptcTL.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcTirLancer.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcTL.élt_0.value" class="cptcTL" name="data.cptcTirLancer.élt_0.value" value="{{cptcTL.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcTL.élt_0.xp" class="cptcXp" name="data.cptcTirLancer.élt_0.xp" value="{{cptcTL.élt_0.xp}}">
+			</div>
+			<div>
+				<label for="cptcTL.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcTirLancer.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcTL.élt_1.value" class="cptcTL" name="data.cptcTirLancer.élt_1.value" value="{{cptcTL.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcTL.élt_1.xp" class="cptcXp" name="data.cptcTirLancer.élt_1.xp" value="{{cptcTL.élt_1.xp}}">
+			</div>
+			<div>
+				<label for="cptcTL.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcTirLancer.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcTL.élt_2.value" class="cptcTL" name="data.cptcTirLancer.élt_2.value" value="{{cptcTL.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcTL.élt_2.xp" class="cptcXp" name="data.cptcTirLancer.élt_2.xp" value="{{cptcTL.élt_2.xp}}">
+			</div>
+			<div>
+				<label for="cptcTL.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcTirLancer.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcTL.élt_3.value" class="cptcTL" name="data.cptcTirLancer.élt_3.value" value="{{cptcTL.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcTL.élt_3.xp" class="cptcXp" name="data.cptcTirLancer.élt_3.xp" value="{{cptcTL.élt_3.xp}}">
+			</div>
+			<div>
+				<label for="cptcTL.élt_4.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcTirLancer.liste.&&&' 'élt_4')}}</label>
+				<input type="number" id="cptcTL.élt_4.value" class="cptcTL" name="data.cptcTirLancer.élt_4.value" value="{{cptcTL.élt_4.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcTL.élt_4.xp" class="cptcXp" name="data.cptcTirLancer.élt_4.xp" value="{{cptcTL.élt_4.xp}}">
+			</div>
+			<div>
+				<label for="cptcTL.élt_5.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcTirLancer.liste.&&&' 'élt_5')}}</label>
+				<input type="number" id="cptcTL.élt_5.value" class="cptcTL" name="data.cptcTirLancer.élt_5.value" value="{{cptcTL.élt_5.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcTL.élt_5.xp" class="cptcXp" name="data.cptcTirLancer.élt_5.xp" value="{{cptcTL.élt_5.xp}}">
+			</div>
+			{{/with}}
+			<h2>{{localize 'RdD.actor.cptcParticulières.titre'}}</h2>
+			{{#with data.cptcParticulières as |cptcPart|}}
+			<div>
+				<label for="cptcPart.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcPart.élt_0.value" class="cptcPart" name="data.cptcParticulières.élt_0.value" value="{{cptcPart.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_0.xp" class="cptcXp" name="data.cptcParticulières.élt_0.xp" value="{{cptcPart.élt_0.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcPart.élt_1.value" class="cptcPart" name="data.cptcParticulières.élt_1.value" value="{{cptcPart.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_1.xp" class="cptcXp" name="data.cptcParticulières.élt_1.xp" value="{{cptcPart.élt_1.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcPart.élt_2.value" class="cptcPart" name="data.cptcParticulières.élt_2.value" value="{{cptcPart.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_2.xp" class="cptcXp" name="data.cptcParticulières.élt_2.xp" value="{{cptcPart.élt_2.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcPart.élt_3.value" class="cptcPart" name="data.cptcParticulières.élt_3.value" value="{{cptcPart.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_3.xp" class="cptcXp" name="data.cptcParticulières.élt_3.xp" value="{{cptcPart.élt_3.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_4.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_4')}}</label>
+				<input type="number" id="cptcPart.élt_4.value" class="cptcPart" name="data.cptcParticulières.élt_4.value" value="{{cptcPart.élt_4.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_4.xp" class="cptcXp" name="data.cptcParticulières.élt_4.xp" value="{{cptcPart.élt_4.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_5.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_5')}}</label>
+				<input type="number" id="cptcPart.élt_5.value" class="cptcPart" name="data.cptcParticulières.élt_5.value" value="{{cptcPart.élt_5.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_5.xp" class="cptcXp" name="data.cptcParticulières.élt_5.xp" value="{{cptcPart.élt_5.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_6.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_6')}}</label>
+				<input type="number" id="cptcPart.élt_6.value" class="cptcPart" name="data.cptcParticulières.élt_6.value" value="{{cptcPart.élt_6.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_6.xp" class="cptcXp" name="data.cptcParticulières.élt_6.xp" value="{{cptcPart.élt_6.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_7.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_7')}}</label>
+				<input type="number" id="cptcPart.élt_7.value" class="cptcPart" name="data.cptcParticulières.élt_7.value" value="{{cptcPart.élt_7.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_7.xp" class="cptcXp" name="data.cptcParticulières.élt_7.xp" value="{{cptcPart.élt_7.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_8.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_8')}}</label>
+				<input type="number" id="cptcPart.élt_8.value" class="cptcPart" name="data.cptcParticulières.élt_8.value" value="{{cptcPart.élt_8.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_8.xp" class="cptcXp" name="data.cptcParticulières.élt_8.xp" value="{{cptcPart.élt_8.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_9.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_9')}}</label>
+				<input type="number" id="cptcPart.élt_9.value" class="cptcPart" name="data.cptcParticulières.élt_9.value" value="{{cptcPart.élt_9.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_9.xp" class="cptcXp" name="data.cptcParticulières.élt_9.xp" value="{{cptcPart.élt_9.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_10.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_10')}}</label>
+				<input type="number" id="cptcPart.élt_10.value" class="cptcPart" name="data.cptcParticulières.élt_10.value" value="{{cptcPart.élt_10.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_10.xp" class="cptcXp" name="data.cptcParticulières.élt_10.xp" value="{{cptcPart.élt_10.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_11.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_11')}}</label>
+				<input type="number" id="cptcPart.élt_11.value" class="cptcPart" name="data.cptcParticulières.élt_11.value" value="{{cptcPart.élt_11.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_11.xp" class="cptcXp" name="data.cptcParticulières.élt_11.xp" value="{{cptcPart.élt_11.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_12.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_12')}}</label>
+				<input type="number" id="cptcPart.élt_12.value" class="cptcPart" name="data.cptcParticulières.élt_12.value" value="{{cptcPart.élt_12.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_12.xp" class="cptcXp" name="data.cptcParticulières.élt_12.xp" value="{{cptcPart.élt_12.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_13.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_13')}}</label>
+				<input type="number" id="cptcPart.élt_13.value" class="cptcPart" name="data.cptcParticulières.élt_13.value" value="{{cptcPart.élt_13.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_13.xp" class="cptcXp" name="data.cptcParticulières.élt_13.xp" value="{{cptcPart.élt_13.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_14.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_14')}}</label>
+				<input type="number" id="cptcPart.élt_14.value" class="cptcPart" name="data.cptcParticulières.élt_14.value" value="{{cptcPart.élt_14.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_14.xp" class="cptcXp" name="data.cptcParticulières.élt_14.xp" value="{{cptcPart.élt_14.xp}}">
+			</div>
+			<div>
+				<label for="cptcPart.élt_15.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcParticulières.liste.&&&' 'élt_15')}}</label>
+				<input type="number" id="cptcPart.élt_15.value" class="cptcPart" name="data.cptcParticulières.élt_15.value" value="{{cptcPart.élt_15.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcPart.élt_15.xp" class="cptcXp" name="data.cptcParticulières.élt_15.xp" value="{{cptcPart.élt_15.xp}}">
+			</div>
+			{{/with}}
+			<h2>{{localize 'RdD.actor.cptcSpécialisées.titre'}}</h2>
+			{{#with data.cptcSpécialisées as |cptcSpé|}}
+			<div>
+				<label for="cptcSpé.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcSpé.élt_0.value" class="cptcSpé" name="data.cptcSpécialisées.élt_0.value" value="{{cptcSpé.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_0.xp" class="cptcXp" name="data.cptcSpécialisées.élt_0.xp" value="{{cptcSpé.élt_0.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcSpé.élt_1.value" class="cptcSpé" name="data.cptcSpécialisées.élt_1.value" value="{{cptcSpé.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_1.xp" class="cptcXp" name="data.cptcSpécialisées.élt_1.xp" value="{{cptcSpé.élt_1.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcSpé.élt_2.value" class="cptcSpé" name="data.cptcSpécialisées.élt_2.value" value="{{cptcSpé.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_2.xp" class="cptcXp" name="data.cptcSpécialisées.élt_2.xp" value="{{cptcSpé.élt_2.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcSpé.élt_3.value" class="cptcSpé" name="data.cptcSpécialisées.élt_3.value" value="{{cptcSpé.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_3.xp" class="cptcXp" name="data.cptcSpécialisées.élt_3.xp" value="{{cptcSpé.élt_3.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_4.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_4')}}</label>
+				<input type="number" id="cptcSpé.élt_4.value" class="cptcSpé" name="data.cptcSpécialisées.élt_4.value" value="{{cptcSpé.élt_4.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_4.xp" class="cptcXp" name="data.cptcSpécialisées.élt_4.xp" value="{{cptcSpé.élt_4.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_5.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_5')}}</label>
+				<input type="number" id="cptcSpé.élt_5.value" class="cptcSpé" name="data.cptcSpécialisées.élt_5.value" value="{{cptcSpé.élt_5.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_5.xp" class="cptcXp" name="data.cptcSpécialisées.élt_5.xp" value="{{cptcSpé.élt_5.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_6.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_6')}}</label>
+				<input type="number" id="cptcSpé.élt_6.value" class="cptcSpé" name="data.cptcSpécialisées.élt_6.value" value="{{cptcSpé.élt_6.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_6.xp" class="cptcXp" name="data.cptcSpécialisées.élt_6.xp" value="{{cptcSpé.élt_6.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_7.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_7')}}</label>
+				<input type="number" id="cptcSpé.élt_7.value" class="cptcSpé" name="data.cptcSpécialisées.élt_7.value" value="{{cptcSpé.élt_7.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_7.xp" class="cptcXp" name="data.cptcSpécialisées.élt_7.xp" value="{{cptcSpé.élt_7.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_8.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_8')}}</label>
+				<input type="number" id="cptcSpé.élt_8.value" class="cptcSpé" name="data.cptcSpécialisées.élt_8.value" value="{{cptcSpé.élt_8.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_8.xp" class="cptcXp" name="data.cptcSpécialisées.élt_8.xp" value="{{cptcSpé.élt_8.xp}}">
+			</div>
+			<div>
+				<label for="cptcSpé.élt_9.value">{{localize (RdDRemplaceExpression 'RdD.actor.cptcSpécialisées.liste.&&&' 'élt_9')}}</label>
+				<input type="number" id="cptcSpé.élt_9.value" class="cptcSpé" name="data.cptcSpécialisées.élt_9.value" value="{{cptcSpé.élt_9.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcSpé.élt_9.xp" class="cptcXp" name="data.cptcSpécialisées.élt_9.xp" value="{{cptcSpé.élt_9.xp}}">
+			</div>
+			{{/with}}
+			<h2>{{localize 'RdD.actor.Connaissances.titre'}}</h2>
+			{{#with data.Connaissances as |cptcCnsc|}}
+			<div>
+				<label for="cptcCnsc.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcCnsc.élt_0.value" class="cptcCnsc" name="data.Connaissances.élt_0.value" value="{{cptcCnsc.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_0.xp" class="cptcXp" name="data.Connaissances.élt_0.xp" value="{{cptcCnsc.élt_0.xp}}">
+			</div>
+			<div>
+				<label for="cptcCnsc.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcCnsc.élt_1.value" class="cptcCnsc" name="data.Connaissances.élt_1.value" value="{{cptcCnsc.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_1.xp" class="cptcXp" name="data.Connaissances.élt_1.xp" value="{{cptcCnsc.élt_1.xp}}">
+			</div>
+			<div>
+				<label for="cptcCnsc.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcCnsc.élt_2.value" class="cptcCnsc" name="data.Connaissances.élt_2.value" value="{{cptcCnsc.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_2.xp" class="cptcXp" name="data.Connaissances.élt_2.xp" value="{{cptcCnsc.élt_2.xp}}">
+			</div>
+			<div>
+				<label for="cptcCnsc.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcCnsc.élt_3.value" class="cptcCnsc" name="data.Connaissances.élt_3.value" value="{{cptcCnsc.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_3.xp" class="cptcXp" name="data.Connaissances.élt_3.xp" value="{{cptcCnsc.élt_3.xp}}">
+			</div>
+			<div>
+				<label for="cptcCnsc.élt_4.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_4')}}</label>
+				<input type="number" id="cptcCnsc.élt_4.value" class="cptcCnsc" name="data.Connaissances.élt_4.value" value="{{cptcCnsc.élt_4.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_4.xp" class="cptcXp" name="data.Connaissances.élt_4.xp" value="{{cptcCnsc.élt_4.xp}}">
+			</div>
+			<div>
+				<label for="cptcCnsc.élt_5.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_5')}}</label>
+				<input type="number" id="cptcCnsc.élt_5.value" class="cptcCnsc" name="data.Connaissances.élt_5.value" value="{{cptcCnsc.élt_5.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_5.xp" class="cptcXp" name="data.Connaissances.élt_5.xp" value="{{cptcCnsc.élt_5.xp}}">
+			</div>
+			<div>
+				<label for="cptcCnsc.élt_6.value">{{localize (RdDRemplaceExpression 'RdD.actor.Connaissances.liste.&&&' 'élt_6')}}</label>
+				<input type="number" id="cptcCnsc.élt_6.value" class="cptcCnsc" name="data.Connaissances.élt_6.value" value="{{cptcCnsc.élt_6.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcCnsc.élt_6.xp" class="cptcXp" name="data.Connaissances.élt_6.xp" value="{{cptcCnsc.élt_6.xp}}">
+			</div>
+			{{/with}}
+			<h2>{{localize 'RdD.actor.Draconic.titre'}}</h2>
+			{{#with data.Draconic as |cptcDrac|}}
+			<div>
+				<label for="cptcDrac.élt_0.value">{{localize (RdDRemplaceExpression 'RdD.actor.Draconic.liste.&&&' 'élt_0')}}</label>
+				<input type="number" id="cptcDrac.élt_0.value" class="cptcDrac" name="data.Draconic.élt_0.value" value="{{cptcDrac.élt_0.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcDrac.élt_0.xp" class="cptcXp" name="data.Draconic.élt_0.xp" value="{{cptcDrac.élt_0.xp}}">
+				<span> {{localize 'RdD.actor.pj.ptSort'}} </span>
+				<input type="number" id="cptcDrac.élt_0.ptSort" class="ptSort" name="data.Draconic.élt_0.ptSort" value="{{cptcDrac.élt_0.ptSort}}">
+			</div>
+			<div>
+				<label for="cptcDrac.élt_1.value">{{localize (RdDRemplaceExpression 'RdD.actor.Draconic.liste.&&&' 'élt_1')}}</label>
+				<input type="number" id="cptcDrac.élt_1.value" class="cptcDrac" name="data.Draconic.élt_1.value" value="{{cptcDrac.élt_1.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcDrac.élt_1.xp" class="cptcXp" name="data.Draconic.élt_1.xp" value="{{cptcDrac.élt_1.xp}}">
+				<span> {{localize 'RdD.actor.pj.ptSort'}} </span>
+				<input type="number" id="cptcDrac.élt_1.ptSort" class="ptSort" name="data.Draconic.élt_1.ptSort" value="{{cptcDrac.élt_1.ptSort}}">
+			</div>
+			<div>
+				<label for="cptcDrac.élt_2.value">{{localize (RdDRemplaceExpression 'RdD.actor.Draconic.liste.&&&' 'élt_2')}}</label>
+				<input type="number" id="cptcDrac.élt_2.value" class="cptcDrac" name="data.Draconic.élt_2.value" value="{{cptcDrac.élt_2.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcDrac.élt_2.xp" class="cptcXp" name="data.Draconic.élt_2.xp" value="{{cptcDrac.élt_2.xp}}">
+				<span> {{localize 'RdD.actor.pj.ptSort'}} </span>
+				<input type="number" id="cptcDrac.élt_2.ptSort" class="ptSort" name="data.Draconic.élt_2.ptSort" value="{{cptcDrac.élt_2.ptSort}}">
+			</div>
+			<div>
+				<label for="cptcDrac.élt_3.value">{{localize (RdDRemplaceExpression 'RdD.actor.Draconic.liste.&&&' 'élt_3')}}</label>
+				<input type="number" id="cptcDrac.élt_3.value" class="cptcDrac" name="data.Draconic.élt_3.value" value="{{cptcDrac.élt_3.value}}">
+				<span> {{localize 'RdD.actor.pj.xp'}} </span>
+				<input type="number" id="cptcDrac.élt_3.xp" class="cptcXp" name="data.Draconic.élt_3.xp" value="{{cptcDrac.élt_3.xp}}">
+				<span> {{localize 'RdD.actor.pj.ptSort'}} </span>
+				<input type="number" id="cptcDrac.élt_3.ptSort" class="ptSort" name="data.Draconic.élt_3.ptSort" value="{{cptcDrac.élt_3.ptSort}}">
+			</div>
+			{{/with}}
+		</div>
+
+		{{!-- Onglet de gestion du combat du PJ --}}
+		<div class="tab" data-group="principal" data-tab="combat">
+			<p><span>{{localize 'RdD.actor.seuils.plusDom'}}&nbsp;: </span><span>{{RdDNumFormat data.seuils.plusDom.value signe=true}}</span></p>
+			<p><span>{{localize 'RdD.actor.seuils.protection'}}&nbsp;: </span><span>{{data.seuils.protection.value}}</span></p>
+		</div>
+
+		{{!-- Onglet de gestion de la santé du PJ --}}
+		<div class="tab" data-group="principal" data-tab="santé">
+			<p><span>{{localize 'RdD.actor.seuils.sc'}}&nbsp;: </span><span>{{data.seuils.sc.value}}</span></p>
+			<label for="vie">{{localize 'RdD.actor.cptr.vie'}} ({{data.cptr.vie.max}})</label>
+			<input type="number" id="vie" name="data.cptr.vie.value" value="{{data.cptr.vie.value}}">
+			<label for="endurance">{{localize 'RdD.actor.cptr.endurance'}} ({{data.cptr.endurance.max}})</label>
+			<input type="number" id="endurance" name="data.cptr.endurance.value" value="{{data.cptr.endurance.value}}">
+			<p><span>{{localize 'RdD.actor.cptr.fatigue.titre'}}&nbsp;: </span><span>{{data.cptr.fatigue.niveauActuel}}</span></p>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau0'}}&nbsp;: </span>
+				{{#each data.cptr.fatigue.niveaux.0.segments as |segment ind|}}
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.0.segments.{{ind}}.value" value="{{segment.value}}">
+				<span>/</span>
+				<span class="max">{{segment.max}}</span>
+				{{#unless @last}}
+				<span> — </span>
+				{{/unless}}
+				{{/each}}
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-1'}}&nbsp;: </span>
+				{{#each data.cptr.fatigue.niveaux.1.segments as |segment ind|}}
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.1.segments.{{ind}}.value" value="{{segment.value}}">
+				<span>/</span>
+				<span class="max">{{segment.max}}</span>
+				{{#unless @last}}
+				<span> — </span>
+				{{/unless}}
+				{{/each}}
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-2'}}&nbsp;: </span>
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.2.segments.0.value" value="{{data.cptr.fatigue.niveaux.2.segments.0.value}}">
+				<span>/</span>
+				<span class="max">{{data.cptr.fatigue.niveaux.2.segments.0.max}}</span>
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-3'}}&nbsp;: </span>
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.3.segments.0.value" value="{{data.cptr.fatigue.niveaux.3.segments.0.value}}">
+				<span>/</span>
+				<span class="max">{{data.cptr.fatigue.niveaux.3.segments.0.max}}</span>
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-4'}}&nbsp;: </span>
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.4.segments.0.value" value="{{data.cptr.fatigue.niveaux.4.segments.0.value}}">
+				<span>/</span>
+				<span class="max">{{data.cptr.fatigue.niveaux.4.segments.0.max}}</span>
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-5'}}&nbsp;: </span>
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.5.segments.0.value" value="{{data.cptr.fatigue.niveaux.5.segments.0.value}}">
+				<span>/</span>
+				<span class="max">{{data.cptr.fatigue.niveaux.5.segments.0.max}}</span>
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-6'}}&nbsp;: </span>
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.6.segments.0.value" value="{{data.cptr.fatigue.niveaux.6.segments.0.value}}">
+				<span>/</span>
+				<span class="max">{{data.cptr.fatigue.niveaux.6.segments.0.max}}</span>
+			</div>
+			<div class="fatigue">
+				<span>{{localize 'RdD.actor.cptr.fatigue.niveau-7'}}&nbsp;: </span>
+				<input type="number" name="RdDtemp.cptr.fatigue.niveaux.7.segments.0.value" value="{{data.cptr.fatigue.niveaux.7.segments.0.value}}">
+				<span>/</span>
+				<span class="max">{{data.cptr.fatigue.niveaux.7.segments.0.max}}</span>
+			</div>
+			<p><span>{{localize 'RdD.actor.cptr.blessures.titre'}}&nbsp;:</span></p>
+			<div class="blessures légères">
+				<span>{{localize 'RdD.actor.cptr.blessures.légères'}}&nbsp;:</span>
+				{{#each data.cptr.blessures.légères as |légère ind|}}
+				<input type="checkbox" name="RdDtemp.cptr.blessures.légères.{{ind}}.blessé" {{checked légère.blessé}}>
+				{{/each}}
+			</div>
+			<div class="blessures graves">
+				<span>{{localize 'RdD.actor.cptr.blessures.graves'}}&nbsp;:</span>
+				{{#each data.cptr.blessures.graves as |grave ind|}}
+				<input type="checkbox" name="RdDtemp.cptr.blessures.graves.{{ind}}.blessé" {{checked grave.blessé}}>
+				{{/each}}
+			</div>
+			<div class="blessures critiques">
+				<span>{{localize 'RdD.actor.cptr.blessures.critique'}}&nbsp;:</span>
+				{{#each data.cptr.blessures.critique as |critique ind|}}
+				<input type="checkbox" name="RdDtemp.cptr.blessures.critique.{{ind}}.blessé" {{checked critique.blessé}}>
+				{{/each}}
+			</div>
+			<div>
+				<p><span>{{localize 'RdD.actor.seuils.sust'}}&nbsp;: </span><span>{{data.seuils.sust.value}}</span></p>
+				<label for="sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
+				<input type="number" id="sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
+				<label for="eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
+				<input type="number" id="eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.compteursPJ.sustentationQuotidienne.eau}}">
+			</div>
+			<div>
+				<label for="éthylisme">{{localize 'RdD.actor.cptr.éthylisme.titre'}}</label>
+				<input type="number" id="éthylisme" name="data.cptr.éthylisme.value" value="{{data.cptr.éthylisme.value}}">
+			</div>
+		</div>
+
+		{{!-- Onglet de gestion du haut-rêve du PJ --}}
+		<div class="tab" data-group="principal" data-tab="haut-rêve">
+			<div>
+				<label for="seuilHR">{{localize 'RdD.actor.cptr.hautRêve.seuil'}}</label>
+				<input type="number" id="seuilHR" name="data.cptr.hautRêve.seuil" value="{{data.cptr.hautRêve.seuil}}">
+				<label for="ptRêve">{{localize 'RdD.actor.cptr.hautRêve.value'}}</label>
+				<input type="number" id="ptRêve" name="data.cptr.hautRêve.value" value="{{data.cptr.hautRêve.value}}">
+			</div>
+			<div>
+				<label for="TMRCol">{{localize 'RdD.actor.cptr.hautRêve.demiRêve'}}</label>
+				<input type="text" id="TMRCol" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.cptr.hautRêve.demiRêve.colonne}}">
+				<input type="number" id="TMRLig" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.cptr.hautRêve.demiRêve.ligne}}">
+			</div>
+			<div>
+				<label for="refoulement">{{localize 'RdD.actor.cptr.hautRêve.refoulement'}}</label>
+				<input type="number" id="refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.cptr.hautRêve.refoulement}}">
+			</div>
+		</div>
+
+		{{!-- Onglet de gestion du vécu du PJ --}}
+		<div class="tab" data-group="principal" data-tab="vécu">
+			<div>
+				<label for="ptChance">{{localize 'RdD.actor.pj.compteursPJ.ptChance'}}</label>
+				<input type="number" id="ptChance" name="data.compteursPJ.ptChance.value" value="{{data.compteursPJ.ptChance.value}}">
+			</div>
+			<div>
+				<label for="moral">{{localize 'RdD.actor.pj.compteursPJ.moral.titre'}}</label>
+				<input type="number" id="moral" name="data.compteursPJ.moral.value" value="{{data.compteursPJ.moral.value}}">
+				<label for="exalt_dissol">{{localize 'RdD.actor.pj.compteursPJ.moral.exalt_dissol'}}</label>
+				<input type="number" id="exalt_dissol" name="data.compteursPJ.moral.exalt_dissol" value="{{data.compteursPJ.moral.exalt_dissol}}">
+			</div>
+			<div>
+				<label for="cœur">{{localize 'RdD.actor.pj.compteursPJ.cœur.titre'}}</label>
+				<input type="number" id="cœur" name="data.compteursPJ.cœur.value" value="{{data.compteursPJ.cœur.value}}">
+				<label for="cœurPersonneConcernée">{{localize 'RdD.actor.pj.compteursPJ.cœur.personneConcernée'}}</label>
+				<input type="text" id="cœurPersonneConcernée" name="data.compteursPJ.cœur.personneConcernée" value="{{data.compteursPJ.cœur.personneConcernée}}">
+			</div>
+			<div>
+				<label for="ptDestinée">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptDestinée'}}</label>
+				<input type="number" id="ptDestinée" name="data.compteursPJ.destinée.ptDestinée" value="{{data.compteursPJ.destinée.ptDestinée}}">
+				<label for="ptVoyage">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptVoyage'}}</label>
+				<input type="number" id="ptVoyage" name="data.compteursPJ.destinée.ptVoyage" value="{{data.compteursPJ.destinée.ptVoyage}}">
+			</div>
+			<label for="stress">{{localize 'RdD.actor.pj.compteursPJ.stress'}}</label>
+			<input type="number" id="stress" name="data.compteursPJ.stress.value" value="{{data.compteursPJ.stress.value}}">
+		</div>
+
+		{{!-- Onglet de gestion de l'inventaire du PJ --}}
+		<div class="tab" data-group="principal" data-tab="inventaire">
+			<p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.seuils.encombrement.value}}</span></p>
+			<label for="encombrement">{{localize 'RdD.actor.cptr.encombrement'}}</label>
+			<input type="number" id="encombrement" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
+			<label for="argent">{{localize 'RdD.actor.cptr.argent'}}</label>
+			<input type="number" id="argent" name="data.cptr.argent.total" value="{{data.cptr.argent.total}}">
+		</div>
+
+		{{!-- Onglet de gestion de la description du PJ --}}
+		<div class="tab" data-group="principal" data-tab="description">
+			{{editor content=data.signesPart.description.value target="data.signesPart.description.value" button=true owner=owner editable=editable}}
+		</div>
+	</section>
+	<!--
+	<div class="tab items" data-tab="items">
+		<ol class="items-list">
+			{{#each actor.items as |item id|}}
+			<li class="item" data-item-id="{{item.id}}">
+				<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+				<h4 class="item-name">{{item.name}}</h4>
+				<div class="item-controls">
+					<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+					<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+				</div>
+			</li>
+			{{/each}}
+		</ol>
+	</div>
+-->
+</form>
