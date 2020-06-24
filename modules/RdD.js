@@ -8,8 +8,9 @@
 import {RdD} from "./utils/init.js";
 import * as RdDTemplates from "./acteurs/actor-templates.js";
 import * as Acteurs from "./acteurs/actor.js";
+import * as Objets from "./objets/item.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
-import * as RdDFObjet from "./interfaces/feuille-objet.js";
+import * as RdDFObjet from "./interfaces/feuille-cptc.js";
 
 /* -------------------------------------------- */
 /* Initialisations                              */
@@ -19,16 +20,15 @@ Hooks.once("init", async function() {
 	console.log(`RdD | Initialisation du système Rêve de Dragon`);
 	// Mémorise la configuration
 	CONFIG.Actor.entityClass = Acteurs.ActorRdD;
+	CONFIG.Item.entityClass = Objets.ItemRdD;
 
 	// Mémorise les paramètres du système de jeu
   
 	// Référence les classes applicative des différentes feuilles
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("RdD", RdDFPJ.RdDFeuillePJ, { types: ["pj"], makeDefault: true });
-	/*
 	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleObjet, { types: ["équipement"], makeDefault: true});
-	*/
+	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: false});
 
 	// Définit les utilitaires d'affichage
 	/**
@@ -95,3 +95,9 @@ Hooks.once('ready', function () {
 	// Do anything once the system is ready
 });
 // Add any additional hooks if necessary
+Hooks.on('preCreateItem', (createData, options, userId) => {
+    //Set default image if no image already exists
+    if (!createData.img) {
+        createData.img = `systems/RdD/assets/icons/${createData.type}.svg`;
+    }
+});

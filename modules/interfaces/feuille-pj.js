@@ -1,7 +1,7 @@
  /*
  * Importation des modules
  */
-import * as Intrfc from "../utils/interface.js";
+// import * as Intrfc from "../utils/interface.js";
 import * as Tmplt from "../acteurs/actor-templates.js"
 import {ActorRdD} from "../acteurs/actor.js";
 
@@ -60,13 +60,15 @@ export class RdDFeuillePJ extends ActorSheet {
 
 	/**
 	 * Active les détecteurs d'évènements depuis la page HTML préparée
+	 * @function activateListeners
 	 * @param html {HTML}   L'objet HTML préparé prêt à être rendu dans le DOM
+	 * @memberof RdDFeuillePJ
 	 */
 	activateListeners(html) {
 		console.log(`RdD | RdDFeuillePJ.activateListeners`);
 		super.activateListeners(html);
 
-		// Everything below here is only needed if the sheet is editable
+		// Tout ce qui suit n'est nécessaire que si la feuille es éditable
 		if (!this.options.editable) return;
 
 		// Update Inventory Item
@@ -100,7 +102,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * Met en forme les données du PJ avant d'envoyer la demande de mise à jour au serveur.
 	 * En particulier, prend en charge le traitement des tableaux de données.
 	 *
-	 * @method
+	 * @method _miseEnFormeAvMàJ
 	 * @param {*} [updateData=null]
 	 * @memberof RdDFeuillePJ
 	 * @private
@@ -155,7 +157,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * Redéfinit la fonction d'envoi de la saisie
 	 * Contrôle la saisie
 	 *
-	 * @method
+	 * @method _onChangeInput
 	 * @param {Event} event L'évènement à l'origine du contrôle
 	 * @memberof RdDFeuillePJ
 	 * @private
@@ -181,9 +183,6 @@ export class RdDFeuillePJ extends ActorSheet {
 				break;
 			case "beauté":
 				erreur = ActorRdD.ctrlBeauté(value);
-				break;
-			case "latéralité":
-				erreur = ActorRdD.ctrlLatéralité(value);
 				break;
 			case "taille":
 				erreur = ActorRdD.ctrlTaille(value);
@@ -360,9 +359,11 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * Redéfinit la fonction de préparation des données du PJ
 	 * On n'effectue de mise à jour que s'il n'y a pas d'erreur restante sur la feuille de PJ
 	 *
+	 * @method _onSubmit
 	 * @param {Event} event
 	 * @param {Object|null} updateData
 	 * @param {Boolean} preventClose
+	 * @async
 	 * @memberof RdDFeuillePJ
 	 */
 	async _onSubmit(event, {updateData=null, preventClose=false}={}) {
@@ -380,7 +381,16 @@ export class RdDFeuillePJ extends ActorSheet {
 		}
 	}
 	
-	/** Débogage */
+	/**
+	 * Redéfinit la fonction de mise à jour du PJ
+	 * On supprime les données de travail avant la mise à jour effective
+	 *
+	 * @method _updateObject
+	 * @param {*} event
+	 * @param {*} formData
+	 * @async
+	 * @memberof RdDFeuillePJ
+	 */
 	async _updateObject(event, formData) {
 		// Suppression des variables de travail
 		delete formData.RdDtemp;

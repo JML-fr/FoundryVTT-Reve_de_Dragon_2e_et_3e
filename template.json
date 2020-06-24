@@ -931,8 +931,8 @@
       "templates": [
         "description"
       ],
-      "type": "cptcGénérales",
-      "label": "Bricolage",
+      "type": "générale",
+      "codeLibellé": "code.libellé",
       "vocation": false,
       "value": -4,
       "xp": 0,

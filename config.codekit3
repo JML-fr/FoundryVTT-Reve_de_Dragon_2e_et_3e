@@ -49,6 +49,16 @@
 		"oAP": "/build/RdD/.gitignore",
 		"oF": 1
 		},
+	"/assets/icons/compétence.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/compétence.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/assets/images/Carte TMR - Aide.jpg": {
 		"ft": 16384,
 		"iS": 590016,
@@ -152,13 +162,13 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/modules/interfaces/feuille-objet.js": {
+	"/modules/interfaces/feuille-cptc.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "/build/RdD/modules/interfaces/feuille-objet.js",
+		"oAP": "/build/RdD/modules/interfaces/feuille-cptc.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -170,6 +180,17 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/RdD/modules/interfaces/feuille-pj.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/objets/item.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/objets/item.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -233,9 +254,9 @@
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/packs/rdd-aides-de-jeu.db",
-		"oF": 0
+		"oF": 1
 		},
 	"/packs/rdd-macros.db": {
 		"cB": 0,
@@ -277,27 +298,27 @@
 		"oO": 0,
 		"oS": 0
 		},
+	"/templates/feuille-cptc.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/templates/feuille-cptc.html",
+		"oF": 1
+		},
 	"/templates/feuille-pj.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/templates/feuille-pj.html",
-		"oF": 1
-		},
-	"/templates/item-sheet.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/build/RdD/templates/item-sheet.html",
 		"oF": 1
 		},
 	"/templates/partials/carac-saisie.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/templates/partials/carac-saisie.html",
 		"oF": 1
 		}
@@ -312,7 +333,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 613835887.37688899
+	"lastBuiltDate": 614721223.32164705
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

@@ -23,6 +23,15 @@
     "G": "Gauche",
     "A": "Ambidextre"
   },
+  "RdD.typeCompétence": {
+    "générale": "Générale",
+    "mêlée": "Mêlée",
+    "tirLancer": "Tir & lancer",
+    "particulière": "Particulière",
+    "spécialisée": "Spécialisée",
+    "connaissance": "Connaissance",
+    "draconic": "Draconic"
+  },
   "RdD.erreurs": {
     "pasDeMàJ": "Il y a une donnée erronée – Mise à jour non effectuée",
     "âgeVide": "Renseigner l'âge",
@@ -81,7 +90,8 @@
     "encombrementVide": "Renseigner les points d'encombrement",
     "encombrementInvalide": "Les points d'encombrement doivent être un nombre positif",
     "argentVide": "Renseigner le montant de l'argent possédé",
-    "argentInvalide": "Le montant de l'argent possédé doit être un nombre positif"
+    "argentInvalide": "Le montant de l'argent possédé doit être un nombre positif",
+    "codeLibelléVide": "Renseigner le code du libellé à afficher"
   },
   "RdD.actor": {
     "signesPart": {
@@ -316,6 +326,12 @@
         },
         "stress": "Stress"
       }
+    }
+  },
+  "RdD.item": {
+    "compétence": {
+      "type": "Type de compétence",
+      "codeLibellé": "Code du libellé à afficher"
     }
   }
 }

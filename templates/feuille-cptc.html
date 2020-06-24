@@ -1,0 +1,26 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<header class="en-tête-feuille">
+		<div class="id-objet">
+			<img class="vignette" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+			<h1 class="nom-objet"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'RdD.Name'}}"/></h1>
+		</div>
+		<div>
+			<label for="typesCompétences">{{localize 'RdD.item.compétence.type'}}</label>
+			<select id="typesCompétences" name="data.type">
+				{{RdDSelect "RdD.typesCompétences" data.type}}
+			</select>
+		</div>
+	</header>
+	
+	{{!-- Description de la compétence --}}
+	<div class="description">
+		{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+	</div>
+	
+	{{!-- Paramètres de la compétence --}}
+	<div>
+		<label for="codeLibellé">{{localize 'RdD.item.compétence.codeLibellé'}}</label>
+		<input type="text" id="codeLibellé" name="data.codeLibellé" value="{{data.codeLibellé}}">
+	</div>
+
+</form>

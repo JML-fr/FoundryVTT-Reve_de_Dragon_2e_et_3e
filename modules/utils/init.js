@@ -44,3 +44,13 @@ RdD.latéralité = new Map([
 	["G", "RdD.latéralité.G"],
 	["A", "RdD.latéralité.A"]
 ])
+
+RdD.typesCompétences = new Map([
+	["générale", "RdD.typeCompétence.générale"],
+	["mêlée", "RdD.typeCompétence.mêlée"],
+	["tirLancer", "RdD.typeCompétence.tirLancer"],
+	["particulière", "RdD.typeCompétence.particulière"],
+	["spécialisée", "RdD.typeCompétence.spécialisée"],
+	["connaissance", "RdD.typeCompétence.connaissance"],
+	["draconic", "RdD.typeCompétence.draconic"]
+])
