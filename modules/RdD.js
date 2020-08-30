@@ -84,20 +84,20 @@ Hooks.once("init", async function() {
 /* ------------------------------------ */
 /* Setup system							*/
 /* ------------------------------------ */
-Hooks.once('setup', function () {
-	// Do anything after initialization but before
-	// ready
-});
+// Hooks.once('setup', function () {
+// 	// Do anything after initialization but before
+// 	// ready
+// });
 /* ------------------------------------ */
 /* When ready							*/
 /* ------------------------------------ */
-Hooks.once('ready', function () {
-	// Do anything once the system is ready
-});
-// Add any additional hooks if necessary
-Hooks.on('preCreateItem', (createData, options, userId) => {
-    //Set default image if no image already exists
-    if (!createData.img) {
-        createData.img = `systems/RdD/assets/icons/${createData.type}.svg`;
-    }
-});
+// Hooks.once('ready', function () {
+// 	// Do anything once the system is ready
+// });
+
+/* ------------------------------------ */
+/* À la création des objets					*/
+/* ------------------------------------ */
+// Hooks.on('preCreateItem', (createData, options, userId) => {
+// 	return true;
+// });

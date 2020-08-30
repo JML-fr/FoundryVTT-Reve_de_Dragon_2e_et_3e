@@ -50,12 +50,17 @@ export class ItemRdD extends Item {
 	}
 
 	/**
-	 * create - Débogage
+	 * Opérations spécifiques à la création d'un objet
 	 *
 	 * @memberof ItemRdD
 	 */
 	static async create(data, options={}) {
 		console.log(`RdD | ItemRdD.create`);
+
+	    // Attribution de l'image liée au type d'objet créé
+    	if (!data.img) {
+        	data.img = `systems/RdD/assets/icons/${data.type}.svg`;
+		}
 		super.create(data, options);
 	}
 

@@ -2,36 +2,36 @@
 "AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https://codekitapp.com/",
 "buildSteps": [
 	{
-		"name": "Duplique les libellé français en anglais",
+		"name": "New \"Run Script\" Step",
 		"scriptSourceString": "cp -p lang/fr.json lang/en.json",
 		"scriptType": 1,
-		"scriptUUIDString": "DAB207A0-8728-4ABA-9AB3-3649951CE8C9",
+		"scriptUUIDString": "C040D3F0-6132-4FCE-B1B9-676A34D9113A",
 		"stepType": 2,
-		"uuidString": "A0E1F61C-AB20-4361-9572-944997460B1D"
+		"uuidString": "A809E950-B4E2-4D0A-BD0A-758487A39365"
 		},
 	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
-		"uuidString": "95C34145-79E0-4415-93F4-8A0A68BC2AC5"
+		"uuidString": "860038C2-1CF6-4DA8-83E1-A73E684DB298"
 		},
 	{
-		"name": "Suprime .gitignore et le dossier less",
+		"name": "New \"Run Script\" Step",
 		"scriptSourceString": "rm build/RdD/.gitignore\nrm -r build/RdD/less",
 		"scriptType": 1,
-		"scriptUUIDString": "2E5ABDC0-A3E2-4A0B-AE7B-3DA4D48A148F",
+		"scriptUUIDString": "C9D34A41-0F5E-4140-B3C2-0766EB8798E8",
 		"stepType": 2,
-		"uuidString": "A18F9730-925A-4AFD-8204-E81A9BAA2F41"
+		"uuidString": "9B6A9734-A3ED-4341-9DC8-0C17DA9733B4"
 		},
 	{
-		"name": "Mise en production",
+		"name": "New \"Run Script\" Step",
 		"scriptSourceString": "rm -r ~/Documents/Jeux/JdR/Foundry_VTT/Data/systems/RdD\ncp -R build/RdD ~/Documents/Jeux/JdR/Foundry_VTT/Data/systems/",
 		"scriptType": 1,
-		"scriptUUIDString": "65912CAC-EAEF-47A0-BF2E-C52AC7892AC5",
+		"scriptUUIDString": "B01B9E6A-524A-42A0-B978-8C93FF53FF58",
 		"stepType": 2,
-		"uuidString": "6B79752D-DAEE-4859-A561-230570A928F8"
+		"uuidString": "32942D16-0235-418C-9CF4-4DB6F81CE3C4"
 		}
 	],
-"creatorBuild": "32001",
+"creatorBuild": "32186",
 "files": {
 	"/.eslintrc.json": {
 		"ft": 524288,
@@ -49,11 +49,11 @@
 		"oAP": "/build/RdD/.gitignore",
 		"oF": 1
 		},
-	"/assets/icons/compétence.svg": {
+	"/assets/icons/compétence.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "/build/RdD/assets/icons/compétence.svg",
+		"oAP": "/build/RdD/assets/icons/compétence.svg",
 		"oF": 1,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -81,28 +81,28 @@
 		"oT": 1,
 		"q": 100
 		},
-	"/assets/images/Table de résolution.png": {
+	"/assets/images/Table de résolution.png": {
 		"ft": 32768,
 		"iS": 3336164,
 		"oA": 2,
-		"oAP": "/build/RdD/assets/images/Table de résolution.png",
+		"oAP": "/build/RdD/assets/images/Table de résolution.png",
 		"oF": 1,
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
-	"/build/RdD": {
+	"/build": {
 		"ft": 65536,
 		"oA": 1,
-		"oAP": "/build/RdD/build/RdD",
+		"oAP": "/build/RdD/build",
 		"oF": 0
 		},
 	"/lang/en.json": {
 		"ft": 524288,
 		"oA": 0,
 		"oAP": "/build/RdD/lang/en.json",
-		"oF": 1,
+		"oF": 0,
 		"oO": 0,
 		"oS": 0
 		},
@@ -110,7 +110,7 @@
 		"ft": 524288,
 		"oA": 0,
 		"oAP": "/build/RdD/lang/fr.json",
-		"oF": 1,
+		"oF": 0,
 		"oO": 0,
 		"oS": 0
 		},
@@ -145,9 +145,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/acteurs/actor-templates.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -156,9 +156,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/acteurs/actor.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -167,9 +167,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/interfaces/feuille-cptc.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -178,9 +178,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/interfaces/feuille-pj.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -189,9 +189,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/objets/item.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -202,7 +202,7 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/RdD/modules/RdD.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -211,9 +211,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/utils/init.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
@@ -222,17 +222,17 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/RdD/modules/utils/interface.js",
-		"oF": 1,
+		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
 	"/node_modules": {
 		"ft": 65536,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "/build/RdD/node_modules",
-		"oF": 1
+		"oF": 0
 		},
 	"/package-lock.json": {
 		"ft": 524288,
@@ -256,6 +256,62 @@
 		"hM": 0,
 		"oA": 2,
 		"oAP": "/build/RdD/packs/rdd-aides-de-jeu.db",
+		"oF": 1
+		},
+	"/packs/rdd-competences-de-melee.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-competences-de-melee.db",
+		"oF": 1
+		},
+	"/packs/rdd-competences-de-tir-and-lancer.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-competences-de-tir-and-lancer.db",
+		"oF": 1
+		},
+	"/packs/rdd-competences-generales.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-competences-generales.db",
+		"oF": 1
+		},
+	"/packs/rdd-competences-particulieres.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-competences-particulieres.db",
+		"oF": 1
+		},
+	"/packs/rdd-competences-specialisees.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-competences-specialisees.db",
+		"oF": 1
+		},
+	"/packs/rdd-connaissances.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-connaissances.db",
+		"oF": 1
+		},
+	"/packs/rdd-draconic.db": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/packs/rdd-draconic.db",
 		"oF": 1
 		},
 	"/packs/rdd-macros.db": {
@@ -302,25 +358,25 @@
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 2,
+		"oA": 0,
 		"oAP": "/build/RdD/templates/feuille-cptc.html",
-		"oF": 1
+		"oF": 0
 		},
 	"/templates/feuille-pj.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 2,
+		"oA": 0,
 		"oAP": "/build/RdD/templates/feuille-pj.html",
-		"oF": 1
+		"oF": 0
 		},
 	"/templates/partials/carac-saisie.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 2,
+		"oA": 0,
 		"oAP": "/build/RdD/templates/partials/carac-saisie.html",
-		"oF": 1
+		"oF": 0
 		}
 	},
 "hooks": [
@@ -328,12 +384,11 @@
 "manualImportLinks": {
 	},
 "projectAttributes": {
-	"creationDate": 603841793.01699495,
-	"displayValue": "Rêve de Dragon",
+	"creationDate": 616396185.59133697,
+	"displayValue": "Rêve de Dragon",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "brackets_purple",
-	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 614721223.32164705
+	"iconImageName": "brackets-silver",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -771,11 +826,11 @@
 	"environmentVariablesString": "NODE_ENV:::production",
 	"esLintConfigFileHandlingType": 2,
 	"esLintECMAVersion": 7,
-	"esLintEnvironmentsMask": 8195,
+	"esLintEnvironmentsMask": 1,
 	"esLintRules": {
 		"accessor-pairs": {
 			"active": 0,
-			"optionString": "{'setWithoutGet': true, 'getWithoutSet': false}"
+			"optionString": "{'setWithoutGet': true, 'getWithoutSet': false, 'enforceForClassMembers': true}"
 			},
 		"array-bracket-newline": {
 			"active": 0,
@@ -823,7 +878,7 @@
 			},
 		"camelcase": {
 			"active": 0,
-			"optionString": "{'properties': 'always', 'ignoreDestructuring': false}"
+			"optionString": "{'properties': 'always', 'ignoreDestructuring': false, 'ignoreImports': false}"
 			},
 		"capitalized-comments": {
 			"active": 0,
@@ -851,7 +906,7 @@
 			},
 		"computed-property-spacing": {
 			"active": 0,
-			"optionString": "'never'"
+			"optionString": "'never', {'enforceForClassMembers': true}"
 			},
 		"consistent-return": {
 			"active": 0,
@@ -870,6 +925,10 @@
 			"optionString": "'all'"
 			},
 		"default-case": {
+			"active": 0,
+			"optionString": ""
+			},
+		"default-case-last": {
 			"active": 0,
 			"optionString": ""
 			},
@@ -1203,7 +1262,7 @@
 			},
 		"no-extra-parens": {
 			"active": 0,
-			"optionString": "'all', {'conditionalAssign': false, 'returnAssign': false, 'nestedBinaryExpressions': false, 'ignoreJSX': 'none', 'enforceForArrowConditionals': false}"
+			"optionString": "'all', {'conditionalAssign': false, 'returnAssign': false, 'nestedBinaryExpressions': false, 'ignoreJSX': 'none', 'enforceForArrowConditionals': false, 'enforceForSequenceExpressions': false, 'enforceForNewInMemberExpressions': false}"
 			},
 		"no-extra-semi": {
 			"active": 1,
@@ -1255,7 +1314,7 @@
 			},
 		"no-invalid-this": {
 			"active": 0,
-			"optionString": ""
+			"optionString": "{'capIsConstructor': true}"
 			},
 		"no-irregular-whitespace": {
 			"active": 1,
@@ -1282,6 +1341,10 @@
 			"optionString": ""
 			},
 		"no-loop-func": {
+			"active": 0,
+			"optionString": ""
+			},
+		"no-loss-of-precision": {
 			"active": 0,
 			"optionString": ""
 			},
@@ -1401,6 +1464,10 @@
 			"active": 1,
 			"optionString": ""
 			},
+		"no-restricted-exports": {
+			"active": 0,
+			"optionString": "{'restrictedNamedExports': []}"
+			},
 		"no-restricted-globals": {
 			"active": 0,
 			"optionString": "'event', 'fdescribe'"
@@ -1503,7 +1570,7 @@
 			},
 		"no-underscore-dangle": {
 			"active": 0,
-			"optionString": "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'enforceInMethodNames': false}"
+			"optionString": "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'allowAfterThisConstructor': false, 'enforceInMethodNames': false}"
 			},
 		"no-unexpected-multiline": {
 			"active": 1,
@@ -1527,7 +1594,7 @@
 			},
 		"no-unsafe-negation": {
 			"active": 1,
-			"optionString": ""
+			"optionString": "{'enforceForOrderingRelations': false}"
 			},
 		"no-unused-expressions": {
 			"active": 0,
@@ -1545,6 +1612,10 @@
 			"active": 0,
 			"optionString": "{'functions': true, 'classes': true, 'variables': true}"
 			},
+		"no-useless-backreference": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-useless-call": {
 			"active": 0,
 			"optionString": ""
@@ -1555,7 +1626,7 @@
 			},
 		"no-useless-computed-key": {
 			"active": 0,
-			"optionString": ""
+			"optionString": "{'enforceForClassMembers': false}"
 			},
 		"no-useless-concat": {
 			"active": 0,
@@ -1583,7 +1654,7 @@
 			},
 		"no-void": {
 			"active": 0,
-			"optionString": ""
+			"optionString": "{'allowAsStatement': false}"
 			},
 		"no-warning-comments": {
 			"active": 0,
@@ -1799,7 +1870,7 @@
 			},
 		"use-isnan": {
 			"active": 1,
-			"optionString": ""
+			"optionString": "{'enforceForSwitchCase': true, 'enforceForIndexOf': false}"
 			},
 		"valid-jsdoc": {
 			"active": 0,
@@ -2209,7 +2280,7 @@
 		"shouldRunBless": 0
 		},
 	"languageDefaultsGIF": {
-		"autoOutputAction": 1,
+		"autoOutputAction": 2,
 		"autoOutputPathFilenamePattern": "*.gif",
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
@@ -2233,7 +2304,7 @@
 		"useUnixNewlines": 0
 		},
 	"languageDefaultsJPG": {
-		"autoOutputAction": 1,
+		"autoOutputAction": 2,
 		"autoOutputPathFilenamePattern": "*.jpg",
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
@@ -2279,7 +2350,7 @@
 		"allowInsecureImports": 0,
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "../styles",
+		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "less",
 		"autoOutputPathReplace2": "styles",
 		"autoOutputPathStyle": 3,
@@ -2325,7 +2396,7 @@
 		"shouldRunHTMLMinifier": 0
 		},
 	"languageDefaultsPNG": {
-		"autoOutputAction": 1,
+		"autoOutputAction": 2,
 		"autoOutputPathFilenamePattern": "*.png",
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
@@ -2353,13 +2424,13 @@
 		"autoOutputPathReplace1": "sass",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
+		"compilerType": 0,
 		"createSourceMap": 0,
-		"debugStyle": 0,
 		"decimalPrecision": 10,
+		"emitCharset": 1,
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 1
+		"shouldRunBless": 0
 		},
 	"languageDefaultsSLIM": {
 		"autoOutputAction": 0,
@@ -2392,7 +2463,7 @@
 		"shouldRunBless": 0
 		},
 	"languageDefaultsSVG": {
-		"autoOutputAction": 1,
+		"autoOutputAction": 2,
 		"autoOutputPathFilenamePattern": "*.svg",
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
