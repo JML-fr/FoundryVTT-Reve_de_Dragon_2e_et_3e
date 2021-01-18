@@ -18,16 +18,6 @@ export class ItemRdD extends Item {
 	/* ================================================== */
 
 	/**
-	 * initialize - Débogage
-	 *
-	 * @memberof ItemRdD
-	 */
-	initialize() {
-		console.log(`RdD | ItemRdD.initialize`);
-		super.initialize();
-	}
-
-	/**
 	 * Mise à jour des données dérivées de l'objet
 	 *
 	 * @memberof ItemRdD
@@ -47,6 +37,17 @@ export class ItemRdD extends Item {
 			default:
 				break;
 		}
+	}
+
+	/**
+	 * prepareEmbeddedEntities - Débogage
+	 * Met à jour la collection des effets actifs de l'objet
+	 *
+	 * @memberof ItemRdD
+	 */
+	prepareEmbeddedEntities() {
+		console.log(`RdD | ItemRdD.prepareEmbeddedEntities`);
+		super.prepareEmbeddedEntities();
 	}
 
 	/**

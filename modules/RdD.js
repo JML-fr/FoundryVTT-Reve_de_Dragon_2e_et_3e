@@ -46,8 +46,10 @@ Hooks.once("init", async function() {
 	
 	/**
 	 * Mise en forme des nombres
-	 * @param {String} expression La chaîne de caractère dans laquelle il faut insérer un ou des éléments
-	 * @param {Array} listeÉléments Liste des éléments à insérer en remplacement de la chaîne de caractère "&&&"
+	 * @param {Number} valeur La variable contenant le nombre à afficher
+	 * @param {} options Liste des options d'affichage :
+	 *                   signe=true : il faut afficher le signe
+	 *                   décimales=x : nombre de décimales à afficher
 	 */
 	Handlebars.registerHelper('RdDNumFormat', function (valeur, options) {
 
@@ -66,6 +68,11 @@ Hooks.once("init", async function() {
 		}
 	});
 
+	/**
+	 * Génère les options d'une liste déroulante à partir d'une Map et précise l'option sélectionnée
+	 * @param {Map} map Liste des valeurs possibles et des références des libellés correspondants
+	 * @param {} valeur Valeur actuellement sélectionnée pour la variable affichée
+	 */
 	Handlebars.registerHelper('RdDSelect', function (map, valeur) {
 		let options = "";
 		let lexique = eval(map);
@@ -93,6 +100,14 @@ Hooks.once("init", async function() {
 /* ------------------------------------ */
 // Hooks.once('ready', function () {
 // 	// Do anything once the system is ready
+// });
+
+/* ------------------------------------ */
+/* À la création des acteurs					*/
+/* ------------------------------------ */
+// Hooks.on('preCreateActor', (createData, options, userId) => {
+// 	console.log(`RdD | preCreateActor ${createData.type} -- ${options} -- ${userId}`);
+// 	return true;
 // });
 
 /* ------------------------------------ */

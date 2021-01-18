@@ -8,8 +8,9 @@ import * as RdDIntrfc from "../utils/interface.js";
 export class ActorRdD extends Actor {
 	constructor(...args) {
 		super(...args);
+		// console.log(`RdD | ActorRdD.constructor`);
 	}
-
+	
 	/* ================================================== */
 	/* ************************************************** */
 	/* ================================================== */
@@ -17,31 +18,54 @@ export class ActorRdD extends Actor {
 	/* ================================================== */
 	/* ************************************************** */
 	/* ================================================== */
-
+	
 	/**
-	 * initialize - Débogage
-	 *
-	 * @memberof ActorRdD
-	 */
-	initialize() {
-		console.log(`RdD | ActorRdD.initialize`);
-		super.initialize();
-	}
-
-	/**
-	 * Mise à jour des données dérivées de l'acteur
+	 * Mise à jour des données dérivées, des objets rattachés et des effets actifs de l'acteur
 	 *
 	 * @memberof ActorRdD
 	 */
 	prepareData() {
 		console.log(`RdD | ActorRdD.prepareData`);
 		super.prepareData();
+	}
+	
+	/**
+	 * Mise à jour des données dérivées ne dépendant pas des objets rattachés et/ou des effets actifs
+	 *
+	 * @memberof ActorRdD
+	 */
+	prepareBaseData() {
+		console.log(`RdD | ActorRdD.prepareBaseData`);
+		super.prepareBaseData();
+		
+		const acteurCréé = this.getFlag("RdD", "acteurCréé");
+		console.log(`RdD | ActorRdD.prepareBaseData ${acteurCréé}`);
 		const acteur = this.data;
-
-		console.log(`RdD | ActorRdD.prepareData ` + acteur.type);
-
+		console.log(`RdD | ActorRdD.prepareBaseData ` + acteur.type);
 		switch (acteur.type) {
 			case "pj":
+				if (!acteurCréé) {
+					// game.packs.keys();
+					// console.log(`RdD | ActorRdD.create compendiums : `, game.packs);
+					// switch (data.type) {
+					// 	case "pj":
+					// 		for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
+					// 			console.log(`RdD | ActorRdD.create ${typeCptc} : compendium = ${compCptc}`);
+					// 			const pack = game.packs.get(compCptc);
+					// 			let listeCptc = await pack.getContent();
+					// 			console.log(`RdD | ActorRdD.create ${typeCptc} : liste = `, listeCptc);
+					// 			for (const [key, value] of listeCptc) {
+					// 				console.log(`RdD | ActorRdD.create ${key} : entrée = `, value);						
+					// 			}
+					// 		}
+					// 		break;
+				
+					// 	default:
+					// 		break;
+					// }
+					this.setFlag("RdD", "acteurCréé", true);
+					console.log(`RdD | ActorRdD.prepareBaseData créé`, this.getFlag("RdD", "acteurCréé"));
+				}
 				this._calcCaracsDérivées();
 				this._calcSeuils();
 				this._calcCptr();
@@ -52,13 +76,46 @@ export class ActorRdD extends Actor {
 		}
 	}
 
+
+	/**
+	 * prepareEmbeddedEntities - Débogage
+	 * Met à jour les collections des objets rattachés et des effets actifs de l'acteur
+	 *
+	 * @memberof ActorRdD
+	 */
+	prepareEmbeddedEntities() {
+		console.log(`RdD | ActorRdD.prepareEmbeddedEntities`);
+		super.prepareEmbeddedEntities();
+	}
+
+	/**
+	 * applyActiveEffects - Débogage
+	 * Applique à l'acteur toute transformation issue d'un effet actif
+	 *
+	 * @memberof ActorRdD
+	 */
+	applyActiveEffects() {
+		console.log(`RdD | ActorRdD.applyActiveEffects`);
+		super.applyActiveEffects();
+	}
+
+	/**
+	 * Mise à jour des données dérivées tenant compte des objets rattachés et/ou des effets actifs
+	 *
+	 * @memberof ActorRdD
+	 */
+	prepareDerivedData() {
+		console.log(`RdD | ActorRdD.prepareDerivedData`);
+		super.prepareDerivedData();
+	}
+
 	/**
 	 * create - Débogage
 	 *
 	 * @memberof ActorRdD
 	 */
 	static async create(data, options={}) {
-		console.log(`RdD | ActorRdD.create`);
+		// console.log(`RdD | ActorRdD.create`);
 		super.create(data, options);
 	}
 
@@ -68,7 +125,7 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 */
 	async update(data, options = {}) {
-		//console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
+		// console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
 		super.update(data, options);
 	}
 

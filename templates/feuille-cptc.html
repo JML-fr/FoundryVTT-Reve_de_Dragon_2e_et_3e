@@ -17,6 +17,14 @@
 		{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 	</div>
 	
+	{{!-- Spécialité éventuelle de la compétence --}}
+	<div>
+		<span>{{localize 'RdD.item.compétence.spécialisable'}}&nbsp;: </span>
+		<input type="checkbox" name="data.spécialisable" {{checked data.spécialisable}}>
+		<label for="spécialité">{{localize 'RdD.item.compétence.spécialité'}}</label>
+		<input type="text" id="spécialité" name="data.spécialité" value="{{data.spécialité}}">
+	</div>
+	
 	{{!-- Paramètres de la compétence --}}
 	<div>
 		<label for="codeLibellé">{{localize 'RdD.item.compétence.codeLibellé'}}</label>

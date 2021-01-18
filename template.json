@@ -933,6 +933,8 @@
       ],
       "type": "générale",
       "codeLibellé": "code.libellé",
+      "spécialisable": false,
+      "spécialité": "",
       "vocation": false,
       "value": -4,
       "xp": 0,

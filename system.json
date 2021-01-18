@@ -63,11 +63,11 @@
       "entity": "Item"
     },
     {
-      "name": "rdd-competences-de-tir-and-lancer",
+      "name": "rdd-competences-de-tir-et-lancer",
       "label": "RdD – Compétences de tir et lancer",
       "system": "RdD",
       "module": "RdD",
-      "path": "packs/rdd-competences-de-tir-and-lancer.db",
+      "path": "packs/rdd-competences-de-tir-et-lancer.db",
       "entity": "Item"
     },
     {
