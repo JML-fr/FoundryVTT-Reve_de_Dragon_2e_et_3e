@@ -1,0 +1,60 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<header class="en-tête-feuille">
+		<div class="id-objet">
+			<img class="vignette" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+			<h1 class="nom-objet"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'RdD.Name'}}"/></h1>
+		</div>
+		<div>
+			<label for="typesCompétences">{{localize 'RdD.item.compétence.type'}}</label>
+			<select id="typesCompétences" name="data.type">
+				{{RdDSelect "RdD.typesCompétences" data.type}}
+			</select>
+		</div>
+	</header>
+	
+	{{!-- Description de la compétence --}}
+	<div class="description">
+		{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+	</div>
+	
+	{{!-- Spécialité éventuelle de la compétence --}}
+	{{#if data.spécialisable}}
+	<div>
+		<label for="spécialité">{{localize 'RdD.item.compétence.spécialité'}}</label>
+		<input type="text" id="spécialité" name="data.spécialité" value="{{data.spécialité}}">
+	</div>
+	{{/if}}
+	
+	{{!-- Vocation --}}
+	<div>
+		<label for="vocation">{{localize 'RdD.item.compétence.vocation'}}</label>
+		<input type="checkbox" name="data.vocation" {{checked data.vocation}}>
+	</div>
+	
+	{{!-- Niveau --}}
+	<div>
+		<label for="niveau">{{localize 'RdD.item.compétence.niveau'}}</label>
+		<input type="number" id="niveau" name="data.value" value="{{data.value}}">
+	</div>
+	
+	{{!-- Expérience --}}
+	<div>
+		<label for="xp">{{localize 'RdD.item.compétence.ptExpérience'}}</label>
+		<input type="number" id="xp" name="data.xp" value="{{data.xp}}">
+	</div>
+	
+	{{!-- Archétype --}}
+	<div>
+		<label for="archétype">{{localize 'RdD.item.compétence.archétype'}}</label>
+		<input type="number" id="archétype" name="data.archétype" value="{{data.archétype}}">
+	</div>
+	
+	{{!-- Points de sort si applicable --}}
+	{{!-- #if data.type == "draconic" --}}
+	<div>
+		<label for="ptSort">{{localize 'RdD.item.compétence.ptSort'}}</label>
+		<input type="number" id="ptSort" name="data.ptSort" value="{{data.ptSort}}">
+	</div>
+	{{!-- /if --}}
+
+</form>

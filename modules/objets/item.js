@@ -27,7 +27,7 @@ export class ItemRdD extends Item {
 		super.prepareData();
 		const objet = this.data;
 
-		console.log(`RdD | ItemRdD.prepareData ` + objet.type);
+		console.log(`RdD | ItemRdD.prepareData ${objet.type} ${objet.name} ${objet._id}`);
 
 		switch (objet.type) {
 			case "compétence":

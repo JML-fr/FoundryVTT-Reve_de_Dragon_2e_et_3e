@@ -8,9 +8,8 @@ import * as RdDIntrfc from "../utils/interface.js";
 export class ActorRdD extends Actor {
 	constructor(...args) {
 		super(...args);
-		// console.log(`RdD | ActorRdD.constructor`);
 	}
-	
+
 	/* ================================================== */
 	/* ************************************************** */
 	/* ================================================== */
@@ -18,14 +17,13 @@ export class ActorRdD extends Actor {
 	/* ================================================== */
 	/* ************************************************** */
 	/* ================================================== */
-	
+
 	/**
 	 * Mise à jour des données dérivées, des objets rattachés et des effets actifs de l'acteur
 	 *
 	 * @memberof ActorRdD
 	 */
 	prepareData() {
-		console.log(`RdD | ActorRdD.prepareData`);
 		super.prepareData();
 	}
 	
@@ -37,45 +35,21 @@ export class ActorRdD extends Actor {
 	prepareBaseData() {
 		console.log(`RdD | ActorRdD.prepareBaseData`);
 		super.prepareBaseData();
-		
-		const acteurCréé = this.getFlag("RdD", "acteurCréé");
-		console.log(`RdD | ActorRdD.prepareBaseData ${acteurCréé}`);
 		const acteur = this.data;
-		console.log(`RdD | ActorRdD.prepareBaseData ` + acteur.type);
+	
+		console.log(`RdD | ActorRdD.prepareBaseData ${acteur.type} ${acteur.name}`);
+	
 		switch (acteur.type) {
 			case "pj":
-				if (!acteurCréé) {
-					// game.packs.keys();
-					// console.log(`RdD | ActorRdD.create compendiums : `, game.packs);
-					// switch (data.type) {
-					// 	case "pj":
-					// 		for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
-					// 			console.log(`RdD | ActorRdD.create ${typeCptc} : compendium = ${compCptc}`);
-					// 			const pack = game.packs.get(compCptc);
-					// 			let listeCptc = await pack.getContent();
-					// 			console.log(`RdD | ActorRdD.create ${typeCptc} : liste = `, listeCptc);
-					// 			for (const [key, value] of listeCptc) {
-					// 				console.log(`RdD | ActorRdD.create ${key} : entrée = `, value);						
-					// 			}
-					// 		}
-					// 		break;
-				
-					// 	default:
-					// 		break;
-					// }
-					this.setFlag("RdD", "acteurCréé", true);
-					console.log(`RdD | ActorRdD.prepareBaseData créé`, this.getFlag("RdD", "acteurCréé"));
-				}
 				this._calcCaracsDérivées();
 				this._calcSeuils();
 				this._calcCptr();
 				break;
-
+	
 			default:
 				break;
 		}
 	}
-
 
 	/**
 	 * prepareEmbeddedEntities - Débogage
@@ -115,8 +89,14 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 */
 	static async create(data, options={}) {
-		// console.log(`RdD | ActorRdD.create`);
-		super.create(data, options);
+		console.log(`RdD | ActorRdD.create ${data.type}`);
+		const acteurCréé = await super.create(data, options);
+		console.log(`RdD | ActorRdD.create `, acteurCréé._id);
+		if (data.type == "pj") {
+			acteurCréé._créationCptcPJ().then(() =>
+				console.log(`RdD | ActorRdD.create `, acteurCréé.data.items.length));
+		}
+		return acteurCréé;
 	}
 
 	/**
@@ -125,7 +105,7 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 */
 	async update(data, options = {}) {
-		// console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
+		//console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
 		super.update(data, options);
 	}
 
@@ -138,6 +118,33 @@ export class ActorRdD extends Actor {
 		console.log(`RdD | ActorRdD.delete`);
 		super.delete(options);
 	}
+	
+	/* ================================================== */
+	/* Complément de création d'un acteur */
+	/* ================================================== */
+
+	/**
+	 * Création des compétences de base du PJ
+	 *
+	 * @memberof ActorRdD
+	 * @private
+	 */
+	async _créationCptcPJ() {
+		const acteur = this;
+		console.log(`RdD | ActorRdD._créationCptcPJ`, acteur._id);
+		game.packs.keys();
+		console.log(`RdD | ActorRdD._créationCptcPJ compendiums : `, game.packs);
+		for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
+			console.log(`RdD | ActorRdD._créationCptcPJ ${typeCptc} : compendium = ${compCptc}`);
+			const pack = game.packs.get(compCptc);
+			pack.getContent().then((listeCptc) => {
+				console.log(`RdD | ActorRdD._créationCptcPJ ${typeCptc} : liste = `, listeCptc);
+				acteur.createEmbeddedEntity("OwnedItem", listeCptc).then((cptcCréées) =>
+					console.log(`RdD | ActorRdD._créationCptcPJ : entrées créée = `, cptcCréées));
+			});
+		}
+	}
+
 	
 	/* ================================================== */
 	/* Calcul des données dérivées */

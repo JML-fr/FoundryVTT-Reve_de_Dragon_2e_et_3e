@@ -213,7 +213,6 @@
     },
     "pj": {
       "xp": "xp",
-      "ptSort": "pt sort",
       "tabPrincipal": {
         "états": "États",
         "caractéristiques": "Caracs",
@@ -251,8 +250,16 @@
     "compétence": {
       "type": "Type de compétence",
       "codeLibellé": "Code du libellé à afficher",
+      "xp": "xp",
+      "ptExpérience": "Expérience",
+      "ptSort": "pt sort",
       "spécialisable": "Spécialisable",
       "spécialité": "Spécialité",
+      "vocation": "Vocation",
+      "vocationAbrv": "V",
+      "niveau": "Niveau",
+      "archétype": "Archétype",
+      "archétypeAbrv": "Archtp",
       "liste": {
         "bricolage": "Bricolage",
         "chant": "Chant",

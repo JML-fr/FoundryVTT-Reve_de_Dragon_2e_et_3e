@@ -48,11 +48,34 @@ export class RdDFeuillePJ extends ActorSheet {
 	getData() {
 		let data = super.getData();
 		//console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
-		// ===RàF=== *** Utilité à déterminer ***
-		//data.dtypes = ["String", "Number", "Boolean"];
-		//for ( let attr of Object.values(data.data.attributes) ) {
-		//	attr.isCheckbox = attr.dtype === "Boolean";
-		//}
+		
+		// Tableau des objets classés par types
+		data.itemsParType = {};
+		for (const type of game.system.entityTypes.Item) {
+			if (type != "compétence") {
+				data.itemsParType[type] = [];
+			}
+		}
+		
+		let listeTypesComposés = [];
+		for (const obj of data.items) {
+			if (obj.type == "compétence") {
+				let typeComposé = `${obj.type}-${obj.data.type}`;
+				if (!listeTypesComposés.includes(typeComposé)) {
+					listeTypesComposés.push(typeComposé);
+					data.itemsParType[typeComposé] = [];
+				}
+				data.itemsParType[typeComposé].push(obj);
+			} else {
+				data.itemsParType[obj.type].push(obj);
+			}
+		}
+		// Tri par sous-catégories
+		for (const typeComposé of listeTypesComposés) {
+			data.itemsParType[typeComposé].sort((premier, second) => premier.name.localeCompare(second.name, "fr"));
+		}
+		
+		console.log(`RdD | RdDFeuillePJ.getData - fin `, data);
 		return data;
 	}
 
@@ -68,8 +91,16 @@ export class RdDFeuillePJ extends ActorSheet {
 		console.log(`RdD | RdDFeuillePJ.activateListeners`);
 		super.activateListeners(html);
 
-		// Tout ce qui suit n'est nécessaire que si la feuille es éditable
-		if (!this.options.editable) return;
+		// Tout ce qui suit n'est nécessaire que si la feuille est éditable
+		if (!this.options.editable)
+			return;
+
+		// Mise à jour des compétences
+		html.find(".cptc-edit").on("click", (ev) => {
+			const li = $(ev.currentTarget).parents(".cptc-lig");
+			const cptc = this.actor.getOwnedItem(li.data("cptcId"));
+			cptc.sheet.render(true);
+		});
 
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard
@@ -137,17 +168,17 @@ export class RdDFeuillePJ extends ActorSheet {
 		const blSaisie = this.element.find(".blessures.légères input");
 		let i = 0;
 		for (const blessure of blSaisie) {
-			cptTrav.blsrMàJ("légère", i++, blessure.checked)
+			cptTrav.blsrMàJ("légère", i++, blessure.checked);
 		}
 		updateData[`data.cptr.blessures.légères`] = cptTrav.blessures.légères.slice();
 		const bgSaisie = this.element.find(".blessures.graves input");
 		i = 0;
 		for (const blessure of bgSaisie) {
-			cptTrav.blsrMàJ("grave", i++, blessure.checked)
+			cptTrav.blsrMàJ("grave", i++, blessure.checked);
 		}
 		updateData[`data.cptr.blessures.graves`] = cptTrav.blessures.graves.slice();
 		const bcSaisie = this.element.find(".blessures.critiques input");
-		cptTrav.blsrMàJ("critique", 0, bcSaisie[0].checked)
+		cptTrav.blsrMàJ("critique", 0, bcSaisie[0].checked);
 		updateData[`data.cptr.blessures.critique`] = cptTrav.blessures.critique.slice();
 		
 		return updateData;
@@ -393,8 +424,8 @@ export class RdDFeuillePJ extends ActorSheet {
 	 */
 	async _updateObject(event, formData) {
 		// Suppression des variables de travail
-		delete formData.RdDtemp;
-		//console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
+		// delete formData.RdDtemp; <- ne fonctionne plus
+		// console.log(`RdD | RdDFeuillePJ._updateObject `, formData);
 		super._updateObject(event, formData);
 	}	
 }

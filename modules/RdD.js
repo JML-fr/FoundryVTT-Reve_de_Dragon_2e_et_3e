@@ -28,7 +28,8 @@ Hooks.once("init", async function() {
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("RdD", RdDFPJ.RdDFeuillePJ, { types: ["pj"], makeDefault: true });
 	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: false});
+	// Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: true});
+	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptcPJ, { types: ["compétence"], makeDefault: false});
 
 	// Définit les utilitaires d'affichage
 	/**
@@ -42,7 +43,7 @@ Hooks.once("init", async function() {
 			expression = expression.replace("&&&", listeÉléments[index]);
 		}
 		return expression;
-	})
+	});
 	
 	/**
 	 * Mise en forme des nombres

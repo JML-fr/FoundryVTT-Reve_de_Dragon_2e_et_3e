@@ -97,7 +97,7 @@
 /******************************************************************/
 
 /* ============== EN-TÊTE ======================================= */
-.RdD.feuille .en-tête-feuille{
+.RdD.feuille.actor.pj .en-tête-feuille {
 	display: flex;
 	flex-flow: column;
 	border-bottom: 1px solid black;
@@ -120,16 +120,31 @@
 	}
 }
 
-.RdD.feuille #cheveux, #yeux {
+.RdD.feuille.actor.pj #cheveux, #yeux {
 	width: 8em;
 }
 
+/* ============== ONGLET COMPÉTENCES ============================== */
+.RdD.feuille.actor.pj .tab[data-tab="compétences"]{
+	ul li{
+		display: grid;
+		grid-template-columns: 4ch 18ch 5ch 4ch 4ch 8ch 4ch 4ch;
+		grid-template-rows: minmax(20px, auto);
+	}
+	ul li.cptc-draconic {
+		grid-template-rows: minmax(20px, auto) minmax(20px, auto);
+		div.ptSort {
+			grid-area: 2 / 4 / 2 / 6;
+		}
+	}
+}
+
 /* ============== ONGLET HAUT-RÊVE ============================== */
-.RdD.feuille #TMRCol {
+.RdD.feuille.actor.pj #TMRCol {
 	width: 5ch;
 }
 
 /* ============== ONGLET INVENTAIRE ============================= */
-.RdD.feuille #argent {
+.RdD.feuille.actor.pj #argent {
 	width: 7ch;
 }
