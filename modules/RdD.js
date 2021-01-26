@@ -87,6 +87,21 @@ Hooks.once("init", async function() {
 		}
 		return new Handlebars.SafeString(options);
 	});
+
+	/**
+	 * Détermine si la compétence affichée peut être dupliquée ou supprimée
+	 * @param {Map} tableau Liste des compétences de la catégorie en cours
+	 * @param {} indice Indice de la compétence à afficher
+	 */
+	Handlebars.registerHelper('RdDCptcSpclsbl', function (tableau, indice) {
+		let action = "";
+		if (tableau[indice].name == tableau[indice-1].name) {
+			action = `<a class="cptc-suppr"><i class="fas fa-minus-square"></i></a>`;
+		} else {
+			action = `<a class="cptc-ajout"><i class="fas fa-plus-square"></i></a>`;
+		}
+		return new Handlebars.SafeString(action);
+	});
 });
 
 /* ------------------------------------ */

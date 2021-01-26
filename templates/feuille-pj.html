@@ -169,7 +169,7 @@
 				</div>
 				<div>
 					<label for="chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
-					<input type="number" id=chance" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
+					<input type="number" id="chance" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
 					<span> {{localize 'RdD.actor.pj.xp'}} </span>
 					<input type="number" id="chance-xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
 				</div>
@@ -187,181 +187,7 @@
 				{{#each itemsParType.compétence-générale as |cptcItem id|}}
 				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
 					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div>{{cptcItem.data.value}}</div>
-					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
-					<div>
-						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-			<h2>{{localize 'RdD.actor.cptcMêlée.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-mêlée as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div>{{cptcItem.data.value}}</div>
-					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
-					<div>
-						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-			<h2>{{localize 'RdD.actor.cptcTirLancer.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-tirLancer as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div>{{cptcItem.data.value}}</div>
-					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
-					<div>
-						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-			<h2>{{localize 'RdD.actor.cptcParticulières.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-particulière as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div>{{cptcItem.data.value}}</div>
-					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
-					<div>
-						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-			<h2>{{localize 'RdD.actor.cptcSpécialisées.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-spécialisée as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div>{{cptcItem.data.value}}</div>
-					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
-					<div>
-						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-			<h2>{{localize 'RdD.actor.Connaissances.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-connaissance as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div>{{cptcItem.data.value}}</div>
-					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
-					<div>
-						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-			<h2>{{localize 'RdD.actor.Draconic.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-draconic as |cptcItem id|}}
-				<li class="cptc-lig cptc-draconic" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-bullseye"></i></div>
-					<div>{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
 					<div>{{cptcItem.data.value}}</div>
 					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
 					<div>
@@ -374,11 +200,191 @@
 					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
 					<div>
 						{{#if cptcItem.data.spécialisable}}
-						<a><i class="fas fa-plus-square-o"></i></a>
+						{{RdDCptcSpclsbl ../itemsParType.compétence-générale id}}
 						{{else}}
-						
+							 
 						{{/if}}
 					</div>
+					<div>
+						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+					</div>
+					{{#if cptcItem.data.spécialisable}}
+					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>{{localize 'RdD.actor.cptcMêlée.titre'}}</h2>
+			<ul>
+				{{#each itemsParType.compétence-mêlée as |cptcItem id|}}
+				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
+					<div><i class="fas fa-bullseye"></i></div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div>{{cptcItem.data.value}}</div>
+					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
+					<div>
+						{{#if cptcItem.data.vocation}}
+							{{localize 'RdD.item.compétence.vocationAbrv'}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
+					<div>
+						{{#if cptcItem.data.spécialisable}}
+						{{RdDCptcSpclsbl ../itemsParType.compétence-mêlée id}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>
+						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+					</div>
+					{{#if cptcItem.data.spécialisable}}
+					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>{{localize 'RdD.actor.cptcTirLancer.titre'}}</h2>
+			<ul>
+				{{#each itemsParType.compétence-tirLancer as |cptcItem id|}}
+				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
+					<div><i class="fas fa-bullseye"></i></div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div>{{cptcItem.data.value}}</div>
+					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
+					<div>
+						{{#if cptcItem.data.vocation}}
+							{{localize 'RdD.item.compétence.vocationAbrv'}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
+					<div>
+						{{#if cptcItem.data.spécialisable}}
+						{{RdDCptcSpclsbl ../itemsParType.compétence-tirLancer id}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>
+						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+					</div>
+					{{#if cptcItem.data.spécialisable}}
+					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>{{localize 'RdD.actor.cptcParticulières.titre'}}</h2>
+			<ul>
+				{{#each itemsParType.compétence-particulière as |cptcItem id|}}
+				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
+					<div><i class="fas fa-bullseye"></i></div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div>{{cptcItem.data.value}}</div>
+					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
+					<div>
+						{{#if cptcItem.data.vocation}}
+							{{localize 'RdD.item.compétence.vocationAbrv'}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
+					<div>
+						{{#if cptcItem.data.spécialisable}}
+						{{RdDCptcSpclsbl ../itemsParType.compétence-particulière id}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>
+						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+					</div>
+					{{#if cptcItem.data.spécialisable}}
+					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>{{localize 'RdD.actor.cptcSpécialisées.titre'}}</h2>
+			<ul>
+				{{#each itemsParType.compétence-spécialisée as |cptcItem id|}}
+				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
+					<div><i class="fas fa-bullseye"></i></div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div>{{cptcItem.data.value}}</div>
+					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
+					<div>
+						{{#if cptcItem.data.vocation}}
+							{{localize 'RdD.item.compétence.vocationAbrv'}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
+					<div>
+						{{#if cptcItem.data.spécialisable}}
+						{{RdDCptcSpclsbl ../itemsParType.compétence-spécialisée id}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>
+						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+					</div>
+					{{#if cptcItem.data.spécialisable}}
+					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>{{localize 'RdD.actor.Connaissances.titre'}}</h2>
+			<ul>
+				{{#each itemsParType.compétence-connaissance as |cptcItem id|}}
+				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
+					<div><i class="fas fa-bullseye"></i></div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div>{{cptcItem.data.value}}</div>
+					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
+					<div>
+						{{#if cptcItem.data.vocation}}
+							{{localize 'RdD.item.compétence.vocationAbrv'}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
+					<div>
+						{{#if cptcItem.data.spécialisable}}
+						{{RdDCptcSpclsbl ../itemsParType.compétence-connaissance id}}
+						{{else}}
+							 
+						{{/if}}
+					</div>
+					<div>
+						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+					</div>
+					{{#if cptcItem.data.spécialisable}}
+					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>{{localize 'RdD.actor.Draconic.titre'}}</h2>
+			<ul>
+				{{#each itemsParType.compétence-draconic as |cptcItem id|}}
+				<li class="cptc-lig cptc-draconic" data-cptc-id="{{cptcItem._id}}">
+					<div><i class="fas fa-bullseye"></i></div>
+					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+					<div>{{cptcItem.data.value}}</div>
+					<div>{{localize 'RdD.item.compétence.xp'}} {{cptcItem.data.xp}}</div>
+					<div> </div>
+					<div>{{localize 'RdD.item.compétence.archétypeAbrv'}} {{cptcItem.data.archétype}}</div>
+					<div> </div>
 					<div>
 						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
 					</div>

@@ -84,19 +84,26 @@ export class ActorRdD extends Actor {
 	}
 
 	/**
-	 * create - Débogage
+	 * create
 	 *
 	 * @memberof ActorRdD
 	 */
 	static async create(data, options={}) {
 		console.log(`RdD | ActorRdD.create ${data.type}`);
-		const acteurCréé = await super.create(data, options);
-		console.log(`RdD | ActorRdD.create `, acteurCréé._id);
 		if (data.type == "pj") {
-			acteurCréé._créationCptcPJ().then(() =>
-				console.log(`RdD | ActorRdD.create `, acteurCréé.data.items.length));
+			data.items = [];
+			game.packs.keys();
+			console.log(`RdD | ActorRdD.create compendiums : `, game.packs);
+			for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
+				console.log(`RdD | ActorRdD.create ${typeCptc} : compendium = ${compCptc}`);
+				const pack = game.packs.get(compCptc);
+				const listeCptc = await pack.getContent();
+				console.log(`RdD | ActorRdD.create ${typeCptc} : liste = `, listeCptc);
+				data.items = data.items.concat(listeCptc);
+			}
+			console.log(`RdD | ActorRdD.create ${data.items}`);
 		}
-		return acteurCréé;
+		return super.create(data, options);
 	}
 
 	/**
@@ -118,33 +125,6 @@ export class ActorRdD extends Actor {
 		console.log(`RdD | ActorRdD.delete`);
 		super.delete(options);
 	}
-	
-	/* ================================================== */
-	/* Complément de création d'un acteur */
-	/* ================================================== */
-
-	/**
-	 * Création des compétences de base du PJ
-	 *
-	 * @memberof ActorRdD
-	 * @private
-	 */
-	async _créationCptcPJ() {
-		const acteur = this;
-		console.log(`RdD | ActorRdD._créationCptcPJ`, acteur._id);
-		game.packs.keys();
-		console.log(`RdD | ActorRdD._créationCptcPJ compendiums : `, game.packs);
-		for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
-			console.log(`RdD | ActorRdD._créationCptcPJ ${typeCptc} : compendium = ${compCptc}`);
-			const pack = game.packs.get(compCptc);
-			pack.getContent().then((listeCptc) => {
-				console.log(`RdD | ActorRdD._créationCptcPJ ${typeCptc} : liste = `, listeCptc);
-				acteur.createEmbeddedEntity("OwnedItem", listeCptc).then((cptcCréées) =>
-					console.log(`RdD | ActorRdD._créationCptcPJ : entrées créée = `, cptcCréées));
-			});
-		}
-	}
-
 	
 	/* ================================================== */
 	/* Calcul des données dérivées */

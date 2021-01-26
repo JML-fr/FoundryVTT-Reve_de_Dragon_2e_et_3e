@@ -128,8 +128,12 @@
 .RdD.feuille.actor.pj .tab[data-tab="compétences"]{
 	ul li{
 		display: grid;
-		grid-template-columns: 4ch 18ch 5ch 4ch 4ch 8ch 4ch 4ch;
+		grid-template-columns: 4ch 18ch 5ch 5ch 3ch 8ch 4ch 4ch;
 		grid-template-rows: minmax(20px, auto);
+		div.cptc-spécialité {
+			grid-area: 2 / 2 / 2 / 3;
+			font-style: italic;
+		}
 	}
 	ul li.cptc-draconic {
 		grid-template-rows: minmax(20px, auto) minmax(20px, auto);

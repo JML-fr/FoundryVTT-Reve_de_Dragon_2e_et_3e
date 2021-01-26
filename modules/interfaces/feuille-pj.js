@@ -102,6 +102,19 @@ export class RdDFeuillePJ extends ActorSheet {
 			cptc.sheet.render(true);
 		});
 
+		// Duplication d'une compétence spécialisée
+		html.find(".cptc-ajout").on("click", (ev) => {
+			const li = $(ev.currentTarget).parents(".cptc-lig");
+			const cptc = this.actor.getOwnedItem(li.data("cptcId"));
+			this.actor.createOwnedItem(cptc.data, {renderSheet: true});
+		});
+
+		// Suppression d'une compétence spécialisée
+		html.find(".cptc-suppr").on("click", (ev) => {
+			const li = $(ev.currentTarget).parents(".cptc-lig");
+			this.actor.deleteOwnedItem(li.data("cptcId"));
+		});
+
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard
 		html.find(".item-edit").click(ev => {

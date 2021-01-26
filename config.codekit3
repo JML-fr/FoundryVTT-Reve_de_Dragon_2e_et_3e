@@ -98,12 +98,6 @@
 		"q": 100,
 		"rq": 75
 		},
-	"/build/RdD": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "/build/RdD/build/RdD",
-		"oF": 0
-		},
 	"/lang/en.json": {
 		"ft": 524288,
 		"oA": 0,
@@ -403,7 +397,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets-silver",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 633195527.34441698
+	"lastBuiltDate": 633369609.34684598
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
