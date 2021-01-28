@@ -98,6 +98,12 @@
 		"q": 100,
 		"rq": 75
 		},
+	"/build/RdD": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/RdD/build/RdD",
+		"oF": 0
+		},
 	"/lang/en.json": {
 		"ft": 524288,
 		"oA": 0,
@@ -202,6 +208,17 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/RdD/modules/RdD.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/utils/hooks.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/utils/hooks.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -397,7 +414,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets-silver",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 633369609.34684598
+	"lastBuiltDate": 633471196.88538206
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

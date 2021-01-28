@@ -1,0 +1,24 @@
+export class RdDHooks {
+	/**
+	 * Actions avant parachutage sur un actor
+	 *
+	 * @static
+	 * @param {*} actor
+	 * @param {*} sheet
+	 * @param {*} data
+	 * @memberof RdDHooks
+	 */
+	static onDropActorSheetData(actor, sheet, data) {
+		// On évite de dupliquer une compétence non spécialisable
+		console.log(`RdD | RdDHooks.onDropActorSheetData - actor, data`, actor, data);
+		if (actor.data.type === "pj") {
+			let itemFromData = game.items.get(data.id);
+			if (!itemFromData.data.data.spécialisable) {
+				if (actor.data.items.some((item) => itemFromData.data.name === item.name)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+}

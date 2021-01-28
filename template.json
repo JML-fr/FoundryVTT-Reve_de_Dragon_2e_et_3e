@@ -798,7 +798,7 @@
     ],
     "templates": {
       "description": {
-        "description": ""
+        "value": ""
       },
       "coût": {
         "encombrement": 0,

@@ -247,6 +247,7 @@
     }
   },
   "RdD.item": {
+    "description": "Description",
     "compétence": {
       "type": "Type de compétence",
       "codeLibellé": "Code du libellé à afficher",

@@ -7,6 +7,7 @@
  */
 import {RdD} from "./utils/init.js";
 import * as RdDTemplates from "./acteurs/actor-templates.js";
+import {RdDHooks} from "./utils/hooks.js";
 import * as Acteurs from "./acteurs/actor.js";
 import * as Objets from "./objets/item.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
@@ -28,8 +29,7 @@ Hooks.once("init", async function() {
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("RdD", RdDFPJ.RdDFeuillePJ, { types: ["pj"], makeDefault: true });
 	Items.unregisterSheet("core", ItemSheet);
-	// Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: true});
-	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptcPJ, { types: ["compétence"], makeDefault: false});
+	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: true});
 
 	// Définit les utilitaires d'affichage
 	/**
@@ -117,6 +117,8 @@ Hooks.once("init", async function() {
 // Hooks.once('ready', function () {
 // 	// Do anything once the system is ready
 // });
+
+Hooks.on('dropActorSheetData', (actor, sheet, data) => RdDHooks.onDropActorSheetData(actor, sheet, data));
 
 /* ------------------------------------ */
 /* À la création des acteurs					*/

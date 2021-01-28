@@ -2,20 +2,18 @@
 	<header class="en-tête-feuille">
 		<div class="id-objet">
 			<img class="vignette" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-			<h1 class="nom-objet"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'RdD.Name'}}"/></h1>
+			<h1 class="nom-objet">{{item.name}}</h1>
 		</div>
 		<div>
-			<label for="typesCompétences">{{localize 'RdD.item.compétence.type'}}</label>
-			<select id="typesCompétences" name="data.type">
-				{{RdDSelect "RdD.typesCompétences" data.type}}
-			</select>
+			{{localize 'RdD.item.compétence.type'}}&nbsp;: {{data.type}}	
 		</div>
 	</header>
 	
 	{{!-- Description de la compétence --}}
-	<div class="description">
-		{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-	</div>
+	<fieldset class="description">
+		<legend>{{localize 'RdD.item.description'}}</legend>
+		{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+	</fieldset>
 	
 	{{!-- Spécialité éventuelle de la compétence --}}
 	{{#if data.spécialisable}}
@@ -25,36 +23,40 @@
 	</div>
 	{{/if}}
 	
+	
 	{{!-- Vocation --}}
-	<div>
+	<div class="alignement">
+		{{#if (ne data.type "draconic")}}
 		<label for="vocation">{{localize 'RdD.item.compétence.vocation'}}</label>
 		<input type="checkbox" name="data.vocation" {{checked data.vocation}}>
+		{{/if}}
 	</div>
 	
 	{{!-- Niveau --}}
-	<div>
+	<div class="alignement">
 		<label for="niveau">{{localize 'RdD.item.compétence.niveau'}}</label>
 		<input type="number" id="niveau" name="data.value" value="{{data.value}}">
 	</div>
 	
 	{{!-- Expérience --}}
-	<div>
+	<div class="alignement">
 		<label for="xp">{{localize 'RdD.item.compétence.ptExpérience'}}</label>
 		<input type="number" id="xp" name="data.xp" value="{{data.xp}}">
 	</div>
 	
 	{{!-- Archétype --}}
-	<div>
+	<div class="alignement">
 		<label for="archétype">{{localize 'RdD.item.compétence.archétype'}}</label>
 		<input type="number" id="archétype" name="data.archétype" value="{{data.archétype}}">
 	</div>
 	
 	{{!-- Points de sort si applicable --}}
 	{{#if (eq data.type "draconic")}}
-	<div>
+	<div class="alignement">
 		<label for="ptSort">{{localize 'RdD.item.compétence.ptSort'}}</label>
 		<input type="number" id="ptSort" name="data.ptSort" value="{{data.ptSort}}">
 	</div>
 	{{/if}}
+
 
 </form>

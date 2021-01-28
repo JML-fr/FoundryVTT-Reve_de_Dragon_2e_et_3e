@@ -13,14 +13,17 @@
 	</header>
 	
 	{{!-- Description de la compétence --}}
-	<div class="description">
-		{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-	</div>
+	<fieldset class="description">
+		<legend>{{localize 'RdD.item.description'}}</legend>
+		{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+	</fieldset>
 	
 	{{!-- Spécialité éventuelle de la compétence --}}
 	<div>
 		<span>{{localize 'RdD.item.compétence.spécialisable'}}&nbsp;: </span>
 		<input type="checkbox" name="data.spécialisable" {{checked data.spécialisable}}>
+	</div>
+	<div>
 		<label for="spécialité">{{localize 'RdD.item.compétence.spécialité'}}</label>
 		<input type="text" id="spécialité" name="data.spécialité" value="{{data.spécialité}}">
 	</div>

@@ -22,6 +22,7 @@
 /*   5.10. ITEM: FEUILLE ARME À DISTANCE                          */
 /*   5.11. ITEM: FEUILLE ARMURE                                   */
 /*   5.12. ITEM: FEUILLE GEMME                                    */
+/*   5.13. ITEM: FEUILLE COMPÉTENCE                               */
 /*   6. LISTE DES JOUEURS                                         */
 /*   7. BARRE DE NAVIGATION                                       */
 /*   8. CONTRÔLES DE LA SCÈNE                                     */
@@ -59,7 +60,7 @@
 }
 
 /* ============== TINY MCE EDITOR =============================== */
-.RdD .content {
+.RdD {
 	.editor,
 	.editor-content {
 		width: 100%;
@@ -151,4 +152,41 @@
 /* ============== ONGLET INVENTAIRE ============================= */
 .RdD.feuille.actor.pj #argent {
 	width: 7ch;
+}
+
+/******************************************************************/
+/*=========== 5.13. ITEM: FEUILLE COMPÉTENCE  ====================*/
+/******************************************************************/
+
+/* ============== EN-TÊTE ======================================= */
+.RdD.feuille.item .en-tête-feuille {
+	display: flex;
+	flex-flow: column;
+	border-bottom: 1px solid black;
+    padding: 0 0 3px 0;
+	.id-objet {
+		display: flex;
+		flex-flow: row;
+		align-content: flex-start;
+		align-items: flex-start;
+	}
+	.vignette {
+		object-fit: contain;
+		margin: 0 5px 0 0;
+	}
+	.nom-objet {
+		flex: auto;
+	}
+}
+
+/* ============== DESCRIPTION DE LA COMPÉTENCE ================== */
+
+.RdD.feuille.item .description {
+	height: 120px;
+}
+
+/* ============== ALIGNEMENT DES RUBRIQUES ====================== */
+.RdD.feuille.item .alignement {
+	display: grid;
+	grid-template-columns: 11ch 5ch;
 }
