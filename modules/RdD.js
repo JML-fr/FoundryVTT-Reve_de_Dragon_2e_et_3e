@@ -7,7 +7,7 @@
  */
 import {RdD} from "./utils/init.js";
 import * as RdDTemplates from "./acteurs/actor-templates.js";
-import {RdDHooks} from "./utils/hooks.js";
+import RdDHooks from "./utils/hooks.js";
 import * as Acteurs from "./acteurs/actor.js";
 import * as Objets from "./objets/item.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
@@ -93,12 +93,17 @@ Hooks.once("init", async function() {
 	 * @param {Map} tableau Liste des compétences de la catégorie en cours
 	 * @param {} indice Indice de la compétence à afficher
 	 */
-	Handlebars.registerHelper('RdDCptcSpclsbl', function (tableau, indice) {
+	Handlebars.registerHelper('RdDPlusMoins', function (plusMoins) {
 		let action = "";
-		if (tableau[indice].name == tableau[indice-1].name) {
-			action = `<a class="cptc-suppr"><i class="fas fa-minus-square"></i></a>`;
-		} else {
-			action = `<a class="cptc-ajout"><i class="fas fa-plus-square"></i></a>`;
+		switch (plusMoins) {
+			case "+":
+				action = `<a class="cptc-ajout"><i class="fas fa-plus-square"></i></a>`;
+				break;
+			case "-":
+				action = `<a class="cptc-suppr"><i class="fas fa-minus-square"></i></a>`;
+				break;
+			default:
+				break;
 		}
 		return new Handlebars.SafeString(action);
 	});

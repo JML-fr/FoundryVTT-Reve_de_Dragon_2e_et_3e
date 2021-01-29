@@ -46,7 +46,7 @@ RdD.heuresDeNaissance = new Map([
 RdD.sexe = new Map([
 	["F", "RdD.sexe.F"],
 	["M", "RdD.sexe.M"]
-])
+]);
 
 /**
  * Correspondance entre les valeurs de la latéralité du personnage et leurs libelllés
@@ -55,7 +55,7 @@ RdD.latéralité = new Map([
 	["D", "RdD.latéralité.D"],
 	["G", "RdD.latéralité.G"],
 	["A", "RdD.latéralité.A"]
-])
+]);
 
 /**
  * Correspondance entre les différents type de compétences et leurs libelllés
@@ -68,7 +68,7 @@ RdD.typesCompétences = new Map([
 	["spécialisée", "RdD.typeCompétence.spécialisée"],
 	["connaissance", "RdD.typeCompétence.connaissance"],
 	["draconic", "RdD.typeCompétence.draconic"]
-])
+]);
 
 /**
  * Correspondance entre les différents type de compétences et les noms des compendiums donnant leur liste de base
@@ -81,4 +81,77 @@ RdD.compendiumsCompétences = new Map([
 	["spécialisée", "RdD.rdd-competences-specialisees"],
 	["connaissance", "RdD.rdd-connaissances"],
 	["draconic", "RdD.rdd-draconic"]
-])
+]);
+
+/**
+ * Liste des compétences de départ d'un PJ
+ */
+RdD.cptcDépartPJ = [
+	"Escalade",
+	"Cuisine",
+	"Course",
+	"Séduction",
+	"Dessin",
+	"Bricolage",
+	"Danse",
+	"Vigilance",
+	"Saut",
+	"Discrétion",
+	"Chant",
+	"Masse à 2 mains",
+	"Hache à 1 main",
+	"Épée à 1 main",
+	"Masse à 1 main",
+	"Lances",
+	"Épée à 2 mains",
+	"Corps à corps",
+	"Dague de mêlée",
+	"Fléau",
+	"Armes d'hast",
+	"Esquive",
+	"Bouclier",
+	"Hache à 2 mains",
+	"Arc",
+	"Fouet",
+	"Javelot",
+	"Arbalète",
+	"Dague de jet",
+	"Fronde",
+	"Équitation",
+	"Commerce",
+	"Survie en Désert",
+	"Musique",
+	"Charpenterie",
+	"Survie en Forêt",
+	"Travestissement",
+	"Survie en Cité",
+	"Survie en Montagne",
+	"Survie en Sous-sol",
+	"Maçonnerie",
+	"Survie en Glaces",
+	"Pickpocket",
+	"Survie en Marais",
+	"Comédie",
+	"Survie en Extérieur",
+	"Métalurgie",
+	"Serrurerie",
+	"Chirurgie",
+	"Jeu",
+	"Orfèvrerie",
+	"Maroquinerie",
+	"Jonglerie",
+	"Natation",
+	"Navigation",
+	"Acrobatie",
+	"Botanique",
+	"Légendes",
+	"Astrologie",
+	"Écriture",
+	"Zoologie",
+	"Alchimie",
+	"Médecine",
+	"Hypnos",
+	"Thanatos",
+	"Oniros",
+	"Narcos"
+];

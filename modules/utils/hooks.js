@@ -1,4 +1,4 @@
-export class RdDHooks {
+export  default class RdDHooks {
 	/**
 	 * Actions avant parachutage sur un actor
 	 *
@@ -15,6 +15,7 @@ export class RdDHooks {
 			let itemFromData = game.items.get(data.id);
 			if (!itemFromData.data.data.spécialisable) {
 				if (actor.data.items.some((item) => itemFromData.data.name === item.name)) {
+					// ui.notifications.console.error(game.i18n.localize("RdD.erreurs.cptcExistante"));
 					return false;
 				}
 			}

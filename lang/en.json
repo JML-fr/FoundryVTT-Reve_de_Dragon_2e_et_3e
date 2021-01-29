@@ -46,6 +46,7 @@
     "xpInvalide": "Les xp doivent être un nombre entier positif",
     "ptSortInvalide": "Les points de sort doivent être un nombre entier positif",
     "cptcVide": "renseigner la compétence",
+    "cptcExistante": "cette compétence existe déjà",
     "cptcGnlInvalide": "une compétence générale doit être un nombre entier supérieur ou égal à -4",
     "cptcMlInvalide": "une compétence de mêlée doit être un nombre entier supérieur ou égal à -6",
     "cptcTLInvalide": "une compétence de tir ou lancer doit être un nombre entier supérieur ou égal à -8",

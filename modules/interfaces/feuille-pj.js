@@ -2,6 +2,7 @@
  * Importation des modules
  */
 // import * as Intrfc from "../utils/interface.js";
+import {RdD} from "../utils/init.js";
 import * as Tmplt from "../acteurs/actor-templates.js"
 import {ActorRdD} from "../acteurs/actor.js";
 
@@ -59,6 +60,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		
 		let listeTypesComposés = [];
 		for (const obj of data.items) {
+			// On classe les compétences par catégories
 			if (obj.type == "compétence") {
 				let typeComposé = `${obj.type}-${obj.data.type}`;
 				if (!listeTypesComposés.includes(typeComposé)) {
@@ -73,6 +75,22 @@ export class RdDFeuillePJ extends ActorSheet {
 		// Tri par sous-catégories
 		for (const typeComposé of listeTypesComposés) {
 			data.itemsParType[typeComposé].sort((premier, second) => premier.name.localeCompare(second.name, "fr"));
+			// Déterminer si on peut dupliquer ou supprimer une compétence
+			for (let indice = 0, lgr = data.itemsParType[typeComposé].length; indice < lgr; indice++) {
+				if (data.itemsParType[typeComposé][indice].data.spécialisable) {
+					if (data.itemsParType[typeComposé][indice].name == data.itemsParType[typeComposé][indice-1].name) {
+						data.itemsParType[typeComposé][indice].plusMoins = "-";
+					} else {
+						data.itemsParType[typeComposé][indice].plusMoins = "+";
+					}
+				} else {
+					if (RdD.cptcDépartPJ.includes(data.itemsParType[typeComposé][indice].name)) {
+						data.itemsParType[typeComposé][indice].plusMoins = "";
+					} else {
+						data.itemsParType[typeComposé][indice].plusMoins = "-";
+					}
+				}
+			}
 		}
 		
 		console.log(`RdD | RdDFeuillePJ.getData - fin `, data);
