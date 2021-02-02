@@ -116,6 +116,7 @@ RdD.cptcDépartPJ = [
 	"Javelot",
 	"Arbalète",
 	"Dague de jet",
+	"Hache de jet",
 	"Fronde",
 	"Équitation",
 	"Commerce",

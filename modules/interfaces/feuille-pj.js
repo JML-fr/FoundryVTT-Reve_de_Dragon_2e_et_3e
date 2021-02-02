@@ -1,7 +1,7 @@
  /*
  * Importation des modules
  */
-// import * as Intrfc from "../utils/interface.js";
+import {RdDIntrfc} from "../utils/interface.js";
 import {RdD} from "../utils/init.js";
 import * as Tmplt from "../acteurs/actor-templates.js"
 import {ActorRdD} from "../acteurs/actor.js";
@@ -301,7 +301,7 @@ export class RdDFeuillePJ extends ActorSheet {
 			case "empathie-xp":
 			case "rêve-xp":
 			case "chance-xp":
-				erreur = ActorRdD.ctrlXp(value);
+				erreur = RdDIntrfc.ctrlXp(value);
 				break;
 			case "vie":
 				erreur = ActorRdD.ctrlVie(value);
@@ -359,42 +359,6 @@ export class RdDFeuillePJ extends ActorSheet {
 				erreur = ActorRdD.ctrlArgent(value);
 				break;
 			default:
-				if(classList.contains("cptcGnrl")) {
-					erreur = ActorRdD.ctrlCptcGnrl(value);
-					break;
-				}
-				if(classList.contains("cptcMl")) {
-					erreur = ActorRdD.ctrlCptcMl(value);
-					break;
-				}
-				if(classList.contains("cptcTL")) {
-					erreur = ActorRdD.ctrlCptcTL(value);
-					break;
-				}
-				if(classList.contains("cptcPart")) {
-					erreur = ActorRdD.ctrlCptcPart(value);
-					break;
-				}
-				if(classList.contains("cptcSpé")) {
-					erreur = ActorRdD.ctrlCptcSpé(value);
-					break;
-				}
-				if(classList.contains("ctrlCptcCnsc")) {
-					erreur = ActorRdD.ctrlCptcSpé(value);
-					break;
-				}
-				if(classList.contains("cptcDrac")) {
-					erreur = ActorRdD.ctrlCptcDrac(value);
-					break;
-				}
-				if(classList.contains("cptcXp")) {
-					erreur = ActorRdD.ctrlXp(value);
-					break;
-				}
-				if(classList.contains("ptSort")) {
-					erreur = ActorRdD.ctrlPtSort(value);
-					break;
-				}
 				if(classList.contains("fatigue")) {
 					erreur = ActorRdD.ctrlFatigue(value);
 					break;

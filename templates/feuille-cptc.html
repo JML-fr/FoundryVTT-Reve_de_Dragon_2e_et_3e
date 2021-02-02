@@ -13,10 +13,10 @@
 	</header>
 	
 	{{!-- Description de la compétence --}}
-	<fieldset class="description">
-		<legend>{{localize 'RdD.item.description'}}</legend>
+	<div>{{localize 'RdD.item.description'}}</div>
+	<div class="description-edtbl">
 		{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
-	</fieldset>
+	</div>
 	
 	{{!-- Spécialité éventuelle de la compétence --}}
 	<div>

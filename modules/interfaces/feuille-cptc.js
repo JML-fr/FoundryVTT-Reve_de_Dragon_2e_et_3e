@@ -1,7 +1,7 @@
  /*
  * Importation des modules
  */
-// import * as Intrfc from "../utils/interface.js";
+import {RdDIntrfc} from "../utils/interface.js";
 // import * as Tmplt from "../acteurs/actor-templates.js"
 import {ItemRdD} from "../objets/item.js";
 
@@ -75,7 +75,7 @@ export class RdDFeuilleCptc extends ItemSheet {
 	 */
 	getData() {
 		let data = super.getData();
-		console.log(`RdD | RdDFeuilleCptc.getData ${JSON.stringify(data)}`);
+		console.log(`RdD | RdDFeuilleCptc.getData`, data);
 		return data;
 	}
 
@@ -116,6 +116,21 @@ export class RdDFeuilleCptc extends ItemSheet {
 			case "codeLibellé":
 				erreur = ItemRdD.ctrlCodeLibellé(value);
 				break;
+			case "spécialité":
+				erreur = ItemRdD.ctrlSpécialité(value);
+				break;
+			case "niveau":
+				erreur = ItemRdD.ctrlNiveau(value, this.object.data.data.type);
+				break;
+			case "xp":
+				erreur = RdDIntrfc.ctrlXp(value);
+				break;
+			case "archétype":
+				erreur = ItemRdD.ctrlArchétype(value);
+				break;
+			case "ptSort":
+				erreur = ItemRdD.ctrlPtSort(value);
+				break;
 			default:
 				break;
 		}
@@ -155,7 +170,7 @@ export class RdDFeuilleCptc extends ItemSheet {
 			ui.notifications.error(game.i18n.localize("RdD.erreurs.pasDeMàJ"));
 		}
 		else {
-			console.log(`RdD | RdDFeuilleCptc._onSubmit – pas d'erreur ${JSON.stringify(updateData)}`);
+			console.log(`RdD | RdDFeuilleCptc._onSubmit – pas d'erreur`, updateData);
 			super._onSubmit(event, {updateData, preventClose});
 		}
 	}
@@ -171,7 +186,7 @@ export class RdDFeuilleCptc extends ItemSheet {
 	 * @memberof RdDFeuilleCptc
 	 */
 	async _updateObject(event, formData) {
-		console.log(`RdD | RdDFeuilleCptc._updateObject ${JSON.stringify(formData)}`);
+		console.log(`RdD | RdDFeuilleCptc._updateObject`, formData);
 		super._updateObject(event, formData);
 	}	
 }

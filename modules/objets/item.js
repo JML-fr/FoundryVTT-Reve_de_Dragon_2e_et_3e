@@ -1,4 +1,4 @@
-import * as RdDIntrfc from "../utils/interface.js";
+import {RdDIntrfc} from "../utils/interface.js";
 
 /**
  * Complète la classe de base Item avec les mécanismes spécifiques à RdD.
@@ -31,7 +31,9 @@ export class ItemRdD extends Item {
 
 		switch (objet.type) {
 			case "compétence":
-				this._calcBase();
+				if (!this.isOwned) {
+					this._calcBase();
+				}
 				break;
 
 			default:
@@ -93,7 +95,7 @@ export class ItemRdD extends Item {
 	 */
 	_calcBase() {
 		const data = this.data.data;
-		console.log(`RdD | ItemRdD._calcBase`);
+		console.log(`RdD | ItemRdD._calcBase`, data);
 		switch (data.type) {
 			case "générale":
 				data.value = -4;
@@ -120,7 +122,7 @@ export class ItemRdD extends Item {
 	/* ================================================== */
 
 	/**
-	 * Contrôle que la valeur fournie pour la propriété est valide
+	 * Contrôle que la valeur fournie pour le code libellé est valide
 	 *
 	 * @static
 	 * @param {*} valeur
@@ -131,6 +133,131 @@ export class ItemRdD extends Item {
 		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.codeLibelléVide");
 		}
+		return "";
+	}
+
+	/**
+	 * Contrôle que la valeur fournie pour la spécialité est valide
+	 *
+	 * @static
+	 * @param {*} valeur
+	 * @memberof ItemRdD
+	 */
+	static ctrlSpécialité (valeur){
+		console.log(`RdD | ItemRdD.ctrlSpécialité : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return game.i18n.localize("RdD.erreurs.spécialitéVide");
+		}
+		return "";
+	}
+
+	/**
+	 * Contrôle que la valeur fournie pour la compétence est valide
+	 *
+	 * @static
+	 * @param {*} valeur
+	 * @memberof ItemRdD
+	 */
+	static ctrlNiveau (valeur, type){
+		console.log(`RdD | ItemRdD.ctrlCptcGnrl : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return game.i18n.localize("RdD.erreurs.cptcVide");
+		}
+		let nombre = Number(valeur);
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
+			return game.i18n.localize("RdD.erreurs.cptcGnlInvalide");
+		}
+		switch (type) {
+			case "générale":
+				if (!Number.isInteger(nombre) || nombre < -4) {
+					return game.i18n.localize("RdD.erreurs.cptcGnlInvalide");
+				}
+				break;
+			case "mêlée":
+				if (!Number.isInteger(nombre) || nombre < -6) {
+					return game.i18n.localize("RdD.erreurs.cptcMlInvalide");
+				}
+				break;
+			case "tirLancer":
+				if (!Number.isInteger(nombre) || nombre < -8) {
+					return game.i18n.localize("RdD.erreurs.cptcTLInvalide");
+				}
+				break;
+			case "particulière":
+				if (!Number.isInteger(nombre) || nombre < -8) {
+					return game.i18n.localize("RdD.erreurs.cptcPartInvalide");
+				}
+				break;
+			case "spécialisée":
+				if (!Number.isInteger(nombre) || nombre < -11) {
+					return game.i18n.localize("RdD.erreurs.cptcSpéInvalide");
+				}
+				break;
+			case "connaissance":
+				if (!Number.isInteger(nombre) || nombre < -11) {
+					return game.i18n.localize("RdD.erreurs.cptcCnscInvalide");
+				}
+				break;
+			case "draconic":
+				if (!Number.isInteger(nombre) || nombre < -11) {
+					return game.i18n.localize("RdD.erreurs.cptcDracInvalide");
+				}
+				break;
+			default:
+				break;
+		}
+
+		// Pas d'erreur trouvée
+		return "";
+	}
+
+	/**
+	 * Contrôle les contraintes sur la valeur d'un archétype
+	 *
+	 * @static
+	 * @param {*} valeur Valeur à contrôler
+	 * @returns {String} Message d'erreur
+	 * @memberof ItemRdD
+	 */
+	static  ctrlArchétype (valeur){
+		console.log(`RdD | RdDIntrfc.ctrlArchétype : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return "";
+		}
+		let nombre = Number(valeur);
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
+			return game.i18n.localize("RdD.erreurs.archtpInvalide");
+		}
+		if (!Number.isInteger(nombre) || nombre < 0) {
+			return game.i18n.localize("RdD.erreurs.archtpInvalide");
+		}
+
+		// Pas d'erreur trouvée
+		return "";
+	}
+
+	/**
+	 * Contrôle les contraintes sur les points de sort acquis
+	 *
+	 * @static
+	 * @param {*} valeur Valeur à contrôler
+	 * @returns {String} Message d'erreur
+	 * @memberof ItemRdD
+	 */
+	static ctrlPtSort (valeur){
+		console.log(`RdD | ItemRdD.ctrlPtSort : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return "";
+		}
+		let nombre = Number(valeur);
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
+			return game.i18n.localize("RdD.erreurs.ptSortInvalide");
+		}
+		if (!Number.isInteger(nombre) || nombre < 0) {
+			return game.i18n.localize("RdD.erreurs.ptSortInvalide");
+		}
+
+		// Pas d'erreur trouvée
 		return "";
 	}
 }

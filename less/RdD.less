@@ -43,6 +43,17 @@
 @info-color-shadow: fade(@info-color, 33%);
 @contraste-color: #782e22;
 
+/* ============== DISPOSITION =================================== */
+.RdD .nbren-ligne {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* ============== NOMBRES ======================================= */
+.RdD .nbr-affchg {
+	text-align: right;
+}
+
 /* ============== ONGLETS ======================================= */
 .RdD .content {
 	height: calc(100% - 450px);
@@ -85,7 +96,8 @@
 }
 
 .RdD input[type="number"] {
-	width: 6ch;
+	text-align: right;
+	width: 3.3ch;
 }
 .RdD input[type="datetime-local"], input[type="number"], input[type="password"], input[type="text"], select {
 	&:focus {
@@ -106,6 +118,11 @@
 	.grpSignesPart {
 		padding: 0 0 5px 0;
 	}
+	.grpSignesPart.alignement {
+		display: grid;
+		grid-template-columns: 5ch 7ch 5ch 7ch;
+		column-gap: 1ch;
+	}
 	.id-perso {
 		display: flex;
 		flex-flow: row;
@@ -125,11 +142,47 @@
 	width: 8em;
 }
 
+/* ============== ONGLET ÉTATS ==================================== */
+.RdD.feuille.actor.pj .tab[data-tab="états"]{
+	.lig-malus-état {
+		display: grid;
+		grid-template-columns: 19.5ch 3ch;
+	}
+	.lig-états-santé {
+		display: grid;
+		grid-template-columns: 11ch 3ch;
+	}
+}
+
+/* ============== ONGLET CARACTÉRISTIQUES ========================= */
+.RdD.feuille.actor.pj .tab[data-tab="caractéristiques"]{
+	.zoneCarac {
+		display: flex;
+		flex-flow: row;
+		align-content: flex-start;
+		align-items: flex-start;
+		margin: 7px 0 0 0;
+	}
+	.lig-carac {
+		display: grid;
+		grid-template-columns: 2.5ch 13ch 7ch 3ch 7ch;
+		margin: 0 5px 5px 0;
+	}
+	.lig-carac-dériv {
+		display: grid;
+		grid-template-columns: 2.5ch 13ch 3ch;
+		.nbr-affchg {
+			float: right;
+		}
+	}
+}
+
 /* ============== ONGLET COMPÉTENCES ============================== */
 .RdD.feuille.actor.pj .tab[data-tab="compétences"]{
 	ul li{
 		display: grid;
-		grid-template-columns: 4ch 18ch 5ch 5ch 3ch 8ch 4ch 4ch;
+		grid-template-columns: 2.5ch 18ch 4ch 4.7ch 2ch 8.3ch 4ch 4ch;
+		column-gap: 2ch;
 		grid-template-rows: minmax(20px, auto);
 		div.cptc-spécialité {
 			grid-area: 2 / 2 / 2 / 3;
@@ -181,8 +234,12 @@
 
 /* ============== DESCRIPTION DE LA COMPÉTENCE ================== */
 
-.RdD.feuille.item .description {
-	height: 120px;
+.RdD.feuille.item {
+	.description-edtbl,
+	.description-affchg {
+		height: 120px;
+		border: solid 1px black;
+	}
 }
 
 /* ============== ALIGNEMENT DES RUBRIQUES ====================== */
