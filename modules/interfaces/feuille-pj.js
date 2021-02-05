@@ -33,7 +33,7 @@ export class RdDFeuillePJ extends ActorSheet {
 			classes: ["RdD", "feuille", "actor", "pj"],
 			template: "systems/RdD/templates/feuille-pj.html",
 			width: 900,
-			height: 600,
+			height: 620,
 			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: "états"}]
 		});
 	}

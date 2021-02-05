@@ -44,15 +44,22 @@
 @contraste-color: #782e22;
 
 /* ============== DISPOSITION =================================== */
+.RdD .ligne-saisie {
+	margin-bottom: 5px;
+}
+
+/* ============== NOMBRES ======================================= */
 .RdD .nbren-ligne {
 	display: flex;
 	justify-content: space-between;
 }
-
-/* ============== NOMBRES ======================================= */
-.RdD .nbr-affchg {
+.RdD .nbr-affchg-bloc {
 	text-align: right;
 }
+.RdD .nbr-affchg {
+	float: right;
+}
+
 
 /* ============== ONGLETS ======================================= */
 .RdD .content {
@@ -63,7 +70,7 @@
 }
 
 .RdD .tabs {
-	margin: 3px 0 0 0;
+	margin: 3px 0 7px 0;
 	.item.active {
 	text-shadow: none;
 	border-bottom: 2px solid @contraste-color;
@@ -115,9 +122,6 @@
 	flex-flow: column;
 	border-bottom: 1px solid black;
     padding: 0 0 3px 0;
-	.grpSignesPart {
-		padding: 0 0 5px 0;
-	}
 	.grpSignesPart.alignement {
 		display: grid;
 		grid-template-columns: 5ch 7ch 5ch 7ch;
@@ -138,8 +142,12 @@
 	}
 }
 
+.RdD.feuille.actor.pj #spTaille {
+	width: 5ch;
+}
+
 .RdD.feuille.actor.pj #cheveux, #yeux {
-	width: 8em;
+	width: 12ch;
 }
 
 /* ============== ONGLET ÉTATS ==================================== */
@@ -161,19 +169,15 @@
 		flex-flow: row;
 		align-content: flex-start;
 		align-items: flex-start;
-		margin: 7px 0 0 0;
 	}
 	.lig-carac {
 		display: grid;
 		grid-template-columns: 2.5ch 13ch 7ch 3ch 7ch;
-		margin: 0 5px 5px 0;
+		margin-right : 5px;
 	}
 	.lig-carac-dériv {
 		display: grid;
 		grid-template-columns: 2.5ch 13ch 3ch;
-		.nbr-affchg {
-			float: right;
-		}
 	}
 }
 
@@ -197,14 +201,77 @@
 	}
 }
 
+/* ============== ONGLET COMBAT ================================= */
+.RdD.feuille.actor.pj .tab[data-tab="combat"]{
+	p {
+		display: grid;
+		grid-template-columns: 10ch 2.5ch;
+	}
+}
+
+/* ============== ONGLET SANTÉ ================================== */
+.RdD.feuille.actor.pj .tab[data-tab="santé"]{
+	.vie-end {
+		display: grid;
+		grid-template-columns: 7ch 5ch 13ch 4ch;
+	}
+	.fatigue.lignes01 {
+		display: grid;
+		grid-template-columns: 3ch 6.5ch 2ch 6.5ch 2ch 6.5ch;
+		column-gap: 0.5ch;
+	}
+	.fatigue.lignes2plus {
+		display: grid;
+		grid-template-columns: 3ch 6.5ch;
+		column-gap: 0.5ch;
+	}
+	.blessures {
+		display: grid;
+		grid-template-columns: 8ch repeat(5, 3.5ch);
+	}
+	.sust-eau {
+		display: grid;
+		grid-template-columns: 6.5ch 5ch 6ch 4ch;
+	}
+}
+
 /* ============== ONGLET HAUT-RÊVE ============================== */
-.RdD.feuille.actor.pj #TMRCol {
-	width: 5ch;
+.RdD.feuille.actor.pj .tab[data-tab="haut-rêve"]{
+	.seuilPtRv {
+		display: grid;
+		grid-template-columns: 5ch 5ch 5ch 4ch;
+	}
+	
+	.demiRvRflm {
+		display: grid;
+		grid-template-columns: 11.5ch 4ch 4ch;
+	}
+	
+	#TMRCol {
+		width: 3.3ch;
+	}
+}
+
+/* ============== ONGLET VÉCU ============================= */
+.RdD.feuille.actor.pj .tab[data-tab="vécu"]{
+	.ligne-saisie {
+		display: grid;
+		grid-template-columns: 8ch 5ch 10ch 25ch;
+	}
 }
 
 /* ============== ONGLET INVENTAIRE ============================= */
-.RdD.feuille.actor.pj #argent {
-	width: 7ch;
+.RdD.feuille.actor.pj .tab[data-tab="inventaire"]{
+	.ligne-saisie {
+		display: grid;
+		grid-template-columns: 13ch 6.5ch 6ch 9ch;
+	}
+	#encombrement {
+		width: 5ch;
+	}
+	#argent {
+		width: 7ch;
+	}
 }
 
 /******************************************************************/
