@@ -1,5 +1,5 @@
 import {RdD} from "../utils/init.js";
-import * as RdDIntrfc from "../utils/interface.js";
+import {RdDIntrfc} from "../utils/interface.js";
 
 /**
  * Complète la classe de base Actor avec les mécanismes spécifiques à RdD.
