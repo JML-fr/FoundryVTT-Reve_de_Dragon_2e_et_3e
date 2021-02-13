@@ -115,6 +115,7 @@
       "path": "lang/en.json"
     }
   ],
+  "socket": true,
   "initiative": "1d6",
   "gridDistance": 1,
   "gridUnits": "m"
