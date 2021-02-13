@@ -23,6 +23,15 @@
     "G": "Gauche",
     "A": "Ambidextre"
   },
+  "RdD.typeCompétence": {
+    "générale": "Générale",
+    "mêlée": "Mêlée",
+    "tirLancer": "Tir & lancer",
+    "particulière": "Particulière",
+    "spécialisée": "Spécialisée",
+    "connaissance": "Connaissance",
+    "draconic": "Draconic"
+  },
   "RdD.erreurs": {
     "pasDeMàJ": "Il y a une donnée erronée – Mise à jour non effectuée",
     "âgeVide": "Renseigner l'âge",
@@ -35,8 +44,11 @@
     "caracVide": "renseigner la caractéristique",
     "caracInvalide": "une caractéristique doit être un nombre entier strictement positif",
     "xpInvalide": "Les xp doivent être un nombre entier positif",
+    "archtpInvalide": "Le niveau d'archétype doit être un nombre entier positif",
     "ptSortInvalide": "Les points de sort doivent être un nombre entier positif",
     "cptcVide": "renseigner la compétence",
+    "spécialitéVide": "renseigner la spécialité",
+    "cptcExistante": "cette compétence existe déjà",
     "cptcGnlInvalide": "une compétence générale doit être un nombre entier supérieur ou égal à -4",
     "cptcMlInvalide": "une compétence de mêlée doit être un nombre entier supérieur ou égal à -6",
     "cptcTLInvalide": "une compétence de tir ou lancer doit être un nombre entier supérieur ou égal à -8",
@@ -81,7 +93,8 @@
     "encombrementVide": "Renseigner les points d'encombrement",
     "encombrementInvalide": "Les points d'encombrement doivent être un nombre positif",
     "argentVide": "Renseigner le montant de l'argent possédé",
-    "argentInvalide": "Le montant de l'argent possédé doit être un nombre positif"
+    "argentInvalide": "Le montant de l'argent possédé doit être un nombre positif",
+    "codeLibelléVide": "Renseigner le code du libellé à afficher"
   },
   "RdD.actor": {
     "signesPart": {
@@ -181,110 +194,28 @@
       "empoisonné": "Empoisonné"
     },
     "cptcGénérales": {
-      "titre": "C. Générales (-4)",
-      "liste": {
-        "élt_0": "Bricolage",
-        "élt_1": "Chant",
-        "élt_2": "Course",
-        "élt_3": "Cuisine",
-        "élt_4": "Danse",
-        "élt_5": "Dessin",
-        "élt_6": "Discrétion",
-        "élt_7": "Escalade",
-        "élt_8": "Saut",
-        "élt_9": "Séduction",
-        "élt_10": "Vigilance"
-      }
+      "titre": "C. Générales (-4)"
     },
     "cptcMêlée": {
-      "titre": "C. de Mêlée (-6)",
-      "liste": {
-        "élt_0": "Armes d'hast",
-        "élt_1": "Bouclier",
-        "élt_2": "Corps à corps",
-        "élt_3": "Dague de mêlée",
-        "élt_4": "Épée à 1 main",
-        "élt_5": "Épée à 2 mains",
-        "élt_6": "Esquive",
-        "élt_7": "Fléau",
-        "élt_8": "Hache à 1 main",
-        "élt_9": "Hache à 2 mains",
-        "élt_10": "Lances",
-        "élt_11": "Masse à 1 main",
-        "élt_12": "Masse à 2 mains"
-      }
+      "titre": "C. de Mêlée (-6)"
     },
     "cptcTirLancer": {
-      "titre": "C. de Tir/Lancer (-8)",
-      "liste": {
-        "élt_0": "Arbalète",
-        "élt_1": "Arc",
-        "élt_2": "Dague de jet",
-        "élt_3": "Fouet",
-        "élt_4": "Fronde",
-        "élt_5": "Javelot"
-      }
+      "titre": "C. de Tir/Lancer (-8)"
     },
     "cptcParticulières": {
-      "titre": "C. Particulières (-8)",
-      "liste": {
-        "élt_0": "Charpenterie",
-        "élt_1": "Comédie",
-        "élt_2": "Commerce",
-        "élt_3": "Équitation",
-        "élt_4": "Maçonnerie",
-        "élt_5": "Musique",
-        "élt_6": "Pickpocket",
-        "élt_7": "Survie en Cité",
-        "élt_8": "Survie en Extérieur",
-        "élt_9": "Survie en Désert",
-        "élt_10": "Survie en Forêt",
-        "élt_11": "Survie en Glaces",
-        "élt_12": "Survie en Marais",
-        "élt_13": "Survie en Montagne",
-        "élt_14": "Survie en Sous-sol",
-        "élt_15": "Travestissement"
-      }
+      "titre": "C. Particulières (-8)"
     },
     "cptcSpécialisées": {
-      "titre": "C. Spécialisées (-11)",
-      "liste": {
-        "élt_0": "Acrobatie",
-        "élt_1": "Chirurgie",
-        "élt_2": "Jeu",
-        "élt_3": "Jonglerie",
-        "élt_4": "Maroquinerie",
-        "élt_5": "Métalurgie",
-        "élt_6": "Natation",
-        "élt_7": "Navigation",
-        "élt_8": "Orfèvrerie",
-        "élt_9": "Serrurerie"
-      }
+      "titre": "C. Spécialisées (-11)"
     },
     "Connaissances": {
-      "titre": "Connaisances (-11)",
-      "liste": {
-        "élt_0": "Alchimie",
-        "élt_1": "Astrologie",
-        "élt_2": "Botanique",
-        "élt_3": "Écriture",
-        "élt_4": "Légendes",
-        "élt_5": "Médecine",
-        "élt_6": "Zoologie"
-      }
+      "titre": "Connaissances (-11)"
     },
     "Draconic": {
-      "titre": "Draconic (-11)",
-      "liste": {
-        "élt_0": "Oniros",
-        "élt_1": "Hypnos",
-        "élt_2": "Narcos",
-        "élt_3": "Thanatos"
-      }
+      "titre": "Draconic (-11)"
     },
     "pj": {
       "xp": "xp",
-      "ptSort": "pt sort",
       "tabPrincipal": {
         "états": "États",
         "caractéristiques": "Caracs",
@@ -315,6 +246,93 @@
           "ptVoyage": "Voyage"
         },
         "stress": "Stress"
+      }
+    }
+  },
+  "RdD.item": {
+    "description": "Description",
+    "compétence": {
+      "type": "Type de compétence",
+      "codeLibellé": "Code du libellé à afficher",
+      "xp": "xp",
+      "ptExpérience": "Expérience",
+      "ptSort": "pt sort",
+      "spécialisable": "Spécialisable",
+      "spécialité": "Spécialité",
+      "vocation": "Vocation",
+      "vocationAbrv": "V",
+      "niveau": "Niveau",
+      "archétype": "Archétype",
+      "archétypeAbrv": "Archtp",
+      "liste": {
+        "bricolage": "Bricolage",
+        "chant": "Chant",
+        "course": "Course",
+        "cuisine": "Cuisine",
+        "danse": "Danse",
+        "dessin": "Dessin",
+        "discrétion": "Discrétion",
+        "escalade": "Escalade",
+        "saut": "Saut",
+        "séduction": "Séduction",
+        "vigilance": "Vigilance",
+        "armesDHast": "Armes d'hast",
+        "bouclier": "Bouclier",
+        "corpsÀCorps": "Corps à corps",
+        "dagueDeMêlée": "Dague de mêlée",
+        "épéeÀ1Main": "Épée à 1 main",
+        "épéeÀ2Mains": "Épée à 2 mains",
+        "esquive": "Esquive",
+        "fléau": "Fléau",
+        "hacheÀ1Main": "Hache à 1 main",
+        "hacheÀ2Mains": "Hache à 2 mains",
+        "lances": "Lances",
+        "masseÀ1Main": "Masse à 1 main",
+        "masseÀ2Mains": "Masse à 2 mains",
+        "arbalète": "Arbalète",
+        "arc": "Arc",
+        "dagueDeJet": "Dague de jet",
+        "fouet": "Fouet",
+        "fronde": "Fronde",
+        "hacheDeJet": "Hache de jet",
+        "javelot": "Javelot",
+        "charpenterie": "Charpenterie",
+        "comédie": "Comédie",
+        "commerce": "Commerce",
+        "équitation": "Équitation",
+        "maçonnerie": "Maçonnerie",
+        "musique": "Musique",
+        "pickpocket": "Pickpocket",
+        "survieEnCité": "Survie en Cité",
+        "survieEnExtérieur": "Survie en Extérieur",
+        "survieEnDésert": "Survie en Désert",
+        "survieEnForêt": "Survie en Forêt",
+        "survieEnGlaces": "Survie en Glaces",
+        "survieEnMarais": "Survie en Marais",
+        "survieEnMontagne": "Survie en Montagne",
+        "survieEnSousSol": "Survie en Sous-sol",
+        "travestissement": "Travestissement",
+        "acrobatie": "Acrobatie",
+        "chirurgie": "Chirurgie",
+        "jeu": "Jeu",
+        "jonglerie": "Jonglerie",
+        "maroquinerie": "Maroquinerie",
+        "métalurgie": "Métalurgie",
+        "natation": "Natation",
+        "navigation": "Navigation",
+        "orfèvrerie": "Orfèvrerie",
+        "serrurerie": "Serrurerie",
+        "alchimie": "Alchimie",
+        "astrologie": "Astrologie",
+        "botanique": "Botanique",
+        "écriture": "Écriture",
+        "légendes": "Légendes",
+        "médecine": "Médecine",
+        "zoologie": "Zoologie",
+        "oniros": "Oniros",
+        "hypnos": "Hypnos",
+        "narcos": "Narcos",
+        "thanatos": "Thanatos"
       }
     }
   }

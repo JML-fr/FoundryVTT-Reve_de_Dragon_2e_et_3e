@@ -1,4 +1,5 @@
 import {RdD} from "../utils/init.js";
+import {RdDIntrfc} from "../utils/interface.js";
 
 /**
  * Complète la classe de base Actor avec les mécanismes spécifiques à RdD.
@@ -18,47 +19,91 @@ export class ActorRdD extends Actor {
 	/* ================================================== */
 
 	/**
-	 * initialize - Débogage
-	 *
-	 * @memberof ActorRdD
-	 */
-	initialize() {
-		console.log(`RdD | ActorRdD.initialize`);
-		super.initialize();
-	}
-
-	/**
-	 * Mise à jour des données dérivées de l'acteur
+	 * Mise à jour des données dérivées, des objets rattachés et des effets actifs de l'acteur
 	 *
 	 * @memberof ActorRdD
 	 */
 	prepareData() {
-		console.log(`RdD | ActorRdD.prepareData`);
 		super.prepareData();
+	}
+	
+	/**
+	 * Mise à jour des données dérivées ne dépendant pas des objets rattachés et/ou des effets actifs
+	 *
+	 * @memberof ActorRdD
+	 */
+	prepareBaseData() {
+		console.log(`RdD | ActorRdD.prepareBaseData`);
+		super.prepareBaseData();
 		const acteur = this.data;
-
-		console.log(`RdD | ActorRdD.prepareData ` + acteur.type);
-
+	
+		console.log(`RdD | ActorRdD.prepareBaseData ${acteur.type} ${acteur.name}`);
+	
 		switch (acteur.type) {
 			case "pj":
 				this._calcCaracsDérivées();
 				this._calcSeuils();
 				this._calcCptr();
 				break;
-
+	
 			default:
 				break;
 		}
 	}
 
 	/**
-	 * create - Débogage
+	 * prepareEmbeddedEntities - Débogage
+	 * Met à jour les collections des objets rattachés et des effets actifs de l'acteur
+	 *
+	 * @memberof ActorRdD
+	 */
+	prepareEmbeddedEntities() {
+		console.log(`RdD | ActorRdD.prepareEmbeddedEntities`);
+		super.prepareEmbeddedEntities();
+	}
+
+	/**
+	 * applyActiveEffects - Débogage
+	 * Applique à l'acteur toute transformation issue d'un effet actif
+	 *
+	 * @memberof ActorRdD
+	 */
+	applyActiveEffects() {
+		console.log(`RdD | ActorRdD.applyActiveEffects`);
+		super.applyActiveEffects();
+	}
+
+	/**
+	 * Mise à jour des données dérivées tenant compte des objets rattachés et/ou des effets actifs
+	 *
+	 * @memberof ActorRdD
+	 */
+	prepareDerivedData() {
+		console.log(`RdD | ActorRdD.prepareDerivedData`);
+		super.prepareDerivedData();
+	}
+
+	/**
+	 * create
 	 *
 	 * @memberof ActorRdD
 	 */
 	static async create(data, options={}) {
-		console.log(`RdD | ActorRdD.create`);
-		super.create(data, options);
+		console.log(`RdD | ActorRdD.create ${data.type}`);
+		if (data.type == "pj") {
+			data.items = [];
+			game.packs.keys();
+			console.log(`RdD | ActorRdD.create compendiums : `, game.packs);
+			for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
+				console.log(`RdD | ActorRdD.create ${typeCptc} : compendium = ${compCptc}`);
+				const pack = game.packs.get(compCptc);
+				const listeCptc = await pack.getContent();
+				console.log(`RdD | ActorRdD.create ${typeCptc} : liste = `, listeCptc);
+				data.items = data.items.concat(listeCptc);
+			}
+			console.log(`RdD | ActorRdD.create ${data.items}`);
+		}
+		return super.create(data, options);
 	}
 
 	/**
@@ -91,7 +136,7 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 * @private
 	 */
-	_calcCaracsDérivées () {
+	_calcCaracsDérivées() {
 		const data = this.data.data;
 		console.log(`RdD | ActorRdD._calcCaracsDérivées`);
 		let agilité   = parseInt(data.caracs.agilité.value);
@@ -112,7 +157,7 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 * @private
 	 */
-	_calcSeuils () {
+	_calcSeuils() {
 		const data = this.data.data;
 		console.log(`RdD | ActorRdD._calcSeuils`);
 
@@ -163,7 +208,7 @@ export class ActorRdD extends Actor {
 	 * @memberof ActorRdD
 	 * @private
 	 */
-	_calcCptr () {
+	_calcCptr() {
 		const data = this.data.data;
 		console.log(`RdD | ActorRdD._calcCptr`);
 
@@ -202,45 +247,10 @@ export class ActorRdD extends Actor {
 			}
 		}
 	}
+	
 	/* ================================================== */
 	/* Contrôles de données */
 	/* ================================================== */
-
-	/**
-	 * Contrôle de la présence d'une valeur
-	 *
-	 * @static
-	 * @param {*} valeur Valeur à contrôler
-	 * @returns {Boolean} true: erreur trouvée, false: pas d'erreur
-	 * @memberof ActorRdD
-	 */
-	static ctrlPrésence (valeur){
-		console.log(`RdD | ActorRdD.ctrlPrésence : ` + valeur);
-		if (valeur == null || valeur == "") {
-			// Une erreur trouvée
-			return true;
-		}
-		// Pas d'erreur trouvée
-		return false;
-	}
-
-	/**
-	 * Contrôle la numéricité d'une valeur
-	 *
-	 * @static
-	 * @param {*} valeur Valeur à contrôler
-	 * @returns {Boolean} true: erreur trouvée, false: pas d'erreur
-	 * @memberof ActorRdD
-	 */
-	static ctrlNuméricité (valeur){
-		console.log(`RdD | ActorRdD.ctrlNuméricité : ` + typeof(valeur));
-		if (isNaN(valeur)) {
-			// Une erreur trouvée
-			return true;
-		}
-		// Pas d'erreur trouvée
-		return false;
-	}
 
 	/**
 	 * Contrôle les contraintes sur la valeur d'une caractéristique
@@ -252,11 +262,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlCarac (valeur){
 		console.log(`RdD | ActorRdD.ctrlCarac : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.caracVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.caracInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre <= 0) {
@@ -277,11 +287,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlÂge (valeur){
 		console.log(`RdD | ActorRdD.ctrlÂge : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.âgeVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.âgeInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre <= 0) {
@@ -299,11 +309,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlSPTaille (valeur){
 		console.log(`RdD | ActorRdD.ctrlSPTaille : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.tailleVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.tailleInvalide");
 		}
 		if (nombre <= 0) {
@@ -321,11 +331,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlPoids (valeur){
 		console.log(`RdD | ActorRdD.ctrlPoids : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.poidsVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.poidsInvalide");
 		}
 		if (nombre <= 0) {
@@ -347,22 +357,6 @@ export class ActorRdD extends Actor {
 		if (erreur != "") {
 			return game.i18n.localize("RdD.actor.signesPart.beauté") + " : " + erreur;
 		}
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la propriété est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlLatéralité (valeur){
-		console.log(`RdD | ActorRdD.ctrlLatéralité : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.latéralitéVide");
-		}
-		// ===RàF=== En attente d'unn mode de saisie permettant de limiter le choix
 		return "";
 	}
 
@@ -591,224 +585,6 @@ export class ActorRdD extends Actor {
 	}
 
 	/**
-	 * Contrôle les contraintes sur les xp d'une caractéristique
-	 *
-	 * @static
-	 * @param {*} valeur Valeur à contrôler
-	 * @returns {String} Message d'erreur
-	 * @memberof ActorRdD
-	 */
-	static ctrlXp (valeur){
-		console.log(`RdD | ActorRdD.ctrlXp : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return "";
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.xpInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < 0) {
-			return game.i18n.localize("RdD.erreurs.xpInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle les contraintes sur les points de sort acquis
-	 *
-	 * @static
-	 * @param {*} valeur Valeur à contrôler
-	 * @returns {String} Message d'erreur
-	 * @memberof ActorRdD
-	 */
-	static ctrlPtSort (valeur){
-		console.log(`RdD | ActorRdD.ctrlPtSort : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return "";
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.ptSortInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < 0) {
-			return game.i18n.localize("RdD.erreurs.ptSortInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la compétence générale est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcGnrl (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcGnrl : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcGnlInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -4) {
-			return game.i18n.localize("RdD.erreurs.cptcGnlInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la compétence de mêlée est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcMl (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcMl : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcMlInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -6) {
-			return game.i18n.localize("RdD.erreurs.cptcMlInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la compétence de tir et lancer est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcTL (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcTL : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcTLInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -8) {
-			return game.i18n.localize("RdD.erreurs.cptcTLInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la compétence particulière est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcPart (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcPart : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcPartInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -8) {
-			return game.i18n.localize("RdD.erreurs.cptcPartInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la compétence spécialisée est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcSpé (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcSpé : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcSpéInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -11) {
-			return game.i18n.localize("RdD.erreurs.cptcSpéInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la connaissance est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcCnsc (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcCnsc : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcCnscInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -11) {
-			return game.i18n.localize("RdD.erreurs.cptcCnscInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
-	 * Contrôle que la valeur fournie pour la compétence draconique est valide
-	 *
-	 * @static
-	 * @param {*} valeur
-	 * @memberof ActorRdD
-	 */
-	static ctrlCptcDrac (valeur){
-		console.log(`RdD | ActorRdD.ctrlCptcDrac : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
-			return game.i18n.localize("RdD.erreurs.cptcVide");
-		}
-		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.cptcDracInvalide");
-		}
-		if (!Number.isInteger(nombre) || nombre < -11) {
-			return game.i18n.localize("RdD.erreurs.cptcDracInvalide");
-		}
-
-		// Pas d'erreur trouvée
-		return "";
-	}
-
-	/**
 	 * Contrôle que la valeur fournie pour les points de vie est valide
 	 *
 	 * @static
@@ -819,11 +595,11 @@ export class ActorRdD extends Actor {
 		// ===RàF=== Passer object.data.data depuis feuille-pj.js
 		//const data = this.data.data;
 		console.log(`RdD | ActorRdD.ctrlVie : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.vieVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.vieInvalide");
 		}
 		//if (!Number.isInteger(nombre) || nombre < -data.seuils.sc.value || nombre > data.cptr.vie.max) {
@@ -846,11 +622,11 @@ export class ActorRdD extends Actor {
 		// ===RàF=== Passer object.data.data depuis feuille-pj.js
 		//const data = this.data.data;
 		console.log(`RdD | ActorRdD.ctrlEndurance : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.enduranceVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.enduranceInvalide");
 		}
 		//if (!Number.isInteger(nombre) || nombre < 0 || nombre > data.cptr.endurance.max) {
@@ -873,11 +649,11 @@ export class ActorRdD extends Actor {
 		// ===RàF=== Passer object.data.data depuis feuille-pj.js
 		//const data = this.data.data;
 		console.log(`RdD | ActorRdD.ctrlFatigue : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.fatigueVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.fatigueInvalide");
 		}
 		// ===RàF=== Comparer au max du segment
@@ -898,11 +674,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlSustentation (valeur){
 		console.log(`RdD | ActorRdD.ctrlSustentation : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.sustentationVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.sustentationInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
@@ -922,11 +698,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlÉthylisme (valeur){
 		console.log(`RdD | ActorRdD.ctrlÉthylisme : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.éthylismeVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.éthylismeInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0 || nombre > 7) {
@@ -946,11 +722,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlSeuilHR (valeur){
 		console.log(`RdD | ActorRdD.ctrlSeuilHR : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.seuilHRVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.seuilHRInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
@@ -970,11 +746,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlPtRêve (valeur){
 		console.log(`RdD | ActorRdD.ctrlPtRêve : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.ptRêveVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.ptRêveInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
@@ -994,7 +770,7 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlTMRCol (valeur){
 		console.log(`RdD | ActorRdD.ctrlTMRCol : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.colTMRVide");
 		}
 		if (valeur.length != 1 || !/[a-m]/i.test(valeur)) {
@@ -1014,11 +790,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlTMRLig (valeur){
 		console.log(`RdD | ActorRdD.ctrlTMRLig : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.ligTMRVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.ligTMRInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 1 || nombre > 15) {
@@ -1038,11 +814,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlRefoulement (valeur){
 		console.log(`RdD | ActorRdD.ctrlRefoulement : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.refoulementVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.refoulementInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
@@ -1064,11 +840,11 @@ export class ActorRdD extends Actor {
 		// ===RàF=== Passer object.data.data depuis feuille-pj.js
 		//const data = this.data.data;
 		console.log(`RdD | ActorRdD.ctrlPtChance : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.ptChanceVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.ptChanceInvalide");
 		}
 		//if (!Number.isInteger(nombre) || nombre < 0 || nombre > data.caracs.chance.value) {
@@ -1089,11 +865,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlMoral (valeur){
 		console.log(`RdD | ActorRdD.ctrlMoral : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.moralVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.moralInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < -3 || nombre > 3) {
@@ -1113,11 +889,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlExaltDissol (valeur){
 		console.log(`RdD | ActorRdD.ctrlExaltDissol : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.exaltDissolVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.exaltDissolInvalide");
 		}
 		if (!Number.isInteger(nombre)) {
@@ -1137,11 +913,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlCœur (valeur){
 		console.log(`RdD | ActorRdD.ctrlCœur : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.cœurVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.cœurInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0 || nombre > 4) {
@@ -1161,11 +937,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlPtDestinée (valeur){
 		console.log(`RdD | ActorRdD.ctrlPtDestinée : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.ptDestinéeVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.ptDestinéeInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0 || nombre > 7) {
@@ -1185,11 +961,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlPtVoyage (valeur){
 		console.log(`RdD | ActorRdD.ctrlPtVoyage : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.ptVoyageVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.ptVoyageInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
@@ -1209,11 +985,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlStress (valeur){
 		console.log(`RdD | ActorRdD.ctrlStress : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.stressVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.stressInvalide");
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
@@ -1233,11 +1009,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlEncombrement (valeur){
 		console.log(`RdD | ActorRdD.ctrlEncombrement : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.encombrementVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.encombrementInvalide");
 		}
 		if (nombre < 0) {
@@ -1257,11 +1033,11 @@ export class ActorRdD extends Actor {
 	 */
 	static ctrlArgent (valeur){
 		console.log(`RdD | ActorRdD.ctrlArgent : ` + valeur);
-		if (this.ctrlPrésence(valeur)) {
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.argentVide");
 		}
 		let nombre = Number(valeur);
-		if (this.ctrlNuméricité(nombre)) {
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.argentInvalide");
 		}
 		if (nombre < 0) {

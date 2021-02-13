@@ -1,7 +1,8 @@
  /*
  * Importation des modules
  */
-import * as Intrfc from "../utils/interface.js";
+import {RdDIntrfc} from "../utils/interface.js";
+import {RdD} from "../utils/init.js";
 import * as Tmplt from "../acteurs/actor-templates.js"
 import {ActorRdD} from "../acteurs/actor.js";
 
@@ -32,7 +33,7 @@ export class RdDFeuillePJ extends ActorSheet {
 			classes: ["RdD", "feuille", "actor", "pj"],
 			template: "systems/RdD/templates/feuille-pj.html",
 			width: 900,
-			height: 600,
+			height: 620,
 			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: "états"}]
 		});
 	}
@@ -48,11 +49,51 @@ export class RdDFeuillePJ extends ActorSheet {
 	getData() {
 		let data = super.getData();
 		//console.log(`RdD | RdDFeuillePJ.getData ${JSON.stringify(data)}`);
-		// ===RàF=== *** Utilité à déterminer ***
-		//data.dtypes = ["String", "Number", "Boolean"];
-		//for ( let attr of Object.values(data.data.attributes) ) {
-		//	attr.isCheckbox = attr.dtype === "Boolean";
-		//}
+		
+		// Tableau des objets classés par types
+		data.itemsParType = {};
+		for (const type of game.system.entityTypes.Item) {
+			if (type != "compétence") {
+				data.itemsParType[type] = [];
+			}
+		}
+		
+		let listeTypesComposés = [];
+		for (const obj of data.items) {
+			// On classe les compétences par catégories
+			if (obj.type == "compétence") {
+				let typeComposé = `${obj.type}-${obj.data.type}`;
+				if (!listeTypesComposés.includes(typeComposé)) {
+					listeTypesComposés.push(typeComposé);
+					data.itemsParType[typeComposé] = [];
+				}
+				data.itemsParType[typeComposé].push(obj);
+			} else {
+				data.itemsParType[obj.type].push(obj);
+			}
+		}
+		// Tri par sous-catégories
+		for (const typeComposé of listeTypesComposés) {
+			data.itemsParType[typeComposé].sort((premier, second) => premier.name.localeCompare(second.name, "fr"));
+			// Déterminer si on peut dupliquer ou supprimer une compétence
+			for (let indice = 0, lgr = data.itemsParType[typeComposé].length; indice < lgr; indice++) {
+				if (data.itemsParType[typeComposé][indice].data.spécialisable) {
+					if (data.itemsParType[typeComposé][indice].name == data.itemsParType[typeComposé][indice-1].name) {
+						data.itemsParType[typeComposé][indice].plusMoins = "-";
+					} else {
+						data.itemsParType[typeComposé][indice].plusMoins = "+";
+					}
+				} else {
+					if (RdD.cptcDépartPJ.includes(data.itemsParType[typeComposé][indice].name)) {
+						data.itemsParType[typeComposé][indice].plusMoins = "";
+					} else {
+						data.itemsParType[typeComposé][indice].plusMoins = "-";
+					}
+				}
+			}
+		}
+		
+		console.log(`RdD | RdDFeuillePJ.getData - fin `, data);
 		return data;
 	}
 
@@ -60,14 +101,37 @@ export class RdDFeuillePJ extends ActorSheet {
 
 	/**
 	 * Active les détecteurs d'évènements depuis la page HTML préparée
+	 * @function activateListeners
 	 * @param html {HTML}   L'objet HTML préparé prêt à être rendu dans le DOM
+	 * @memberof RdDFeuillePJ
 	 */
 	activateListeners(html) {
 		console.log(`RdD | RdDFeuillePJ.activateListeners`);
 		super.activateListeners(html);
 
-		// Everything below here is only needed if the sheet is editable
-		if (!this.options.editable) return;
+		// Tout ce qui suit n'est nécessaire que si la feuille est éditable
+		if (!this.options.editable)
+			return;
+
+		// Mise à jour des compétences
+		html.find(".cptc-edit").on("click", (ev) => {
+			const li = $(ev.currentTarget).parents(".cptc-lig");
+			const cptc = this.actor.getOwnedItem(li.data("cptcId"));
+			cptc.sheet.render(true);
+		});
+
+		// Duplication d'une compétence spécialisée
+		html.find(".cptc-ajout").on("click", (ev) => {
+			const li = $(ev.currentTarget).parents(".cptc-lig");
+			const cptc = this.actor.getOwnedItem(li.data("cptcId"));
+			this.actor.createOwnedItem(cptc.data, {renderSheet: true});
+		});
+
+		// Suppression d'une compétence spécialisée
+		html.find(".cptc-suppr").on("click", (ev) => {
+			const li = $(ev.currentTarget).parents(".cptc-lig");
+			this.actor.deleteOwnedItem(li.data("cptcId"));
+		});
 
 		// Update Inventory Item
 		/* ===RàF=== ==> plus tard
@@ -100,7 +164,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * Met en forme les données du PJ avant d'envoyer la demande de mise à jour au serveur.
 	 * En particulier, prend en charge le traitement des tableaux de données.
 	 *
-	 * @method
+	 * @method _miseEnFormeAvMàJ
 	 * @param {*} [updateData=null]
 	 * @memberof RdDFeuillePJ
 	 * @private
@@ -135,17 +199,17 @@ export class RdDFeuillePJ extends ActorSheet {
 		const blSaisie = this.element.find(".blessures.légères input");
 		let i = 0;
 		for (const blessure of blSaisie) {
-			cptTrav.blsrMàJ("légère", i++, blessure.checked)
+			cptTrav.blsrMàJ("légère", i++, blessure.checked);
 		}
 		updateData[`data.cptr.blessures.légères`] = cptTrav.blessures.légères.slice();
 		const bgSaisie = this.element.find(".blessures.graves input");
 		i = 0;
 		for (const blessure of bgSaisie) {
-			cptTrav.blsrMàJ("grave", i++, blessure.checked)
+			cptTrav.blsrMàJ("grave", i++, blessure.checked);
 		}
 		updateData[`data.cptr.blessures.graves`] = cptTrav.blessures.graves.slice();
 		const bcSaisie = this.element.find(".blessures.critiques input");
-		cptTrav.blsrMàJ("critique", 0, bcSaisie[0].checked)
+		cptTrav.blsrMàJ("critique", 0, bcSaisie[0].checked);
 		updateData[`data.cptr.blessures.critique`] = cptTrav.blessures.critique.slice();
 		
 		return updateData;
@@ -155,7 +219,7 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * Redéfinit la fonction d'envoi de la saisie
 	 * Contrôle la saisie
 	 *
-	 * @method
+	 * @method _onChangeInput
 	 * @param {Event} event L'évènement à l'origine du contrôle
 	 * @memberof RdDFeuillePJ
 	 * @private
@@ -181,9 +245,6 @@ export class RdDFeuillePJ extends ActorSheet {
 				break;
 			case "beauté":
 				erreur = ActorRdD.ctrlBeauté(value);
-				break;
-			case "latéralité":
-				erreur = ActorRdD.ctrlLatéralité(value);
 				break;
 			case "taille":
 				erreur = ActorRdD.ctrlTaille(value);
@@ -240,7 +301,7 @@ export class RdDFeuillePJ extends ActorSheet {
 			case "empathie-xp":
 			case "rêve-xp":
 			case "chance-xp":
-				erreur = ActorRdD.ctrlXp(value);
+				erreur = RdDIntrfc.ctrlXp(value);
 				break;
 			case "vie":
 				erreur = ActorRdD.ctrlVie(value);
@@ -298,42 +359,6 @@ export class RdDFeuillePJ extends ActorSheet {
 				erreur = ActorRdD.ctrlArgent(value);
 				break;
 			default:
-				if(classList.contains("cptcGnrl")) {
-					erreur = ActorRdD.ctrlCptcGnrl(value);
-					break;
-				}
-				if(classList.contains("cptcMl")) {
-					erreur = ActorRdD.ctrlCptcMl(value);
-					break;
-				}
-				if(classList.contains("cptcTL")) {
-					erreur = ActorRdD.ctrlCptcTL(value);
-					break;
-				}
-				if(classList.contains("cptcPart")) {
-					erreur = ActorRdD.ctrlCptcPart(value);
-					break;
-				}
-				if(classList.contains("cptcSpé")) {
-					erreur = ActorRdD.ctrlCptcSpé(value);
-					break;
-				}
-				if(classList.contains("ctrlCptcCnsc")) {
-					erreur = ActorRdD.ctrlCptcSpé(value);
-					break;
-				}
-				if(classList.contains("cptcDrac")) {
-					erreur = ActorRdD.ctrlCptcDrac(value);
-					break;
-				}
-				if(classList.contains("cptcXp")) {
-					erreur = ActorRdD.ctrlXp(value);
-					break;
-				}
-				if(classList.contains("ptSort")) {
-					erreur = ActorRdD.ctrlPtSort(value);
-					break;
-				}
 				if(classList.contains("fatigue")) {
 					erreur = ActorRdD.ctrlFatigue(value);
 					break;
@@ -360,9 +385,11 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * Redéfinit la fonction de préparation des données du PJ
 	 * On n'effectue de mise à jour que s'il n'y a pas d'erreur restante sur la feuille de PJ
 	 *
+	 * @method _onSubmit
 	 * @param {Event} event
 	 * @param {Object|null} updateData
 	 * @param {Boolean} preventClose
+	 * @async
 	 * @memberof RdDFeuillePJ
 	 */
 	async _onSubmit(event, {updateData=null, preventClose=false}={}) {
@@ -380,11 +407,20 @@ export class RdDFeuillePJ extends ActorSheet {
 		}
 	}
 	
-	/** Débogage */
+	/**
+	 * Redéfinit la fonction de mise à jour du PJ
+	 * On supprime les données de travail avant la mise à jour effective
+	 *
+	 * @method _updateObject
+	 * @param {*} event
+	 * @param {*} formData
+	 * @async
+	 * @memberof RdDFeuillePJ
+	 */
 	async _updateObject(event, formData) {
 		// Suppression des variables de travail
-		delete formData.RdDtemp;
-		//console.log(`RdD | RdDFeuillePJ._updateObject ${JSON.stringify(formData)}`);
+		// delete formData.RdDtemp; <- ne fonctionne plus
+		// console.log(`RdD | RdDFeuillePJ._updateObject `, formData);
 		super._updateObject(event, formData);
 	}	
 }
