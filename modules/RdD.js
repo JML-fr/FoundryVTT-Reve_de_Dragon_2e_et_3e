@@ -7,9 +7,11 @@
  */
 import {RdD} from "./utils/init.js";
 import * as RdDTemplates from "./acteurs/actor-templates.js";
+import RdDHooks from "./utils/hooks.js";
 import * as Acteurs from "./acteurs/actor.js";
+import * as Objets from "./objets/item.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
-import * as RdDFObjet from "./interfaces/feuille-objet.js";
+import * as RdDFObjet from "./interfaces/feuille-cptc.js";
 
 /* -------------------------------------------- */
 /* Initialisations                              */
@@ -19,16 +21,15 @@ Hooks.once("init", async function() {
 	console.log(`RdD | Initialisation du système Rêve de Dragon`);
 	// Mémorise la configuration
 	CONFIG.Actor.entityClass = Acteurs.ActorRdD;
+	CONFIG.Item.entityClass = Objets.ItemRdD;
 
 	// Mémorise les paramètres du système de jeu
   
 	// Référence les classes applicative des différentes feuilles
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("RdD", RdDFPJ.RdDFeuillePJ, { types: ["pj"], makeDefault: true });
-	/*
 	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleObjet, { types: ["équipement"], makeDefault: true});
-	*/
+	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: true});
 
 	// Définit les utilitaires d'affichage
 	/**
@@ -42,12 +43,14 @@ Hooks.once("init", async function() {
 			expression = expression.replace("&&&", listeÉléments[index]);
 		}
 		return expression;
-	})
+	});
 	
 	/**
 	 * Mise en forme des nombres
-	 * @param {String} expression La chaîne de caractère dans laquelle il faut insérer un ou des éléments
-	 * @param {Array} listeÉléments Liste des éléments à insérer en remplacement de la chaîne de caractère "&&&"
+	 * @param {Number} valeur La variable contenant le nombre à afficher
+	 * @param {} options Liste des options d'affichage :
+	 *                   signe=true : il faut afficher le signe
+	 *                   décimales=x : nombre de décimales à afficher
 	 */
 	Handlebars.registerHelper('RdDNumFormat', function (valeur, options) {
 
@@ -66,6 +69,11 @@ Hooks.once("init", async function() {
 		}
 	});
 
+	/**
+	 * Génère les options d'une liste déroulante à partir d'une Map et précise l'option sélectionnée
+	 * @param {Map} map Liste des valeurs possibles et des références des libellés correspondants
+	 * @param {} valeur Valeur actuellement sélectionnée pour la variable affichée
+	 */
 	Handlebars.registerHelper('RdDSelect', function (map, valeur) {
 		let options = "";
 		let lexique = eval(map);
@@ -79,19 +87,55 @@ Hooks.once("init", async function() {
 		}
 		return new Handlebars.SafeString(options);
 	});
+
+	/**
+	 * Détermine si la compétence affichée peut être dupliquée ou supprimée
+	 * @param {Map} tableau Liste des compétences de la catégorie en cours
+	 * @param {} indice Indice de la compétence à afficher
+	 */
+	Handlebars.registerHelper('RdDPlusMoins', function (plusMoins) {
+		let action = "";
+		switch (plusMoins) {
+			case "+":
+				action = `<a class="cptc-ajout"><i class="fas fa-plus-square"></i></a>`;
+				break;
+			case "-":
+				action = `<a class="cptc-suppr"><i class="fas fa-minus-square"></i></a>`;
+				break;
+			default:
+				break;
+		}
+		return new Handlebars.SafeString(action);
+	});
 });
 
 /* ------------------------------------ */
 /* Setup system							*/
 /* ------------------------------------ */
-Hooks.once('setup', function () {
-	// Do anything after initialization but before
-	// ready
-});
+// Hooks.once('setup', function () {
+// 	// Do anything after initialization but before
+// 	// ready
+// });
 /* ------------------------------------ */
 /* When ready							*/
 /* ------------------------------------ */
-Hooks.once('ready', function () {
-	// Do anything once the system is ready
-});
-// Add any additional hooks if necessary
+// Hooks.once('ready', function () {
+// 	// Do anything once the system is ready
+// });
+
+Hooks.on('dropActorSheetData', (actor, sheet, data) => RdDHooks.onDropActorSheetData(actor, sheet, data));
+
+/* ------------------------------------ */
+/* À la création des acteurs					*/
+/* ------------------------------------ */
+// Hooks.on('preCreateActor', (createData, options, userId) => {
+// 	console.log(`RdD | preCreateActor ${createData.type} -- ${options} -- ${userId}`);
+// 	return true;
+// });
+
+/* ------------------------------------ */
+/* À la création des objets					*/
+/* ------------------------------------ */
+// Hooks.on('preCreateItem', (createData, options, userId) => {
+// 	return true;
+// });

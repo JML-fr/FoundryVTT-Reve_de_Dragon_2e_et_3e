@@ -1,12 +1,12 @@
 {
   "name": "RdD",
   "title": "Rêve de Dragon",
-  "description": "Prise en charge des règles de Rêve de Dragon, 2de édition – Version Beta 2",
-  "version": "0.2.4",
+  "description": "Prise en charge des règles de Rêve de Dragon, 2de édition – Version Beta 3",
+  "version": "0.3.0",
   "templateVersion": 2,
   "author": "JML",
-  "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "0.6.2",
+  "minimumCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.7.9",
   "esmodules": [
     "modules/RdD.js"
   ],
@@ -45,6 +45,62 @@
       "module": "RdD",
       "path": "packs/rdd-aides-de-jeu.db",
       "entity": "JournalEntry"
+    },
+    {
+      "name": "rdd-competences-generales",
+      "label": "RdD – Compétences générales",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-competences-generales.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rdd-competences-de-melee",
+      "label": "RdD – Compétences de mêlée",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-competences-de-melee.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rdd-competences-de-tir-et-lancer",
+      "label": "RdD – Compétences de tir et lancer",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-competences-de-tir-et-lancer.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rdd-competences-particulieres",
+      "label": "RdD – Compétences particulières",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-competences-particulieres.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rdd-competences-specialisees",
+      "label": "RdD – Compétences spécialisées",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-competences-specialisees.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rdd-connaissances",
+      "label": "RdD – Connaissances",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-connaissances.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rdd-draconic",
+      "label": "RdD – Draconic",
+      "system": "RdD",
+      "module": "RdD",
+      "path": "packs/rdd-draconic.db",
+      "entity": "Item"
     }
   ],
   "languages": [
@@ -59,6 +115,7 @@
       "path": "lang/en.json"
     }
   ],
+  "socket": true,
   "initiative": "1d6",
   "gridDistance": 1,
   "gridUnits": "m"

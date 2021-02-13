@@ -22,6 +22,7 @@
 /*   5.10. ITEM: FEUILLE ARME À DISTANCE                          */
 /*   5.11. ITEM: FEUILLE ARMURE                                   */
 /*   5.12. ITEM: FEUILLE GEMME                                    */
+/*   5.13. ITEM: FEUILLE COMPÉTENCE                               */
 /*   6. LISTE DES JOUEURS                                         */
 /*   7. BARRE DE NAVIGATION                                       */
 /*   8. CONTRÔLES DE LA SCÈNE                                     */
@@ -42,16 +43,34 @@
 @info-color-shadow: fade(@info-color, 33%);
 @contraste-color: #782e22;
 
+/* ============== DISPOSITION =================================== */
+.RdD .ligne-saisie {
+	margin-bottom: 5px;
+}
+
+/* ============== NOMBRES ======================================= */
+.RdD .nbren-ligne {
+	display: flex;
+	justify-content: space-between;
+}
+.RdD .nbr-affchg-bloc {
+	text-align: right;
+}
+.RdD .nbr-affchg {
+	float: right;
+}
+
+
 /* ============== ONGLETS ======================================= */
 .RdD .content {
-	height: calc(100% - 450px);
+	height: calc(100% - 300px);
 	.tab {
 		height: 100%;
 	}
 }
 
 .RdD .tabs {
-	margin: 3px 0 0 0;
+	margin: 3px 0 7px 0;
 	.item.active {
 	text-shadow: none;
 	border-bottom: 2px solid @contraste-color;
@@ -59,7 +78,7 @@
 }
 
 /* ============== TINY MCE EDITOR =============================== */
-.RdD .content {
+.RdD {
 	.editor,
 	.editor-content {
 		width: 100%;
@@ -84,7 +103,8 @@
 }
 
 .RdD input[type="number"] {
-	width: 6ch;
+	text-align: right;
+	width: 3.8ch;
 }
 .RdD input[type="datetime-local"], input[type="number"], input[type="password"], input[type="text"], select {
 	&:focus {
@@ -97,13 +117,15 @@
 /******************************************************************/
 
 /* ============== EN-TÊTE ======================================= */
-.RdD.feuille .en-tête-feuille{
+.RdD.feuille.actor.pj .en-tête-feuille {
 	display: flex;
 	flex-flow: column;
 	border-bottom: 1px solid black;
     padding: 0 0 3px 0;
-	.grpSignesPart {
-		padding: 0 0 5px 0;
+	.grpSignesPart.alignement {
+		display: grid;
+		grid-template-columns: 5ch 7ch 5ch 7ch;
+		column-gap: 1ch;
 	}
 	.id-perso {
 		display: flex;
@@ -120,16 +142,175 @@
 	}
 }
 
-.RdD.feuille #cheveux, #yeux {
-	width: 8em;
-}
-
-/* ============== ONGLET HAUT-RÊVE ============================== */
-.RdD.feuille #TMRCol {
+.RdD.feuille.actor.pj #spTaille {
 	width: 5ch;
 }
 
+.RdD.feuille.actor.pj #cheveux, #yeux {
+	width: 12ch;
+}
+
+/* ============== ONGLET ÉTATS ==================================== */
+.RdD.feuille.actor.pj .tab[data-tab="états"]{
+	.lig-malus-état {
+		display: grid;
+		grid-template-columns: 19.5ch 3ch;
+	}
+	.lig-états-santé {
+		display: grid;
+		grid-template-columns: 11ch 3ch;
+	}
+}
+
+/* ============== ONGLET CARACTÉRISTIQUES ========================= */
+.RdD.feuille.actor.pj .tab[data-tab="caractéristiques"]{
+	.zoneCarac {
+		display: flex;
+		flex-flow: row;
+		align-content: flex-start;
+		align-items: flex-start;
+	}
+	.lig-carac {
+		display: grid;
+		grid-template-columns: 2.5ch 13ch 7ch 3ch 7ch;
+		margin-right : 5px;
+	}
+	.lig-carac-dériv {
+		display: grid;
+		grid-template-columns: 2.5ch 13ch 3ch;
+	}
+}
+
+/* ============== ONGLET COMPÉTENCES ============================== */
+.RdD.feuille.actor.pj .tab[data-tab="compétences"]{
+	ul li{
+		display: grid;
+		grid-template-columns: 2.5ch 18ch 4ch 4.7ch 2ch 8.3ch 2ch 2.5ch;
+		column-gap: 2ch;
+		grid-template-rows: minmax(20px, auto);
+		div.cptc-spécialité {
+			grid-area: 2 / 2 / 2 / 3;
+			font-style: italic;
+		}
+	}
+	ul li.cptc-draconic {
+		grid-template-rows: minmax(20px, auto) minmax(20px, auto);
+		div.ptSort {
+			grid-area: 2 / 4 / 2 / 6;
+		}
+	}
+}
+
+/* ============== ONGLET COMBAT ================================= */
+.RdD.feuille.actor.pj .tab[data-tab="combat"]{
+	p {
+		display: grid;
+		grid-template-columns: 10ch 2.5ch;
+	}
+}
+
+/* ============== ONGLET SANTÉ ================================== */
+.RdD.feuille.actor.pj .tab[data-tab="santé"]{
+	.vie-end {
+		display: grid;
+		grid-template-columns: 7ch 5ch 13ch 4ch;
+	}
+	.fatigue.lignes01 {
+		display: grid;
+		grid-template-columns: 3ch 6.5ch 2ch 6.5ch 2ch 6.5ch;
+		column-gap: 0.5ch;
+	}
+	.fatigue.lignes2plus {
+		display: grid;
+		grid-template-columns: 3ch 6.5ch;
+		column-gap: 0.5ch;
+	}
+	.blessures {
+		display: grid;
+		grid-template-columns: 8ch repeat(5, 3.5ch);
+	}
+	.sust-eau {
+		display: grid;
+		grid-template-columns: 6.5ch 5ch 6ch 4ch;
+	}
+}
+
+/* ============== ONGLET HAUT-RÊVE ============================== */
+.RdD.feuille.actor.pj .tab[data-tab="haut-rêve"]{
+	.seuilPtRv {
+		display: grid;
+		grid-template-columns: 5ch 5ch 5ch 4ch;
+	}
+	
+	.demiRvRflm {
+		display: grid;
+		grid-template-columns: 11.5ch 4ch 4ch;
+	}
+	
+	#TMRCol {
+		width: 3.3ch;
+	}
+}
+
+/* ============== ONGLET VÉCU ============================= */
+.RdD.feuille.actor.pj .tab[data-tab="vécu"]{
+	.ligne-saisie {
+		display: grid;
+		grid-template-columns: 8ch 5ch 10ch 25ch;
+	}
+}
+
 /* ============== ONGLET INVENTAIRE ============================= */
-.RdD.feuille #argent {
-	width: 7ch;
+.RdD.feuille.actor.pj .tab[data-tab="inventaire"]{
+	.ligne-saisie {
+		display: grid;
+		grid-template-columns: 13ch 6.5ch 6ch 9ch;
+	}
+	#encombrement {
+		width: 5ch;
+	}
+	#argent {
+		width: 7ch;
+	}
+}
+
+/******************************************************************/
+/*=========== 5.13. ITEM: FEUILLE COMPÉTENCE  ====================*/
+/******************************************************************/
+
+/* ============== EN-TÊTE ======================================= */
+.RdD.feuille.item .en-tête-feuille {
+	display: flex;
+	flex-flow: column;
+	border-bottom: 1px solid black;
+    padding: 0 0 3px 0;
+	.id-objet {
+		display: flex;
+		flex-flow: row;
+		align-content: flex-start;
+		align-items: flex-start;
+	}
+	.vignette {
+		object-fit: contain;
+		margin: 0 5px 0 0;
+	}
+	.nom-objet {
+		flex: auto;
+	}
+}
+
+/* ============== DESCRIPTION DE LA COMPÉTENCE ================== */
+
+.RdD.feuille.item {
+	.description-edtbl,
+	.description-affchg {
+		height: 120px;
+		border: solid 1px black;
+	}
+}
+
+/* ============== ALIGNEMENT DES RUBRIQUES ====================== */
+.RdD.feuille.item .alignement {
+	display: grid;
+	grid-template-columns: 11ch 5ch;
 }
