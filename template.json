@@ -154,7 +154,6 @@
             },
             "refoulement": 0,
             "queuesEtSouffles": [
-              
             ]
           },
           "vie": {
@@ -802,20 +801,18 @@
       },
       "coût": {
         "encombrement": 0,
-        "prix": 0
-      },
-      "unitéDeCoût": {
-        "unité": ""
-      },
-      "équipable": {
-        "equipped": false
+        "prixUnitaire": 0,
+        "unitéDeCpt": "",
+        "nbrDUnités": 1,
+        "équipable": false,
+        "statut": 1,
+        "contenant": ""
       }
     },
     "équipement": {
       "templates": [
         "description",
-        "coût",
-        "équipable"
+        "coût"
       ]
     },
     "contenant": {
@@ -825,29 +822,26 @@
       ],
       "contenance": 0,
       "contenu": [
-        
       ]
     },
     "nourriture": {
       "templates": [
         "description",
-        "coût",
-        "unitéDeCoût"
-      ]
+        "coût"
+      ],
+      "sust": 1
     },
     "boisson": {
       "templates": [
         "description",
-        "coût",
-        "unitéDeCoût"
+        "coût"
       ],
       "force": 0
     },
     "herbeDeSoin": {
       "templates": [
         "description",
-        "coût",
-        "unitéDeCoût"
+        "coût"
       ],
       "bonusSoins": 1,
       "bonusVenins": 0
@@ -855,23 +849,20 @@
     "herbeDiverse": {
       "templates": [
         "description",
-        "coût",
-        "unitéDeCoût"
+        "coût"
       ]
     },
     "remède": {
       "templates": [
         "description",
-        "coût",
-        "unitéDeCoût"
+        "coût"
       ],
       "consistance": ""
     },
     "selAlchimique": {
       "templates": [
         "description",
-        "coût",
-        "unitéDeCoût"
+        "coût"
       ]
     },
     "gemme": {
@@ -885,8 +876,7 @@
     "armeDeMêlée": {
       "templates": [
         "description",
-        "coût",
-        "équipable"
+        "coût"
       ],
       "plusDom": {
         "nonMortelle": false,
@@ -905,8 +895,7 @@
     "armeÀDistance": {
       "templates": [
         "description",
-        "coût",
-        "équipable"
+        "coût"
       ],
       "plusDom": {
         "nonMortelle": false,
@@ -921,8 +910,7 @@
     "armure": {
       "templates": [
         "description",
-        "coût",
-        "équipable"
+        "coût"
       ],
       "protection": 1,
       "malusArmure": 0

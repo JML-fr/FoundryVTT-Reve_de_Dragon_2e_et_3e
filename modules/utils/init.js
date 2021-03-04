@@ -23,7 +23,7 @@ RdD.répartitionFatigue = new Map([
 ]);
 
 /**
- * Correspondance entre les valeurs des heures draconiques et leurs libelllés
+ * Correspondance entre les valeurs des heures draconiques et leurs libellés
  */
 RdD.heuresDeNaissance = new Map([
 	[1, "RdD.heuresNaissance.1"],
@@ -41,7 +41,7 @@ RdD.heuresDeNaissance = new Map([
 ]);
 
 /**
- * Correspondance entre les valeurs du sexe du personnage et leurs libelllés
+ * Correspondance entre les valeurs du sexe du personnage et leurs libellés
  */
 RdD.sexe = new Map([
 	["F", "RdD.sexe.F"],
@@ -49,7 +49,7 @@ RdD.sexe = new Map([
 ]);
 
 /**
- * Correspondance entre les valeurs de la latéralité du personnage et leurs libelllés
+ * Correspondance entre les valeurs de la latéralité du personnage et leurs libellés
  */
 RdD.latéralité = new Map([
 	["D", "RdD.latéralité.D"],
@@ -58,7 +58,7 @@ RdD.latéralité = new Map([
 ]);
 
 /**
- * Correspondance entre les différents type de compétences et leurs libelllés
+ * Correspondance entre les différents type de compétences et leurs libellés
  */
 RdD.typesCompétences = new Map([
 	["générale", "RdD.typeCompétence.générale"],
@@ -156,3 +156,41 @@ RdD.cptcDépartPJ = [
 	"Oniros",
 	"Narcos"
 ];
+
+/**
+ * Correspondance entre les unités de mesure et leurs libellés
+ */
+RdD.unitésMesureLibellés = new Map([
+	["kg", "RdD.unitésMesure.kg"],
+	["livre", "RdD.unitésMesure.livre"],
+	["écaille", "RdD.unitésMesure.écaille"],
+	["brin", "RdD.unitésMesure.brin"],
+	["pinte", "RdD.unitésMesure.pinte"],
+	["demi-pinte", "RdD.unitésMesure.demi-pinte"],
+	["mesure", "RdD.unitésMesure.mesure"],
+	["demi-mesure", "RdD.unitésMesure.demi-mesure"],
+	["doigt", "RdD.unitésMesure.doigt"],
+	["déhacoudre", "RdD.unitésMesure.déhacoudre"],
+	["pépin", "RdD.unitésMesure.pépin"],
+	["sust", "RdD.unitésMesure.sust"],
+	["dose", "RdD.unitésMesure.dose"]
+]);
+
+/**
+ * Correspondance entre les différentes unités de mesure et leur coût en points d'encombrement
+ */
+RdD.unitésMesureEncombrement = new Map([
+	["kg", 0.5],
+	["livre", 0.25],
+	["écaille", 0.005],
+	["brin", 0.00005],
+	["pinte", 0.5],
+	["demi-pinte", 0.25],
+	["mesure", 0.1],
+	["demi-mesure", 0.05],
+	["doigt", 0.005],
+	["déhacoudre", 0.0005],
+	["pépin", 0.00005],
+	["sust", 0.1],
+	["dose", 0.1]
+]);
