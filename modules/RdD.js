@@ -11,7 +11,8 @@ import RdDHooks from "./utils/hooks.js";
 import * as Acteurs from "./acteurs/actor.js";
 import * as Objets from "./objets/item.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
-import * as RdDFObjet from "./interfaces/feuille-cptc.js";
+import {RdDFeuilleCptc} from "./interfaces/feuille-cptc.js";
+import {RdDFeuilleÉqpmt} from "./interfaces/feuille-éqpmt.js";
 
 /* -------------------------------------------- */
 /* Initialisations                              */
@@ -29,7 +30,8 @@ Hooks.once("init", async function() {
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("RdD", RdDFPJ.RdDFeuillePJ, { types: ["pj"], makeDefault: true });
 	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("RdD", RdDFObjet.RdDFeuilleCptc, { types: ["compétence"], makeDefault: true});
+	Items.registerSheet("RdD", RdDFeuilleCptc, { types: ["compétence"], makeDefault: true});
+	Items.registerSheet("RdD", RdDFeuilleÉqpmt, { types: ["équipement"], makeDefault: true});
 
 	// Définit les utilitaires d'affichage
 	/**
@@ -67,6 +69,26 @@ Hooks.once("init", async function() {
 		} else {
 			return valeur;
 		}
+	});
+	
+	/**
+	 * Inversion d'un booléen
+	 * @param {Boolean} valeur La variable contenant le booléen à inverser
+	 */
+	Handlebars.registerHelper('RdDNot', function (valeur) {
+		
+		return !valeur;
+	});
+
+	/**
+	 * Renvoie le libellé correspondant à une valeur à partir d'une Map
+	 * @param {Map} map Liste des valeurs possibles et des références des libellés correspondants
+	 * @param {} valeur Valeur correspondant au libellé à afficher
+	 */
+	Handlebars.registerHelper('RdDValeurLibellé', function (map, valeur) {
+		const listeLibellés = eval(map);
+		const libellé = game.i18n.localize(listeLibellés.get(valeur));
+		return new Handlebars.SafeString(libellé);
 	});
 
 	/**

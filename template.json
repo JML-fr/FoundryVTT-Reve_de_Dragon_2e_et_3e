@@ -803,7 +803,7 @@
         "encombrement": 0,
         "prixUnitaire": 0,
         "unitéDeCpt": "",
-        "nbrDUnités": 1,
+        "quantité": 1,
         "équipable": false,
         "statut": 1,
         "contenant": ""

@@ -49,11 +49,131 @@
 		"oAP": "/build/RdD/.gitignore",
 		"oF": 1
 		},
-	"/assets/icons/compétence.svg": {
+	"/assets/icons/armeÀDistance.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/armeÀDistance.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/armeDeMêlée.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/armeDeMêlée.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/armure.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/armure.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/boisson.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/boisson.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/compétence.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/build/RdD/assets/icons/compétence.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/contenant.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/contenant.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/équipement.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/équipement.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/gemme.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/gemme.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/herbeDeSoin.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/herbeDeSoin.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/herbeDiverse.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/herbeDiverse.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/nourriture.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/nourriture.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/remède.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/remède.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/icons/selAlchimique.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/assets/icons/selAlchimique.svg",
 		"oF": 1,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -85,7 +205,7 @@
 		"q": 100,
 		"rq": 75
 		},
-	"/assets/images/Table de résolution.png": {
+	"/assets/images/Table de résolution.png": {
 		"ft": 32768,
 		"iS": 3336164,
 		"oA": 2,
@@ -106,17 +226,17 @@
 		},
 	"/lang/en.json": {
 		"ft": 524288,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/lang/en.json",
-		"oF": 0,
+		"oF": 1,
 		"oO": 0,
 		"oS": 0
 		},
 	"/lang/fr.json": {
 		"ft": 524288,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/lang/fr.json",
-		"oF": 0,
+		"oF": 1,
 		"oO": 0,
 		"oS": 0
 		},
@@ -175,6 +295,17 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "/build/RdD/modules/interfaces/feuille-cptc.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/modules/interfaces/feuille-éqpmt.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/interfaces/feuille-éqpmt.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 0
@@ -375,33 +506,41 @@
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/templates/feuille-cptc-pj.html",
-		"oF": 0
+		"oF": 1
 		},
 	"/templates/feuille-cptc.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/templates/feuille-cptc.html",
-		"oF": 0
+		"oF": 1
+		},
+	"/templates/feuille-éqpmt.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/build/RdD/templates/feuille-éqpmt.html",
+		"oF": 1
 		},
 	"/templates/feuille-pj.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/templates/feuille-pj.html",
-		"oF": 0
+		"oF": 1
 		},
 	"/templates/partials/carac-saisie.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 0,
+		"oA": 2,
 		"oAP": "/build/RdD/templates/partials/carac-saisie.html",
-		"oF": 0
+		"oF": 1
 		}
 	},
 "hooks": [
@@ -414,7 +553,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets-silver",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 634469134.30594397
+	"lastBuiltDate": 637270844.50536597
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

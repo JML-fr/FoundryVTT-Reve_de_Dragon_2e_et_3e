@@ -47,7 +47,7 @@ export class RdDIntrfc {
 	 * @returns {String} Message d'erreur
 	 * @memberof RdDIntrfc
 	 */
-	static  ctrlXp (valeur){
+	static ctrlXp (valeur){
 		console.log(`RdD | RdDIntrfc.ctrlXp : ` + valeur);
 		if (this.ctrlPrésence(valeur)) {
 			return "";
@@ -59,8 +59,43 @@ export class RdDIntrfc {
 		if (!Number.isInteger(nombre) || nombre < 0) {
 			return game.i18n.localize("RdD.erreurs.xpInvalide");
 		}
-
+		
 		// Pas d'erreur trouvée
 		return "";
+	}
+	
+	/* ================================================== */
+	/* Mises en forme de données */
+	/* ================================================== */
+	
+	/**
+	 * Traduit un montant décimal en sols et deniers
+	 *
+	 * @static
+	 * @param {number} montant
+	 * @returns {object} sols, deniers
+	 * @memberof RdDIntrfc
+	 */
+	static mefArgent (montant){
+		console.log(`RdD | RdDIntrfc.mefArgent : ` + montant);
+		let sols = parseInt(montant);
+		let deniers = parseInt((montant - sols) * 100);
+		
+		return {sols, deniers};
+	}
+	
+	/**
+	 * Traduit une somme exprimée en sols et deniers en un montant décimal
+	 *
+	 * @static
+	 * @param {number} sols
+	 * @param {number} deniers
+	 * @returns {number} montant
+	 * @memberof RdDIntrfc
+	 */
+	static calcArgent (sols, deniers){
+		console.log(`RdD | RdDIntrfc.mefArgent : ${sols} ${deniers}`);
+
+		return parseInt(sols) + (parseInt(deniers) / 100);
 	}
 }

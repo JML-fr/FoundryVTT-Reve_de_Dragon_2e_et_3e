@@ -1,0 +1,63 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<header class="en-tête-feuille">
+		<div class="id-objet">
+			<img class="vignette" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+			<h1 class="nom-objet"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'RdD.Name'}}"/></h1>
+		</div>
+	</header>
+	
+	{{!-- Encombrement --}}
+	<div>
+		{{#if isGM}}
+		<label for="encombrement">{{localize 'RdD.item.équipement.encombrement'}}&nbsp;: </label>
+		<input type="number" id="encombrement" name="data.encombrement" value="{{data.encombrement}}">
+		{{else}}
+		<div><span>{{localize 'RdD.item.équipement.encombrement'}}&nbsp;: </span><span>{{data.encombrement}}</span></div>
+		{{/if}}
+	</div>
+	
+	{{!-- Prix --}}
+	<div>
+		{{#if isGM}}
+		<label for="sols">{{localize 'RdD.item.équipement.prixUnitaire'}}&nbsp;: </label>
+		<input type="number" id="sols" name="sols" value="{{sols}}">
+		<span>{{localize 'RdD.argent.solsAbrv'}}</span>
+		<input type="number" id="deniers" name="deniers" value="{{deniers}}">
+		<span>{{localize 'RdD.argent.deniersAbrv'}}</span>
+		{{else}}
+		<div><span>{{localize 'RdD.item.équipement.prixUnitaire'}}&nbsp;: </span>{{#if (ne sols 0)}}<span>{{sols}} {{localize 'RdD.argent.solsAbrv'}}</span>{{/if}}{{#if (ne deniers 0)}} <span>{{deniers}} {{localize 'RdD.argent.deniersAbrv'}}</span>{{/if}}</div>
+		{{/if}}
+	</div>
+	
+	{{!-- Unité de compte --}}
+	<div>
+		<input type="number" id="quantité" name="data.quantité" value="{{data.quantité}}">
+		{{#if isGM}}
+		<label for="unitéDeCpt">{{localize 'RdD.item.équipement.unitéDeCpt'}}&nbsp;: </label>
+		<select id="unitéDeCpt" name="data.unitéDeCpt">
+			{{RdDSelect "RdD.unitésMesureLibellés" data.unitéDeCpt}}
+		</select>
+		{{else}}
+		<span>{{RdDValeurLibellé "RdD.unitésMesureLibellés" data.unitéDeCpt}}</span>
+		{{/if}}
+	</div>
+	
+	{{!-- Équipable --}}
+	<div>
+		<span>{{localize 'RdD.item.équipement.équipable'}}&nbsp;: </span>
+		<input type="checkbox" name="data.équipable" {{checked data.équipable}} {{#if (RdDNot isGM)}}disabled{{/if}}>
+	</div>
+	
+	{{!-- Description de l'équipement --}}
+	<div>{{localize 'RdD.item.description'}}</div>
+	{{#if isGM}}
+	<div class="description-edtbl">
+		{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+	</div>
+	{{else}}
+	<div class="description-affchg">
+		{{{data.description.value}}}
+	</div>
+	{{/if}}
+
+</form>

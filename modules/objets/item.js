@@ -1,4 +1,4 @@
-import {RdDIntrfc} from "../utils/interface.js";
+import { RdDIntrfc } from "../utils/interface.js";
 
 /**
  * Complète la classe de base Item avec les mécanismes spécifiques à RdD.
@@ -27,7 +27,9 @@ export class ItemRdD extends Item {
 		super.prepareData();
 		const objet = this.data;
 
-		console.log(`RdD | ItemRdD.prepareData ${objet.type} ${objet.name} ${objet._id}`);
+		console.log(
+			`RdD | ItemRdD.prepareData ${objet.type} ${objet.name} ${objet._id}`
+		);
 
 		switch (objet.type) {
 			case "compétence":
@@ -57,12 +59,12 @@ export class ItemRdD extends Item {
 	 *
 	 * @memberof ItemRdD
 	 */
-	static async create(data, options={}) {
+	static async create(data, options = {}) {
 		console.log(`RdD | ItemRdD.create`);
 
-	    // Attribution de l'image liée au type d'objet créé
-    	if (!data.img) {
-        	data.img = `systems/RdD/assets/icons/${data.type}.svg`;
+		// Attribution de l'image liée au type d'objet créé
+		if (!data.img) {
+			data.img = `systems/RdD/assets/icons/${data.type}.svg`;
 		}
 		super.create(data, options);
 	}
@@ -86,10 +88,10 @@ export class ItemRdD extends Item {
 		console.log(`RdD | ItemRdD.delete`);
 		super.delete(options);
 	}
-	
+
 	/**
-	 * Détermination du niveau de base en fonction du type de compétence
-	 * 
+	 * Détermination du niveau de base de la compétence en fonction de son type
+	 *
 	 * @memberof ItemRdD
 	 * @private
 	 */
@@ -116,19 +118,23 @@ export class ItemRdD extends Item {
 				break;
 		}
 	}
-	
+
 	/* ================================================== */
 	/* Contrôles de données */
 	/* ================================================== */
 
+	/* -------------------------------------------------- */
+	/* Compétences */
+	/* -------------------------------------------------- */
+
 	/**
-	 * Contrôle que la valeur fournie pour le code libellé est valide
+	 * Contrôle que la valeur fournie pour le code libellé de la compétence est valide
 	 *
 	 * @static
 	 * @param {*} valeur
 	 * @memberof ItemRdD
 	 */
-	static ctrlCodeLibellé (valeur){
+	static ctrlCodeLibellé(valeur) {
 		console.log(`RdD | ItemRdD.ctrlCodeLibellé : ` + valeur);
 		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.codeLibelléVide");
@@ -137,13 +143,13 @@ export class ItemRdD extends Item {
 	}
 
 	/**
-	 * Contrôle que la valeur fournie pour la spécialité est valide
+	 * Contrôle que la valeur fournie pour la spécialité de la compétence est valide
 	 *
 	 * @static
 	 * @param {*} valeur
 	 * @memberof ItemRdD
 	 */
-	static ctrlSpécialité (valeur){
+	static ctrlSpécialité(valeur) {
 		console.log(`RdD | ItemRdD.ctrlSpécialité : ` + valeur);
 		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.spécialitéVide");
@@ -158,7 +164,7 @@ export class ItemRdD extends Item {
 	 * @param {*} valeur
 	 * @memberof ItemRdD
 	 */
-	static ctrlNiveau (valeur, type){
+	static ctrlNiveau(valeur, type) {
 		console.log(`RdD | ItemRdD.ctrlCptcGnrl : ` + valeur);
 		if (RdDIntrfc.ctrlPrésence(valeur)) {
 			return game.i18n.localize("RdD.erreurs.cptcVide");
@@ -219,10 +225,10 @@ export class ItemRdD extends Item {
 	 * @returns {String} Message d'erreur
 	 * @memberof ItemRdD
 	 */
-	static  ctrlArchétype (valeur){
+	static ctrlArchétype(valeur) {
 		console.log(`RdD | RdDIntrfc.ctrlArchétype : ` + valeur);
 		if (RdDIntrfc.ctrlPrésence(valeur)) {
-			return "";
+			return game.i18n.localize("RdD.erreurs.archtpVide");
 		}
 		let nombre = Number(valeur);
 		if (RdDIntrfc.ctrlNuméricité(nombre)) {
@@ -244,10 +250,10 @@ export class ItemRdD extends Item {
 	 * @returns {String} Message d'erreur
 	 * @memberof ItemRdD
 	 */
-	static ctrlPtSort (valeur){
+	static ctrlPtSort(valeur) {
 		console.log(`RdD | ItemRdD.ctrlPtSort : ` + valeur);
 		if (RdDIntrfc.ctrlPrésence(valeur)) {
-			return "";
+			return game.i18n.localize("RdD.erreurs.ptSortVide");
 		}
 		let nombre = Number(valeur);
 		if (RdDIntrfc.ctrlNuméricité(nombre)) {
@@ -255,6 +261,85 @@ export class ItemRdD extends Item {
 		}
 		if (!Number.isInteger(nombre) || nombre < 0) {
 			return game.i18n.localize("RdD.erreurs.ptSortInvalide");
+		}
+
+		// Pas d'erreur trouvée
+		return "";
+	}
+	
+	/* -------------------------------------------------- */
+	/* Équipements */
+	/* -------------------------------------------------- */
+
+	/**
+	 * Contrôle les contraintes sur les points d'encombrement
+	 *
+	 * @static
+	 * @param {*} valeur Valeur à contrôler
+	 * @returns {String} Message d'erreur
+	 * @memberof ItemRdD
+	 */
+	static ctrlencombrement(valeur) {
+		console.log(`RdD | ItemRdD.ctrlencombrement : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return game.i18n.localize("RdD.erreurs.encombrementVide");
+		}
+		let nombre = Number(valeur);
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
+			return game.i18n.localize("RdD.erreurs.encombrementInvalide");
+		}
+		if (nombre < 0) {
+			return game.i18n.localize("RdD.erreurs.encombrementInvalide");
+		}
+
+		// Pas d'erreur trouvée
+		return "";
+	}
+
+	/**
+	 * Contrôle les contraintes sur le prix unitaire
+	 *
+	 * @static
+	 * @param {*} valeur Valeur à contrôler
+	 * @returns {String} Message d'erreur
+	 * @memberof ItemRdD
+	 */
+	static ctrlprixUnitaire(valeur) {
+		console.log(`RdD | ItemRdD.ctrlprixUnitaire : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return game.i18n.localize("RdD.erreurs.prixUVide");
+		}
+		let nombre = Number(valeur);
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
+			return game.i18n.localize("RdD.erreurs.prixUInvalide");
+		}
+		if (nombre < 0) {
+			return game.i18n.localize("RdD.erreurs.prixUInvalide");
+		}
+
+		// Pas d'erreur trouvée
+		return "";
+	}
+
+	/**
+	 * Contrôle les contraintes sur les quantités
+	 *
+	 * @static
+	 * @param {*} valeur Valeur à contrôler
+	 * @returns {String} Message d'erreur
+	 * @memberof ItemRdD
+	 */
+	static ctrlquantité(valeur) {
+		console.log(`RdD | ItemRdD.ctrlquantité : ` + valeur);
+		if (RdDIntrfc.ctrlPrésence(valeur)) {
+			return game.i18n.localize("RdD.erreurs.qtéVide");
+		}
+		let nombre = Number(valeur);
+		if (RdDIntrfc.ctrlNuméricité(nombre)) {
+			return game.i18n.localize("RdD.erreurs.qtéInvalide");
+		}
+		if (!Number.isInteger(nombre) || nombre < 0) {
+			return game.i18n.localize("RdD.erreurs.qtéInvalide");
 		}
 
 		// Pas d'erreur trouvée

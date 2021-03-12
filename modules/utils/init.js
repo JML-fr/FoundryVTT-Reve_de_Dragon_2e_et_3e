@@ -161,6 +161,7 @@ RdD.cptcDépartPJ = [
  * Correspondance entre les unités de mesure et leurs libellés
  */
 RdD.unitésMesureLibellés = new Map([
+	["pièce", "RdD.unitésMesure.pièce"],
 	["kg", "RdD.unitésMesure.kg"],
 	["livre", "RdD.unitésMesure.livre"],
 	["écaille", "RdD.unitésMesure.écaille"],
