@@ -20,12 +20,12 @@
 	<div>
 		{{#if isGM}}
 		<label for="sols">{{localize 'RdD.item.équipement.prixUnitaire'}}&nbsp;: </label>
-		<input type="number" id="sols" name="sols" value="{{sols}}">
+		<input type="number" id="sols" name="data.prixUnitaire.sols" value="{{data.prixUnitaire.sols}}">
 		<span>{{localize 'RdD.argent.solsAbrv'}}</span>
-		<input type="number" id="deniers" name="deniers" value="{{deniers}}">
+		<input type="number" id="deniers" name="data.prixUnitaire.deniers" value="{{data.prixUnitaire.deniers}}">
 		<span>{{localize 'RdD.argent.deniersAbrv'}}</span>
 		{{else}}
-		<div><span>{{localize 'RdD.item.équipement.prixUnitaire'}}&nbsp;: </span>{{#if (ne sols 0)}}<span>{{sols}} {{localize 'RdD.argent.solsAbrv'}}</span>{{/if}}{{#if (ne deniers 0)}} <span>{{deniers}} {{localize 'RdD.argent.deniersAbrv'}}</span>{{/if}}</div>
+		<div><span>{{localize 'RdD.item.équipement.prixUnitaire'}}&nbsp;: </span>{{#if (ne data.prixUnitaire.sols 0)}}<span>{{data.prixUnitaire.sols}} {{localize 'RdD.argent.solsAbrv'}}</span>{{/if}}{{#if (ne data.prixUnitaire.deniers 0)}} <span>{{data.prixUnitaire.deniers}} {{localize 'RdD.argent.deniersAbrv'}}</span>{{/if}}</div>
 		{{/if}}
 	</div>
 	

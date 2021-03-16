@@ -801,7 +801,10 @@
       },
       "coût": {
         "encombrement": 0,
-        "prixUnitaire": 0,
+        "prixUnitaire": {
+          "sols": 0,
+          "deniers": 0
+        },
         "unitéDeCpt": "",
         "quantité": 1,
         "équipable": false,

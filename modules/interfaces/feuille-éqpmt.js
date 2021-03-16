@@ -47,10 +47,6 @@ export class RdDFeuilleÉqpmt extends ItemSheet {
 		let data = super.getData();
 		console.log(`RdD | RdDFeuilleÉqpmt.getData`, data);
 
-		let {sols, deniers} = RdDIntrfc.mefArgent(data.data.prixUnitaire);
-		data.sols = sols;
-		data.deniers = deniers;
-
 		data.isGM = game.user.isGM;
 		return data;
 	}
@@ -92,7 +88,8 @@ export class RdDFeuilleÉqpmt extends ItemSheet {
 			case "encombrement":
 				erreur = ItemRdD.ctrlencombrement(value);
 				break;
-			case "prixUnitaire":
+			case "sols":
+			case "deniers":
 				erreur = ItemRdD.ctrlprixUnitaire(value);
 				break;
 			case "quantité":

@@ -311,10 +311,10 @@ export class ItemRdD extends Item {
 		}
 		let nombre = Number(valeur);
 		if (RdDIntrfc.ctrlNuméricité(nombre)) {
-			return game.i18n.localize("RdD.erreurs.prixUInvalide");
+			return game.i18n.localize("RdD.erreurs.prixInvalide");
 		}
-		if (nombre < 0) {
-			return game.i18n.localize("RdD.erreurs.prixUInvalide");
+		if (!Number.isInteger(nombre) || nombre < 0) {
+			return game.i18n.localize("RdD.erreurs.prixInvalide");
 		}
 
 		// Pas d'erreur trouvée

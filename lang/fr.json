@@ -372,7 +372,7 @@
     "argentInvalide": "Le montant de l'argent possédé doit être un nombre positif",
     "codeLibelléVide": "Renseigner le code du libellé à afficher",
     "prixUVide": "Renseigner le prix unitaire",
-    "prixUInvalide": "Le prix unitaire doit être un nombre positif",
+    "prixInvalide": "Un prix doit être exprimé avec des nombres entiers positifs",
     "qtéVide": "Renseigner la quantité",
     "qtéInvalide": "La quantité doit être un nombre entier positif"
   }
