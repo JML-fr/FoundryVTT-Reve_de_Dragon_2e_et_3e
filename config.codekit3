@@ -376,6 +376,17 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"/modules/utils/précharge-templates.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/modules/utils/précharge-templates.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/node_modules": {
 		"ft": 65536,
 		"oA": 1,
@@ -541,6 +552,14 @@
 		"oA": 2,
 		"oAP": "/build/RdD/templates/partials/carac-saisie.html",
 		"oF": 1
+		},
+	"/templates/partials/cptc-ligne.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/RdD/templates/partials/cptc-ligne.html",
+		"oF": 0
 		}
 	},
 "hooks": [
@@ -553,7 +572,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets-silver",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 637601359.68916905
+	"lastBuiltDate": 637966162.19109905
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

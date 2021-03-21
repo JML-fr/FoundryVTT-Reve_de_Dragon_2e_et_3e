@@ -114,7 +114,10 @@
         "prochaineRécupération": "Prochaine récupération à"
       },
       "encombrement": "Encombrement",
-      "argent": "Argent"
+      "argent": {
+        "argent": "Argent",
+        "répartitionAuto": "Pièces auto"
+      }
     },
     "états": {
       "étatGénéral": "État général",
@@ -369,7 +372,7 @@
     "encombrementVide": "Renseigner les points d'encombrement",
     "encombrementInvalide": "Les points d'encombrement doivent être un nombre positif",
     "argentVide": "Renseigner le montant de l'argent possédé",
-    "argentInvalide": "Le montant de l'argent possédé doit être un nombre positif",
+    "argentInvalide": "Le montant de l'argent possédé doit être un nombre entier positif",
     "codeLibelléVide": "Renseigner le code du libellé à afficher",
     "prixUVide": "Renseigner le prix unitaire",
     "prixInvalide": "Un prix doit être exprimé avec des nombres entiers positifs",

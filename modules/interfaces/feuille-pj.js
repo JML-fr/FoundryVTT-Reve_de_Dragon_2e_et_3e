@@ -355,7 +355,12 @@ export class RdDFeuillePJ extends ActorSheet {
 			case "encombrement":
 				erreur = ActorRdD.ctrlEncombrement(value);
 				break;
+			case "sols":
+			case "deniers":
+			case "or":
 			case "argent":
+			case "bronze":
+			case "étain":
 				erreur = ActorRdD.ctrlArgent(value);
 				break;
 			default:

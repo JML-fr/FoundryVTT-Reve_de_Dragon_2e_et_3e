@@ -376,7 +376,13 @@
             "value": 0
           },
           "argent": {
-            "total": 0
+            "répartitionAuto": true,
+            "sols": 0,
+            "deniers": 0,
+            "or": 0,
+            "argent": 0,
+            "bronze": 0,
+            "étain": 0
           }
         }
       },

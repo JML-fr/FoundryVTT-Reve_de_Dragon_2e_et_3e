@@ -114,7 +114,10 @@
         "prochaineRécupération": "Prochaine récupération à"
       },
       "encombrement": "Encombrement",
-      "argent": "Argent"
+      "argent": {
+        "argent": "Argent",
+        "répartitionAuto": "Pièces auto"
+      }
     },
     "états": {
       "étatGénéral": "État général",

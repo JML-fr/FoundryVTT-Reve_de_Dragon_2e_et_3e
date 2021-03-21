@@ -96,97 +96,45 @@
 						<input type="number" id="taille" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="apparence">{{localize 'RdD.actor.caracs.apparence'}}</label>
-						<input type="number" id="apparence" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="apparence-xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="apparence" pCaracValue=data.caracs.apparence.value pCaracxp=data.caracs.apparence.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
-						<input type="number" id="constitution" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="constitution-xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="constitution" pCaracValue=data.caracs.constitution.value pCaracxp=data.caracs.constitution.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="force.value">{{localize 'RdD.actor.caracs.force'}}</label>
-						<input type="number" id="force" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="force-xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="force" pCaracValue=data.caracs.force.value pCaracxp=data.caracs.force.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
-						<input type="number" id="agilité" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="agilité-xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="agilité" pCaracValue=data.caracs.agilité.value pCaracxp=data.caracs.agilité.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
-						<input type="number" id="dextérité" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="dextérité-xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="dextérité" pCaracValue=data.caracs.dextérité.value pCaracxp=data.caracs.dextérité.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
-						<input type="number" id="vue" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="vue-xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="vue" pCaracValue=data.caracs.vue.value pCaracxp=data.caracs.vue.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
-						<input type="number" id="ouïe" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="ouïe-xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="ouïe" pCaracValue=data.caracs.ouïe.value pCaracxp=data.caracs.ouïe.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
-						<input type="number" id="odorat_goût" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="odorat_goût-xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="odorat_goût" pCaracValue=data.caracs.odorat_goût.value pCaracxp=data.caracs.odorat_goût.xp}}
 					</div>
 				</div>
 				<div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
-						<input type="number" id="volonté" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="volonté-xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="volonté" pCaracValue=data.caracs.volonté.value pCaracxp=data.caracs.volonté.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
-						<input type="number" id="intellect" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="intellect-xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="intellect" pCaracValue=data.caracs.intellect.value pCaracxp=data.caracs.intellect.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
-						<input type="number" id="empathie" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="empathie-xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="empathie" pCaracValue=data.caracs.empathie.value pCaracxp=data.caracs.empathie.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
-						<input type="number" id="rêve" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="rêve-xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="rêve" pCaracValue=data.caracs.rêve.value pCaracxp=data.caracs.rêve.xp}}
 					</div>
 					<div class="lig-carac ligne-saisie">
-						<div><i class="fas fa-square"></i></div>
-						<label for="chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
-						<input type="number" id="chance" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
-						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="chance-xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
+						{{> "systems/RdD/templates/partials/carac-saisie.html" pCarac="chance" pCaracValue=data.caracs.chance.value pCaracxp=data.caracs.chance.xp}}
 					</div>
 					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.caracsDériv.mêlée.value}}</span></span></p>
 					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.caracsDériv.tir.value}}</span></span></p>
@@ -199,173 +147,17 @@
 		{{!-- Onglet de gestion des compétences du PJ --}}
 		<div class="tab" data-group="principal" data-tab="compétences">
 			<h2>{{localize 'RdD.actor.cptcGénérales.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-générale as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-square"></i></div>
-					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-						{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-						
-						{{/if}}
-					</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
-					<div>
-						{{RdDPlusMoins cptcItem.plusMoins}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-					{{#if cptcItem.data.spécialisable}}
-					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+			{{> "systems/RdD/templates/partials/cptc-ligne.html" pItemsParType=itemsParType.compétence-générale}}
 			<h2>{{localize 'RdD.actor.cptcMêlée.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-mêlée as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-square"></i></div>
-					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
-					<div>
-						{{RdDPlusMoins cptcItem.plusMoins}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-					{{#if cptcItem.data.spécialisable}}
-					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+			{{> "systems/RdD/templates/partials/cptc-ligne.html" pItemsParType=itemsParType.compétence-mêlée}}
 			<h2>{{localize 'RdD.actor.cptcTirLancer.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-tirLancer as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-square"></i></div>
-					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
-					<div>
-						{{RdDPlusMoins cptcItem.plusMoins}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-					{{#if cptcItem.data.spécialisable}}
-					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+			{{> "systems/RdD/templates/partials/cptc-ligne.html" pItemsParType=itemsParType.compétence-tirLancer}}
 			<h2>{{localize 'RdD.actor.cptcParticulières.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-particulière as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-square"></i></div>
-					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
-					<div>
-						{{RdDPlusMoins cptcItem.plusMoins}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-					{{#if cptcItem.data.spécialisable}}
-					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+			{{> "systems/RdD/templates/partials/cptc-ligne.html" pItemsParType=itemsParType.compétence-particulière}}
 			<h2>{{localize 'RdD.actor.cptcSpécialisées.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-spécialisée as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-square"></i></div>
-					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
-					<div>
-						{{RdDPlusMoins cptcItem.plusMoins}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-					{{#if cptcItem.data.spécialisable}}
-					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+			{{> "systems/RdD/templates/partials/cptc-ligne.html" pItemsParType=itemsParType.compétence-spécialisée}}
 			<h2>{{localize 'RdD.actor.Connaissances.titre'}}</h2>
-			<ul>
-				{{#each itemsParType.compétence-connaissance as |cptcItem id|}}
-				<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
-					<div><i class="fas fa-square"></i></div>
-					<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
-					<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
-					<div>
-						{{#if cptcItem.data.vocation}}
-							{{localize 'RdD.item.compétence.vocationAbrv'}}
-						{{else}}
-							 
-						{{/if}}
-					</div>
-					<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
-					<div>
-						{{RdDPlusMoins cptcItem.plusMoins}}
-					</div>
-					<div>
-						<a class="cptc-edit"><i class="fas fa-edit"></i></a>
-					</div>
-					{{#if cptcItem.data.spécialisable}}
-					<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+			{{> "systems/RdD/templates/partials/cptc-ligne.html" pItemsParType=itemsParType.compétence-connaissance}}
 			<h2>{{localize 'RdD.actor.Draconic.titre'}}</h2>
 			<ul>
 				{{#each itemsParType.compétence-draconic as |cptcItem id|}}
@@ -531,29 +323,29 @@
 
 		{{!-- Onglet de gestion du vécu du PJ --}}
 		<div class="tab" data-group="principal" data-tab="vécu">
-			<div class="ligne-saisie">
+			<div class="ligne-vécu ligne-saisie">
 				<label for="ptChance">{{localize 'RdD.actor.pj.compteursPJ.ptChance'}}</label>
 				<input type="number" id="ptChance" name="data.compteursPJ.ptChance.value" value="{{data.compteursPJ.ptChance.value}}">
 			</div>
-			<div class="ligne-saisie">
+			<div class="ligne-vécu ligne-saisie">
 				<label for="moral">{{localize 'RdD.actor.pj.compteursPJ.moral.titre'}}</label>
 				<input type="number" id="moral" name="data.compteursPJ.moral.value" value="{{data.compteursPJ.moral.value}}">
 				<label for="exalt_dissol">{{localize 'RdD.actor.pj.compteursPJ.moral.exalt_dissol'}}</label>
 				<input type="number" id="exalt_dissol" name="data.compteursPJ.moral.exalt_dissol" value="{{data.compteursPJ.moral.exalt_dissol}}">
 			</div>
-			<div class="ligne-saisie">
+			<div class="ligne-vécu ligne-saisie">
 				<label for="cœur">{{localize 'RdD.actor.pj.compteursPJ.cœur.titre'}}</label>
 				<input type="number" id="cœur" name="data.compteursPJ.cœur.value" value="{{data.compteursPJ.cœur.value}}">
 				<label for="cœurPersonneConcernée">{{localize 'RdD.actor.pj.compteursPJ.cœur.personneConcernée'}}</label>
 				<input type="text" id="cœurPersonneConcernée" name="data.compteursPJ.cœur.personneConcernée" value="{{data.compteursPJ.cœur.personneConcernée}}">
 			</div>
-			<div class="ligne-saisie">
+			<div class="ligne-vécu ligne-saisie">
 				<label for="ptDestinée">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptDestinée'}}</label>
 				<input type="number" id="ptDestinée" name="data.compteursPJ.destinée.ptDestinée" value="{{data.compteursPJ.destinée.ptDestinée}}">
 				<label for="ptVoyage">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptVoyage'}}</label>
 				<input type="number" id="ptVoyage" name="data.compteursPJ.destinée.ptVoyage" value="{{data.compteursPJ.destinée.ptVoyage}}">
 			</div>
-			<div class="ligne-saisie">
+			<div class="ligne-vécu ligne-saisie">
 				<label for="stress">{{localize 'RdD.actor.pj.compteursPJ.stress'}}</label>
 				<input type="number" id="stress" name="data.compteursPJ.stress.value" value="{{data.compteursPJ.stress.value}}">
 			</div>
@@ -561,12 +353,44 @@
 
 		{{!-- Onglet de gestion de l'inventaire du PJ --}}
 		<div class="tab" data-group="principal" data-tab="inventaire">
+			<div class="ligne-saisie">
+				<span>{{localize 'RdD.actor.cptr.argent.argent'}}&nbsp;: {{localize 'RdD.actor.cptr.argent.répartitionAuto'}}&nbsp;</span>
+				<input type="checkbox" name="data.cptr.argent.répartitionAuto" {{checked data.cptr.argent.répartitionAuto}}>
+			</div>
+			<div class="zone-argent">
+				<div>
+					<div>
+						<input type="number" id="sols" name="data.cptr.argent.sols" value="{{data.cptr.argent.sols}}" {{#unless data.cptr.argent.répartitionAuto}}disabled{{/unless}}>
+						<span>{{localize 'RdD.argent.solsAbrv'}}</span>
+					</div>
+					<div>
+						<input type="number" id="deniers" name="data.cptr.argent.deniers" value="{{data.cptr.argent.deniers}}" {{#unless data.cptr.argent.répartitionAuto}}disabled{{/unless}}>
+						<span>{{localize 'RdD.argent.deniersAbrv'}}</span>
+					</div>
+				</div>
+				<div>
+					<div>
+						<input type="number" id="or" name="data.cptr.argent.or" value="{{data.cptr.argent.or}}" {{#if data.cptr.argent.répartitionAuto}}disabled{{/if}}>
+						<span>{{localize 'RdD.argent.or'}}</span>
+					</div>
+					<div>
+						<input type="number" id="argent" name="data.cptr.argent.argent" value="{{data.cptr.argent.argent}}" {{#if data.cptr.argent.répartitionAuto}}disabled{{/if}}>
+						<span>{{localize 'RdD.argent.argent'}}</span>
+					</div>
+					<div>
+						<input type="number" id="bronze" name="data.cptr.argent.bronze" value="{{data.cptr.argent.bronze}}" {{#if data.cptr.argent.répartitionAuto}}disabled{{/if}}>
+						<span>{{localize 'RdD.argent.bronze'}}</span>
+					</div>
+					<div>
+						<input type="number" id="étain" name="data.cptr.argent.étain" value="{{data.cptr.argent.étain}}" {{#if data.cptr.argent.répartitionAuto}}disabled{{/if}}>
+						<span>{{localize 'RdD.argent.étain'}}</span>
+					</div>
+				</div>
+			</div>
 			<p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.seuils.encombrement.value}}</span></p>
 			<div class="ligne-saisie">
 				<label for="encombrement">{{localize 'RdD.actor.cptr.encombrement'}}</label>
 				<input type="number" id="encombrement" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
-				<label for="argent">{{localize 'RdD.actor.cptr.argent'}}</label>
-				<input type="number" id="argent" name="data.cptr.argent.total" value="{{data.cptr.argent.total}}">
 			</div>
 		</div>
 

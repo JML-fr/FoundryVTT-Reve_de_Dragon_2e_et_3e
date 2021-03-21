@@ -76,10 +76,13 @@ export class RdDIntrfc {
 	 * @returns {object} sols, deniers
 	 * @memberof RdDIntrfc
 	 */
-	static mefArgent (montant){
-		console.log(`RdD | RdDIntrfc.mefArgent : ` + montant);
-		let sols = parseInt(montant);
-		let deniers = parseInt((montant - sols) * 100);
+	static argentSD (montant){
+		console.log(`RdD | RdDIntrfc.argentSD : ` + montant);
+		if (isNaN(montant)) {
+			montant = 0;
+		}
+		const sols = Math.floor(montant);
+		const deniers = Math.floor((montant - sols) * 100);
 		
 		return {sols, deniers};
 	}
@@ -93,9 +96,72 @@ export class RdDIntrfc {
 	 * @returns {number} montant
 	 * @memberof RdDIntrfc
 	 */
-	static calcArgent (sols, deniers){
-		console.log(`RdD | RdDIntrfc.mefArgent : ${sols} ${deniers}`);
+	static sdArgent (sols, deniers){
+		console.log(`RdD | RdDIntrfc.sdArgent : ${sols} ${deniers}`);
+		if (isNaN(sols)) {
+			sols = 0;
+		}
+		if (isNaN(deniers)) {
+			deniers = 0;
+		}
+		
+		return Math.floor(sols) + (Math.floor(deniers) / 100);
+	}
+	
+	/**
+	 * Traduit un montant en pièces en sols et deniers
+	 *
+	 * @static
+	 * @param {number} or
+	 * @param {number} argent
+	 * @param {number} bronze
+	 * @param {number} étain
+	 * @returns {object} sols, deniers
+	 * @memberof RdDIntrfc
+	 */
+	static piècesSD (or, argent, bronze, étain){
+		console.log(`RdD | RdDIntrfc.piècesSD : ${or} ${argent} ${bronze} ${étain}`);
+		if (isNaN(or)) {
+			or = 0;
+		}
+		if (isNaN(argent)) {
+			argent = 0;
+		}
+		if (isNaN(bronze)) {
+			bronze = 0;
+		}
+		if (isNaN(étain)) {
+			étain = 0;
+		}
+		const sols = Math.floor(or * 10 + argent);
+		const deniers = Math.floor(bronze * 10 + étain);
+		
+		return {sols, deniers};
+	}
+	
+	/**
+	 * Traduit une somme exprimée en sols et deniers en un montant en pièces
+	 *
+	 * @static
+	 * @param {number} sols
+	 * @param {number} deniers
+	 * @returns {number} or, argent, bronze, étain
+	 * @memberof RdDIntrfc
+	 */
+	static sdPièces (sols, deniers){
+		console.log(`RdD | RdDIntrfc.sdPièces : ${sols} ${deniers}`);
+		if (isNaN(sols)) {
+			sols = 0;
+		}
+		if (isNaN(deniers)) {
+			deniers = 0;
+		}
 
-		return parseInt(sols) + (parseInt(deniers) / 100);
+		const or = Math.floor(sols / 10);
+		const argent = Math.floor(sols - or * 10);
+		const bronze = Math.floor(deniers / 10);
+		const étain = Math.floor(deniers - bronze * 10);
+
+		return {or, argent, bronze, étain};
 	}
 }

@@ -1,2 +1,5 @@
-<input type="number" id="data.caracs.taille.value" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}" min="0" max="20" step="1">
-<input type="number" id="data.caracs.taille.xp" name="data.caracs.taille.xp" value="{{data.caracs.taille.xp}}" min="0" step="1">
+<div><i class="fas fa-square"></i></div>
+<label for="{{pCarac}}">{{localize (RdDRemplaceExpression 'RdD.actor.caracs.&&&' pCarac)}}</label>
+<input type="number" id="{{pCarac}}" name="data.caracs.{{pCarac}}.value" value="{{pCaracValue}}">
+<span> {{localize 'RdD.actor.pj.xp'}} </span>
+<input type="number" id="{{pCarac}}-xp" name="data.caracs.{{pCarac}}.xp" value="{{pCaracxp}}">

@@ -1,0 +1,27 @@
+<ul>
+	{{#each pItemsParType as |cptcItem id|}}
+	<li class="cptc-lig" data-cptc-id="{{cptcItem._id}}">
+		<div><i class="fas fa-square"></i></div>
+		<div class="cptc-nom">{{localize (RdDRemplaceExpression 'RdD.item.compétence.liste.&&&' cptcItem.data.codeLibellé)}}</div>
+		<div class="nbr-affchg-bloc">{{RdDNumFormat cptcItem.data.value signe=true}}</div>
+		<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.xp'}}:</span> <span>{{cptcItem.data.xp}}</span></div>
+		<div>
+			{{#if cptcItem.data.vocation}}
+			{{localize 'RdD.item.compétence.vocationAbrv'}}
+			{{else}}
+			
+			{{/if}}
+		</div>
+		<div class="nbren-ligne"><span>{{localize 'RdD.item.compétence.archétypeAbrv'}}:</span> <span>{{RdDNumFormat cptcItem.data.archétype signe=true}}</span></div>
+		<div>
+			{{RdDPlusMoins cptcItem.plusMoins}}
+		</div>
+		<div>
+			<a class="cptc-edit"><i class="fas fa-edit"></i></a>
+		</div>
+		{{#if cptcItem.data.spécialisable}}
+		<div class="cptc-spécialité">{{cptcItem.data.spécialité}}</div>
+		{{/if}}
+	</li>
+	{{/each}}
+</ul>

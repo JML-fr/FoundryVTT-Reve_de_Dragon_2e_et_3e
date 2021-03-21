@@ -254,7 +254,7 @@
 
 /* ============== ONGLET VÉCU ============================= */
 .RdD.feuille.actor.pj .tab[data-tab="vécu"]{
-	.ligne-saisie {
+	.ligne-vécu {
 		display: grid;
 		grid-template-columns: 8ch 5ch 10ch 25ch;
 	}
@@ -262,15 +262,18 @@
 
 /* ============== ONGLET INVENTAIRE ============================= */
 .RdD.feuille.actor.pj .tab[data-tab="inventaire"]{
-	.ligne-saisie {
+	.zone-argent {
+		display: flex;
+		flex-flow: row;
+		align-content: flex-start;
+		align-items: flex-start;
+	}
+	.ligne-argent {
 		display: grid;
 		grid-template-columns: 13ch 6.5ch 6ch 9ch;
 	}
 	#encombrement {
 		width: 5ch;
-	}
-	#argent {
-		width: 7ch;
 	}
 }
 

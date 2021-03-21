@@ -8,6 +8,7 @@
 import {RdD} from "./utils/init.js";
 import * as RdDTemplates from "./acteurs/actor-templates.js";
 import RdDHooks from "./utils/hooks.js";
+import {préchargePartialsHandlebars} from "./utils/précharge-templates.js";
 import * as Acteurs from "./acteurs/actor.js";
 import * as Objets from "./objets/item.js";
 import * as RdDFPJ from "./interfaces/feuille-pj.js";
@@ -129,6 +130,9 @@ Hooks.once("init", async function() {
 		}
 		return new Handlebars.SafeString(action);
 	});
+
+	// Précharge les partials Handlebars utilisés
+	préchargePartialsHandlebars();
 });
 
 /* ------------------------------------ */

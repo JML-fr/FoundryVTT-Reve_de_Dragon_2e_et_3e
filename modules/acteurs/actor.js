@@ -44,6 +44,7 @@ export class ActorRdD extends Actor {
 				this._calcCaracsDérivées();
 				this._calcSeuils();
 				this._calcCptr();
+				this._calcArgent();
 				break;
 	
 			default:
@@ -247,7 +248,39 @@ export class ActorRdD extends Actor {
 			}
 		}
 	}
-	
+
+	/**
+	 * Mise à jour de la répartition de l'argent (sols, deniers, or, argent, bronze, étain)
+	 *
+	 * @memberof ActorRdD
+	 * @private
+	 */
+	 _calcArgent() {
+		const data = this.data.data;
+		console.log(`RdD | ActorRdD._calcArgent`);
+
+		let sols = data.cptr.argent.sols;
+		let deniers = data.cptr.argent.deniers;
+		let or = data.cptr.argent.or;
+		let argent = data.cptr.argent.argent;
+		let bronze = data.cptr.argent.bronze;
+		let étain = data.cptr.argent.étain;
+		
+		if (data.cptr.argent.répartitionAuto) {
+			let conv = {or, argent, bronze, étain};
+			conv = RdDIntrfc.sdPièces(sols, deniers);
+			// Vérifier que le total (or + argent + bronze + étain) ≠ total (sols + deniers) avant de modifier la répartition en pièces
+			data.cptr.argent.or = conv.or;
+			data.cptr.argent.argent = conv.argent;
+			data.cptr.argent.bronze = conv.bronze;
+			data.cptr.argent.étain = conv.étain;
+		} else {
+			let conv = {sols, deniers};
+			conv = RdDIntrfc.piècesSD(or, argent, bronze, étain);
+			data.cptr.argent.sols = conv.sols;
+			data.cptr.argent.deniers = conv.deniers;
+		}
+	 }	
 	/* ================================================== */
 	/* Contrôles de données */
 	/* ================================================== */
@@ -1040,7 +1073,7 @@ export class ActorRdD extends Actor {
 		if (RdDIntrfc.ctrlNuméricité(nombre)) {
 			return game.i18n.localize("RdD.erreurs.argentInvalide");
 		}
-		if (nombre < 0) {
+		if (!Number.isInteger(nombre) || nombre < 0) {
 			return game.i18n.localize("RdD.erreurs.argentInvalide");
 		}
 		
