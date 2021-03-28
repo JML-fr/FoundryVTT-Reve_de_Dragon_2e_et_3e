@@ -82,7 +82,7 @@ export class RdDIntrfc {
 			montant = 0;
 		}
 		const sols = Math.floor(montant);
-		const deniers = Math.floor((montant - sols) * 100);
+		const deniers = Math.round((montant - sols) * 100);
 		
 		return {sols, deniers};
 	}
@@ -106,6 +106,35 @@ export class RdDIntrfc {
 		}
 		
 		return Math.floor(sols) + (Math.floor(deniers) / 100);
+	}
+	
+	/**
+	 * Traduit une somme exprimée en pièces en un montant décimal
+	 *
+	 * @static
+	 * @param {number} or
+	 * @param {number} argent
+	 * @param {number} bronze
+	 * @param {number} étain
+	 * @returns {number} montant
+	 * @memberof RdDIntrfc
+	 */
+	static piècesArgent (or, argent, bronze, étain){
+		console.log(`RdD | RdDIntrfc.piècesArgent : ${or} ${argent} ${bronze} ${étain}`);
+		if (isNaN(or)) {
+			or = 0;
+		}
+		if (isNaN(argent)) {
+			argent = 0;
+		}
+		if (isNaN(bronze)) {
+			bronze = 0;
+		}
+		if (isNaN(étain)) {
+			étain = 0;
+		}
+		
+		return  (Math.floor(or) * 10) + Math.floor(argent) + (Math.floor(bronze) / 10) + (Math.floor(étain) / 100);
 	}
 	
 	/**
@@ -133,8 +162,11 @@ export class RdDIntrfc {
 		if (isNaN(étain)) {
 			étain = 0;
 		}
-		const sols = Math.floor(or * 10 + argent);
-		const deniers = Math.floor(bronze * 10 + étain);
+		let sols = Math.floor(or * 10 + argent);
+		let deniers = Math.floor(bronze * 10 + étain);
+		let excédent = Math.floor(deniers / 100) * 100;
+		deniers -= excédent;
+		sols += (excédent / 100);
 		
 		return {sols, deniers};
 	}
