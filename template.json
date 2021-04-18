@@ -6,7 +6,8 @@
       "humanoïde",
       "animal",
       "entitéIncarnée",
-      "entitéNonIncarnée"
+      "entitéNonIncarnée",
+      "conteneur"
     ],
     "templates": {
       "signesParticuliers": {
@@ -372,9 +373,6 @@
               "heure": ""
             }
           },
-          "encombrement": {
-            "value": 0
-          },
           "argent": {
             "répartitionAuto": true,
             "sols": 0,
@@ -422,6 +420,17 @@
             "value": false
           }
         }
+      },
+      "inventaire": {
+        "encombrement": {
+          "value": 0
+        },
+        "idItem": "String",
+        "quantité": {
+          "value": 0
+        },
+        "liste": [
+        ]
       }
     },
     "pj": {
@@ -431,7 +440,8 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "_états"
+        "_états",
+        "inventaire"
       ],
       "ptCaracRestants": {
         "value": 160
@@ -471,7 +481,8 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "_états"
+        "_états",
+        "inventaire"
       ]
     },
     "humanoïde": {
@@ -481,7 +492,8 @@
         "caractéristiquesDérivées",
         "_seuils",
         "compteurs",
-        "_états"
+        "_états",
+        "inventaire"
       ],
       "espèce": {
         "value": "Groin"
@@ -490,7 +502,8 @@
     "animal": {
       "templates": [
         "_seuils",
-        "_états"
+        "_états",
+        "inventaire"
       ],
       "caractéristiquesAnimaux": {
         "taille": {
@@ -722,8 +735,7 @@
         }
       },
       "encombrement": {
-        "max": 10,
-        "value": 0
+        "max": 10
       },
       "compétencesAnimaux": {
         "compétences": [
@@ -783,12 +795,16 @@
         "value": 2,
         "init": 14
       }
+    },
+    "conteneur": {
+      "templates": [
+        "inventaire"
+      ]
     }
   },
   "Item": {
     "types": [
       "équipement",
-      "contenant",
       "nourriture",
       "boisson",
       "herbeDeSoin",
@@ -812,26 +828,16 @@
           "deniers": 0
         },
         "unitéDeCpt": "",
-        "quantité": 1,
         "équipable": false,
-        "statut": 1,
-        "contenant": ""
+        "statut": 1
       }
     },
     "équipement": {
       "templates": [
         "description",
         "coût"
-      ]
-    },
-    "contenant": {
-      "templates": [
-        "description",
-        "coût"
       ],
-      "contenance": 0,
-      "contenu": [
-      ]
+      "contenance": 0
     },
     "nourriture": {
       "templates": [

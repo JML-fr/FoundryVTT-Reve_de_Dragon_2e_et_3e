@@ -139,11 +139,11 @@ export class ActorRdD extends Actor {
 	_calcCaracsDérivées() {
 		const data = this.data.data;
 		console.log(`RdD | ActorRdD._calcCaracsDérivées`);
-		let agilité   = parseInt(data.caracs.agilité.value);
-		let force     = parseInt(data.caracs.force.value);
-		let vue       = parseInt(data.caracs.vue.value);
-		let dextérité = parseInt(data.caracs.dextérité.value);
-		let taille    = parseInt(data.caracs.taille.value);
+		let agilité   = Math.round(data.caracs.agilité.value);
+		let force     = Math.round(data.caracs.force.value);
+		let vue       = Math.round(data.caracs.vue.value);
+		let dextérité = Math.round(data.caracs.dextérité.value);
+		let taille    = Math.round(data.caracs.taille.value);
 
 		data.caracsDériv.mêlée.value = Math.floor((agilité + force) / 2);
 		data.caracsDériv.tir.value = Math.floor((vue + dextérité) / 2);
@@ -162,7 +162,7 @@ export class ActorRdD extends Actor {
 		console.log(`RdD | ActorRdD._calcSeuils`);
 
 		// Seuil de constitution
-		let constitution = parseInt(data.caracs.constitution.value);
+		let constitution = Math.round(data.caracs.constitution.value);
 		if (constitution < 9) {
 			data.seuils.sc.value = 2;			
 		} else if (constitution < 12) {
@@ -174,7 +174,7 @@ export class ActorRdD extends Actor {
 		}
 		
 		// Seuil de sustentiation
-		let taille = parseInt(data.caracs.taille.value);
+		let taille = Math.round(data.caracs.taille.value);
 		if (taille < 10) {
 			data.seuils.sust.value = 2;			
 		} else if (taille < 14) {
@@ -184,7 +184,7 @@ export class ActorRdD extends Actor {
 		}
 
 		// +dom
-		let force = parseInt(data.caracs.force.value);
+		let force = Math.round(data.caracs.force.value);
 		let référence = Math.floor((taille + force) / 2);
 		if (référence < 8) {
 			data.seuils.plusDom.value = -1;			
@@ -212,9 +212,9 @@ export class ActorRdD extends Actor {
 		const data = this.data.data;
 		console.log(`RdD | ActorRdD._calcCptr`);
 
-		let taille = parseInt(data.caracs.taille.value);
-		let constitution = parseInt(data.caracs.constitution.value);
-		let volonté = parseInt(data.caracs.volonté.value);
+		let taille = Math.round(data.caracs.taille.value);
+		let constitution = Math.round(data.caracs.constitution.value);
+		let volonté = Math.round(data.caracs.volonté.value);
 
 		// Points de vie maximum
 		data.cptr.vie.max = Math.ceil((taille + constitution) / 2);

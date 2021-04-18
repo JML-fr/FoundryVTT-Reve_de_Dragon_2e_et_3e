@@ -1,3 +1,11 @@
+import {RdDIntrfc} from "../utils/interface.js";
+
+/**
+ * Gère les compteurs d'un acteur
+ *
+ * @export
+ * @class CompteursRdD
+ */
 export class CompteursRdD {
 	constructor(seuilHR = 10, valueHR = 10, refoulementHR = 0, colonneHR = "A", ligneHR = 1, queuesEtSoufflesHR = [],
 	maxVie = 10, valueVie = 10,
@@ -5,8 +13,7 @@ export class CompteursRdD {
 	niveauActuelFat = 0, niveauxFat = [],
 	blsrLégères = [], blsrGraves = [], blsrCritique = [],
 	valueÉth = 0, dateAcqÉth = "", heureAcqÉth = "", dateProÉth = "", heureProÉth = "",
-	valueEnc = 0,
-	totalArgent = 0) {
+	répartitionAutoArgent = true, solsArgent = 0, deniersArgent = 0, orArgent = 0, argentArgent = 0, bronzeArgent = 0, étainArgent = 0) {
 		this.hautRêve = {
 			seuil: seuilHR,
 			value: valueHR,
@@ -89,14 +96,26 @@ export class CompteursRdD {
 				heure: heureProÉth
 			}
 		};
-		this.encombrement = {
-			value: valueEnc
-		};
 		this.argent = {
-			total: totalArgent
+			répartitionAuto: répartitionAutoArgent,
+			sols: solsArgent,
+			deniers: deniersArgent,
+			or: orArgent,
+			argent: argentArgent,
+			bronze: bronzeArgent,
+			étain: étainArgent
 		};
 	}
 
+	/**
+	 * Mise à jour d'un segment de fatigue
+	 *
+	 * @param {number} [niveau=0]
+	 * @param {number} [segment=0]
+	 * @param {number} [pvalue=0]
+	 * @param {number} [pmax=0]
+	 * @memberof CompteursRdD
+	 */
 	ftgMàjSegmt(niveau = 0, segment = 0, pvalue = 0, pmax = 0) {
 		let niveauTemp = this.fatigue.niveaux[niveau];
 		const psegment = {value: pvalue, max: pmax};
@@ -108,6 +127,14 @@ export class CompteursRdD {
 		this.fatigue.niveauActuel = 0;
 	}
 
+	/**
+	 * Mise à jour d'une blessure
+	 *
+	 * @param {string} [type=""]
+	 * @param {number} [indice=0]
+	 * @param {boolean} [pblessé=false]
+	 * @memberof CompteursRdD
+	 */
 	blsrMàJ(type = "", indice = 0, pblessé = false) {
 		if (type.length == 0 || (type != "légère" && type != "grave" && type != "critique")) {
 			return;
@@ -154,14 +181,68 @@ export class CompteursRdD {
 				break;
 		}
 	}
-}
-export class CompétencesRdD {
-	constructor() {
+
+	/**
+	 * Mise à jour des montants décrivant l'argent possédé
+	 *
+	 * @param {boolean} [répartitionAutoArgent=true]
+	 * @param {number} [solsArgent=0]
+	 * @param {number} [deniersArgent=0]
+	 * @param {number} [orArgent=0]
+	 * @param {number} [argentArgent=0]
+	 * @param {number} [bronzeArgent=0]
+	 * @param {number} [étainArgent=0]
+	 * @memberof CompteursRdD
+	 */
+	argentMàJ(répartitionAutoArgent = true, solsArgent = 0, deniersArgent = 0, orArgent = 0, argentArgent = 0, bronzeArgent = 0, étainArgent = 0) {
+		if (répartitionAutoArgent) {
+			// Normalisation de la répartition en sols et deniers
+			const normalisé = RdDIntrfc.argentSD(RdDIntrfc.sdArgent(solsArgent, deniersArgent));
+			this.argent.sols = normalisé.sols;
+			this.argent.deniers = normalisé.deniers;
+			// Vérifier que le total (or + argent + bronze + étain) ≠ total (sols + deniers) avant de modifier la répartition en pièces
+			if (RdDIntrfc.sdArgent(solsArgent, deniersArgent) !== RdDIntrfc.piècesArgent(orArgent, argentArgent, bronzeArgent, étainArgent)) {
+				let conv = RdDIntrfc.sdPièces(normalisé.sols, normalisé.deniers);
+				this.argent.or = conv.or;
+				this.argent.argent = conv.argent;
+				this.argent.bronze = conv.bronze;
+				this.argent.étain = conv.étain;
+			}
+		} else {
+			let conv = RdDIntrfc.piècesSD(orArgent, argentArgent, bronzeArgent, étainArgent);
+			this.argent.sols = conv.sols;
+			this.argent.deniers = conv.deniers;
+		}
 
 	}
 }
-export class ArchétypeRdD {
-	constructor() {
 
+/**
+ * Gère l'inventaire d'un acteur
+ *
+ * @export
+ * @class InventaireRdD
+ */
+export class InventaireRdD {
+	constructor(valueEnc = 0, valueQté = 1, listeInv = []) {
+		this.encombrement = {
+			value: valueEnc
+		};
+		this.quantité = {
+			value: valueQté
+		};
+		this.liste = listeInv;
+	}
+
+	ajouter() {
+
+	}
+
+	supprimer() {
+
+	}
+
+	transférer() {
+		
 	}
 }

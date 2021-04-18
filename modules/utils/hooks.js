@@ -1,4 +1,10 @@
 export  default class RdDHooks {
+	// onSetup, onReady, onPreCreateItem, onPreCreateOwnedItem, onPreCreateActor, onCreateActor, onRenderActorDirectory, onRenderCompendium,
+	// onPreUpdateActor, onUpdateActor, onRenderCombatTracker, onPreUpdateCombat, onUpdateCombat, onDeleteCombat,
+	// onRenderChatMessage, onRenderPlayerList, onRenderChatLog, onGetUserContextOptions, onGetSceneControlButtons,
+	// onRenderCombatantConfig, onDiceSoNiceInit, onDiceSoNiceReady,
+	// onUpdateWorldTime
+
 	/**
 	 * Actions avant parachutage sur un actor
 	 *

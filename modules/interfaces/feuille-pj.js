@@ -213,32 +213,15 @@ export class RdDFeuillePJ extends ActorSheet {
 		updateData[`data.cptr.blessures.critique`] = cptTrav.blessures.critique.slice();
 
 		// Argent
-		let sols = this.element.find("#sols")[0].valueAsNumber;
-		let deniers = this.element.find("#deniers")[0].valueAsNumber;
-		let or = this.element.find("#or")[0].valueAsNumber;
-		let argent = this.element.find("#argent")[0].valueAsNumber;
-		let bronze = this.element.find("#bronze")[0].valueAsNumber;
-		let étain = this.element.find("#étain")[0].valueAsNumber;
-		
 		const répartitionAuto = this.element.find("#répartitionAuto")[0].checked;
-		if (répartitionAuto) {
-			// Normalisation de la répartition en sols et deniers
-			const normalisé = RdDIntrfc.argentSD(RdDIntrfc.sdArgent(sols, deniers));
-			updateData[`data.cptr.argent.sols`] = normalisé.sols;
-			updateData[`data.cptr.argent.deniers`] = normalisé.deniers;
-			// Vérifier que le total (or + argent + bronze + étain) ≠ total (sols + deniers) avant de modifier la répartition en pièces
-			if (RdDIntrfc.sdArgent(sols, deniers) !== RdDIntrfc.piècesArgent(or, argent, bronze, étain)) {
-				let conv = RdDIntrfc.sdPièces(normalisé.sols, normalisé.deniers);
-				updateData[`data.cptr.argent.or`] = conv.or;
-				updateData[`data.cptr.argent.argent`] = conv.argent;
-				updateData[`data.cptr.argent.bronze`] = conv.bronze;
-				updateData[`data.cptr.argent.étain`] = conv.étain;
-			}
-		} else {
-			let conv = RdDIntrfc.piècesSD(or, argent, bronze, étain);
-			updateData[`data.cptr.argent.sols`] = conv.sols;
-			updateData[`data.cptr.argent.deniers`] = conv.deniers;
-		}
+		const sols = this.element.find("#sols")[0].valueAsNumber;
+		const deniers = this.element.find("#deniers")[0].valueAsNumber;
+		const or = this.element.find("#or")[0].valueAsNumber;
+		const argent = this.element.find("#argent")[0].valueAsNumber;
+		const bronze = this.element.find("#bronze")[0].valueAsNumber;
+		const étain = this.element.find("#étain")[0].valueAsNumber;
+		cptTrav.argentMàJ(répartitionAuto, sols, deniers, or, argent, bronze, étain);
+		updateData[`data.cptr.argent`] = cptTrav.argent;
 		
 		return updateData;
 	}
