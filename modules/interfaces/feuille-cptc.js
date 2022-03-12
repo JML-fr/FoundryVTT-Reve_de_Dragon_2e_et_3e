@@ -1,8 +1,8 @@
+/* eslint-disable no-console */
  /*
  * Importation des modules
  */
 import {RdDIntrfc} from "../utils/interface.js";
-// import * as Tmplt from "../acteurs/actor-templates.js"
 import {ItemRdD} from "../objets/item.js";
 
 /**
@@ -28,7 +28,7 @@ export class RdDFeuilleCptc extends ItemSheet {
 		 */
 		return mergeObject(super.defaultOptions, {
 			classes: ["RdD", "feuille", "item", "cptc"],
-			template: "systems/RdD/templates/feuille-cptc.html",
+			template: "systems/RdD/templates/feuille-cptc.hbs",
 			width: 470,
 			height: 400
 		});
@@ -42,7 +42,7 @@ export class RdDFeuilleCptc extends ItemSheet {
 	 * @override
 	 */
 	get classes() {
-		if (this.object.isOwned) {
+		if (this.object.isEmbedded) {
 			return ["RdD", "feuille", "item", "cptcPJ"];
 		} else {
 			return ["RdD", "feuille", "item", "cptc"];
@@ -57,10 +57,10 @@ export class RdDFeuilleCptc extends ItemSheet {
 	 * @override
 	 */
 	get template() {
-		if (this.object.isOwned) {
-			return "systems/RdD/templates/feuille-cptc-pj.html";
+		if (this.object.isEmbedded) {
+			return "systems/RdD/templates/feuille-cptc-pj.hbs";
 		} else {
-			return "systems/RdD/templates/feuille-cptc.html";
+			return "systems/RdD/templates/feuille-cptc.hbs";
 		}
 	}
 
@@ -91,7 +91,11 @@ export class RdDFeuilleCptc extends ItemSheet {
 		super.activateListeners(html);
 
 		// Tout ce qui suit n'est nécessaire que si la feuille est éditable
-		if (!this.options.editable) return;
+		if (!this.isEditable) return;
+
+		// ---> À faire : supprimer le libellé de spécialité si la compétence n'est plus spécialisable
+		//
+		//
 	}
 
 	/**
@@ -101,9 +105,10 @@ export class RdDFeuilleCptc extends ItemSheet {
 	 * @method _onChangeInput
 	 * @param {Event} event L'évènement à l'origine du contrôle
 	 * @memberof RdDFeuilleCptc
+	 * @async
 	 * @private
 	 */
-	_onChangeInput(event) {
+	async _onChangeInput(event) {
 		const input = event.target;
 		const value = input.value;
 		const id = input.id;
@@ -156,9 +161,9 @@ export class RdDFeuilleCptc extends ItemSheet {
 	 * On n'effectue de mise à jour que s'il n'y a pas d'erreur restante sur la feuille de compétence
 	 *
 	 * @method _onSubmit
-	 * @param {Event} event
-	 * @param {Object|null} updateData
-	 * @param {Boolean} preventClose
+	 * @param {Event} event L'évènement à l'origine de l'envoi
+	 * @param {Object|null} updateData Données mises à jour
+	 * @param {Boolean} preventClose Empêche la fermeture de la fenêtre suite à l'envoi de données
 	 * @async
 	 * @memberof RdDFeuilleCptc
 	 */

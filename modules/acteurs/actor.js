@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {RdD} from "../utils/init.js";
 import {RdDIntrfc} from "../utils/interface.js";
 
@@ -52,14 +53,14 @@ export class ActorRdD extends Actor {
 	}
 
 	/**
-	 * prepareEmbeddedEntities - Débogage
+	 * prepareEmbeddedDocuments - Débogage
 	 * Met à jour les collections des objets rattachés et des effets actifs de l'acteur
 	 *
 	 * @memberof ActorRdD
 	 */
-	prepareEmbeddedEntities() {
-		console.log(`RdD | ActorRdD.prepareEmbeddedEntities`);
-		super.prepareEmbeddedEntities();
+	prepareEmbeddedDocuments() {
+		console.log(`RdD | ActorRdD.prepareEmbeddedDocuments`);
+		super.prepareEmbeddedDocuments();
 	}
 
 	/**
@@ -82,48 +83,68 @@ export class ActorRdD extends Actor {
 		console.log(`RdD | ActorRdD.prepareDerivedData`);
 		super.prepareDerivedData();
 	}
-
+	
 	/**
-	 * create
+	 * _preCreate - Débogage
+	 * Opérations préparant la création d'un acteur
 	 *
+	 * @param {*} data
+	 * @param {*} options
+	 * @param {*} user
 	 * @memberof ActorRdD
 	 */
-	static async create(data, options={}) {
-		console.log(`RdD | ActorRdD.create ${data.type}`);
+	 async _preCreate(data, options, user) {
+		console.log(`RdD | ActorRdD._preCreate`, data);
+		
+		super._preCreate(data, options, user);
+	}
+	
+	/**
+	 * _onCreate
+	 *
+	 * @param {*} data
+	 * @param {*} options
+	 * @param {*} userId
+	 * @memberof ActorRdD
+	 */
+	async _onCreate(data, options, userId) {
+		console.log(`RdD | ActorRdD._onCreate ${data.type}`);
 		if (data.type == "pj") {
-			data.items = [];
-			game.packs.keys();
-			console.log(`RdD | ActorRdD.create compendiums : `, game.packs);
 			for (const [typeCptc, compCptc] of RdD.compendiumsCompétences) {
-				console.log(`RdD | ActorRdD.create ${typeCptc} : compendium = ${compCptc}`);
-				const pack = game.packs.get(compCptc);
-				const listeCptc = await pack.getContent();
-				console.log(`RdD | ActorRdD.create ${typeCptc} : liste = `, listeCptc);
-				data.items = data.items.concat(listeCptc);
+				console.log(`RdD | ActorRdD._onCreate ${typeCptc} : compendium = ${compCptc}`);
+				const pack = game.packs.get(compCptc, {strict: true});
+				const listeCptc = await pack.getDocuments();
+				console.log(`RdD | ActorRdD._onCreate ${typeCptc} : liste = `, listeCptc);
+				for (const cptc of listeCptc) {
+					await this.createEmbeddedDocuments("Item", [cptc.data]);
+				}
 			}
-			console.log(`RdD | ActorRdD.create ${data.items}`);
+			console.log(`RdD | ActorRdD._onCreate ${data.items}`);
 		}
-		return super.create(data, options);
+		super._onCreate(data, options, userId);
 	}
 
 	/**
-	 * update - Débogage
-	 *
-	 * @memberof ActorRdD
-	 */
-	async update(data, options = {}) {
-		//console.log(`RdD | ActorRdD.update ${JSON.stringify(data)}`);
-		super.update(data, options);
+	 * _onUpdate - Débogage
+	  *
+	  * @param {*} changed
+	  * @param {*} options
+	  * @param {*} userId
+	  * @memberof ActorRdD
+	  */
+	 _onUpdate(changed, options, userId) {
+		console.log(`RdD | ActorRdD._onUpdate ${JSON.stringify(changed)}`);
+		super._onUpdate(changed, options, userId);
 	}
 
 	/**
-	 * delete - Débogage
+	 * _onDelete - Débogage
 	 *
 	 * @memberof ActorRdD
 	 */
-	async delete(options) {
-		console.log(`RdD | ActorRdD.delete`);
-		super.delete(options);
+	 _onDelete(options, userId) {
+		console.log(`RdD | ActorRdD._onDelete`);
+		super._onDelete(options, userId);
 	}
 	
 	/* ================================================== */

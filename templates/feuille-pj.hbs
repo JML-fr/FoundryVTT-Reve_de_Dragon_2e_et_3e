@@ -9,35 +9,35 @@
 		<div class="grpSignesPart ligne-saisie">
 			<label for="heureNaissance">{{localize 'RdD.actor.signesPart.hn'}}</label>
 			<select id="heureNaissance" name="data.signesPart.hn.value">
-				{{RdDSelect "RdD.heuresDeNaissance" data.signesPart.hn.value}}
+				{{RdDSelect "RdD.heuresDeNaissance" data.data.signesPart.hn.value}}
 			</select>
 		</div>
 		<div class="grpSignesPart ligne-saisie alignement">
 			<label for="sexe">{{localize 'RdD.actor.signesPart.sexe'}}</label>
 			<select name="data.signesPart.sexe.value" id="sexe">
-				{{RdDSelect "RdD.sexe" data.signesPart.sexe.value}}
+				{{RdDSelect "RdD.sexe" data.data.signesPart.sexe.value}}
 			</select>
 			<label for="âge">{{localize 'RdD.actor.signesPart.âge'}}</label>
-			<input type="number" id="âge" name="data.signesPart.âge.value" value="{{data.signesPart.âge.value}}">
+			<input type="number" id="âge" name="data.signesPart.âge.value" value="{{data.data.signesPart.âge.value}}">
 		</div>
 		<div class="grpSignesPart ligne-saisie alignement">
 			<label for="spTaille">{{localize 'RdD.actor.signesPart.taille'}}</label>
-			<input type="number" id="spTaille" name="data.signesPart.taille.value" value="{{RdDNumFormat data.signesPart.taille.value décimales=2}}">
+			<input type="number" id="spTaille" name="data.signesPart.taille.value" value="{{RdDNumFormat data.data.signesPart.taille.value décimales=2}}">
 			<label for="poids">{{localize 'RdD.actor.signesPart.poids'}}</label>
-			<input type="number" id="poids" name="data.signesPart.poids.value" value="{{data.signesPart.poids.value}}">
+			<input type="number" id="poids" name="data.signesPart.poids.value" value="{{data.data.signesPart.poids.value}}">
 		</div>
 		<div class="grpSignesPart ligne-saisie">
 			<label for="cheveux">{{localize 'RdD.actor.signesPart.cheveux'}}</label>
-			<input type="text" id="cheveux" name="data.signesPart.cheveux.value" value="{{data.signesPart.cheveux.value}}">
+			<input type="text" id="cheveux" name="data.signesPart.cheveux.value" value="{{data.data.signesPart.cheveux.value}}">
 			<label for="yeux">{{localize 'RdD.actor.signesPart.yeux'}}</label>
-			<input type="text" id="yeux" name="data.signesPart.yeux.value" value="{{data.signesPart.yeux.value}}">
+			<input type="text" id="yeux" name="data.signesPart.yeux.value" value="{{data.data.signesPart.yeux.value}}">
 			<label for="beauté">{{localize 'RdD.actor.signesPart.beauté'}}</label>
-			<input type="number" id="beauté" name="data.signesPart.beauté.value" value="{{data.signesPart.beauté.value}}">
+			<input type="number" id="beauté" name="data.signesPart.beauté.value" value="{{data.data.signesPart.beauté.value}}">
 		</div>
 		<div class="grpSignesPart ligne-saisie">
 			<label for="latéralité">{{localize 'RdD.actor.signesPart.latéralité'}}</label>
 			<select id="latéralité" name="data.signesPart.latéralité.mainDominante">
-				{{RdDSelect "RdD.latéralité" data.signesPart.latéralité.mainDominante}}
+				{{RdDSelect "RdD.latéralité" data.data.signesPart.latéralité.mainDominante}}
 			</select>
 		</div>
 	</header>
@@ -58,31 +58,31 @@
 	{{!-- Onglet présentant les états du PJ --}}
 	<section class="content">
 		<div class="tab" data-group="principal" data-tab="états">
-			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.étatGénéral'}}&nbsp;: </span><span>{{data.états.étatGénéral.value}}</span></p>
-			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.ptViePerdus'}}&nbsp;: </span><span>{{data.états.ptViePerdus.value}}</span></p>
-			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusFatigue'}}&nbsp;: </span><span>{{data.états.malusFatigue.value}}</span></p>
-			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusEncombrement'}}&nbsp;: </span><span>{{data.états.malusEncombrement.value}}</span></p>
-			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusÉthylisme'}}&nbsp;: </span><span>{{data.états.malusÉthylisme.value}}</span></p>
-			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusArmure'}}&nbsp;: </span><span>{{data.états.malusArmure.value}}</span></p>
+			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.étatGénéral'}}&nbsp;: </span><span>{{data.data.états.étatGénéral.value}}</span></p>
+			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.ptViePerdus'}}&nbsp;: </span><span>{{data.data.états.ptViePerdus.value}}</span></p>
+			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusFatigue'}}&nbsp;: </span><span>{{data.data.états.malusFatigue.value}}</span></p>
+			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusEncombrement'}}&nbsp;: </span><span>{{data.data.états.malusEncombrement.value}}</span></p>
+			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusÉthylisme'}}&nbsp;: </span><span>{{data.data.états.malusÉthylisme.value}}</span></p>
+			<p class="lig-malus-état"><span>{{localize 'RdD.actor.états.malusArmure'}}&nbsp;: </span><span>{{data.data.états.malusArmure.value}}</span></p>
 			<div class="lig-états-santé">
 				<span>{{localize 'RdD.actor.états.sonné'}}&nbsp;: </span>
-				<input type="checkbox" name="data.états.sonné.value" {{checked data.états.sonné.value}}>
+				<input type="checkbox" name="data.états.sonné.value" {{checked data.data.états.sonné.value}}>
 			</div>
 			<div class="lig-états-santé">
 				<span>{{localize 'RdD.actor.états.inconscient'}}&nbsp;: </span>
-				<input type="checkbox" name="data.états.inconscient.value" {{checked data.états.inconscient.value}}>
+				<input type="checkbox" name="data.états.inconscient.value" {{checked data.data.états.inconscient.value}}>
 			</div>
 			<div class="lig-états-santé">
 				<span>{{localize 'RdD.actor.états.coma'}}&nbsp;: </span>
-				<input type="checkbox" name="data.états.coma.value" {{checked data.états.coma.value}}>
+				<input type="checkbox" name="data.états.coma.value" {{checked data.data.états.coma.value}}>
 			</div>
 			<div class="lig-états-santé">
 				<span>{{localize 'RdD.actor.états.malade'}}&nbsp;: </span>
-				<input type="checkbox" name="data.états.malade.value" {{checked data.états.malade.value}}>
+				<input type="checkbox" name="data.états.malade.value" {{checked data.data.états.malade.value}}>
 			</div>
 			<div class="lig-états-santé">
 				<span>{{localize 'RdD.actor.états.empoisonné'}}&nbsp;: </span>
-				<input type="checkbox" name="data.états.empoisonné.value" {{checked data.états.empoisonné.value}}>
+				<input type="checkbox" name="data.états.empoisonné.value" {{checked data.data.états.empoisonné.value}}>
 			</div>
 		</div>
 
@@ -93,105 +93,105 @@
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="taille">{{localize 'RdD.actor.caracs.taille'}}</label>
-						<input type="number" id="taille" name="data.caracs.taille.value" value="{{data.caracs.taille.value}}">
+						<input type="number" id="taille" name="data.caracs.taille.value" value="{{data.data.caracs.taille.value}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="apparence">{{localize 'RdD.actor.caracs.apparence'}}</label>
-						<input type="number" id="apparence" name="data.caracs.apparence.value" value="{{data.caracs.apparence.value}}">
+						<input type="number" id="apparence" name="data.caracs.apparence.value" value="{{data.data.caracs.apparence.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="apparence-xp" name="data.caracs.apparence.xp" value="{{data.caracs.apparence.xp}}">
+						<input type="number" id="apparence-xp" name="data.caracs.apparence.xp" value="{{data.data.caracs.apparence.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="constitution.value">{{localize 'RdD.actor.caracs.constitution'}}</label>
-						<input type="number" id="constitution" name="data.caracs.constitution.value" value="{{data.caracs.constitution.value}}">
+						<input type="number" id="constitution" name="data.caracs.constitution.value" value="{{data.data.caracs.constitution.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="constitution-xp" name="data.caracs.constitution.xp" value="{{data.caracs.constitution.xp}}">
+						<input type="number" id="constitution-xp" name="data.caracs.constitution.xp" value="{{data.data.caracs.constitution.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="force.value">{{localize 'RdD.actor.caracs.force'}}</label>
-						<input type="number" id="force" name="data.caracs.force.value" value="{{data.caracs.force.value}}">
+						<input type="number" id="force" name="data.caracs.force.value" value="{{data.data.caracs.force.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="force-xp" name="data.caracs.force.xp" value="{{data.caracs.force.xp}}">
+						<input type="number" id="force-xp" name="data.caracs.force.xp" value="{{data.data.caracs.force.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="agilité.value">{{localize 'RdD.actor.caracs.agilité'}}</label>
-						<input type="number" id="agilité" name="data.caracs.agilité.value" value="{{data.caracs.agilité.value}}">
+						<input type="number" id="agilité" name="data.caracs.agilité.value" value="{{data.data.caracs.agilité.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="agilité-xp" name="data.caracs.agilité.xp" value="{{data.caracs.agilité.xp}}">
+						<input type="number" id="agilité-xp" name="data.caracs.agilité.xp" value="{{data.data.caracs.agilité.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="dextérité.value">{{localize 'RdD.actor.caracs.dextérité'}}</label>
-						<input type="number" id="dextérité" name="data.caracs.dextérité.value" value="{{data.caracs.dextérité.value}}">
+						<input type="number" id="dextérité" name="data.caracs.dextérité.value" value="{{data.data.caracs.dextérité.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="dextérité-xp" name="data.caracs.dextérité.xp" value="{{data.caracs.dextérité.xp}}">
+						<input type="number" id="dextérité-xp" name="data.caracs.dextérité.xp" value="{{data.data.caracs.dextérité.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="vue.value">{{localize 'RdD.actor.caracs.vue'}}</label>
-						<input type="number" id="vue" name="data.caracs.vue.value" value="{{data.caracs.vue.value}}">
+						<input type="number" id="vue" name="data.caracs.vue.value" value="{{data.data.caracs.vue.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="vue-xp" name="data.caracs.vue.xp" value="{{data.caracs.vue.xp}}">
+						<input type="number" id="vue-xp" name="data.caracs.vue.xp" value="{{data.data.caracs.vue.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="ouïe.value">{{localize 'RdD.actor.caracs.ouïe'}}</label>
-						<input type="number" id="ouïe" name="data.caracs.ouïe.value" value="{{data.caracs.ouïe.value}}">
+						<input type="number" id="ouïe" name="data.caracs.ouïe.value" value="{{data.data.caracs.ouïe.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="ouïe-xp" name="data.caracs.ouïe.xp" value="{{data.caracs.ouïe.xp}}">
+						<input type="number" id="ouïe-xp" name="data.caracs.ouïe.xp" value="{{data.data.caracs.ouïe.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="odorat_goût.value">{{localize 'RdD.actor.caracs.odorat_goût'}}</label>
-						<input type="number" id="odorat_goût" name="data.caracs.odorat_goût.value" value="{{data.caracs.odorat_goût.value}}">
+						<input type="number" id="odorat_goût" name="data.caracs.odorat_goût.value" value="{{data.data.caracs.odorat_goût.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="odorat_goût-xp" name="data.caracs.odorat_goût.xp" value="{{data.caracs.odorat_goût.xp}}">
+						<input type="number" id="odorat_goût-xp" name="data.caracs.odorat_goût.xp" value="{{data.data.caracs.odorat_goût.xp}}">
 					</div>
 				</div>
 				<div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="volonté.value">{{localize 'RdD.actor.caracs.volonté'}}</label>
-						<input type="number" id="volonté" name="data.caracs.volonté.value" value="{{data.caracs.volonté.value}}">
+						<input type="number" id="volonté" name="data.caracs.volonté.value" value="{{data.data.caracs.volonté.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="volonté-xp" name="data.caracs.volonté.xp" value="{{data.caracs.volonté.xp}}">
+						<input type="number" id="volonté-xp" name="data.caracs.volonté.xp" value="{{data.data.caracs.volonté.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="intellect.value">{{localize 'RdD.actor.caracs.intellect'}}</label>
-						<input type="number" id="intellect" name="data.caracs.intellect.value" value="{{data.caracs.intellect.value}}">
+						<input type="number" id="intellect" name="data.caracs.intellect.value" value="{{data.data.caracs.intellect.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="intellect-xp" name="data.caracs.intellect.xp" value="{{data.caracs.intellect.xp}}">
+						<input type="number" id="intellect-xp" name="data.caracs.intellect.xp" value="{{data.data.caracs.intellect.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="empathie.value">{{localize 'RdD.actor.caracs.empathie'}}</label>
-						<input type="number" id="empathie" name="data.caracs.empathie.value" value="{{data.caracs.empathie.value}}">
+						<input type="number" id="empathie" name="data.caracs.empathie.value" value="{{data.data.caracs.empathie.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="empathie-xp" name="data.caracs.empathie.xp" value="{{data.caracs.empathie.xp}}">
+						<input type="number" id="empathie-xp" name="data.caracs.empathie.xp" value="{{data.data.caracs.empathie.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="rêve.value">{{localize 'RdD.actor.caracs.rêve'}}</label>
-						<input type="number" id="rêve" name="data.caracs.rêve.value" value="{{data.caracs.rêve.value}}">
+						<input type="number" id="rêve" name="data.caracs.rêve.value" value="{{data.data.caracs.rêve.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="rêve-xp" name="data.caracs.rêve.xp" value="{{data.caracs.rêve.xp}}">
+						<input type="number" id="rêve-xp" name="data.caracs.rêve.xp" value="{{data.data.caracs.rêve.xp}}">
 					</div>
 					<div class="lig-carac ligne-saisie">
 						<div><i class="fas fa-square"></i></div>
 						<label for="chance.value">{{localize 'RdD.actor.caracs.chance'}}</label>
-						<input type="number" id="chance" name="data.caracs.chance.value" value="{{data.caracs.chance.value}}">
+						<input type="number" id="chance" name="data.caracs.chance.value" value="{{data.data.caracs.chance.value}}">
 						<span> {{localize 'RdD.actor.pj.xp'}} </span>
-						<input type="number" id="chance-xp" name="data.caracs.chance.xp" value="{{data.caracs.chance.xp}}">
+						<input type="number" id="chance-xp" name="data.caracs.chance.xp" value="{{data.data.caracs.chance.xp}}">
 					</div>
-					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.caracsDériv.mêlée.value}}</span></span></p>
-					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.caracsDériv.tir.value}}</span></span></p>
-					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.lancer'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.caracsDériv.lancer.value}}</span></span></p>
-					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.dérobée'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.caracsDériv.dérobée.value}}</span></span></p>
+					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.mêlée'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.data.caracsDériv.mêlée.value}}</span></span></p>
+					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.tir'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.data.caracsDériv.tir.value}}</span></span></p>
+					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.lancer'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.data.caracsDériv.lancer.value}}</span></span></p>
+					<p class="lig-carac-dériv"><i class="fas fa-square"></i><span>{{localize 'RdD.actor.caracsDériv.dérobée'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.data.caracsDériv.dérobée.value}}</span></span></p>
 				</div>
 			</section>
 		</div>
@@ -388,23 +388,23 @@
 
 		{{!-- Onglet de gestion du combat du PJ --}}
 		<div class="tab" data-group="principal" data-tab="combat">
-			<p><span>{{localize 'RdD.actor.seuils.plusDom'}}&nbsp;: </span><span><span class="nbr-affchg">{{RdDNumFormat data.seuils.plusDom.value signe=true}}</span></span></p>
-			<p><span>{{localize 'RdD.actor.seuils.protection'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.seuils.protection.value}}</span></span></p>
+			<p><span>{{localize 'RdD.actor.seuils.plusDom'}}&nbsp;: </span><span><span class="nbr-affchg">{{RdDNumFormat data.data.seuils.plusDom.value signe=true}}</span></span></p>
+			<p><span>{{localize 'RdD.actor.seuils.protection'}}&nbsp;: </span><span><span class="nbr-affchg">{{data.data.seuils.protection.value}}</span></span></p>
 		</div>
 
 		{{!-- Onglet de gestion de la santé du PJ --}}
 		<div class="tab" data-group="principal" data-tab="santé">
-			<p><span>{{localize 'RdD.actor.seuils.sc'}}&nbsp;: </span><span>{{data.seuils.sc.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.seuils.sc'}}&nbsp;: </span><span>{{data.data.seuils.sc.value}}</span></p>
 			<div class="vie-end">
-				<label for="vie">{{localize 'RdD.actor.cptr.vie'}} ({{data.cptr.vie.max}})</label>
-				<input type="number" id="vie" name="data.cptr.vie.value" value="{{data.cptr.vie.value}}">
-				<label for="endurance">{{localize 'RdD.actor.cptr.endurance'}} ({{data.cptr.endurance.max}})</label>
-				<input type="number" id="endurance" name="data.cptr.endurance.value" value="{{data.cptr.endurance.value}}">
+				<label for="vie">{{localize 'RdD.actor.cptr.vie'}} ({{data.data.cptr.vie.max}})</label>
+				<input type="number" id="vie" name="data.cptr.vie.value" value="{{data.data.cptr.vie.value}}">
+				<label for="endurance">{{localize 'RdD.actor.cptr.endurance'}} ({{data.data.cptr.endurance.max}})</label>
+				<input type="number" id="endurance" name="data.cptr.endurance.value" value="{{data.data.cptr.endurance.value}}">
 			</div>
-			<p><span>{{localize 'RdD.actor.cptr.fatigue.titre'}}&nbsp;: </span><span>{{data.cptr.fatigue.niveauActuel}}</span></p>
+			<p><span>{{localize 'RdD.actor.cptr.fatigue.titre'}}&nbsp;: </span><span>{{data.data.cptr.fatigue.niveauActuel}}</span></p>
 			<div class="fatigue ligne-saisie lignes01">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau0'}}&nbsp;:&nbsp;</span></span>
-				{{#each data.cptr.fatigue.niveaux.0.segments as |segment ind|}}
+				{{#each data.data.cptr.fatigue.niveaux.0.segments as |segment ind|}}
 				<span>
 					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.0.segments.{{ind}}.value" value="{{segment.value}}">
 					<span>/</span>
@@ -417,7 +417,7 @@
 			</div>
 			<div class="fatigue ligne-saisie lignes01">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-1'}}&nbsp;:&nbsp;</span></span>
-				{{#each data.cptr.fatigue.niveaux.1.segments as |segment ind|}}
+				{{#each data.data.cptr.fatigue.niveaux.1.segments as |segment ind|}}
 				<span>
 					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.1.segments.{{ind}}.value" value="{{segment.value}}">
 					<span>/</span>
@@ -431,82 +431,82 @@
 			<div class="fatigue ligne-saisie lignes2plus">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-2'}}&nbsp;:&nbsp;</span></span>
 				<span>
-					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.2.segments.0.value" value="{{data.cptr.fatigue.niveaux.2.segments.0.value}}">
+					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.2.segments.0.value" value="{{data.data.cptr.fatigue.niveaux.2.segments.0.value}}">
 					<span>/</span>
-					<span class="max">{{data.cptr.fatigue.niveaux.2.segments.0.max}}</span>
+					<span class="max">{{data.data.cptr.fatigue.niveaux.2.segments.0.max}}</span>
 				</span>
 			</div>
 			<div class="fatigue ligne-saisie lignes2plus">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-3'}}&nbsp;:&nbsp;</span></span>
 				<span>
-					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.3.segments.0.value" value="{{data.cptr.fatigue.niveaux.3.segments.0.value}}">
+					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.3.segments.0.value" value="{{data.data.cptr.fatigue.niveaux.3.segments.0.value}}">
 					<span>/</span>
-					<span class="max">{{data.cptr.fatigue.niveaux.3.segments.0.max}}</span>
+					<span class="max">{{data.data.cptr.fatigue.niveaux.3.segments.0.max}}</span>
 				</span>
 			</div>
 			<div class="fatigue ligne-saisie lignes2plus">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-4'}}&nbsp;:&nbsp;</span></span>
 				<span>
-					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.4.segments.0.value" value="{{data.cptr.fatigue.niveaux.4.segments.0.value}}">
+					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.4.segments.0.value" value="{{data.data.cptr.fatigue.niveaux.4.segments.0.value}}">
 					<span>/</span>
-					<span class="max">{{data.cptr.fatigue.niveaux.4.segments.0.max}}</span>
+					<span class="max">{{data.data.cptr.fatigue.niveaux.4.segments.0.max}}</span>
 				</span>
 			</div>
 			<div class="fatigue ligne-saisie lignes2plus">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-5'}}&nbsp;:&nbsp;</span></span>
 				<span>
-					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.5.segments.0.value" value="{{data.cptr.fatigue.niveaux.5.segments.0.value}}">
+					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.5.segments.0.value" value="{{data.data.cptr.fatigue.niveaux.5.segments.0.value}}">
 					<span>/</span>
-					<span class="max">{{data.cptr.fatigue.niveaux.5.segments.0.max}}</span>
+					<span class="max">{{data.data.cptr.fatigue.niveaux.5.segments.0.max}}</span>
 				</span>
 			</div>
 			<div class="fatigue ligne-saisie lignes2plus">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-6'}}&nbsp;:&nbsp;</span></span>
 				<span>
-					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.6.segments.0.value" value="{{data.cptr.fatigue.niveaux.6.segments.0.value}}">
+					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.6.segments.0.value" value="{{data.data.cptr.fatigue.niveaux.6.segments.0.value}}">
 					<span>/</span>
-					<span class="max">{{data.cptr.fatigue.niveaux.6.segments.0.max}}</span>
+					<span class="max">{{data.data.cptr.fatigue.niveaux.6.segments.0.max}}</span>
 				</span>
 			</div>
 			<div class="fatigue ligne-saisie lignes2plus">
 				<span><span class="nbr-affchg">{{localize 'RdD.actor.cptr.fatigue.niveau-7'}}&nbsp;:&nbsp;</span></span>
 				<span>
-					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.7.segments.0.value" value="{{data.cptr.fatigue.niveaux.7.segments.0.value}}">
+					<input type="number" name="RdDtemp.cptr.fatigue.niveaux.7.segments.0.value" value="{{data.data.cptr.fatigue.niveaux.7.segments.0.value}}">
 					<span>/</span>
-					<span class="max">{{data.cptr.fatigue.niveaux.7.segments.0.max}}</span>
+					<span class="max">{{data.data.cptr.fatigue.niveaux.7.segments.0.max}}</span>
 				</span>
 			</div>
 			<p><span>{{localize 'RdD.actor.cptr.blessures.titre'}}&nbsp;:</span></p>
 			<div class="blessures légères">
 				<span>{{localize 'RdD.actor.cptr.blessures.légères'}}&nbsp;:</span>
-				{{#each data.cptr.blessures.légères as |légère ind|}}
+				{{#each data.data.cptr.blessures.légères as |légère ind|}}
 				<input type="checkbox" name="RdDtemp.cptr.blessures.légères.{{ind}}.blessé" {{checked légère.blessé}}>
 				{{/each}}
 			</div>
 			<div class="blessures graves">
 				<span>{{localize 'RdD.actor.cptr.blessures.graves'}}&nbsp;:</span>
-				{{#each data.cptr.blessures.graves as |grave ind|}}
+				{{#each data.data.cptr.blessures.graves as |grave ind|}}
 				<input type="checkbox" name="RdDtemp.cptr.blessures.graves.{{ind}}.blessé" {{checked grave.blessé}}>
 				{{/each}}
 			</div>
 			<div class="blessures critiques">
 				<span>{{localize 'RdD.actor.cptr.blessures.critique'}}&nbsp;:</span>
-				{{#each data.cptr.blessures.critique as |critique ind|}}
+				{{#each data.data.cptr.blessures.critique as |critique ind|}}
 				<input type="checkbox" name="RdDtemp.cptr.blessures.critique.{{ind}}.blessé" {{checked critique.blessé}}>
 				{{/each}}
 			</div>
 			<div>
-				<p><span>{{localize 'RdD.actor.seuils.sust'}}&nbsp;: </span><span>{{data.seuils.sust.value}}</span></p>
+				<p><span>{{localize 'RdD.actor.seuils.sust'}}&nbsp;: </span><span>{{data.data.seuils.sust.value}}</span></p>
 				<div class="sust-eau ligne-saisie">
 					<label for="sust">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.sust'}}</label>
-					<input type="number" id="sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.compteursPJ.sustentationQuotidienne.sust}}">
+					<input type="number" id="sust" name="data.compteursPJ.sustentationQuotidienne.sust" value="{{data.data.compteursPJ.sustentationQuotidienne.sust}}">
 					<label for="eau">{{localize 'RdD.actor.pj.compteursPJ.sustentationQuotidienne.eau'}}</label>
-					<input type="number" id="eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.compteursPJ.sustentationQuotidienne.eau}}">
+					<input type="number" id="eau" name="data.compteursPJ.sustentationQuotidienne.eau" value="{{data.data.compteursPJ.sustentationQuotidienne.eau}}">
 				</div>
 			</div>
 			<div class="ligne-saisie">
 				<label for="éthylisme">{{localize 'RdD.actor.cptr.éthylisme.titre'}} </label>
-				<input type="number" id="éthylisme" name="data.cptr.éthylisme.value" value="{{data.cptr.éthylisme.value}}">
+				<input type="number" id="éthylisme" name="data.cptr.éthylisme.value" value="{{data.data.cptr.éthylisme.value}}">
 			</div>
 		</div>
 
@@ -514,18 +514,18 @@
 		<div class="tab" data-group="principal" data-tab="haut-rêve">
 			<div class="seuilPtRv ligne-saisie">
 				<label for="seuilHR">{{localize 'RdD.actor.cptr.hautRêve.seuil'}}</label>
-				<input type="number" id="seuilHR" name="data.cptr.hautRêve.seuil" value="{{data.cptr.hautRêve.seuil}}">
+				<input type="number" id="seuilHR" name="data.cptr.hautRêve.seuil" value="{{data.data.cptr.hautRêve.seuil}}">
 				<label for="ptRêve">{{localize 'RdD.actor.cptr.hautRêve.value'}}</label>
-				<input type="number" id="ptRêve" name="data.cptr.hautRêve.value" value="{{data.cptr.hautRêve.value}}">
+				<input type="number" id="ptRêve" name="data.cptr.hautRêve.value" value="{{data.data.cptr.hautRêve.value}}">
 			</div>
 			<div class="demiRvRflm ligne-saisie">
 				<label for="TMRCol">{{localize 'RdD.actor.cptr.hautRêve.demiRêve'}}</label>
-				<input type="text" id="TMRCol" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.cptr.hautRêve.demiRêve.colonne}}">
-				<input type="number" id="TMRLig" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.cptr.hautRêve.demiRêve.ligne}}">
+				<input type="text" id="TMRCol" name="data.cptr.hautRêve.demiRêve.colonne" value="{{data.data.cptr.hautRêve.demiRêve.colonne}}">
+				<input type="number" id="TMRLig" name="data.cptr.hautRêve.demiRêve.ligne" value="{{data.data.cptr.hautRêve.demiRêve.ligne}}">
 			</div>
 			<div class="demiRvRflm ligne-saisie">
 				<label for="refoulement">{{localize 'RdD.actor.cptr.hautRêve.refoulement'}}</label>
-				<input type="number" id="refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.cptr.hautRêve.refoulement}}">
+				<input type="number" id="refoulement" name="data.cptr.hautRêve.refoulement" value="{{data.data.cptr.hautRêve.refoulement}}">
 			</div>
 		</div>
 
@@ -533,46 +533,46 @@
 		<div class="tab" data-group="principal" data-tab="vécu">
 			<div class="ligne-saisie">
 				<label for="ptChance">{{localize 'RdD.actor.pj.compteursPJ.ptChance'}}</label>
-				<input type="number" id="ptChance" name="data.compteursPJ.ptChance.value" value="{{data.compteursPJ.ptChance.value}}">
+				<input type="number" id="ptChance" name="data.compteursPJ.ptChance.value" value="{{data.data.compteursPJ.ptChance.value}}">
 			</div>
 			<div class="ligne-saisie">
 				<label for="moral">{{localize 'RdD.actor.pj.compteursPJ.moral.titre'}}</label>
-				<input type="number" id="moral" name="data.compteursPJ.moral.value" value="{{data.compteursPJ.moral.value}}">
+				<input type="number" id="moral" name="data.compteursPJ.moral.value" value="{{data.data.compteursPJ.moral.value}}">
 				<label for="exalt_dissol">{{localize 'RdD.actor.pj.compteursPJ.moral.exalt_dissol'}}</label>
-				<input type="number" id="exalt_dissol" name="data.compteursPJ.moral.exalt_dissol" value="{{data.compteursPJ.moral.exalt_dissol}}">
+				<input type="number" id="exalt_dissol" name="data.compteursPJ.moral.exalt_dissol" value="{{data.data.compteursPJ.moral.exalt_dissol}}">
 			</div>
 			<div class="ligne-saisie">
 				<label for="cœur">{{localize 'RdD.actor.pj.compteursPJ.cœur.titre'}}</label>
-				<input type="number" id="cœur" name="data.compteursPJ.cœur.value" value="{{data.compteursPJ.cœur.value}}">
+				<input type="number" id="cœur" name="data.compteursPJ.cœur.value" value="{{data.data.compteursPJ.cœur.value}}">
 				<label for="cœurPersonneConcernée">{{localize 'RdD.actor.pj.compteursPJ.cœur.personneConcernée'}}</label>
-				<input type="text" id="cœurPersonneConcernée" name="data.compteursPJ.cœur.personneConcernée" value="{{data.compteursPJ.cœur.personneConcernée}}">
+				<input type="text" id="cœurPersonneConcernée" name="data.compteursPJ.cœur.personneConcernée" value="{{data.data.compteursPJ.cœur.personneConcernée}}">
 			</div>
 			<div class="ligne-saisie">
 				<label for="ptDestinée">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptDestinée'}}</label>
-				<input type="number" id="ptDestinée" name="data.compteursPJ.destinée.ptDestinée" value="{{data.compteursPJ.destinée.ptDestinée}}">
+				<input type="number" id="ptDestinée" name="data.compteursPJ.destinée.ptDestinée" value="{{data.data.compteursPJ.destinée.ptDestinée}}">
 				<label for="ptVoyage">{{localize 'RdD.actor.pj.compteursPJ.destinée.ptVoyage'}}</label>
-				<input type="number" id="ptVoyage" name="data.compteursPJ.destinée.ptVoyage" value="{{data.compteursPJ.destinée.ptVoyage}}">
+				<input type="number" id="ptVoyage" name="data.compteursPJ.destinée.ptVoyage" value="{{data.data.compteursPJ.destinée.ptVoyage}}">
 			</div>
 			<div class="ligne-saisie">
 				<label for="stress">{{localize 'RdD.actor.pj.compteursPJ.stress'}}</label>
-				<input type="number" id="stress" name="data.compteursPJ.stress.value" value="{{data.compteursPJ.stress.value}}">
+				<input type="number" id="stress" name="data.compteursPJ.stress.value" value="{{data.data.compteursPJ.stress.value}}">
 			</div>
 		</div>
 
 		{{!-- Onglet de gestion de l'inventaire du PJ --}}
 		<div class="tab" data-group="principal" data-tab="inventaire">
-			<p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.seuils.encombrement.value}}</span></p>
+			<p><span>{{localize 'RdD.actor.seuils.encombrement'}}&nbsp;: </span><span>{{data.data.seuils.encombrement.value}}</span></p>
 			<div class="ligne-saisie">
 				<label for="encombrement">{{localize 'RdD.actor.cptr.encombrement'}}</label>
-				<input type="number" id="encombrement" name="data.cptr.encombrement.value" value="{{data.cptr.encombrement.value}}">
+				<input type="number" id="encombrement" name="data.cptr.encombrement.value" value="{{data.data.cptr.encombrement.value}}">
 				<label for="argent">{{localize 'RdD.actor.cptr.argent'}}</label>
-				<input type="number" id="argent" name="data.cptr.argent.total" value="{{data.cptr.argent.total}}">
+				<input type="number" id="argent" name="data.cptr.argent.total" value="{{data.data.cptr.argent.total}}">
 			</div>
 		</div>
 
 		{{!-- Onglet de gestion de la description du PJ --}}
 		<div class="tab" data-group="principal" data-tab="description">
-			{{editor content=data.signesPart.description.value target="data.signesPart.description.value" button=true owner=owner editable=editable}}
+			{{editor content=data.data.signesPart.description.value target="data.signesPart.description.value" button=true owner=owner editable=editable}}
 		</div>
 	</section>
 	<!--
@@ -591,4 +591,5 @@
 		</ol>
 	</div>
 -->
+
 </form>

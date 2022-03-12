@@ -5,56 +5,56 @@
 			<h1 class="nom-objet">{{item.name}}</h1>
 		</div>
 		<div>
-			{{localize 'RdD.item.compétence.type'}}&nbsp;: {{data.type}}	
+			{{localize 'RdD.item.compétence.type'}}&nbsp;: {{data.data.type}}	
 		</div>
 	</header>
 	
 	{{!-- Description de la compétence --}}
 	<div>{{localize 'RdD.item.description'}}</div>
 	<div class="description-affchg">
-		{{data.description.value}}
+		{{data.data.description.value}}
 	</div>
 	
 	{{!-- Spécialité éventuelle de la compétence --}}
-	{{#if data.spécialisable}}
+	{{#if data.data.spécialisable}}
 	<div>
 		<label for="spécialité">{{localize 'RdD.item.compétence.spécialité'}}</label>
-		<input type="text" id="spécialité" name="data.spécialité" value="{{data.spécialité}}">
+		<input type="text" id="spécialité" name="data.spécialité" value="{{data.data.spécialité}}">
 	</div>
 	{{/if}}
 	
 	
 	{{!-- Vocation --}}
 	<div class="alignement">
-		{{#if (ne data.type "draconic")}}
+		{{#if (ne data.data.type "draconic")}}
 		<label for="vocation">{{localize 'RdD.item.compétence.vocation'}}</label>
-		<input type="checkbox" name="data.vocation" {{checked data.vocation}}>
+		<input type="checkbox" name="data.vocation" {{checked data.data.vocation}}>
 		{{/if}}
 	</div>
 	
 	{{!-- Niveau --}}
 	<div class="alignement">
 		<label for="niveau">{{localize 'RdD.item.compétence.niveau'}}</label>
-		<input type="number" id="niveau" name="data.value" value="{{data.value}}">
+		<input type="number" id="niveau" name="data.value" value="{{data.data.value}}">
 	</div>
 	
 	{{!-- Expérience --}}
 	<div class="alignement">
 		<label for="xp">{{localize 'RdD.item.compétence.ptExpérience'}}</label>
-		<input type="number" id="xp" name="data.xp" value="{{data.xp}}">
+		<input type="number" id="xp" name="data.xp" value="{{data.data.xp}}">
 	</div>
 	
 	{{!-- Archétype --}}
 	<div class="alignement">
 		<label for="archétype">{{localize 'RdD.item.compétence.archétype'}}</label>
-		<input type="number" id="archétype" name="data.archétype" value="{{data.archétype}}">
+		<input type="number" id="archétype" name="data.archétype" value="{{data.data.archétype}}">
 	</div>
 	
 	{{!-- Points de sort si applicable --}}
-	{{#if (eq data.type "draconic")}}
+	{{#if (eq data.data.type "draconic")}}
 	<div class="alignement">
 		<label for="ptSort">{{localize 'RdD.item.compétence.ptSort'}}</label>
-		<input type="number" id="ptSort" name="data.ptSort" value="{{data.ptSort}}">
+		<input type="number" id="ptSort" name="data.ptSort" value="{{data.data.ptSort}}">
 	</div>
 	{{/if}}
 
