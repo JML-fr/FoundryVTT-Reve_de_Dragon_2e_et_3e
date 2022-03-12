@@ -7,7 +7,7 @@
 		<div>
 			<label for="typesCompétences">{{localize 'RdD.item.compétence.type'}}</label>
 			<select id="typesCompétences" name="data.type">
-				{{RdDSelect "RdD.typesCompétences" data.type}}
+				{{RdDSelect "RdD.typesCompétences" data.data.type}}
 			</select>
 		</div>
 	</header>
@@ -15,23 +15,23 @@
 	{{!-- Description de la compétence --}}
 	<div>{{localize 'RdD.item.description'}}</div>
 	<div class="description-edtbl">
-		{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+		{{editor content=data.data.description.value target="data.description.value" button=true owner=owner editable=editable}}
 	</div>
 	
 	{{!-- Spécialité éventuelle de la compétence --}}
 	<div>
 		<span>{{localize 'RdD.item.compétence.spécialisable'}}&nbsp;: </span>
-		<input type="checkbox" name="data.spécialisable" {{checked data.spécialisable}}>
+		<input type="checkbox" name="data.spécialisable" {{checked data.data.spécialisable}}>
 	</div>
 	<div>
 		<label for="spécialité">{{localize 'RdD.item.compétence.spécialité'}}</label>
-		<input type="text" id="spécialité" name="data.spécialité" value="{{data.spécialité}}">
+		<input type="text" id="spécialité" name="data.spécialité" value="{{data.data.spécialité}}">
 	</div>
 	
 	{{!-- Libellé de la compétence --}}
 	<div>
 		<label for="codeLibellé">{{localize 'RdD.item.compétence.codeLibellé'}}</label>
-		<input type="text" id="codeLibellé" name="data.codeLibellé" value="{{data.codeLibellé}}">
+		<input type="text" id="codeLibellé" name="data.codeLibellé" value="{{data.data.codeLibellé}}">
 	</div>
 
 </form>

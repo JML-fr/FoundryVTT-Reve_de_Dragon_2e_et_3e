@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {RdDIntrfc} from "../utils/interface.js";
 
 /**
@@ -28,73 +29,139 @@ export class ItemRdD extends Item {
 		const objet = this.data;
 
 		console.log(`RdD | ItemRdD.prepareData ${objet.type} ${objet.name} ${objet._id}`);
-
-		switch (objet.type) {
-			case "compétence":
-				if (!this.isOwned) {
-					this._calcBase();
-				}
-				break;
-
-			default:
-				break;
-		}
 	}
-
+	
 	/**
-	 * prepareEmbeddedEntities - Débogage
-	 * Met à jour la collection des effets actifs de l'objet
+	 * prepareBaseData - Débogage
+	 * Calcul des variables dérivées ne nécessitant que les informations de base du document (pas les documents intégrés)
 	 *
 	 * @memberof ItemRdD
 	 */
-	prepareEmbeddedEntities() {
-		console.log(`RdD | ItemRdD.prepareEmbeddedEntities`);
-		super.prepareEmbeddedEntities();
+	prepareBaseData() {
+		super.prepareBaseData();
+		const objet = this.data;
+		console.log(`RdD | ItemRdD.prepareBaseData ${objet.type} ${objet.name} ${objet._id}`);
 	}
+	
+	
+	/**
+	 * prepareEmbeddedDocuments - Débogage
+	 * Préparation des données des documents intégrés à l'objet sur le même principe que l'objet lui-même (prepareData)
+	 *
+	 * @memberof ItemRdD
+	 */
+	prepareEmbeddedDocuments() {
+		const objet = this.data;
+		console.log(`RdD | ItemRdD.prepareEmbeddedDocuments ${objet.type} ${objet.name} ${objet._id}`);
+		super.prepareEmbeddedDocuments();
+	}
+	
+	/**
+	 * prepareDerivedData - Débogage
+	 * Calcul des variables dérivées nécessitant l'intégralité des informations du document (y compris les documents intégrés)
+	 *
+	 * @memberof ItemRdD
+	 */
+	prepareDerivedData() {
+		const objet = this.data;
+		console.log(`RdD | ItemRdD.prepareDerivedData ${objet.type} ${objet.name} ${objet._id}`);
+		super.prepareDerivedData();
+	}
+	
+	/**
+	 * _preCreate - Débogage
+	 * Opérations préparant la création d'un objet
+	 *
+	 * @param {*} data
+	 * @param {*} options
+	 * @param {*} user
+	 * @memberof ItemRdD
+	 */
+	async _preCreate(data, options, user) {
+		console.log(`RdD | ItemRdD._preCreate`, data);
 
+		// Attribution de l'image liée au type d'objet créé
+		if (!data.img) {
+			this.data.update({img: `systems/RdD/assets/icons/${data.type}.svg`});
+		}
+		super._preCreate(data, options, user);
+	}
+	
 	/**
 	 * Opérations spécifiques à la création d'un objet
 	 *
+	 * @param {*} data
+	 * @param {*} options
+	 * @param {*} userId
 	 * @memberof ItemRdD
 	 */
-	static async create(data, options={}) {
-		console.log(`RdD | ItemRdD.create`);
+	_onCreate(data, options, userId) {
+		console.log(`RdD | ItemRdD._onCreate`);
+		super._onCreate(data, options, userId);
+	}
+	
+	/**
+	 * _preUpdate - Débogage
+	 * Opérations préparant la création d'un objet
+	 *
+	 * @param {*} changed
+	 * @param {*} options
+	 * @param {*} user
+	 * @memberof ItemRdD
+	 */
+	async _preUpdate(changed, options, user) {
+		console.log(`RdD | ItemRdD._preUpdate`, changed);
 
-	    // Attribution de l'image liée au type d'objet créé
-    	if (!data.img) {
-        	data.img = `systems/RdD/assets/icons/${data.type}.svg`;
+		// La fonction peut être appelée pour un autre motif qu'un changment de données. Ex: déplacement dans un dossier
+		if ("data" in changed) {
+			switch (this.data.type) {
+				case "compétence":
+					if (!this.isEmbedded) {
+						changed.data = this._calcBase(changed.data);
+					}
+					break;
+	
+				default:
+					break;
+			}
 		}
-		super.create(data, options);
+		super._preUpdate(changed, options, user);
+	}
+	
+	/**
+	 * _onUpdate - Débogage
+	 *
+	 * @param {*} changed
+	 * @param {*} options
+	 * @param {*} userId
+	 * @memberof ItemRdD
+	 */
+	_onUpdate(changed, options, userId) {
+		console.log(`RdD | ItemRdD._onUpdate ${JSON.stringify(changed)}`);
+		super._onUpdate(changed, options, userId);
 	}
 
 	/**
-	 * update - Débogage
+	 * _onDelete - Débogage
 	 *
+	 * @static
+	 * @param {*} options
+	 * @param {*} userId
 	 * @memberof ItemRdD
 	 */
-	async update(data, options = {}) {
-		console.log(`RdD | ItemRdD.update ${JSON.stringify(data)}`);
-		super.update(data, options);
-	}
-
-	/**
-	 * delete - Débogage
-	 *
-	 * @memberof ItemRdD
-	 */
-	async delete(options) {
-		console.log(`RdD | ItemRdD.delete`);
-		super.delete(options);
+	_onDelete(options, userId) {
+		console.log(`RdD | ItemRdD._onDelete`);
+		super._onDelete(options, userId);
 	}
 	
 	/**
 	 * Détermination du niveau de base en fonction du type de compétence
 	 * 
+	 * @param {*} data Données à mettre à jour
 	 * @memberof ItemRdD
 	 * @private
 	 */
-	_calcBase() {
-		const data = this.data.data;
+	_calcBase(data) {
 		console.log(`RdD | ItemRdD._calcBase`, data);
 		switch (data.type) {
 			case "générale":
@@ -115,6 +182,7 @@ export class ItemRdD extends Item {
 			default:
 				break;
 		}
+		return data;
 	}
 	
 	/* ================================================== */

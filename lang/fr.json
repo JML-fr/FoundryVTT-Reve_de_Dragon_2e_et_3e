@@ -1,5 +1,20 @@
 {
   "RdD.Name": "Nom",
+  "RdD.unitésMesure": {
+    "kg": "kg",
+    "livre": "livre",
+    "écaille": "écaille",
+    "brin": "brin",
+    "pinte": "pinte",
+    "demi-pinte": "demi-pinte",
+    "mesure": "mesure",
+    "demi-mesure": "demi-mesure",
+    "doigt": "doigt",
+    "déhacoudre": "déhacoudre",
+    "pépin": "pépin",
+    "sust": "sust",
+    "dose": "dose"
+  },
   "RdD.heuresNaissance": {
     "1": "Vaisseau",
     "2": "Sirène",

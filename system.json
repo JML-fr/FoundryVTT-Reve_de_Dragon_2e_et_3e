@@ -2,11 +2,11 @@
   "name": "RdD",
   "title": "Rêve de Dragon",
   "description": "Prise en charge des règles de Rêve de Dragon, 2de édition – Version Beta 3",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "templateVersion": 2,
   "author": "JML",
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.7.9",
+  "minimumCoreVersion": "0.9.0",
+  "compatibleCoreVersion": "0.9.0",
   "esmodules": [
     "modules/RdD.js"
   ],

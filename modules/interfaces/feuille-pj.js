@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
  /*
  * Importation des modules
  */
@@ -31,7 +32,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		 */
 		return mergeObject(super.defaultOptions, {
 			classes: ["RdD", "feuille", "actor", "pj"],
-			template: "systems/RdD/templates/feuille-pj.html",
+			template: "systems/RdD/templates/feuille-pj.hbs",
 			width: 900,
 			height: 620,
 			tabs: [{navSelector: ".tabs", contentSelector: ".content", initial: "états"}]
@@ -52,7 +53,7 @@ export class RdDFeuillePJ extends ActorSheet {
 		
 		// Tableau des objets classés par types
 		data.itemsParType = {};
-		for (const type of game.system.entityTypes.Item) {
+		for (const type of game.system.documentTypes.Item) {
 			if (type != "compétence") {
 				data.itemsParType[type] = [];
 			}
@@ -110,27 +111,27 @@ export class RdDFeuillePJ extends ActorSheet {
 		super.activateListeners(html);
 
 		// Tout ce qui suit n'est nécessaire que si la feuille est éditable
-		if (!this.options.editable)
+		if (!this.isEditable)
 			return;
 
 		// Mise à jour des compétences
 		html.find(".cptc-edit").on("click", (ev) => {
 			const li = $(ev.currentTarget).parents(".cptc-lig");
-			const cptc = this.actor.getOwnedItem(li.data("cptcId"));
+			const cptc = this.actor.items.get(li.data("cptcId"));
 			cptc.sheet.render(true);
 		});
 
 		// Duplication d'une compétence spécialisée
 		html.find(".cptc-ajout").on("click", (ev) => {
 			const li = $(ev.currentTarget).parents(".cptc-lig");
-			const cptc = this.actor.getOwnedItem(li.data("cptcId"));
-			this.actor.createOwnedItem(cptc.data, {renderSheet: true});
+			const cptc = this.actor.items.get(li.data("cptcId"));
+			this.actor.createEmbeddedDocuments("Item",[cptc.data], {renderSheet: true});
 		});
 
 		// Suppression d'une compétence spécialisée
 		html.find(".cptc-suppr").on("click", (ev) => {
 			const li = $(ev.currentTarget).parents(".cptc-lig");
-			this.actor.deleteOwnedItem(li.data("cptcId"));
+			this.actor.deleteEmbeddedDocuments("Item",[li.data("cptcId")]);
 		});
 
 		// Update Inventory Item
@@ -154,7 +155,7 @@ export class RdDFeuillePJ extends ActorSheet {
 				html.find(".item-delete").click(ev => {
 					let li = $(ev.currentTarget).parents(".item"),
 					itemId = Number(li.attr("data-item-id"));
-					this.actor.deleteOwnedItem(itemId, true);
+					this.actor.deleteEmbeddedDocuments("Item",[itemId], true);
 					li.slideUp(200, () => this.render(false));
 				});
 				*/
@@ -386,9 +387,9 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * On n'effectue de mise à jour que s'il n'y a pas d'erreur restante sur la feuille de PJ
 	 *
 	 * @method _onSubmit
-	 * @param {Event} event
-	 * @param {Object|null} updateData
-	 * @param {Boolean} preventClose
+	 * @param {Event} event L'évènement à l'origine de l'envoi
+	 * @param {Object|null} updateData Données mises à jour
+	 * @param {Boolean} preventClose Empêche la fermeture de la fenêtre suite à l'envoi de données
 	 * @async
 	 * @memberof RdDFeuillePJ
 	 */
@@ -418,8 +419,6 @@ export class RdDFeuillePJ extends ActorSheet {
 	 * @memberof RdDFeuillePJ
 	 */
 	async _updateObject(event, formData) {
-		// Suppression des variables de travail
-		// delete formData.RdDtemp; <- ne fonctionne plus
 		// console.log(`RdD | RdDFeuillePJ._updateObject `, formData);
 		super._updateObject(event, formData);
 	}	
