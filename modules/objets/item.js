@@ -44,14 +44,14 @@ export class ItemRdD extends Item {
 	}
 
 	/**
-	 * prepareEmbeddedEntities - Débogage
+	 * prepareEmbeddedDocuments - Débogage
 	 * Met à jour la collection des effets actifs de l'objet
 	 *
 	 * @memberof ItemRdD
 	 */
-	prepareEmbeddedEntities() {
-		console.log(`RdD | ItemRdD.prepareEmbeddedEntities`);
-		super.prepareEmbeddedEntities();
+	prepareEmbeddedDocuments() {
+		console.log(`RdD | ItemRdD.prepareEmbeddedDocuments`);
+		super.prepareEmbeddedDocuments();
 	}
 
 	/**

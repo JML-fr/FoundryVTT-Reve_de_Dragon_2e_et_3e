@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {RdD} from "../utils/init.js";
 import {RdDIntrfc} from "../utils/interface.js";
 
@@ -52,14 +53,14 @@ export class ActorRdD extends Actor {
 	}
 
 	/**
-	 * prepareEmbeddedEntities - Débogage
+	 * prepareEmbeddedDocuments - Débogage
 	 * Met à jour les collections des objets rattachés et des effets actifs de l'acteur
 	 *
 	 * @memberof ActorRdD
 	 */
-	prepareEmbeddedEntities() {
-		console.log(`RdD | ActorRdD.prepareEmbeddedEntities`);
-		super.prepareEmbeddedEntities();
+	prepareEmbeddedDocuments() {
+		console.log(`RdD | ActorRdD.prepareEmbeddedDocuments`);
+		super.prepareEmbeddedDocuments();
 	}
 
 	/**

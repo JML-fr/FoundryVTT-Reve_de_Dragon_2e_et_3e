@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Prise en charge des règles de Rêve de Dragon, 2de édition
  */
@@ -22,8 +23,8 @@ import {RdDFeuilleÉqpmt} from "./interfaces/feuille-éqpmt.js";
 Hooks.once("init", async function() {
 	console.log(`RdD | Initialisation du système Rêve de Dragon`);
 	// Mémorise la configuration
-	CONFIG.Actor.entityClass = Acteurs.ActorRdD;
-	CONFIG.Item.entityClass = Objets.ItemRdD;
+	CONFIG.Actor.documentClass = Acteurs.ActorRdD;
+	CONFIG.Item.documentClass = Objets.ItemRdD;
 
 	// Mémorise les paramètres du système de jeu
   
